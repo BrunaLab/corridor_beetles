@@ -1,0 +1,79 @@
+---
+title: "Project Ideas and Notes"
+author: "Eric Escobar-Chena and Emilio M. Bruna"
+date: "updated: `r Sys.Date()`"
+mainfont: SourceSansPro
+geometry: margin=1in
+fontsize: 12pt
+linkcolor: darkmidnightblue
+urlcolor: darkmidnightblue
+header-includes:
+- \usepackage{fancyhdr}
+- \pagestyle{fancy}
+# - \fancyfoot[R]{last update `r Sys.Date()`}
+- \fancyfoot[C]{ }
+- \fancyhead[R]{p. \thepage}
+- \fancyhead[L]{last update `r Sys.Date()`}
+- \usepackage[default]{sourcesanspro}
+# - \usepackage{parskip}
+# - \usepackage{xcolor}
+- \AtBeginDocument{\let\maketitle\relax}
+# - \usepackage{sectsty} \sectionfont{\centering}
+# - \usepackage{titlesec}
+# - \usepackage{sectsty} \sectionfont{\centering\color{darkmidnightblue}}
+# - \usepackage{sectsty} \subsectionfont{\color{darkmidnightblue}}
+# - \titlespacing{\section}{0pt}{12pt plus 2pt minus 1pt}{0pt plus 1pt minus 1pt}
+# - \titlespacing{\subsection}{0pt}{12pt plus 2pt minus 1pt}{0pt plus 1pt minus 1pt}
+# - \titlespacing{\subsubsection}{0pt}{12pt plus 2pt minus 1pt}{0pt plus 1pt minus 1pt}
+# - \definecolor{darkcerulean}{rgb}{0.03, 0.27, 0.49}
+- \definecolor{darkmidnightblue}{rgb}{0.0, 0.2, 0.4}
+bibliography: "eric-thesis.bib"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+library(citr)
+```
+
+### _Notes from conversation with Julian:_
+
+1. Low-hanging fruit: Effect of connectivity on (a) species and functional group diversity and abundance
+1. Next level: Movement & Dispersal. There are large areas of forest where it is possible to capture beetles for Mark-Release-Recapture (MRR) experiments.
+1. Higher-risk, Higher reward (even if they don't go in MS, can be set-up for potential PHD projects): Experiments on Ecosystem Services 
+
+- dung burial, decomposition, soil properties based on results of 1 & 2 (buckets with dung and beetle assemblages)
+- gas (e.g., methane) emissions
+- seed dispersal/burial/germination
+
+
+### Example studies
+
+1. Diversity and Abundance
+
+
++ @WOS:000178929600002: "56% of individuals were capturedin the continuous forest, 29% in the mosaic habitat and 15% in the forest fragments"
+
+2. Movement & Dispersal
+
+
+3. Ecosystem Services
+
+
+# Other stuff to work on:
+
+1. Species List & Keys for Dung Beetles of the Southeastern US
+1. Any previous work done on dung beetles in Southeastern US
+1. List of Equipment and Tools needed
++ Dung beetle traps
++ alcohol
++ bait
+
+References
+
+
+
+
+
+
