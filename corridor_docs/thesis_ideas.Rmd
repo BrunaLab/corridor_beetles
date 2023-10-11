@@ -70,6 +70,31 @@ library(citr)
 + alcohol
 + bait
 
+
+
+
+# Species 
+
+
+# THE QUESTIONS
+
+1. Question 1: Is dung beetle abundance greater in patches connected by corridors?
+
+I predict that____ ( the nuance based on type, flighht ability, etc)
+
+1. Question 2: Is dung beetle diversity greater in patches connected by corridors?
+
+
+
+
+2.  (movement): are dung beetles using corridors  
+
+
+3. 
+
+
+
+
 References
 
 
