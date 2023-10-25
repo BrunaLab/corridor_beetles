@@ -37,108 +37,102 @@ library(knitr)
 library(citr)
 ```
 
-### _Notes from conversation with Julian:_
+### *Notes from conversation with Julian:*
 
-1. Low-hanging fruit: Effect of connectivity on (a) species and functional group diversity and abundance
-1. Next level: Movement & Dispersal. There are large areas of forest where it is possible to capture beetles for Mark-Release-Recapture (MRR) experiments.
-1. Higher-risk, Higher reward (even if they don't go in MS, can be set-up for potential PHD projects): Experiments on Ecosystem Services 
+1.  Low-hanging fruit: Effect of connectivity on (a) species and functional group diversity and abundance
+2.  Next level: Movement & Dispersal. There are large areas of forest where it is possible to capture beetles for Mark-Release-Recapture (MRR) experiments.
+3.  Higher-risk, Higher reward (even if they don't go in MS, can be set-up for potential PHD projects): Experiments on Ecosystem Services
 
-- dung burial, decomposition, soil properties based on results of 1 & 2 (buckets with dung and beetle assemblages)
-- gas (e.g., methane) emissions
-- seed dispersal/burial/germination
+-   dung burial, decomposition, soil properties based on results of 1 & 2 (buckets with dung and beetle assemblages)
+-   gas (e.g., methane) emissions
+-   seed dispersal/burial/germination
 
 ### Example studies
 
-1. Diversity and Abundance
+1.  Diversity and Abundance
 
+-   @WOS:000178929600002: "56% of individuals were captured in the continuous forest, 29% in the mosaic habitat and 15% in the forest fragments"
 
-+ @WOS:000178929600002: "56% of individuals were captured in the continuous forest, 29% in the mosaic habitat and 15% in the forest fragments"
+2.  Movement & Dispersal
 
-2. Movement & Dispersal
-
-
-3. Ecosystem Services
-
+3.  Ecosystem Services
 
 # Other stuff to work on:
 
-1. Species List & Keys for Dung Beetles of the Southeastern US
-1. Any previous work done on dung beetles in Southeastern US
-1. List of Equipment and Tools needed
-+ Dung beetle traps
-+ alcohol
-+ bait
+1.  Species List & Keys for Dung Beetles of the Southeastern US
+2.  Any previous work done on dung beetles in Southeastern US
+3.  List of Equipment and Tools needed
 
+-   Dung beetle traps
+-   alcohol
+-   bait
 
-
-
-# Species 
+# Species
 
 \newpage
 
 INTRODUCTION
 
 <!-- Good stuff in here: -->
+
 <!-- https://link.springer.com/article/10.1007/s10531-017-1299-7 -->
+
 <!-- https://www.sciencedirect.com/science/article/pii/S1470160X19303486 -->
 
-
-1. Paragraph 1: Habitat Fragmentation is a common feature of most human dominated landscapes, and Corridors are thought to be an important means of connecting these isolated patches.
-1. Paragraph 2: It is predicted that Corridors will increase diversity of connected patches. Summary of findings. However, because of this gap in research, it remains unclear how_____.
-1. Paragraph 3: Part of the reason we havbe this gap is that few studis have assessed dispersal of animals through corridors from one patch to another. I know...crazy. Lots of studies have assessed movement, but few of these have actually done so in cases where one patch is conncected to another. 
-1. Paragraph 4: Dung Beetles are a critical and divese functional group that is often used as an indicator species. I am proposing to use a large-scale experiement of connectd and unconnected patches to assess how corridors shape dung beetle diversity and movement. Specifically, i will address the following questions: 
+1.  Paragraph 1: Habitat Fragmentation is a common feature of most human dominated landscapes, and Corridors are thought to be an important means of connecting these isolated patches.
+2.  Paragraph 2: It is predicted that Corridors will increase diversity of connected patches. Summary of findings. However, because of this gap in research, it remains unclear how\_\_\_\_\_.
+3.  Paragraph 3: Part of the reason we havbe this gap is that few studis have assessed dispersal of animals through corridors from one patch to another. I know...crazy. Lots of studies have assessed movement, but few of these have actually done so in cases where one patch is conncected to another.
+4.  Paragraph 4: Dung Beetles are a critical and divese functional group that is often used as an indicator species. I am proposing to use a large-scale experiement of connectd and unconnected patches to assess how corridors shape dung beetle diversity and movement. Specifically, i will address the following questions:
 
 \newpage
 
 ## What is predicted about how corridors influence the diversity of insects communities (with an emphasis on Dung Beetles) in patches?
 
-Are corridors predicted to enhance diversity in connected patches? What is the mechanism>? A certain species groups are predicted to drive this change in diversity - rare species, larger species, specialists, particular function groups, better fliers, etc.? (_Note: "Corridors" = Riparian strips, living fences, linear fragments, etc._)
+Are corridors predicted to enhance diversity in connected patches? What is the mechanism\>? A certain species groups are predicted to drive this change in diversity - rare species, larger species, specialists, particular function groups, better fliers, etc.? (*Note: "Corridors" = Riparian strips, living fences, linear fragments, etc.*)
 
-- **Prediction 1:** Diversity higher in connected patches (citations in Damschen et al PNAS, others)
+-   **Prediction 1:** Diversity higher in connected patches (citations in Damschen et al PNAS, others)
 
-- **Prediction 2:** 
+-   **Prediction 2:**
 
 ### Empiricial Results
 
 ### 1. Studies that have compared diversity of Dung Beetles in Corridors and Other Habitats (e.g., primary forest, pastures) have found that:
 
-- **Diversity increases:** Wide corridors (Sch)
+-   **Diversity increases:** [@WOS:000399235300014]
 
-- **Diversity decreases:** 
+-   **Diversity decreases:**
 
-- **Similar diversity in both:** 
+-   **Similar diversity in both:**
 
 ### 2. Studies that have actually compared the diversity of patches that are connected by a corridor vs. patches that are unconnected
 
-- **Diversity increases:** 
+-   **Diversity increases:**
 
-- **Diversity decreases:** 
+-   **Diversity decreases:**
 
-- **Similar diversity in both:** 
+-   **Similar diversity in both:**
 
 ## What is predicted or known about insect movement through corridors (with an emphasis on Dung Beetles)?
 
-Do Corridors facilitate movement between patches? Are particular species or groups more able to move through corridors than others - larger species, specialists on particular resources, particular functional groups, better fliers, etc.? 
+Do Corridors facilitate movement between patches? Are particular species or groups more able to move through corridors than others - larger species, specialists on particular resources, particular functional groups, better fliers, etc.?
 
 ### 1. Studies that have assessed movement of Dung Beetles have found the following can play an important role:
 
-- **Habitat Preference:** [@WOS:000360850000002, @WOS:000262759300008].  
+-   **Habitat Preference:** [@WOS:000360850000002, @WOS:000262759300008].
 
-- **Wing Loading:** [@WOS:000360850000002]
- 
-- **Sex:**  
+-   **Wing Loading:** [@WOS:000360850000002]
 
-- **Foraging Mode:**  
+-   **Sex:**
 
-- **Size:**  
+-   **Foraging Mode:**
 
-- **Invasive vs. Native:**  
+-   **Size:**
 
-- **No inter-specific or inter-group differences in movement:** 
+-   **Invasive vs. Native:**
 
-### 2. Studies that have estimated dispersal distance: 
+-   **No inter-specific or inter-group differences in movement:**
 
-
+### 2. Studies that have estimated dispersal distance:
 
 \newpage
 
@@ -150,20 +144,10 @@ Question 1: Is dung beetle abundance greater in connected patches than isolated 
 
 Question 2: Is dung beetle diversity greater in connected patches than isolated ones?
 
+> Prediction: Species diversity is greater in connected patches than isolated ones (due to the greater representation of rare species) OR Prediction: Diversity of \_\_\_\_\_\_\_ (e.g., specialists, foraging strategy X, etc.) is greater in connected patches, but the Diversity of \_\_\_\_\_\_\_\_ (e.g., generalists, foraging strategy Y) will be the similar in both. OR The diversity is similar, but the community composition changes to one dominated by specialists instead of generalists
 
-> Prediction: Species diversity is greater in connected patches than isolated ones (due to the greater representation of rare species) 
-> OR
-> Prediction: Diversity of _______ (e.g., specialists, foraging strategy X, etc.) is greater in connected patches, but the Diversity of ________ (e.g., generalists, foraging strategy Y) will be the similar in both.
-> OR
-> The diversity is similar, but the community composition changes to one dominated by specialists instead of generalists
-
-2.  Do Dunge beetles move through corridors? 
-
+2.  Do Dunge beetles move through corridors?
 
 References
 
-
-
 #practice push
-
-
