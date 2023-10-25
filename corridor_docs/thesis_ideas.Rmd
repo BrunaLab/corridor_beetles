@@ -102,7 +102,7 @@ Are corridors predicted to enhance diversity in connected patches? What is the m
 
 ### 1. Studies that have compared diversity of Dung Beetles in Corridors and Other Habitats (e.g., primary forest, pastures) have found that:
 
-- **Diversity increases:** 
+- **Diversity increases:** Wide corridors (Sch)
 
 - **Diversity decreases:** 
 
@@ -164,6 +164,6 @@ References
 
 
 
-
+#practice push
 
 
