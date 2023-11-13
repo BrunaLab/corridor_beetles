@@ -71,7 +71,7 @@ library(citr)
 
 \newpage
 
-INTRODUCTION
+# INTRODUCTION
 
 <!-- Good stuff in here: -->
 
@@ -80,18 +80,33 @@ INTRODUCTION
 <!-- https://www.sciencedirect.com/science/article/pii/S1470160X19303486 -->
 
 1.  Paragraph 1: In an increasingly fragmented world, corridors are thought to be an important strategy of connecting isolated patches to promote population persistence and increase diversity in connected patches. This can ultimately have consequences for ecosystem processes in fragments.
+
 2. Paragraph 2: Despite this, direct evidence of movement between patches is limited. Plenty of studies have demonstrated that the diversity or abundance of organisms is similar in corridors and the primary habitat to which they are connected. However, studies demonstrating animals actually move from one patch through a corridor to another patch are surprisingly rare (but see examples).  NB: might have to say "although there is ample evidence that vertbrates move through corridors, studies documenting the movements of invertebrates - the dominant species on earth - are limited".
+
 3. Paragraph 3: Part of the challenge in assessing the  efficacy of corridors is the confounding effects of patch area and the length of habitat edges (see resasco 2014 etc); to address this it is necessary to compare connected and unconnected areas of equal area and shape.
+
 4. Paragraph 4: Dung beetles have emerged as a model system with which to test hypotheses on how anthropogenic landscape alterations influence biodiversity. They are locally species rich, exhibit variety in key funcitonal traits (size, foraging style,,....), and they provide critical ecosystem services. robust (but not *too* robust): studies have shown diversity of dung beetles can be lower in fragments, but that they can be found in corridors and are capable of dispersing for up to 1 km. 
+
 5. Paragraph 5: I am proposing to use a landscape-scale fragmentation experiment to test the effects of corridors on the diversity and dispersal dung beetles and the ecosystem services they provide. Specifically, I will test the following predictions:
 
-1. Diversity will be higher in connected patches
+1. Diversity will be higher in connected patches. To test this prediction, I will sample dung beetles with pitfall traps and use non-parametric estimators of species diversity
 
 2. Dung beetles disperse through corridors, with larger beetles dispersing more quickly (size-dependent dispersal ability)
 
 3. Dung removal rates will be highest in connected patches.   
 
 To test there predictions, I will use a combination of passive sampling and a MRR experiment and control for the confounding effects of edge and area.  
+
+
+# Methods
+
+
+Prediction 1: Pitfall trapping (arrangement, timing)
+
+Prediction 2: MRR experiment, where will recapture traps be placed?
+
+Prediction 3: experimental design poop disappearance
+
 
 
 \newpage
