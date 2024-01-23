@@ -36,24 +36,69 @@ library(knitr)
 ```
 
 
-# Title  
+# The effect of corridors on dung beetle diversty, abundance, and dispersal    
 
 ## Project Personnel 
 
-- List of people involved, including an estimate of the number of technicians (if any)  
+- Eric Escobar-Chena (MS student, UF) 
+- Emilio Bruna (UF)
+- Julian Resasco (UC Boulder)
+- 1 field intern (TBD)
 
 ## PI Contact Information 
 
-- Eric Escobar-Chena (eescobarchena@ufl.edu)
 - Emilio Bruna (embruna@ufl.edu)
-
+- Eric Escobar-Chena (eescobarchena@ufl.edu)
 
 ## Research proposal (1500 words max): 
 
 (a) Description of research, including type of sampling and description of any type of manipulation (even if minor) 
+
+### Background
+
+In an increasingly fragmented world, corridors are considered a key strategy for promoting connectivity and facilitating the movement of organisms through the landscape. Such movement is hypothesized to help maintain species diversity in fragments; it could also have patch- and landscape-level consequences for the ecosystem processes in which influenced by these species. Although there is some evidence that animals disperse between patches via corridors, and that connected patches have higher species diversity than unconnected ones, little work to date has investigated the consequences of these corridor-driven patterns for ecosystem ecosystem. 
+
+Dung beetles have emerged as a model system with which to test hypotheses on how changes in landscape structure driven by human activities influence biodiversity. They are locally species rich, exhibit variety in key functional traits (e.g., size, foraging style, resource-use), are capable of long-distance dispersal (e.g., some species up to 1 km), and that they influence a number of critical ecosystem services (e.g., seed dispersal, nutrient cycling). Previous work has shown that isolated patches of habitat frequently have lower dung beetle diversity and abundance than areas of continuous habitat, as well as documented their presence in linear strips of habitat that resemble corridors. However, it remains unknown if corridors can reduce the loss of species from fragments, how such declines are influenced by inter-specific differences in dispersal capability, and what the consequences of these patterns are for the ecosystems sefvices provided by dung beetles. 
+
+We propose using the SRS corridor experiment to test whether landscape connectivity via corridors can increase gene flow to and genetic diversity of isolated inbred populations via pollination using a model organism, the sunflower, Helianthus annus. Our experimental landscapes are ideal because they allow us to test for the effects of connectivity while controlling for typically confounding factors and to conduct our experiments at large spatial scales that approximate those of conservation management activities. Our design is also ideal because it allows us to separate the effects of genetic rescue from those of demographic rescue that are typically confounded due to their difficulty in teasing apart in other studies.
+
+We propose using the SRS Corridor Experiment to test for corridor use by dung beetles, whether corridor results in higher species diversity in connected than unconnected patches, and if differences in diversity influence nutrient cycling. Specifically, we will test the following predictions:
+
+1. Diversity will be higher in connected patches. To test this prediction, I will sample dung beetles with pitfall traps and use non-parametric estimators of species diversity
+
+2. Dung beetles disperse through corridors, with larger beetles dispersing more quickly (size-dependent dispersal ability)
+
+3. Dung removal rates will be highest in connected patches.   
+
+To test there predictions, I will use a combination of passive sampling and a MRR experiment and control for the confounding effects of edge and area.  
+
+
 (b) Number and location of study areas, including a map of proposed sites and their relation to ongoing studies
-(c) Potential impacts on corridor plots and ongoing studies  
+
+(c) Potential impacts on corridor plots and ongoing studies:
+
+
+CHnages in duyng beetle abundance due to collection (short term, unlikely to be high impact)
+Dung introduced into plots (contained in above ground plots, so also unlikely)
+note no holes being dug for pitfalls
+
+
 (d) Study duration 
-(e) A plan for how the study will be cleaned-up
+
+Preliminary sampling during Spring 2023
+
+Summer and Fall Sampling
+
+(e) Plan for how the study will be cleaned-up
+
+removing all traps and pin flags after each sampling bout
+
 (f) Funding sources (if applicable)
-(g) Plan for making storing data on a publicly accessible repository (e.g. Environemental Data Intiative (EDI), Dryad, etc.)
+
+
+
+(g) Plan for making data publicly accessible
+
+> Data will be entered into spreadsheets and backed up by saving them to a repository on the Bruna Lab's Github site (https://github.com/BrunaLab)  along with a .txt file of metadata and all R scripts for data correction and analysis. When new data are added they will be automatically validated using  Github actions and the `pointblank` library (e.g., https://brunalab.github.io/HeliconiaSurveys/survey_validation/survey_validation.html). This approach allows us to share the all materials with collaborators and easily archive code and data at Zenodo and Dryad (respectively) upon the acceptance of a manuscript.
+
+> For an overview of our approach to data archiving and accessibility see https://github.com/BrunaLab/HeliconiaSurveys
