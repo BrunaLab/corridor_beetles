@@ -1,8 +1,11 @@
 ---
 title: "Corridor Project Proposal"
 author: "Eric Escobar-Chena and Emilio M. Bruna"
-date: "updated: `r Sys.Date()`"
-mainfont: SourceSansPro
+date: 'updated: `r Sys.Date()`'
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
 geometry: margin=1in
 fontsize: 12pt
 linkcolor: darkmidnightblue
@@ -10,24 +13,13 @@ urlcolor: darkmidnightblue
 header-includes:
 - \usepackage{fancyhdr}
 - \pagestyle{fancy}
-# - \fancyfoot[R]{last update `r Sys.Date()`}
 - \fancyfoot[C]{ }
 - \fancyhead[R]{p. \thepage}
 - \fancyhead[L]{last update `r Sys.Date()`}
 - \usepackage[default]{sourcesanspro}
-# - \usepackage{parskip}
-# - \usepackage{xcolor}
 - \AtBeginDocument{\let\maketitle\relax}
-# - \usepackage{sectsty} \sectionfont{\centering}
-# - \usepackage{titlesec}
-# - \usepackage{sectsty} \sectionfont{\centering\color{darkmidnightblue}}
-# - \usepackage{sectsty} \subsectionfont{\color{darkmidnightblue}}
-# - \titlespacing{\section}{0pt}{12pt plus 2pt minus 1pt}{0pt plus 1pt minus 1pt}
-# - \titlespacing{\subsection}{0pt}{12pt plus 2pt minus 1pt}{0pt plus 1pt minus 1pt}
-# - \titlespacing{\subsubsection}{0pt}{12pt plus 2pt minus 1pt}{0pt plus 1pt minus 1pt}
-# - \definecolor{darkcerulean}{rgb}{0.03, 0.27, 0.49}
 - \definecolor{darkmidnightblue}{rgb}{0.0, 0.2, 0.4}
-output: pdf_document
+mainfont: SourceSansPro
 ---
 
 ```{r setup, include=FALSE}
@@ -36,69 +28,86 @@ library(knitr)
 ```
 
 
-# The effect of corridors on dung beetle diversty, abundance, and dispersal    
+## Effect of corridors on dung beetle diversity, dispersal, & ecosystem services    
 
-## Project Personnel 
+### Project Personnel 
 
 - Eric Escobar-Chena (MS student, UF) 
 - Emilio Bruna (UF)
 - Julian Resasco (UC Boulder)
 - 1 field intern (TBD)
 
-## PI Contact Information 
+### PI Contact Information 
 
 - Emilio Bruna (embruna@ufl.edu)
 - Eric Escobar-Chena (eescobarchena@ufl.edu)
 
-## Research proposal (1500 words max): 
+### Research proposal (1500 words max): 
+<!-- (a) Description of research, including type of sampling and description of any type of manipulation (even if minor)  -->
 
-(a) Description of research, including type of sampling and description of any type of manipulation (even if minor) 
-
-### Background
+### Background   
 
 In an increasingly fragmented world, corridors are considered a key strategy for promoting connectivity and facilitating the movement of organisms through the landscape. Such movement is hypothesized to help maintain species diversity in fragments; it could also have patch- and landscape-level consequences for the ecosystem processes in which influenced by these species. Although there is some evidence that animals disperse between patches via corridors, and that connected patches have higher species diversity than unconnected ones, little work to date has investigated the consequences of these corridor-driven patterns for ecosystem ecosystem. 
 
-Dung beetles have emerged as a model system with which to test hypotheses on how changes in landscape structure driven by human activities influence biodiversity. They are locally species rich, exhibit variety in key functional traits (e.g., size, foraging style, resource-use), are capable of long-distance dispersal (e.g., some species up to 1 km), and that they influence a number of critical ecosystem services (e.g., seed dispersal, nutrient cycling). Previous work has shown that isolated patches of habitat frequently have lower dung beetle diversity and abundance than areas of continuous habitat, as well as documented their presence in linear strips of habitat that resemble corridors. However, it remains unknown if corridors can reduce the loss of species from fragments, how such declines are influenced by inter-specific differences in dispersal capability, and what the consequences of these patterns are for the ecosystems sefvices provided by dung beetles. 
+Dung beetles have emerged as a model system with which to test hypotheses on how changes in landscape structure driven by human activities influence biodiversity. They are locally species rich, exhibit variety in key functional traits (e.g., size, foraging style, resource-use), are capable of long-distance dispersal (e.g., some species up to 1 km), and that they influence a number of critical ecosystem services (e.g., seed dispersal, nutrient cycling). Previous work has shown that isolated patches of habitat frequently have lower dung beetle diversity and abundance than areas of continuous habitat, as well as documented their presence in linear strips of habitat that resemble corridors. However, it remains unknown if corridors can reduce the loss of species from fragments, how such declines are influenced by inter-specific differences in dispersal capability, and what the consequences of these patterns are for the ecosystems services provided by dung beetles. Though there are several reasons for this, one major factor is the challenge in finding locations where one can assess the role of corridors while also while controlling for confounding factors such as patch size, edge, and corridor length. 
 
-We propose using the SRS corridor experiment to test whether landscape connectivity via corridors can increase gene flow to and genetic diversity of isolated inbred populations via pollination using a model organism, the sunflower, Helianthus annus. Our experimental landscapes are ideal because they allow us to test for the effects of connectivity while controlling for typically confounding factors and to conduct our experiments at large spatial scales that approximate those of conservation management activities. Our design is also ideal because it allows us to separate the effects of genetic rescue from those of demographic rescue that are typically confounded due to their difficulty in teasing apart in other studies.
+**_We propose using the community of dung beetles at the SRS Corridor Experiment to test for_** **(1)** higher species richness, species diversity, and functional diversity in patches connected by corridors than in unconnected patches **(2)** interspecific differences in corridor use and inter-patch movement, and **(3)** higher rates of dung removal in connected than unconnected patches. The SRS Corridor Experiment is an ideal location in which to conduct our stud. The design overcome the primary technical impediments to isolating the effects of corridors _per se_, its spatial scale allows for drawing and realistic and relevant conclusions regarding dung beetle dispersal in fragmented landscapes, and the local dung beetle assemblage is a highly tractable one with which to address our questions (i.e., taxonomically and functionally diverse, keys for species identification are readily available, there are multiple abundant species from different functional groups with which to conduct experiments, and the experimental/survey methods are standardized and straightforward). 
 
-We propose using the SRS Corridor Experiment to test for corridor use by dung beetles, whether corridor results in higher species diversity in connected than unconnected patches, and if differences in diversity influence nutrient cycling. Specifically, we will test the following predictions:
+**_Our sampling and experiments will test the following predictions:_**
 
-1. Diversity will be higher in connected patches. To test this prediction, I will sample dung beetles with pitfall traps and use non-parametric estimators of species diversity
+1. Prediction 1: Species Richness, Species Diversity, and Functional Diversity will be higher in patches connected by corridors than in unconnected patches
 
-2. Dung beetles disperse through corridors, with larger beetles dispersing more quickly (size-dependent dispersal ability)
+<!-- 2. Predictions 2: Corridors facilitate inter-patch movement of dung beetle species,  -->
+2. Prediction 2: Corridors are suitable habitat for all species. However, the speed at which in individuals move through corridors and the probability of successful inter-patch movement is size-dependent (i.e., larger beetle species move more quickly and are more likely to reach the connected patch).     
 
-3. Dung removal rates will be highest in connected patches.   
+3. Dung removal rates will be highest in connected patches. This is due to the higher functional diversity of beetles in these locations.  
 
-To test there predictions, I will use a combination of passive sampling and a MRR experiment and control for the confounding effects of edge and area.  
+Below we describe the combinations of sampling and experiments with which we will test these predictions. 
 
+### Methods  
 
-(b) Number and location of study areas, including a map of proposed sites and their relation to ongoing studies
+<!-- (b) Number and location of study areas, including a map of proposed sites and their relation to ongoing studies -->
 
-(c) Potential impacts on corridor plots and ongoing studies:
+_Study site_  
 
+1. Design Prediction 1 (pitfall sampling)
+1. Design Prediction 2 (MRR)
+1. Design Prediction 3 (Dung Removal Experiment)
 
-CHnages in duyng beetle abundance due to collection (short term, unlikely to be high impact)
-Dung introduced into plots (contained in above ground plots, so also unlikely)
-note no holes being dug for pitfalls
-
-
-(d) Study duration 
-
-Preliminary sampling during Spring 2023
-
-Summer and Fall Sampling
-
-(e) Plan for how the study will be cleaned-up
-
-removing all traps and pin flags after each sampling bout
-
-(f) Funding sources (if applicable)
+![Sampling Design](./images/srs_wt.png){fig-align="center" width=95% height=95%}
 
 
+Each experimental landscape block consists of a 1-ha square center patch surrounded by four peripheral patches that are equal in area (~1.4 ha) but differ in the amount of habitat connectivity or edge (Fig. 1). One peripheral patch is connected to the center patch by a 150 x 25-m corridor (hereafter “connected”). The isolated patches are also 150 m from the center patch and vary in their edge amount. The winged patch type (hereafter “isolated high edge”) is a 100 x 100-m square with two 75 x 25 -m projections on either side of the patch. The rectangular patch type (hereafter “isolated low edge”) consists of a 100 x 100-m square with an area equal in size to the corridor added to the part of the patch farthest from the center patch. Each block contains one of each patch type and a duplicate of one of the isolated patch types.
 
-(g) Plan for making data publicly accessible
 
-> Data will be entered into spreadsheets and backed up by saving them to a repository on the Bruna Lab's Github site (https://github.com/BrunaLab)  along with a .txt file of metadata and all R scripts for data correction and analysis. When new data are added they will be automatically validated using  Github actions and the `pointblank` library (e.g., https://brunalab.github.io/HeliconiaSurveys/survey_validation/survey_validation.html). This approach allows us to share the all materials with collaborators and easily archive code and data at Zenodo and Dryad (respectively) upon the acceptance of a manuscript.
+<!-- Fig. 1 – Schematic of experimental design showing 1 of the 7 blocks. Center patches (lower left) are planted by with 16 source populations of wild sunflowers from locations throughout the US (from US-NPGS; represented by rainbow colors) and will be randomly assigned to a grid pole location. Connected and one unconnected patch, C location (rectangular or winged) will each be planted with an inbred line (HA 467). -->
 
-> For an overview of our approach to data archiving and accessibility see https://github.com/BrunaLab/HeliconiaSurveys
+
+_Focal Species Assemblage_
+
+1. How many species, functional groups, range in size, what is known about them
+1. Table of expected species 
+
+_Potential impacts on corridor plots and ongoing studies_
+
+1. no holes are being dug for pitfalls: no disturbance of the seeds or soil
+1. changes in dung beetle abundance due to collection: short term, unlikely to be high impact
+1. Dung introduced into plots: contained in above ground traps, so also unlikely, standardized and from cows taking abntibiotics, so no disease introduced,.
+
+
+
+_Study duration_ 
+
+1. Preliminary sampling during Spring 2023
+1. Summer and Fall Sampling
+<!-- Plan for how the study will be cleaned-up -->
+1. All traps and pin flags will be removed after each sampling bout
+
+_Funding sources (if applicable)_
+
+
+_Plan for making data publicly accessible_
+
+Data will be entered into spreadsheets and backed up by saving them to a repository on the Bruna Lab's Github site (https://github.com/BrunaLab)  along with a .txt file of metadata and all R scripts for data correction and analysis. When new data are added they will be automatically validated using  Github actions and the `pointblank` library (e.g., https://brunalab.github.io/HeliconiaSurveys/survey_validation/survey_validation.html). This approach allows us to share the all materials with collaborators and easily archive code and data at Zenodo and Dryad (respectively) upon the acceptance of a manuscript. For an overview of our approach to data archiving and accessibility see https://github.com/BrunaLab/HeliconiaSurveys
+
+
