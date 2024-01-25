@@ -1,0 +1,21 @@
+---
+title: ' '
+author: "The Bruna Lab - University of Florida"
+date: "updated: `r Sys.Date()`"
+header-includes:
+   - \usepackage[default]{sourcesanspro}
+   - \usepackage[T1]{fontenc}
+mainfont: SourceSansPro
+geometry: margin=1in
+fontsize: 12pt
+linkcolor: blue
+urlcolor: blue
+output:
+  # pdf_document: 
+  # html_document: 
+  #   df_print: paged
+  rmdformats::robobook: default
+---
+
+
+test of docs file
