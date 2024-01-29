@@ -18,15 +18,19 @@ header-includes:
 - \pagestyle{fancy}
 
 # - \fancyhead[R]{p. \thepage}
-# - \fancyhead[L]{ }
-- \fancyhead[L]{Corridor Proposal, E. Escobar-Chena}
-- \fancyhead[R]{p. \thepage}
+- \fancyhead[L]{ }
+# - \fancyhead[L]{Corridor Proposal, E. Escobar-Chena}
+- \fancyhead[R]{Escobar-Chena Corridor Proposal, p. \thepage}
 - \fancyfoot[C]{ }
 # - \fancyhead[L]{updated `r Sys.Date()`}
 - \fancyfoot[R]{updated `r Sys.Date()`}
 # - \usepackage[default]{sourcesanspro}
 - \AtBeginDocument{\let\maketitle\relax}
 - \definecolor{darkmidnightblue}{rgb}{0.0, 0.2, 0.4}
+# - \usepackage{sectsty} \sectionfont{\centering\color{darkmidnightblue}}
+# to center to sub-sub-headings (###) and change color of font
+- \usepackage{sectsty} \subsectionfont{\centering\color{darkmidnightblue}}
+# - \usepackage{sectsty} \subsubsectionfont{\color{darkmidnightblue}}
 - \raggedright
 ---
 
@@ -50,31 +54,33 @@ library(knitr)
 - Emilio Bruna (embruna@ufl.edu)
 - Eric Escobar-Chena (eescobarchena@ufl.edu)
 
-### Research proposal 
+## Research proposal 
 <!-- (a) Description of research, including type of sampling and description of any type of manipulation (even if minor)  -->
 
-**_Background_:**  Corridors are considered an important mechanism for promoting connectivity and facilitating the movement of organisms through fragmented landscapes. These movements are hypothesized to help maintain species diversity in fragments; it could also have patch- and landscape-level consequences for the ecosystem processes in which influenced by these species. Although there is some evidence that animals disperse between patches via corridors, and that connected patches have higher species diversity than unconnected ones, little work to date has investigated the consequences of these corridor-driven patterns for ecosystem ecosystem. 
+### Background  
+
+Corridors are considered an important mechanism for promoting connectivity and facilitating the movement of organisms through fragmented landscapes. These movements are hypothesized to help maintain species diversity in fragments; it could also have patch- and landscape-level consequences for the ecosystem processes in which influenced by these species. Although there is some evidence that animals disperse between patches via corridors, and that connected patches have higher species diversity than unconnected ones, little work to date has investigated the consequences of these corridor-driven patterns for ecosystem ecosystem. 
 
 Dung beetles have emerged as a model system with which to test hypotheses on how changes in landscape structure driven by human activities influence biodiversity. They are locally species rich, exhibit variety in key functional traits (e.g., size, foraging style, resource-use), are capable of long-distance dispersal (e.g., up to 1 km for some tropical species), and that they influence a number of critical ecosystem services (e.g., seed dispersal, nutrient cycling). Previous work has shown that isolated patches of habitat frequently have lower dung beetle diversity and abundance than areas of continuous habitat, as well as documented their presence in linear strips of habitat that resemble corridors. However, it remains unknown if corridors can reduce the loss of species from fragments, how such declines are influenced by inter-specific differences in dispersal capability, and what the consequences of these patterns are for the ecosystems services provided by dung beetles. Though there are several reasons for this, one major factor is the challenge in finding locations where one can assess the role of corridors while also while controlling for confounding factors such as patch size, edge, and corridor length. 
 
 **We propose using the community of dung beetles at the SRS Corridor Experiment to test for** **(1)** higher species richness, species diversity, and functional diversity in patches connected by corridors than in unconnected patches **(2)** interspecific differences in corridor use and inter-patch movement, and **(3)** higher rates of dung removal in connected than unconnected patches.  
 
-The Corridor Experiment is an ideal location in which to conduct this project. The design overcomes the primary technical impediments to isolating the effects of corridors _per se_, its spatial scale allows for drawing and realistic and relevant conclusions regarding dung beetle dispersal in fragmented landscapes, and the local dung beetle assemblage is a highly tractable one with which to address our questions (i.e., taxonomically and functionally diverse, keys for species identification are readily available, there are multiple abundant species from different functional groups with which to conduct experiments, and the experimental/survey methods are standardized and straightforward). **_Our sampling and experiments will be used to test the following predictions:_**
+The Corridor Experiment is an ideal location in which to conduct this project. The design overcomes the primary technical impediments to isolating the effects of corridors _per se_, its spatial scale allows for drawing and realistic and relevant conclusions regarding dung beetle dispersal in fragmented landscapes, and the local dung beetle assemblage is a highly tractable one with which to address our questions (i.e., taxonomically and functionally diverse, keys for species identification are readily available, there are multiple abundant species from different functional groups with which to conduct experiments, and the experimental/survey methods are straightforward). **_Our sampling and experiments will be used to test the following predictions:_**
 
 1. **Prediction 1:** Species Richness, Species Diversity, and Functional Diversity will be higher in patches connected by corridors than in unconnected patches
 
-<!-- 2. Predictions 2: Corridors facilitate inter-patch movement of dung beetle species,  -->
-2. **Prediction 2:** Corridors are suitable habitat for all species. However, the speed at which in individuals move through corridors and the probability of successful inter-patch movement is size-dependent (i.e., larger beetle species move more quickly and are more likely to reach the connected patch).     
+3. **Prediction 2:** Dung removal rates will be highest in connected patches. This is due to the higher functional diversity of beetles in these locations.  
 
-3. **Prediction 3:** Dung removal rates will be highest in connected patches. This is due to the higher functional diversity of beetles in these locations.  
+2. **Prediction 3:** Corridors facilitate the dispersal of all species. However, the speed at which in individuals move through corridors and the probability of successful inter-patch movement is size-dependent (i.e., larger beetle species move more quickly and are more likely to reach the connected patch).     
 
-Below we describe the location of sampling or experiments with which we will test these predictions.  
+Below we describe the sampling and experiments with which we will test these predictions in June 2024-March 2025. The proposed designs are based on a year-long study of dung beetle community structure we conducted at the University of Florida's Ordway-Swisher Biological Station; any revisions made to the design following preliminary data collection in Spring 2024 will be submitted for review by the Steering Committee. 
 
 ### Study Site and Methods   
 
-We propose to conduct the field component of our study in seven of the Savannah River Site's experimental landscapes (i.e., 'blocks') designed to assess the ecological effects of corridors. Each experimental landscape block consists of a 1-ha square center patch surrounded by four peripheral patches that are equal in area (~1.4 ha) but differ in the amount of habitat connectivity or edge (Figure 1). One peripheral patch is connected to the center patch by a 150 $\times$ 25m corridor (hereafter “connected”). The isolated patches are also 150 m from the center patch and vary in their edge amount. The winged patch type (hereafter “isolated high edge”) is a 100m $\times$ 100m square with two 75 $\times$ 25 m projections on either side of the patch. The rectangular patch type (hereafter “isolated low edge”) consists of a 100m $\times$ 100m square with an area equal in size to the corridor added to the part of the patch farthest from the center patch. Each block contains one of each patch type and a duplicate of one of the isolated patch types. 
-
-**_Methods: Beetle Diversity_:** To test the effect of corridors on species richness, species diversity, and functional diversity we will sample the dung beetle community in each location with pitfall traps baited with cow dung. Sampling will be conducted in four locations within in each landscape: the "connected" patch, the "rectangular" patch, one of the "winged" patches, and an area of matrix habitat at least 100 m from any of the patches (Fig. 1). In each location we will arrange N = 5 pitfall traps in a grid in the center of the patch; the grid will be 25 m from the edge of the patch to reduce the likelihood of attracting beetles from the matrix habitat into the patch. The trap will be baited with 300 mg of cow dung (collected at the University of Florida’s Beef Teaching Unit and frozen until needed) suspended over a cup with 96% ethanol. All traps in a landscape will be set on the same day and left open for 24 hours; sampling will be conducted monthly in each landscape for 6 months to capture potential monthly and seasonal (wet/dry) variation in species abundance. A collection of voucher specimens will be deposited at the Florida Museum of Natural History, with a reference collection left at the Corridor Project.
+We propose to conduct the field component of our study in seven of the Savannah River Site's experimental landscapes (i.e., 'blocks') designed to assess the ecological effects of corridors. Each experimental landscape (i.e., "block") consists of a 1-ha square "central patch" surrounded by four peripheral patches. All peripheral patches separated from the 150 m from the central patch and have the same area (~1.4 ha), However, the four peripheral patches differ in their level of connectivity to the central patch and edge:area ratio (Figure 1). 
+<!-- The "connected patch" is 100m $\times$ 100m and connected to the center patch by a 150m $\times$ 25m corridor. The two "winged patches" are 100m $\times$ 100m; each of these patches has two linear projections of 75m $\times$ 25m extending from opposite sides of the patch. Finally, the "rectangular patch" is a 100m $\times$ 100m square to which an area equal to that of the corridor/wings has been attached to the edge furthest from the central patch  .  -->
+ 
+**_Methods - Beetle Diversity_:** To test the effect of corridors on species richness, species diversity, and functional diversity we will sample the dung beetle community in each location with pitfall traps baited with cow dung. In each of the seven landscapes we will sample in four locations: the "connected" patch, the "rectangular" patch, one of the "winged" patches, and an area of matrix habitat at least 150 m from any of the patches (Figure 1). In each location we will arrange N = 5 traps located	$\geq$ 25m from the patch edge to reduce the likelihood of attracting beetles from the the matrix habitat. Each trap will be baited with 300 mg of cow dung (collected at the University of Florida’s Beef Teaching Unit and frozen until needed) suspended over a vial of 95% ethanol. The N = 20 traps in a landscape will be set on the same day and remain open for 24 hours; sampling will be conducted monthly for 8 months to capture temporal variation in community structure. We will establish a reference collection with identification keys for the Corridor Project and deposit voucher specimens at the Florida Museum of Natural History.
 
 <!-- Pitfall traps are constructed from 15 cm sections of PVC pipe (diameter = 10 cm). A metal screen has been attached to the bottom of the PVC, while a 14 cm diameter funnel has been inserted to the top. The with an extended --cm plastic platform used to suspend the trap over a hole in the ground. The traps will be set level to the ground by placing them into a semi-permanent hole that was maintained by a larger section of PVC while traps were not in use. Dung is wrapped in paper towel to exclude beetles and suspended over the trap on a wire cloth platform. Note that although the traps of Wood and Kaufman (2008) were designed as a live catch trap, ours will be converted to a wet trap by placing a --ml cup containing 95% ethanol inside the trap (the original design allows some beetles to escape and for predatory beetles to enter the traps). -->
 
@@ -85,20 +91,10 @@ We propose to conduct the field component of our study in seven of the Savannah 
 <!-- - 4 arrays per blocks = 36 traps per array, 7 blocks = 252 traps total -->
 <!-- - need to make sure - ebnough "coverage" without a buffer too small, meaning bugs from matrix come into patch -->
 
-![Design for pitfall sampling in each of the seven blocks.](./images/plots1.png){fig-align="center" width=50% height=50%}
-
-**_Methods: Beetle dispersal_:** To determine if beetles use corridors to move between patches, and if patterns of movement differ between species, we will conduct a mark-release-recapture (i.e., MRR) experiment. A pitfall trap will be placed in the middle of the landscape's "center" patch and baited with 300 g of cow dung. We will then release marked beetles at two points equidistant from the bait: the "connected" patch and the edge of the "rectangular" patch(Figure 2); these locations are separated from the bait by either the corridor or matrix habitat, allowing us to determine if corridors allow for more rapid movement and how this might vary by beetle species or functional group. We will check the pitfall trap for marked beetles twice per day for three days following their release.
-
-We anticipate initially conducting this experiment with two species:LARGE AND SMALL, but may modifify rthethe choice of species based on our initial sampling. We will also conduct preliomiary expertiments to determine the beetle dispral, and may place passive (i.e., unbaited) traps in the corridor, matrix, and patches.
+<!-- ![Arrangement of pitfall traps used to sample beetles in experimental blocks.](./images/plots1.png){fig-align="center" width=40% height=40%} -->
 
 
-<!-- - to consider: passive traps to see if they are moving through? should we start experiment with smaller distances into the orridor and then eventually the full length?  -->
-<!-- - is there any technology to track or follow them? RFID? etc? -->
-
-
-![Design for experimental assessment of beetle dispersal.](./images/plots2.png){fig-align="center" width=50% height=50%}
-
-**_Field Methods: Dung removal_:** The removal, breakdown, and burial of animal feces is an important ecosystem service provided by dung beetles. We will compare the efficacy of dung removal by beetle communities in connected, unconnected, and winged patches using both mesocosms (at the University of Florida) and a field experiment conducted in seven of the experimental blocks. In each of the patches and a equally sized plot in the matrix we will establish a grid of four points (Figure 3). Each point of the grid will be 25 m from the patch edge to avoid attracting beetles from the matrix surrounding the patch. At each point we will place two 'plant saucers' filled with 3 inches of homogenized local soil in which we place 300 g of cow dung; one of the saucers will be protected with mesh to prevent beetle access. After 48 hours the saucers will be removed and the remaining dung will be weighed (the weight of the protected dung is used to correct for weight loss due to desiccation). Experiments will be conducted monthly in each landscape for 6 months to capture potential monthly and seasonal (wet/dry) variation.   
+**_Field Methods - Dung removal_:** The removal, breakdown, and burial of animal feces is an important ecosystem service provided by dung beetles. We will compare the efficacy of dung removal by beetle communities in connected, unconnected, and winged patches with a field experiment to be conducted in seven of the experimental blocks. We first will establish a grid of N = 4 points in each of the patches in which we previously sampled beetle diversity to test Prediction 1 (Figure 2). At each point in the grid we will place two 'plant saucers' filled with 3 inches of homogenized local soil in which we place 300 g of cow dung; one of the saucers will be protected with mesh to prevent beetle access. After 48 hours the saucers will be removed and the remaining dung will be weighed (the weight of the protected dung is used to correct for weight loss due to desiccation). Experiments will be conducted monthly in each landscape (N = 6) months to to capture temporal variation in patterns of dung removal. This field experiment will be complemented by a mesocosm study with experimentally assembled communities (based on the results of surveys for testing Prediction 1) to be conducted at the University of Florida. 
 
 <!-- -  to consider: gather and sieve soil from outside, place in shallow pot, and place dung on that. Allows breakdown of soil without getting into their soils, if this is a concern -->
 <!-- - repeat biweekly for X months  -->
@@ -106,39 +102,48 @@ We anticipate initially conducting this experiment with two species:LARGE AND SM
 <!-- - need to make sure each point inside a plot is independent, and that each sampling date is independent -->
 <!-- plant saucers: http://tinyurl.com/3ph2wd6b -->
 
-![Arrangement of the dung removal experiment to be conducted in each of the seven experimental blocks.](./images/plots3.png){fig-align="center" width=50% height=50%}
+
+<!-- ![Locations and treatments for the dung removal experiment.](./images/plots3.png){fig-align="center" width=40% height=40%} -->
 
 
+**_Methods - Beetle dispersal_:** To determine if beetles use corridors to move between patches, and if patterns of movement differ between species based on their size, we will conduct a mark-release-recapture (i.e., MRR) experiment. A pitfall trap will be placed in the middle of the landscape's "center" patch and baited with 300 g of cow dung. We will then release marked beetles at two points equidistant from the bait: the "connected" patch and the edge of the "rectangular" patch (Figure 3), and monitor the baited pitfall trap for marked beetles twice per day for N = 3 days following their release. This design will allow us to to determine (a) if beetles disperse between patches using corridors, (b) if beetles disperse through the matrix, and (c) if beetles dispersing via corridors move more quickly or have higher a higher probability of successful dispersal.
 
+We anticipate conducting this experiment with two locally common and abundant species that differ 70-fold in biomass: _Dochotomius carolinus_ (avg. dry biomass = 0.6339 g $\pm$ 0.2454 SD, N=10 individuals) and _Ateuchus lecontei_ (avg dry biomass  = 0.009 g $\pm$ 0.0019 SD, N = 22 individuals). We also anticipate conducting preliminary experiments with passive traps (i.e., no dung bait) in the corridor and matrix to determine the optimal number of beetles to release and if a single 'destination trap' will capture sufficient individuals with which to conduct robust analyses of dispersal. These will in turn determine the number of landscapes in which we can conduct the experiment and the number of times it can be repeated. In additional while we can conduct the experiment with individuals captured in the matrix, we hope to use individuals bred in lab colonies established with individuals captured at the Corridor Site.
+
+<!-- - to consider: passive traps to see if they are moving through? should we start experiment with smaller distances into the orridor and then eventually the full length?  -->
+<!-- - is there any technology to track or follow them? RFID? etc? -->
+
+
+<!-- ![Design for the experimental assessment of beetle dispersal.](./images/plots2.png){fig-align="center" width=40% height=40%} -->
 
 <!-- Fig. 1 – Schematic of experimental design showing 1 of the 7 blocks. Center patches (lower left) are planted by with 16 source populations of wild sunflowers from locations throughout the US (from US-NPGS; represented by rainbow colors) and will be randomly assigned to a grid pole location. Connected and one unconnected patch, C location (rectangular or winged) will each be planted with an inbred line (HA 467). -->
 
 
-_Focal Species Assemblage_
+### Potential impacts on corridor plots and ongoing studies
 
-1. How many species, functional groups, range in size, what is known about them
-1. Table of expected species 
+Each pitfall trap requires diffing a cylindrical hole ~10 cm wide $\times$ ~10 cm deep, but the trap's base can remain in place until all surveys are complete (with a cover when not in use). This, coupled with the number of traps we are deploying per patch, means that disturbance of plots will be minimal. The number of insects collected is also unlikely to have a large or long-term impact on their populations or ecosystem processes. The dung removal experiment was also designed to have a minimal impact. The amount of dung used in the plot is relatively small, and by conducting the trials with plant saucers placed on the soil surface we greatly reduce the possibility of dung beetle activity disturbing seed banks or altering soil properties (chemistry, structure) in experimental microsites. Finally, it is highly unlikely that the dung used in baits will expose local animals to novel disease. Any pathogens or parasites that persist in the guts of donor cows despite the efforts of UF's veterinarians, and then survive several months in a freezer, will only be in the field for 24-72 hours.   
 
-_Potential impacts on corridor plots and ongoing studies_
-
-1. no holes are being dug for pitfalls: no disturbance of the seeds or soil
-1. changes in dung beetle abundance due to collection: short term, unlikely to be high impact
-1. Dung introduced into plots: contained in above ground traps, so also unlikely, standardized and from cows taking abntibiotics, so no disease introduced,.
+All traps and markings will be removed at the study's conclusion. 
 
 
+### Study duration
 
-_Study duration_ 
+1. Preliminary sampling during March-May 2024
+1. Sampling and Dung Removal Experiments: June 2024-December 2024
+1. Dispersal Experiments: January-February 2025
 
-1. Preliminary sampling during Spring 2023
-1. Summer and Fall Sampling
-<!-- Plan for how the study will be cleaned-up -->
-1. All traps and pin flags will be removed after each sampling bout
+### Funding sources
 
-_Funding sources (if applicable)_
+We have much of the equipment necessary to complete the project, and a modest budget to buy new equipment or defer some transportation expenses. We are actively seeking funds to support travel and living expenses duering the summer. 
 
-
-_Plan for making data publicly accessible_
+### Plan for making data publicly accessible
 
 Data will be entered into spreadsheets and backed up by saving them to a repository on the Bruna Lab's Github site (https://github.com/BrunaLab)  along with a .txt file of metadata and all R scripts for data correction and analysis. When new data are added they will be automatically validated using  Github actions and the `pointblank` library (e.g., https://brunalab.github.io/HeliconiaSurveys/survey_validation/survey_validation.html). This approach allows us to share the all materials with collaborators and easily archive code and data at Zenodo and Dryad (respectively) upon the acceptance of a manuscript. For an overview of our approach to data archiving and accessibility see https://github.com/BrunaLab/HeliconiaSurveys
 
+
+![Arrangement of pitfall traps used to sample beetles in experimental blocks.](./images/plots1.png){fig-align="center" width=40% height=40%}
+
+![Locations and treatments for the dung removal experiment.](./images/plots3.png){fig-align="center" width=40% height=40%}
+
+![Design for the experimental assessment of beetle dispersal.](./images/plots2.png){fig-align="center" width=40% height=40%}
 
