@@ -3,40 +3,36 @@ title: "Corridor Project Proposal"
 author: "Eric Escobar-Chena and Emilio M. Bruna"
 date: 'updated: `r Sys.Date()`'
 output:
-  pdf_document: default
+  word_document: default
   html_document:
     df_print: paged
+  pdf_document: default
 geometry: margin=1in
 mainfont: Times New Roman
-# mainfont: SourceSansPro
 fontsize: 12pt
 linkcolor: darkmidnightblue
 urlcolor: darkmidnightblue
+indent: true
 header-includes:
 - \usepackage{fancyhdr}
 - \renewcommand{\headrulewidth}{0pt}
 - \pagestyle{fancy}
-
-# - \fancyhead[R]{p. \thepage}
 - \fancyhead[L]{ }
-# - \fancyhead[L]{Corridor Proposal, E. Escobar-Chena}
-- \fancyhead[R]{Escobar-Chena Corridor Proposal, p. \thepage}
+- "\\fancyhead[R]{Escobar-Chena Corridor Proposal, p. \\thepage}"
 - \fancyfoot[C]{ }
-# - \fancyhead[L]{updated `r Sys.Date()`}
 - \fancyfoot[R]{updated `r Sys.Date()`}
-# - \usepackage[default]{sourcesanspro}
 - \AtBeginDocument{\let\maketitle\relax}
 - \definecolor{darkmidnightblue}{rgb}{0.0, 0.2, 0.4}
-# - \usepackage{sectsty} \sectionfont{\centering\color{darkmidnightblue}}
-# to center to sub-sub-headings (###) and change color of font
-- \usepackage{sectsty} \subsectionfont{\centering\color{darkmidnightblue}}
-# - \usepackage{sectsty} \subsubsectionfont{\color{darkmidnightblue}}
+- \usepackage{sectsty} \subsectionfont{\centering}
 - \raggedright
+- \usepackage{indentfirst}
+- \setlength\parindent{24pt}
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(knitr)
+library(here)
 ```
 
 
@@ -59,13 +55,11 @@ library(knitr)
 
 ### Background  
 
-Corridors are considered an important mechanism for promoting connectivity and facilitating the movement of organisms through fragmented landscapes. These movements are hypothesized to help maintain species diversity in fragments; it could also have patch- and landscape-level consequences for the ecosystem processes in which influenced by these species. Although there is some evidence that animals disperse between patches via corridors, and that connected patches have higher species diversity than unconnected ones, little work to date has investigated the consequences of these corridor-driven patterns for ecosystem ecosystem. 
+Corridors have been hypothesized to be an important mechanism for facilitating the movement of organisms through fragmented landscapes. These movements are hypothesized to prevent species diversity from declining in fragments, as well help maintain the ecosystem services provided by these species (at both the patch- and landscape-level). Although there is some evidence that animals disperse between patches via corridors, and that connected patches have higher species diversity than unconnected ones, little work to date has investigated the consequences of these corridor-driven patterns for ecosystem services. 
 
-Dung beetles have emerged as a model system with which to test hypotheses on how changes in landscape structure driven by human activities influence biodiversity. They are locally species rich, exhibit variety in key functional traits (e.g., size, foraging style, resource-use), are capable of long-distance dispersal (e.g., up to 1 km for some tropical species), and that they influence a number of critical ecosystem services (e.g., seed dispersal, nutrient cycling). Previous work has shown that isolated patches of habitat frequently have lower dung beetle diversity and abundance than areas of continuous habitat, as well as documented their presence in linear strips of habitat that resemble corridors. However, it remains unknown if corridors can reduce the loss of species from fragments, how such declines are influenced by inter-specific differences in dispersal capability, and what the consequences of these patterns are for the ecosystems services provided by dung beetles. Though there are several reasons for this, one major factor is the challenge in finding locations where one can assess the role of corridors while also while controlling for confounding factors such as patch size, edge, and corridor length. 
+Dung beetles have emerged as a model system with which to test hypotheses on how changes in landscape structure driven by human activities influence biodiversity and their ecosystem services. Local assemblages can be species rich with species comprising a broad range of functional traits (e.g., size, foraging style, resource-use). There is evidence they are capable of long-distance dispersal -- up to 1 km for some tropical species -- and they influence a number of critical ecosystem services ranging from seed dispersal to nutrient cycling. Previous studies have shown that isolated patches of habitat frequently have lower dung beetle diversity and abundance than areas of continuous habitat, as well as documented their presence in linear strips of habitat that resemble corridors. However, it remains unknown if corridors actually act to reduce the loss of dung beetle species from fragments, if such declines are influenced to inter-specific differences in dispersal capability, and what the consequences of these patterns are for the ecosystems services they provide. One major factor behind this lack of information is the challenge in finding locations where one can assess the role of corridors while also while controlling for confounding factors such as patch size, edge, and corridor length. 
 
-**We propose using the community of dung beetles at the SRS Corridor Experiment to test for** **(1)** higher species richness, species diversity, and functional diversity in patches connected by corridors than in unconnected patches **(2)** interspecific differences in corridor use and inter-patch movement, and **(3)** higher rates of dung removal in connected than unconnected patches.  
-
-The Corridor Experiment is an ideal location in which to conduct this project. The design overcomes the primary technical impediments to isolating the effects of corridors _per se_, its spatial scale allows for drawing and realistic and relevant conclusions regarding dung beetle dispersal in fragmented landscapes, and the local dung beetle assemblage is a highly tractable one with which to address our questions (i.e., taxonomically and functionally diverse, keys for species identification are readily available, there are multiple abundant species from different functional groups with which to conduct experiments, and the experimental/survey methods are straightforward). **_Our sampling and experiments will be used to test the following predictions:_**
+**We propose using the community of dung beetles at the SRS Corridor Experiment to test the following predictions:**
 
 1. **Prediction 1:** Species Richness, Species Diversity, and Functional Diversity will be higher in patches connected by corridors than in unconnected patches
 
@@ -73,7 +67,7 @@ The Corridor Experiment is an ideal location in which to conduct this project. T
 
 2. **Prediction 3:** Corridors facilitate the dispersal of all species. However, the speed at which in individuals move through corridors and the probability of successful inter-patch movement is size-dependent (i.e., larger beetle species move more quickly and are more likely to reach the connected patch).     
 
-Below we describe the sampling and experiments with which we will test these predictions in June 2024-March 2025. The proposed designs are based on a year-long study of dung beetle community structure we conducted at the University of Florida's Ordway-Swisher Biological Station; any revisions made to the design following preliminary data collection in Spring 2024 will be submitted for review by the Steering Committee. 
+**_The Corridor Experiment is an ideal location in which to conduct this project._** Its design overcomes the primary technical impediments to isolating the effects of corridors _per se_, and the spatial scale allows for drawing and realistic and relevant conclusions regarding dung beetle dispersal in fragmented landscapes. In addition the local dung beetle community is a highly tractable one with which to address our questions: the ~16 species span a broad range of abundance and functional traits, their taxonomy is well resolved, their identification is straightforward, and methods surveying their diversity and using them in experiments are well-established. Below we describe the sampling and experiments with which we will test our predictions. The proposed designs are informed by a year-long study of dung beetle community structure we conducted at the University of Florida's Ordway-Swisher Biological Station; any revisions made to the design following preliminary data collection in Spring 2024 will be submitted for review by the Steering Committee. 
 
 ### Study Site and Methods   
 
@@ -91,7 +85,12 @@ We propose to conduct the field component of our study in seven of the Savannah 
 <!-- - 4 arrays per blocks = 36 traps per array, 7 blocks = 252 traps total -->
 <!-- - need to make sure - ebnough "coverage" without a buffer too small, meaning bugs from matrix come into patch -->
 
-<!-- ![Arrangement of pitfall traps used to sample beetles in experimental blocks.](./images/plots1.png){fig-align="center" width=40% height=40%} -->
+<!-- ![Arrangement of pitfall traps used to sample beetles in experimental blocks.](./images/plots1.png){fig-align="center" width=45% height=45%} -->
+
+<!-- ```{r echo=FALSE, out.width = "45%", fig.align = "center"} -->
+
+<!-- knitr::include_graphics(here("corridor_docs","proposal","images", "plots1.png")) -->
+<!-- ``` -->
 
 
 **_Field Methods - Dung removal_:** The removal, breakdown, and burial of animal feces is an important ecosystem service provided by dung beetles. We will compare the efficacy of dung removal by beetle communities in connected, unconnected, and winged patches with a field experiment to be conducted in seven of the experimental blocks. We first will establish a grid of N = 4 points in each of the patches in which we previously sampled beetle diversity to test Prediction 1 (Figure 2). At each point in the grid we will place two 'plant saucers' filled with 3 inches of homogenized local soil in which we place 300 g of cow dung; one of the saucers will be protected with mesh to prevent beetle access. After 48 hours the saucers will be removed and the remaining dung will be weighed (the weight of the protected dung is used to correct for weight loss due to desiccation). Experiments will be conducted monthly in each landscape (N = 6) months to to capture temporal variation in patterns of dung removal. This field experiment will be complemented by a mesocosm study with experimentally assembled communities (based on the results of surveys for testing Prediction 1) to be conducted at the University of Florida. 
@@ -103,8 +102,12 @@ We propose to conduct the field component of our study in seven of the Savannah 
 <!-- plant saucers: http://tinyurl.com/3ph2wd6b -->
 
 
-<!-- ![Locations and treatments for the dung removal experiment.](./images/plots3.png){fig-align="center" width=40% height=40%} -->
+<!-- ![Locations and treatments for the dung removal experiment.](./images/plots3.png){fig-align="center" width=45% height=45%,fig.pos="H"} -->
 
+<!-- ```{r fig1, echo=FALSE, fig.align="center", out.width = "100%",fig.cap='TEXT'} -->
+<!-- p1<-cowplot::ggdraw() +cowplot::draw_image("./corridor_docs/proposal/images/plots3.png") -->
+<!-- p1 -->
+<!-- ``` -->
 
 **_Methods - Beetle dispersal_:** To determine if beetles use corridors to move between patches, and if patterns of movement differ between species based on their size, we will conduct a mark-release-recapture (i.e., MRR) experiment. A pitfall trap will be placed in the middle of the landscape's "center" patch and baited with 300 g of cow dung. We will then release marked beetles at two points equidistant from the bait: the "connected" patch and the edge of the "rectangular" patch (Figure 3), and monitor the baited pitfall trap for marked beetles twice per day for N = 3 days following their release. This design will allow us to to determine (a) if beetles disperse between patches using corridors, (b) if beetles disperse through the matrix, and (c) if beetles dispersing via corridors move more quickly or have higher a higher probability of successful dispersal.
 
@@ -114,7 +117,7 @@ We anticipate conducting this experiment with two locally common and abundant sp
 <!-- - is there any technology to track or follow them? RFID? etc? -->
 
 
-<!-- ![Design for the experimental assessment of beetle dispersal.](./images/plots2.png){fig-align="center" width=40% height=40%} -->
+<!-- ![Design for the experimental assessment of beetle dispersal.](./images/plots2.png){fig-align="center" width=45% height=45%,fig.pos="H"} -->
 
 <!-- Fig. 1 – Schematic of experimental design showing 1 of the 7 blocks. Center patches (lower left) are planted by with 16 source populations of wild sunflowers from locations throughout the US (from US-NPGS; represented by rainbow colors) and will be randomly assigned to a grid pole location. Connected and one unconnected patch, C location (rectangular or winged) will each be planted with an inbred line (HA 467). -->
 
@@ -134,16 +137,20 @@ All traps and markings will be removed at the study's conclusion.
 
 ### Funding sources
 
-We have much of the equipment necessary to complete the project, and a modest budget to buy new equipment or defer some transportation expenses. We are actively seeking funds to support travel and living expenses duering the summer. 
+We have much of the equipment necessary to complete the project, and a modest budget to buy new equipment or defer some transportation expenses. We are actively seeking funds to support travel and living expenses during the summer. 
 
 ### Plan for making data publicly accessible
 
 Data will be entered into spreadsheets and backed up by saving them to a repository on the Bruna Lab's Github site (https://github.com/BrunaLab)  along with a .txt file of metadata and all R scripts for data correction and analysis. When new data are added they will be automatically validated using  Github actions and the `pointblank` library (e.g., https://brunalab.github.io/HeliconiaSurveys/survey_validation/survey_validation.html). This approach allows us to share the all materials with collaborators and easily archive code and data at Zenodo and Dryad (respectively) upon the acceptance of a manuscript. For an overview of our approach to data archiving and accessibility see https://github.com/BrunaLab/HeliconiaSurveys
 
+\newpage
 
-![Arrangement of pitfall traps used to sample beetles in experimental blocks.](./images/plots1.png){fig-align="center" width=40% height=40%}
+<!-- ## Figures -->
 
-![Locations and treatments for the dung removal experiment.](./images/plots3.png){fig-align="center" width=40% height=40%}
 
-![Design for the experimental assessment of beetle dispersal.](./images/plots2.png){fig-align="center" width=40% height=40%}
+![Arrangement of pitfall traps used to sample beetles in experimental blocks.](./images/plots1.png){fig-align="center" width=45% height=45%}
+
+![Locations and treatments for the dung removal experiment.](./images/plots3.png){fig-align="center" width=45% height=45%}
+
+![Design for the experimental assessment of beetle dispersal.](./images/plots2.png){fig-align="center" width=45% height=45%}
 
