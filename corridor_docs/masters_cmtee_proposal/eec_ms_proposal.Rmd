@@ -2,6 +2,7 @@
 title: "Corridor Project Proposal"
 author: "Eric Escobar-Chena and Emilio M. Bruna"
 date: 'updated: `r Sys.Date()`'
+bibliography: "`r here::here('corridor_docs', 'eric-thesis.bib')`"
 output: pdf_document
   # pdf_document: default
   # html_document:
@@ -27,6 +28,7 @@ header-includes:
 - \raggedright
 - \usepackage{indentfirst}
 - \setlength\parindent{24pt}
+
 ---
 
 ```{r setup, include=FALSE}
@@ -53,7 +55,7 @@ library(here)
 
 ### Background   
 
-Corridors have been shown to be an important mechanism for facilitating the movement of organisms through fragmented landscapes. These movements are hypothesized to prevent species diversity from declining in fragments, as well as help maintain the ecosystem services provided by these species (at both the patch- and landscape-level). Although there is some evidence that animals disperse between patches via corridors, and that connected patches have higher species diversity than unconnected ones, little work to date has investigated the consequences of these corridor-driven patterns for ecosystem services. 
+Corridors have been shown to be an important mechanism for facilitating the movement of organisms through fragmented landscapes . These movements are hypothesized to prevent species diversity from declining in fragments, as well as help maintain the ecosystem services provided by these species (at both the patch- and landscape-level). Although there is some evidence that animals disperse between patches via corridors, and that connected patches have higher species diversity than unconnected ones, little work to date has investigated the consequences of these corridor-driven patterns for ecosystem services. 
 
 Dung beetles have emerged as a model system with which to test hypotheses on how changes in landscape structure driven by human activities influence biodiversity and their ecosystem services. The removal, breakdown, and burial of animal feces is an important ecosystem service provided by dung beetles such as enhanced nutrient cycling and soil quality and reduction of parasites on methane emissions from dung. Local assemblages of dung beetles can be species-rich with species comprising a broad range of functional traits (e.g., size, foraging style, resource-use). Previous studies have shown that isolated patches of habitat frequently have lower dung beetle diversity and abundance than areas of continuous habitat, as well as documented their presence in linear strips of habitat that resemble corridors. However, it remains unknown if corridors actually act to reduce the loss of dung beetle species from fragments, if such declines are influenced by inter-specific differences in dispersal capability, and what the consequences of these patterns are for the ecosystems services they provide. One major factor behind this lack of information is the challenge in finding locations where one can assess the role of corridors while also while controlling for confounding factors such as patch size, edge, and corridor length. 
 
