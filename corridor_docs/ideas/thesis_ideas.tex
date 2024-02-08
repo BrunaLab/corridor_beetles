@@ -1,0 +1,425 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  12pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+  \setmainfont[]{SourceSansPro}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyfoot[C]{ }
+\fancyhead[R]{p. \thepage}
+\fancyhead[L]{last update 2024-02-02}
+\usepackage[default]{sourcesanspro}
+\AtBeginDocument{\let\maketitle\relax}
+\definecolor{darkmidnightblue}{rgb}{0.0, 0.2, 0.4}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Project Ideas and Notes},
+  pdfauthor={Eric Escobar-Chena and Emilio M. Bruna},
+  colorlinks=true,
+  linkcolor={darkmidnightblue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={darkmidnightblue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Project Ideas and Notes}
+\author{Eric Escobar-Chena and Emilio M. Bruna}
+\date{updated: 2024-02-02}
+
+\begin{document}
+\maketitle
+
+\hypertarget{notes-from-conversation-with-julian}{%
+\subsubsection{\texorpdfstring{\emph{Notes from conversation with
+Julian:}}{Notes from conversation with Julian:}}\label{notes-from-conversation-with-julian}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Low-hanging fruit: Effect of connectivity on (a) species and
+  functional group diversity and abundance
+\item
+  Next level: Movement \& Dispersal. There are large areas of forest
+  where it is possible to capture beetles for Mark-Release-Recapture
+  (MRR) experiments.
+\item
+  Higher-risk, Higher reward (even if they don't go in MS, can be set-up
+  for potential PHD projects): Experiments on Ecosystem Services
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  dung burial, decomposition, soil properties based on results of 1 \& 2
+  (buckets with dung and beetle assemblages)
+\item
+  gas (e.g., methane) emissions
+\item
+  seed dispersal/burial/germination
+\end{itemize}
+
+\hypertarget{example-studies}{%
+\subsubsection{Example studies}\label{example-studies}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Diversity and Abundance
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Estrada and Coates-Estrada (2002): ``56\% of individuals were captured
+  in the continuous forest, 29\% in the mosaic habitat and 15\% in the
+  forest fragments''
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  Movement \& Dispersal
+\item
+  Ecosystem Services
+\end{enumerate}
+
+\hypertarget{other-stuff-to-work-on}{%
+\section{Other stuff to work on:}\label{other-stuff-to-work-on}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Species List \& Keys for Dung Beetles of the Southeastern US
+\item
+  Any previous work done on dung beetles in Southeastern US
+\item
+  List of Equipment and Tools needed
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Dung beetle traps
+\item
+  alcohol
+\item
+  bait
+\end{itemize}
+
+\hypertarget{species}{%
+\section{Species}\label{species}}
+
+\newpage
+
+\hypertarget{introduction}{%
+\section{INTRODUCTION}\label{introduction}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Paragraph 1: In an increasingly fragmented world, corridors are
+  thought to be an important strategy of connecting isolated patches to
+  promote population persistence and increase diversity in connected
+  patches. This can ultimately have consequences for ecosystem processes
+  in fragments.
+\item
+  Paragraph 2: Despite this, direct evidence of movement between patches
+  is limited. Plenty of studies have demonstrated that the diversity or
+  abundance of organisms is similar in corridors and the primary habitat
+  to which they are connected. However, studies demonstrating animals
+  actually move from one patch through a corridor to another patch are
+  surprisingly rare (but see examples). NB: might have to say ``although
+  there is ample evidence that vertbrates move through corridors,
+  studies documenting the movements of invertebrates - the dominant
+  species on earth - are limited''.
+\item
+  Paragraph 3: Part of the challenge in assessing the efficacy of
+  corridors is the confounding effects of patch area and the length of
+  habitat edges (see resasco 2014 etc); to address this it is necessary
+  to compare connected and unconnected areas of equal area and shape.
+\item
+  Paragraph 4: Dung beetles have emerged as a model system with which to
+  test hypotheses on how anthropogenic landscape alterations influence
+  biodiversity. They are locally species rich, exhibit variety in key
+  funcitonal traits (size, foraging style,,\ldots.), and they provide
+  critical ecosystem services. robust (but not \emph{too} robust):
+  studies have shown diversity of dung beetles can be lower in
+  fragments, but that they can be found in corridors and are capable of
+  dispersing for up to 1 km.
+\item
+  Paragraph 5: I am proposing to use a landscape-scale fragmentation
+  experiment to test the effects of corridors on the diversity and
+  dispersal dung beetles and the ecosystem services they provide.
+  Specifically, I will test the following predictions:
+\item
+  Diversity will be higher in connected patches. To test this
+  prediction, I will sample dung beetles with pitfall traps and use
+  non-parametric estimators of species diversity
+\item
+  Dung beetles disperse through corridors, with larger beetles
+  dispersing more quickly (size-dependent dispersal ability)
+\item
+  Dung removal rates will be highest in connected patches.
+\end{enumerate}
+
+To test there predictions, I will use a combination of passive sampling
+and a MRR experiment and control for the confounding effects of edge and
+area.
+
+\hypertarget{methods}{%
+\section{Methods}\label{methods}}
+
+Prediction 1: Pitfall trapping (arrangement, timing)
+
+Prediction 2: MRR experiment, where will recapture traps be placed?
+
+Prediction 3: experimental design poop disappearance
+
+\newpage
+
+\hypertarget{what-is-predicted-about-how-corridors-influence-the-diversity-of-insects-communities-with-an-emphasis-on-dung-beetles-in-patches}{%
+\subsection{What is predicted about how corridors influence the
+diversity of insects communities (with an emphasis on Dung Beetles) in
+patches?}\label{what-is-predicted-about-how-corridors-influence-the-diversity-of-insects-communities-with-an-emphasis-on-dung-beetles-in-patches}}
+
+Are corridors predicted to enhance diversity in connected patches? What
+is the mechanism\textgreater? A certain species groups are predicted to
+drive this change in diversity - rare species, larger species,
+specialists, particular function groups, better fliers, etc.?
+(\emph{Note: ``Corridors'' = Riparian strips, living fences, linear
+fragments, etc.})
+
+\begin{itemize}
+\item
+  \textbf{Prediction 1:} Diversity higher in connected patches
+  (citations in Damschen et al PNAS, others)
+\item
+  \textbf{Prediction 2:} Diversity could be lower in patches (in
+  specific case of corridor project, only getting open space species)
+\end{itemize}
+
+\hypertarget{empiricial-results}{%
+\subsubsection{Empiricial Results}\label{empiricial-results}}
+
+\hypertarget{studies-that-have-compared-diversity-of-dung-beetles-in-corridors-and-other-habitats-e.g.-primary-forest-pastures-have-found-that}{%
+\subsubsection{1. Studies that have compared diversity of Dung Beetles
+in Corridors and Other Habitats (e.g., primary forest, pastures) have
+found
+that:}\label{studies-that-have-compared-diversity-of-dung-beetles-in-corridors-and-other-habitats-e.g.-primary-forest-pastures-have-found-that}}
+
+\begin{itemize}
+\item
+  \textbf{Diversity increases:} (Schalkwyk, Pryke, and Samways 2017;
+  Hill 1995)
+\item
+  \textbf{Diversity decreases:}
+\item
+  \textbf{Similar diversity in both:}
+\end{itemize}
+
+\hypertarget{studies-that-have-actually-compared-the-diversity-of-patches-that-are-connected-by-a-corridor-vs.-patches-that-are-unconnected}{%
+\subsubsection{2. Studies that have actually compared the diversity of
+patches that are connected by a corridor vs.~patches that are
+unconnected}\label{studies-that-have-actually-compared-the-diversity-of-patches-that-are-connected-by-a-corridor-vs.-patches-that-are-unconnected}}
+
+\begin{itemize}
+\item
+  \textbf{Diversity increases:}
+\item
+  \textbf{Diversity decreases:}
+\item
+  \textbf{Similar diversity in both:}
+\end{itemize}
+
+\hypertarget{what-is-predicted-or-known-about-insect-movement-through-corridors-with-an-emphasis-on-dung-beetles}{%
+\subsection{What is predicted or known about insect movement through
+corridors (with an emphasis on Dung
+Beetles)?}\label{what-is-predicted-or-known-about-insect-movement-through-corridors-with-an-emphasis-on-dung-beetles}}
+
+Do Corridors facilitate movement between patches? Are particular species
+or groups more able to move through corridors than others - larger
+species, specialists on particular resources, particular functional
+groups, better fliers, etc.?
+
+\hypertarget{studies-that-have-assessed-movement-of-dung-beetles-have-found-the-following-can-play-an-important-role}{%
+\subsubsection{1. Studies that have assessed movement of Dung Beetles
+have found the following can play an important
+role:}\label{studies-that-have-assessed-movement-of-dung-beetles-have-found-the-following-can-play-an-important-role}}
+
+\begin{itemize}
+\item
+  \textbf{Habitat Preference:} Arellano, Leon-Cortes, and Halffter
+  (2008).
+\item
+  \textbf{Wing Loading:} (Cultid-Medina et al. 2015)
+\item
+  \textbf{Sex:}
+\item
+  \textbf{Foraging Mode:}
+\item
+  \textbf{Size:}
+\item
+  \textbf{Invasive vs.~Native:}
+\item
+  \textbf{No inter-specific or inter-group differences in movement:}
+\end{itemize}
+
+\hypertarget{studies-that-have-estimated-dispersal-distance}{%
+\subsubsection{2. Studies that have estimated dispersal
+distance:}\label{studies-that-have-estimated-dispersal-distance}}
+
+\newpage
+
+\hypertarget{the-questions}{%
+\section{THE QUESTIONS}\label{the-questions}}
+
+Question 1: Is dung beetle abundance greater in connected patches than
+isolated ones?
+
+Question 2: Is dung beetle diversity greater in connected patches than
+isolated ones?
+
+\begin{quote}
+Prediction: Species diversity is greater in connected patches than
+isolated ones (due to the greater representation of rare species) OR
+Prediction: Diversity of \_\_\_\_\_\_\_ (e.g., specialists, foraging
+strategy X, etc.) is greater in connected patches, but the Diversity of
+\_\_\_\_\_\_\_\_ (e.g., generalists, foraging strategy Y) will be the
+similar in both. OR The diversity is similar, but the community
+composition changes to one dominated by specialists instead of
+generalists
+\end{quote}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Do Dunge beetles move through corridors?
+\end{enumerate}
+
+References
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-WOS:000262759300008}{}}%
+Arellano, Lucrecia, Jorge L. Leon-Cortes, and Gonzalo Halffter. 2008.
+{``Response of Dung Beetle Assemblages to Landscape Structure in Remnant
+Natural and Modified Habitats in Southern {Mexico}.''} \emph{INSECT
+CONSERVATION AND DIVERSITY} 1 (4): 253--62.
+\url{https://doi.org/10.1111/j.1752-4598.2008.00033.x}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-WOS:000360850000002}{}}%
+Cultid-Medina, Carlos A., Bedir G. Martinez-Quintero, Federico Escobar,
+and Patricia Chacon de Ulloa. 2015. {``Movement and Population Size of
+Two Dung Beetle Species in an {Andean} Agricultural Landscape Dominated
+by Sun-Grown Coffee.''} \emph{JOURNAL OF INSECT CONSERVATION} 19 (4):
+617--26. \url{https://doi.org/10.1007/s10841-015-9784-3}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-WOS:000178929600002}{}}%
+Estrada, A, and R Coates-Estrada. 2002. {``Dung Beetles in Continuous
+Forest, Forest Fragments and in an Agricultural Mosaic Habitat Island at
+{Los} {Tuxtlas}, {Mexico}.''} \emph{BIODIVERSITY AND CONSERVATION} 11
+(11): 1903--18. \url{https://doi.org/10.1023/A:1020896928578}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-WOS:A1995TL67200023}{}}%
+Hill, CJ. 1995. {``Linear Strips of Rain Forest Vegetation as Potential
+Dispersal Corridors for Rain Forest Insects.''} \emph{CONSERVATION
+BIOLOGY} 9 (6): 1559--66.
+\url{https://doi.org/10.1046/j.1523-1739.1995.09061559.x}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-WOS:000399235300014}{}}%
+Schalkwyk, J. van, J. S. Pryke, and M. J. Samways. 2017. {``Wide
+Corridors with Much Environmental Heterogeneity Best Conserve High Dung
+Beetle and Ant Diversity.''} \emph{BIODIVERSITY AND CONSERVATION} 26
+(5): 1243--56. \url{https://doi.org/10.1007/s10531-017-1299-7}.
+
+\end{CSLReferences}
+
+\end{document}
