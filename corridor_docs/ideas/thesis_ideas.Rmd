@@ -27,7 +27,7 @@ header-includes:
 # - \titlespacing{\subsubsection}{0pt}{12pt plus 2pt minus 1pt}{0pt plus 1pt minus 1pt}
 # - \definecolor{darkcerulean}{rgb}{0.03, 0.27, 0.49}
 - \definecolor{darkmidnightblue}{rgb}{0.0, 0.2, 0.4}
-bibliography: "eric-thesis.bib"
+bibliography: "`r here::here('corridor_docs', 'eric-thesis.bib')`"
 output: pdf_document
 ---
 
@@ -36,7 +36,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(knitr)
 library(citr)
 ```
-
+insert_citation
 ### *Notes from conversation with Julian:*
 
 1.  Low-hanging fruit: Effect of connectivity on (a) species and functional group diversity and abundance
