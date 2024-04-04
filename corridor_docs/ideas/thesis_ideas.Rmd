@@ -37,6 +37,16 @@ library(knitr)
 library(citr)
 ```
 insert_citation
+
+Post SRS Badging ideas
+1. Camera monitoring - Big mammals
+2. Matrix densities
+3. Go through John Orrock’s unpublished data
+Other stuff to figure out
+1. Housing
+2. Funding
+3. Steering committee questions
+
 ### *Notes from conversation with Julian:*
 
 1.  Low-hanging fruit: Effect of connectivity on (a) species and functional group diversity and abundance
