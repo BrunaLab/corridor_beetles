@@ -1,4 +1,4 @@
-﻿sp_code,family,genus,species,subspecies,notes,ordway,srs
+  sp_code,family,genus,species,subspecies,notes,ordway,srs
 abic,Scarabaeidae,Aphodius,bicolor,,,y,
 acam,Scarabaeidae,Aphodius,campestris,,,y,
 acra,Scarabaeidae,Aphodius,crassulus,,,y,
@@ -31,3 +31,4 @@ pper,Scarabaeidae,Pseudocanthon,perplexus,,,y,
 ppro,Scarabaeidae,Peltotrupes,profundus,,,y,
 pvin,Scarabaeidae,Phanaeus,vindex,,,n,y
 dgaz,Scarabaeidae,Digitonthophagous,gazella,,,n,y
+ccha,Scarabaeidae,Canthon,chalcites,,,n,y
