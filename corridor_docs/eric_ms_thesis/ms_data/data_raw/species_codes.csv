@@ -31,5 +31,7 @@ pper,Scarabaeidae,Pseudocanthon,perplexus,,,y,
 ppro,Scarabaeidae,Peltotrupes,profundus,,,y,
 pvin,Scarabaeidae,Phanaeus,vindex,,,n,y
 dgaz,Scarabaeidae,Digitonthophagous,gazella,,,n,y
-,Trogidae,Trox,unknown,,,,y
-,Staphylinidae,unknown,unknown,,,,y
+trog,Trogidae,Trox,unknown,,,n,y
+stap,Staphylinidae,unknown,unknown,,,n,y
+mvul,Scarabaeidae,Melanocanthon,vulturnatus,,,n,y
+hist,histeridae,saprinus,unknown,,,n,y
