@@ -60,9 +60,10 @@ total_N<-btl_data %>% summarise(n=sum(sum, na.rm=TRUE))
 N_by_spp<-btl_data %>% 
   summarise(across(where(is.numeric), ~ sum(.x, na.rm = TRUE))) %>% 
   select(-c(sample_id,point,month,day,year,sum)) %>% 
-  pivot_longer(pvin:ocon,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
   arrange(desc(n))
   
+
 
 
 
