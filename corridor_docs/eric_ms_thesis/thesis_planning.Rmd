@@ -1,0 +1,52 @@
+---
+title: "thesis_draft"
+author: "Eric"
+date: "2025-02-05"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Dung Beetle Corridor Draft 
+### Pieces 
+- abstract
+
+- intro 
+  - touch up writing from prop
+
+- methods
+
+### Site 
+
+  - description of srs
+  - experimental design 
+  - conditions during sample period
+  - historical significance of site and experimental design 
+  - justification for selected patches 
+  
+### Dung beetle sampling 
+
+  - structure and arrangment of traps 
+  - description of traps
+  - bait 
+  - sample period
+  - ID 
+  - biomass if we do biomass
+  
+### Analysis 
+
+  - lets hammer this out 
+  - modeling? 
+    - glmm with poisson dist reccomended by julian
+  - beta, abundance, biomass? per site
+  - species list by sampling blocks (anything with this?)
+  - habitat preference 
+  - rarefaction
+
+- results
+- discussion
+  
+
+
