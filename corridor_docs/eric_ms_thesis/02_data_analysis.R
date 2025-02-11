@@ -57,12 +57,154 @@ total_N<-btl_data %>% summarise(n=sum(sum, na.rm=TRUE))
 # total N by species ------------------------------------------------------
 
 
+# total number of beetles sampled each round
+total_N_sample<-btl_data %>%
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  group_by(date) %>% 
+  summarise(n=sum(n, na.rm=TRUE)) %>% 
+  arrange(date)
+
+
+
+btl_order<-btl_data %>%
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  group_by(species) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  arrange(desc(n)) %>%
+  mutate(species = reorder(species, desc(n)))
+
+
+btl_data_sums<-btl_data %>%
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  group_by(species,patch) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  arrange(patch,desc(n))
+
+ggplot(btl_data_sums, aes(x=patch, y=n)) + 
+  geom_bar(stat = "identity")+
+  facet_wrap(vars(species),scales="free",ncol = 5) 
+
+
+
+ggplot(btl_data_sums, aes(x=species, y=n)) + 
+  geom_bar(stat = "identity")+
+  facet_wrap(vars(patch),scales="free",ncol = 4) 
+
+
+
+
+mega_spp<-btl_data %>%
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  group_by(species) %>% 
+  summarise(n=sum(n, na.rm=TRUE)) %>% 
+  filter(n>500) %>% 
+  ungroup() %>% 
+  select(species,n)%>% 
+  arrange(desc(n))
+
+
+rare_spp<-btl_data %>%
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  group_by(species) %>% 
+  summarise(n=sum(n, na.rm=TRUE)) %>% 
+  filter(n<50) %>% 
+  ungroup() %>% 
+  select(species,n) %>% 
+  arrange(desc(n))
+
+
+
+plot_n<-btl_data %>%
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  filter(species=="pign"|species=="alec"|species=="cvig")
+plot_btl_n <- function(data) {
+  btl_n_plot<-ggplot(plot_n,
+                     aes(x=date,
+                         y=n,
+                         group=species,
+                         color=species)) +
+    geom_line()+
+    geom_point()+
+    # facet_wrap(vars(habitat))
+    facet_grid(vars(species),vars(patch))+
+    theme_bw()
+}
+
+
+
+
+# code for making a rarefaction curve -------------------------------------
+
+
+rarefaction_data<-btl_data %>% 
+  select(-c(month,day,year,date)) %>% 
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  group_by(sample_id,species) %>% 
+  summarize(n=sum(n)) %>% 
+  pivot_wider(values_from=n,names_from=species) %>% 
+  column_to_rownames("sample_id")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# sandbox -----------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 N_by_spp<-btl_data %>% 
   summarise(across(where(is.numeric), ~ sum(.x, na.rm = TRUE))) %>% 
   select(-c(sample_id,point,month,day,year,sum)) %>% 
   pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
   arrange(desc(n))
   
+
+
+
+# total N by date type --------------------------------------------------
+
+
+N_by_patch<-btl_data %>% 
+  group_by(date)
+
+
+  summarise(across(where(is.numeric), ~ sum(.x, na.rm = TRUE))) %>% 
+  select(-c(sample_id,point,month,day,year,sum)) %>% 
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  arrange(desc(n))
+
 
 
 
