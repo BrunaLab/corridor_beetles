@@ -142,15 +142,42 @@ rarefaction_data<-btl_data %>%
   group_by(sample_id,species) %>% 
   summarize(n=sum(n)) %>% 
   pivot_wider(values_from=n,names_from=species) %>% 
-  column_to_rownames("sample_id")
+  column_to_rownames("sample_id") 
+
+### worked example for generating rarefaction curve
+#?rarecurve
+#?rarefy
+
+#data(BCI)
+#S <- specnumber(BCI) # observed number of species
+#(Raremax <- min(rowSums(BCI)))
+
+#Srare <- rarefy(BCI, Raremax)
+#plot(S, Srare, xlab = "Observed No. of Species", ylab = "Rarefied No. of Species")
+#abline(0, 1)
+
+#rarecurve(BCI, step = 20, sample = Raremax, col = "blue", cex = 0.6)
+
+# subsetting data so that there are no zeros 
+rarefaction_data<-btl_data %>% 
+  select(-c(month,day,year,date)) %>% 
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  group_by(sample_id,species) %>% 
+  summarize(n=sum(n)) %>% 
+  pivot_wider(values_from=n,names_from=species) %>% 
+  column_to_rownames("sample_id") %>% 
+  filter((rowSums(rarefaction_data) > 10)) 
+
+s <- specnumber(rarefaction_data)
+s
+(raremax <- min(rowSums(rarefaction_data)))
+
+btl.rare <- rarefy(rarefaction_data, raremax)
+btl.rare
+plot(s,btl.rare,xlab = "Observed No. of Species", ylab = "Rarefied No. of Species")
 
 
-
-
-
-
-
-
+rarecurve(rarefaction_data, step = 20, sample = raremax, col = "blue", cex = 0.6)
 
 
 
