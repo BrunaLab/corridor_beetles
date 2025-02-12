@@ -135,14 +135,44 @@ plot_btl_n <- function(data) {
 
 # code for making a rarefaction curve -------------------------------------
 
+# this pools all the points in a patch over the entire sampling season
+# tou can then do a rarefaction curve for each patch in each block
+# can also edit the. code to makle it one curve per block (allpatches pooled), 
+# per patch type (all blocks polled) etc.
 
-rarefaction_data<-btl_data %>% 
-  select(-c(month,day,year,date)) %>% 
+rarefaction_data<-btl_data %>%
+  select(-c(month,day,year,sum,point,sample_id)) %>% 
   pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
-  group_by(sample_id,species) %>% 
+  mutate(sampling_date = as.integer(factor(date))) %>% 
+  relocate(sampling_date,.before=1) %>% 
+  # group_by(block,patch,sampling_date,species) %>%
+  group_by(block,patch,species) %>%
   summarize(n=sum(n)) %>% 
   pivot_wider(values_from=n,names_from=species) %>% 
-  column_to_rownames("sample_id") 
+  filter(patch=="c") %>% 
+  # mutate(row=paste(block,sampling_date,sep="-"),.before=1) %>% 
+  mutate(row=paste(patch,block,sep="-"),.before=1) %>% 
+  column_to_rownames("row") %>% 
+  # select(-block,-patch,-sampling_date) 
+  select(-block,-patch) 
+
+
+#   
+#   pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+#   group_by(sample_id,species) %>% 
+#   summarize(n=sum(n)) %>% 
+#   pivot_wider(values_from=n,names_from=species) %>% 
+#   column_to_rownames("sample_id") 
+# 
+# rarefaction_data<-btl_data %>% 
+#   select(-c(month,day,year,date, block, point)) %>% 
+#   pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+#   group_by(patch,species) %>% 
+#   summarize(n=sum(n)) %>% 
+#   pivot_wider(values_from=n,names_from=species) %>% 
+#   column_to_rownames("patch") 
+
+
 
 ### worked example for generating rarefaction curve
 #?rarecurve
@@ -179,6 +209,12 @@ plot(s,btl.rare,xlab = "Observed No. of Species", ylab = "Rarefied No. of Specie
 
 rarecurve(rarefaction_data, step = 20, sample = raremax, col = "blue", cex = 0.6)
 
+rarecurve(rarefaction_data, 
+          step = 20, 
+          sample = raremax, 
+          col = "blue", 
+          cex = 0.6,
+          label=FALSE)
 
 
 
