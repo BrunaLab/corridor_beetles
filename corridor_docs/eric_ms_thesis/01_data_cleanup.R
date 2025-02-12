@@ -15,11 +15,24 @@ smpl_pts<-smpl_pts %>%
   mutate(year=2024) %>% 
   mutate(date = make_datetime(year, month, day)) %>% 
   mutate(across(where(is.character), ~as.factor(.))) %>% 
-  mutate(sample_id=as.factor(sample_id)) %>% 
   mutate(point=as.factor(point)) %>% 
   mutate(month=as.numeric(month)) %>% 
   mutate(day=as.numeric(day)) %>% 
-  mutate(year=as.numeric(year))
+  mutate(year=as.numeric(year)) %>% 
+  mutate(month=case_when(
+    block=="53n" & sample_id < 24 ~ "7",
+    .default = as.character(month)
+  )) %>% 
+  mutate(day=case_when(
+    block=="53n" & sample_id < 13 ~ "1",
+    .default = as.character(day)
+  )) %>% 
+  mutate(day=case_when(
+    block=="53n" & (sample_id >12 & sample_id < 25) ~ "5",
+    .default = as.character(day)
+  )) %>% 
+  mutate(sample_id=as.factor(sample_id)) %>% 
+  mutate(date=if_else(is.na(date), as.Date(paste(year,month,year,sep="-")),date))
 
 # fill in the missing info for samples 1:24 -------------------------------
 
@@ -67,11 +80,11 @@ btl_counts<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_raw",
   rowwise() %>%
   mutate(sum = sum(c_across(pvin:ocon), na.rm = TRUE)) %>% 
   mutate(sum=ifelse(sum==0,NA,sum)) %>% 
+  select(-c("...18","...19")) %>% 
   replace(is.na(.), 0) %>% 
   left_join(smpl_pts) %>% 
-  relocate(c(block,patch, point, month, day,year,date),.after = sample_id)
-
-
+  relocate(c(block,patch, point, month, day,year,date),.after = sample_id) 
+  
 write_csv(btl_counts,"./corridor_docs/eric_ms_thesis/ms_data/data_clean/clean_btl_counts.csv")
 
 
