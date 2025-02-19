@@ -1,32 +1,82 @@
 ---
-title: "thesis_draft"
-author: "Eric"
-date: "2025-02-05"
-output: pdf_document
+title: "Influence of Connectivity on Dung Beetle Communities"
+author: "ERIC IN ALL CAPS"
+
+
+# date: "\\vspace{-1em}"
+header-includes:
+ # - \AtBeginDocument{\let\maketitle\relax} # this removes default title section
+ - \usepackage{lineno}
+ - \linenumbers
+ - \usepackage[default]{sourcesanspro}
+ - \usepackage{fancyhdr} # modify header into left, center, right
+ - \pagestyle{fancy} # cues the use of fancy headers
+ - \fancyfoot{} # cues the use of fancy footer
+ - \fancyhead[L]{EEC MS Thesis Draft} # month & year on header left 
+ - \fancyhead[R]{p. \thepage} # name and page on header right
+# # - \fancyfoot[R]{ }
+# - \usepackage{setspace}{singlespace} # manipulate line spacing 
+# - \usepackage{parskip} # manipulate indents and spacing before/after paragra phs 
+# - \usepackage{xcolor} # changes colors of text
+# # http://latexcolor.com/ to choose colors
+# # define the colors used above with rgb codes
+# - \definecolor{darkcerulean}{rgb}{0.03, 0.27, 0.49}
+# - \definecolor{darkmidnightblue}{rgb}{0.0, 0.2, 0.4}
+# # to center to top level (#) headings (my name) and change color of font
+# # more info # https://www.ctan.org/pkg/sectsty
+# - \usepackage{sectsty}
+# - \sectionfont{\centering\color{darkmidnightblue}}
+# # to center to sub-sub-headings (###) and change color of font
+# - \usepackage{sectsty} 
+# - \subsectionfont{\centering\color{darkmidnightblue}}
+# - \usepackage{sectsty} 
+# - \subsubsectionfont{\raggedright\color{darkmidnightblue}}
+# - \usepackage{wrapfig} 
+# - \newcommand{\blandscape}{\begin{landscape}}
+# - \newcommand{\elandscape}{\end{landscape}}
+# - \usepackage[font=small,labelfont=bf]{caption} #Required for specifying captions to tables and figures
+# - \usepackage{indentfirst}
+# - \setlength\parindent{22pt} # uncomment if you want indented paragraphs
+bibliography: ["eric-thesis.bib"]
+output:
+  pdf_document:
+    includes:
+      # in_header: style/preamble.tex
+      template: null
+      keep_tex: no
+      # number_sections: true
+# documentclass: style/nsf2
+biblio-style: apalike
+csl: ecology.csl
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+# Abstract
 
-## Dung Beetle Corridor Draft 
-### Pieces 
-- abstract
+Thesis abstracts should be 250 words or less.
 
-- intro 
-  - touch up writing from prop
+\newpage
 
-- methods
+# INTRODUCTION
 
-### Site 
+Corridors have been shown to be an important mechanism for facilitating the movement of organisms through fragmented landscapes [@haddad_corridor_2003]. These movements are hypothesized to prevent species diversity from declining in fragments, as well as help maintain the ecosystem services provided by these species (at both the patch- and landscape-level)[@burt_ants_2022]. Although there is some evidence that animals disperse between patches via corridors, and that connected patches have higher species diversity than unconnected ones, little work to date has investigated the consequences of these corridor-driven patterns for ecosystem services. 
+
+Dung beetles have emerged as a model system with which to test hypotheses on how changes in landscape structure driven by human activities influence biodiversity and their ecosystem services [@ros_how_2012; @roslin_dung_2000]. The removal, breakdown, and burial of animal feces is an important ecosystem service provided by dung beetles such as enhanced nutrient cycling and soil quality and reduction of parasites on methane emissions from dung [@slade_disentangling_2016; @WOS:000350444300013]. Local assemblages of dung beetles can be species-rich with species comprising a broad range of functional traits (e.g., size, foraging style, resource-use) [@WOS:000891747700001]. Previous studies have shown that isolated patches of habitat frequently have lower dung beetle diversity and abundance than areas of continuous habitat, as well as documented their presence in linear strips of habitat that resemble corridors [@WOS:000707546700001]. However, it remains unknown if corridors actually act to reduce the loss of dung beetle species from fragments, if such declines are influenced by inter-specific differences in dispersal capability, and what the consequences of these patterns are for the ecosystems services they provide. One major factor behind this lack of information is the challenge in finding locations where one can assess the role of corridors while also while controlling for confounding factors such as patch size, edge, and corridor length [@haddad_habitat_2015]. 
+
+**We sampled the commmunity of of dung beetles at the SRS Corridor Experiment to test the following prediction:** Species Richness, Species Diversity, and Functional Diversity will be higher in patches connected by corridors than in unconnected patches.
+
+# Methods
+
+
+## Study site 
+
 
   - description of srs
   - experimental design 
   - conditions during sample period
   - historical significance of site and experimental design 
-  - justification for selected patches 
+  - justification for selected patches  
   
-### Dung beetle sampling 
+## Dung beetle sampling 
 
   - structure and arrangment of traps 
   - description of traps
@@ -35,7 +85,13 @@ knitr::opts_chunk$set(echo = TRUE)
   - ID 
   - biomass if we do biomass
   
-### Analysis 
+### Analyses 
+
+1. **Species Richness:** absolute number? non-parametric estimators?
+1. **Species Diversity:** what index should we compare?
+1. **Functional Diversity:** Need to assign each species to a functional group: roller, tunneler. dweller, others? 
+
+>_Look through dung beetle pubs and see how/what people compare_
 
   - lets hammer this out 
   - modeling? 
@@ -45,8 +101,43 @@ knitr::opts_chunk$set(echo = TRUE)
   - habitat preference 
   - rarefaction
 
-- results
-- discussion
-  
+
+# RESULTS
+
+some summary statistics: 
+
+
+1. total number of beetles _from_ total number of species 
+1. were all species found in all habitats? Were any species found in only 1 habitat?
+1. Were all species found in all blocks? Were any restricted to only 1-2 blocks?
+1. Were all species found in the matrix? (expect that so, since it is the 'baseline' or 'source' habitat)
+1. Number of species in each functional group
+1. most common 3-4 species
+1. any rare species? 
+
+
+# DISCUSSION
+
+1. dont forget o discuss the basic biology...why might a species be so common? why might one be rare?
+
+
+# ACKNOWLEDGMENTS
+
+Acknowledgments must be written in complete sentences. Do not use direct address. For example, instead of Thanks, Mom and Dad!, you should say I thank my parents. The heading “ACKNOWLEDGMENTS” uses the 002 CHAPTER TITLE style.. The paragraphs in this section should use the style called 006 Body Text
+
+# OTHER REQUIRED TEXT
+
+### Dedication 
+Your dedication is typed here. It should begin with the word “To.” (To my Mom is a typical dedication) If your dedication is longer than a single line it should be single-spaced, and centered vertically and horizontally
+
+
+### List of Abbreviations
+1. A word to be defined:	Write the definition here. 
+1. Another word:	And the list continues with another definition. 
+
+# Biographical Sketch
+A biographical sketch is required of all candidates. The biographical sketch should be in narrative form. Third person, past tense, it typically includes the educational background of the candidate. The author should have replaced this paragraph with their own.
+
+
 
 
