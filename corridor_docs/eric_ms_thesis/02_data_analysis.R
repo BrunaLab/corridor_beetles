@@ -63,7 +63,10 @@ total_N_sample<-btl_data %>%
   group_by(date) %>% 
   summarise(n=sum(n, na.rm=TRUE)) %>% 
   arrange(date)
+total_N_sample
 
+
+# spp in order of no captured ---------------------------------------------
 
 
 btl_order<-btl_data %>%
@@ -72,6 +75,29 @@ btl_order<-btl_data %>%
   summarize(n=sum(n, na.rm=TRUE)) %>%
   arrange(desc(n)) %>%
   mutate(species = reorder(species, desc(n)))
+btl_order
+
+
+# abundance by patch ------------------------------------------------------
+
+
+
+
+btl_sums_patch<-btl_data %>%
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  group_by(patch) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  arrange(patch,desc(n))
+
+
+# summaries by patch type -------------------------------------------------
+
+
+btl_data_sums<-btl_data %>%
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  group_by(species,patch) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  arrange(patch,desc(n))
 
 
 btl_data_sums<-btl_data %>%
