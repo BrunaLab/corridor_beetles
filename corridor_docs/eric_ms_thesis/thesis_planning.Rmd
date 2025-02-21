@@ -89,9 +89,11 @@ Dung beetles have emerged as a model system with which to test hypotheses on how
 
 1. **Species Richness:** absolute number? non-parametric estimators?
   - Michaelis-Menten
+  - choa?
 1. **Species Diversity:** what index should we compare?
   - alpha diversity per patch type
   - beta between patch types
+  - hill numbers
 
 1. **Functional Diversity:** Need to assign each species to a functional group: roller, tunneler. dweller, others? 
   - habitat preference (forest, pasture, generalist)
