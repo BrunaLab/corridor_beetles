@@ -78,6 +78,71 @@ btl_order<-btl_data %>%
 btl_order
 
 
+btl_order_block_53n <-btl_data %>%
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  filter(block == "53n") %>%
+  group_by(species) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  arrange(desc(n)) %>%
+  mutate(species = reorder(species, desc(n)))
+
+btl_order_block_8 <-btl_data %>%
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  filter(block == "8") %>%
+  group_by(species) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  arrange(desc(n)) %>%
+  mutate(species = reorder(species, desc(n)))
+
+btl_order_block_52 <-btl_data %>%
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  filter(block == "52") %>%
+  group_by(species) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  arrange(desc(n)) %>%
+  mutate(species = reorder(species, desc(n)))
+
+btl_order_block_54 <-btl_data %>%
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  filter(block == "54") %>%
+  group_by(species) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  arrange(desc(n)) %>%
+  mutate(species = reorder(species, desc(n)))
+
+btl_order_m <-btl_data %>%
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  filter(patch == "m") %>%
+  group_by(species) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  arrange(desc(n)) %>%
+  mutate(species = reorder(species, desc(n)))
+
+btl_order_c <-btl_data %>%
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  filter(patch == "c") %>%
+  group_by(species) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  arrange(desc(n)) %>%
+  mutate(species = reorder(species, desc(n)))
+
+btl_order_w <-btl_data %>%
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  filter(patch == "w") %>%
+  group_by(species) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  arrange(desc(n)) %>%
+  mutate(species = reorder(species, desc(n)))
+
+btl_order_r <-btl_data %>%
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  filter(patch == "r") %>%
+  group_by(species) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  arrange(desc(n)) %>%
+  mutate(species = reorder(species, desc(n)))
+
+?filter
 # abundance by patch ------------------------------------------------------
 
 
