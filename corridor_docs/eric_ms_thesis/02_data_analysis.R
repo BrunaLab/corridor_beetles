@@ -314,30 +314,58 @@ rarecurve(rarefaction_data,
 
 # sandbox -----------------------------------------------------------------
 
+#example hill function
+#hill_num = renyi(data, hill= TRUE)
 
-hill_num = renyi(data, hill= TRUE)
+#btl_order<-btl_data %>%
+  #pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  #group_by(species) %>%
+  #summarize(n=sum(n, na.rm=TRUE)) %>%
+  #arrange(desc(n)) %>%
+  #mutate(species = reorder(species, desc(n)))
+#btl_order
 
-btl_order<-btl_data %>%
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
-  group_by(species) %>%
-  summarize(n=sum(n, na.rm=TRUE)) %>%
-  arrange(desc(n)) %>%
-  mutate(species = reorder(species, desc(n)))
-btl_order
-
-
-
-
-
-
-
-
+#btl_data_sums<-btl_data %>%
+ # pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  #group_by(species,patch) %>%
+  #summarize(n=sum(n, na.rm=TRUE)) %>%
+  #arrange(patch,desc(n))
 
 
+#btl_data_sums<-btl_data %>%
+ # pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  #group_by(species,patch) %>%
+  #summarize(n=sum(n, na.rm=TRUE)) %>%
+  #arrange(patch,desc(n))
 
+# species list by patch type
+btl_spec_patch<- btl_data |>
+  pivot_longer(pvin:ostr, names_to = "species", values_to = "n") |>
+  group_by(species,patch) |>
+  summarise(n=sum(n, na.rm=TRUE)) |>
+  arrange(patch,desc(n)) |>
+  pivot_wider(values_from=n,names_from=species) |> 
+  column_to_rownames("patch")
+# hill number comparisson 
+hill_btl <- renyi(hill_btl_data, hill = TRUE)
 
+plot(hill_btl)
 
+# bray curtis
+#example
+#taxa_bray = vegan::vegdist(data, method = "bray", binary = FALSE)
+#taxa_bray
 
+taxa_bray <- vegan::vegdist(btl_spec_patch, method = "bray", binary = FALSE)
+taxa_bray
+
+btl_spec_patch<- btl_data |>
+  pivot_longer(pvin:ostr, names_to = "species", values_to = "n") |>
+  group_by(species,patch) |>
+  summarise(n=sum(n, na.rm=TRUE)) |>
+  arrange(patch,desc(n)) |>
+  pivot_wider(values_from=n,names_from=species) |> 
+  column_to_rownames("patch")
 
 
 
@@ -363,8 +391,7 @@ N_by_patch<-btl_data %>%
   summarise(across(where(is.numeric), ~ sum(.x, na.rm = TRUE))) %>% 
   select(-c(sample_id,point,month,day,year,sum)) %>% 
   pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
-  arrange(desc(n))
-
+  arrange(desc(n)) 
 
 
 

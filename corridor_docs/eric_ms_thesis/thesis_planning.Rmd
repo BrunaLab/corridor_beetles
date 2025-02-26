@@ -60,7 +60,7 @@ Thesis abstracts should be 250 words or less.
 
 INTRODUCTION
 
-Corridors have been shown to be an important mechanism for facilitating the movement of organisms through fragmented landscapes [@haddad_corridor_2003]. These movements are hypothesized to prevent species diversity from declining in fragments, as well as help maintain the ecosystem services provided by these species (at both the patch- and landscape-level)[@burt_ants_2022]. Although there is some evidence that animals disperse between patches via corridors, and that connected patches have higher species diversity than unconnected ones, little work to date has investigated the consequences of these corridor-driven patterns for ecosystem services.
+ These movements are hypothesized to prevent species diversity from declining in fragments, as well as help maintain the ecosystem services provided by these species (at both the patch- and landscape-level)[@burt_ants_2022]. Although there is some evidence that animals disperse between patches via corridors, and that connected patches have higher species diversity than unconnected ones, little work to date has investigated the consequences of these corridor-driven patterns for ecosystem services.
 
  Dung beetles have emerged as a model system with which to test hypotheses on how changes in landscape structure driven by human activities influence biodiversity and their ecosystem services [@ros_how_2012; @roslin_dung_2000]. The removal, breakdown, and burial of animal feces is an important ecosystem service provided by dung beetles such as enhanced nutrient cycling and soil quality and reduction of parasites on methane emissions from dung [@slade_disentangling_2016; @WOS:000350444300013]. Local assemblages of dung beetles can be species-rich with species comprising a broad range of functional traits (e.g., size, foraging style, resource-use) [@WOS:000891747700001]. Previous studies have shown that isolated patches of habitat frequently have lower dung beetle diversity and abundance than areas of continuous habitat, as well as documented their presence in linear strips of habitat that resemble corridors [@WOS:000707546700001]. However, it remains unknown if corridors actually act to reduce the loss of dung beetle species from fragments, if such declines are influenced by inter-specific differences in dispersal capability, and what the consequences of these patterns are for the ecosystems services they provide. One major factor behind this lack of information is the challenge in finding locations where one can assess the role of corridors while also while controlling for confounding factors such as patch size, edge, and corridor length [@haddad_habitat_2015].
 
@@ -70,35 +70,28 @@ Corridors have been shown to be an important mechanism for facilitating the move
 
 - First Paragraph: What is the topic of your introduction and why is it important/interesting/relevant?
 
+As human disturbances continue to expand into natural landscapes, intact habitats are becoming increasingly fragmented. This degradation lends to loss in biodiversity on a global scale and interruptions in ecosystem processes and functions [@haddad_habitat_2015]. Effects from isolation can vary, however as habitats are broken down community structures are significantly altered [@WOS:000419965700012]. Corridors have been shown to be an important mechanism for facilitating the movement of organisms through fragmented landscapes with the goal of minimizing negative consequences of fragmentation[@haddad_corridor_2003].
+
 What?
 
 Connectivity and fragmentation 
-
 understanding how movement corridors effect populations dung beetles 
-
 Dispersal ability 
 
 Why?
 
 Understanding responses to landscape change allows us to anticipate how environments might change with further disturbance. 
-
 Patterns in population distributions might suggest how we can study focal organisms in the future.
-
 Could help understand how interactions may be changing.
 
 - Second Paragraph: What is known about this topic already?
 
-Effects of landscape change are already very well studied, accross different taxa 
-
-effects of edge, patch size, and direct habitat loss
-
-using corridors to connect fragmented landscapes is also well studied and for many taxa
-
+Effects of landscape change are already very well studied, accross different taxa .
+effects of edge, patch size, and direct habitat loss.
+using corridors to connect fragmented landscapes is also well studied and for many taxa.
 dung beetles as a model system for studying movement, functional diversity, and ecosystem health.
-
-dung beetle populations in connected and fragmented habitats 
-
-insect declines in fragmented landscapes
+dung beetle populations in connected and fragmented habitats .
+insect declines in fragmented landscapes.
 
 studying coprophagous insects 
 
@@ -126,7 +119,7 @@ Study site
 
 - description of srs
 
-Our study took place at the Savannah River Site(SRS), a National Environmental Research Park in southern South Carolina, US(33.208 N, 81.408 W) in four of seven experimental landscapes designed for the purposes of directly observing the impacts of corridors and patch shape on the movements of plants and animals(Tewksbury et al. 2002). Each experimental landscape, termed blocks, consists of four patches of open habitat around a central patch all together within a matrix of pine savanna. In each replicant the central patch (100 x 100 m) is always connected to one peripheral patch with identical dimensions by a 150 x 25 m corridor, this will hereafter be referred  to as the connected patch. The remaining patches are either "winged" or "rectangular".  The winged patch is also 100 x 100 m, however they exhibit their characteristic wings in the form of two 75 x 25 m offshoots meant to account for the extra area and edge space the corridor provides. The rectangular patch is 100 x 137.5 m also the same area as the space of the connected patch plus the corridor. Each block has a duplicate of either the winged or rectangle patch, all peripheral patches being 150 m from the center patch. For this study sampling was done in one of each patch type and in one matrix plot per block, all matrix blocks were set up 150 m away from the center as well. 
+Our study took place at the Savannah River Site(SRS), a National Environmental Research Park in southern South Carolina, US(33.208 N, 81.408 W) in four of seven experimental landscapes designed for the purposes of directly observing the impacts of corridors and patch shape on the movements of plants and animals[@tewksbury_corridors_2002]. Each experimental landscape, termed blocks, consists of four patches of open habitat around a central patch all together within a matrix of pine savanna. In each replicant the central patch (100 x 100 m) is always connected to one peripheral patch with identical dimensions by a 150 x 25 m corridor, this will hereafter be referred  to as the connected patch. The remaining patches are either "winged" or "rectangular".  The winged patch is also 100 x 100 m, however they exhibit their characteristic wings in the form of two 75 x 25 m offshoots meant to account for the extra area and edge space the corridor provides. The rectangular patch is 100 x 137.5 m also the same area as the space of the connected patch plus the corridor. Each block has a duplicate of either the winged or rectangle patch, all peripheral patches being 150 m from the center patch. For this study sampling was done in one of each patch type and in one matrix plot per block, all matrix blocks were set up 150 m away from the center as well. 
 
 Dung beetle sampling 
 
