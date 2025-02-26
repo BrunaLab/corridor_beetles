@@ -80,7 +80,7 @@ btl_counts<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_raw",
   rowwise() %>%
   mutate(sum = sum(c_across(pvin:ocon), na.rm = TRUE)) %>% 
   mutate(sum=ifelse(sum==0,NA,sum)) %>% 
-  select(-c("...18","...19")) %>% 
+#  select(-c("...18","...19")) %>% 
   replace(is.na(.), 0) %>% 
   left_join(smpl_pts) %>% 
   relocate(c(block,patch, point, month, day,year,date),.after = sample_id) 

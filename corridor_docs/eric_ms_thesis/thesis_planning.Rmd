@@ -176,7 +176,7 @@ In the months of July and August 2024 dung beetles were sampled in 4 blocks spre
 
 
 # RESULTS
-
+git config --global user.email "you@example.com"
 some summary statistics: 
 
 
