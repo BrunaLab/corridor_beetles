@@ -153,7 +153,18 @@ btl_sums_patch<-btl_data %>%
   pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
   group_by(patch) %>%
   summarize(n=sum(n, na.rm=TRUE)) %>%
-  arrange(patch,desc(n))
+  arrange(patch,desc(n)) %>% 
+  mutate(patch=case_when(
+    patch == "c" ~ "Corridor",
+    patch == "m" ~ "Matrix",
+    patch == "w" ~ "Winged",
+    patch == "r" ~ "Rectangle",
+    .default = as.character(patch))) 
+
+ggplot(btl_sums_patch, aes(x=as.factor(patch),
+                           y=n)) +
+  geom_bar(stat = "identity") +
+  theme_classic()
 
 
 # summaries by patch type -------------------------------------------------
