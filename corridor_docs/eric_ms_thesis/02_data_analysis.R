@@ -150,6 +150,7 @@ btl_order_r <-btl_data %>%
 
 
 btl_sums_patch<-btl_data %>%
+  select(-sum) %>% 
   pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
   group_by(patch) %>%
   summarize(n=sum(n, na.rm=TRUE)) %>%
@@ -164,6 +165,57 @@ btl_sums_patch<-btl_data %>%
 ggplot(btl_sums_patch, aes(x=as.factor(patch),
                            y=n)) +
   geom_bar(stat = "identity") +
+  theme_classic()
+
+
+
+
+# avg abundance per patch type --------------------------------------------
+
+
+
+btl_avg_patch<-btl_data %>%
+  select(-sum) %>% 
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  group_by(block,patch) %>%
+  summarize(sum=sum(n, na.rm=TRUE)) %>%
+  group_by(patch) %>%
+  summarize(avg_n=mean(sum, na.rm=TRUE),
+            sd_n=sd(sum, na.rm=TRUE)) %>%
+  arrange(desc(avg_n)) %>% 
+  mutate(patch=case_when(
+    patch == "c" ~ "Corridor",
+    patch == "m" ~ "Matrix",
+    patch == "w" ~ "Winged",
+    patch == "r" ~ "Rectangle",
+    .default = as.character(patch))) 
+
+ggplot(btl_avg_patch, aes(x=as.factor(patch),
+                           y=avg_n)) +
+  geom_bar(stat = "identity") +
+  theme_classic()
+
+
+
+
+btl_avg_patch2<-btl_data %>%
+  select(-sum) %>% 
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  group_by(block,patch) %>%
+  summarize(sum=sum(n, na.rm=TRUE)) %>%
+  mutate(patch=case_when(
+    patch == "c" ~ "Corridor",
+    patch == "m" ~ "Matrix",
+    patch == "w" ~ "Winged",
+    patch == "r" ~ "Rectangle",
+    .default = as.character(patch)))
+
+
+
+ggplot(btl_avg_patch2, aes(x=as.factor(patch),
+                           y=sum)) +
+  geom_boxplot(stat = "boxplot") +
+  geom_jitter(color="blue", size=0.4, alpha=0.9) +
   theme_classic()
 
 

@@ -312,4 +312,38 @@ spp_table
 btl_data<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_clean","clean_btl_counts.csv"))
 spp_codes<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_raw","species_codes.csv"))
 
+
+btl_sums_patch<-btl_data %>%
+  select(-sum) %>% 
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  group_by(patch) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  arrange(patch,desc(n)) %>% 
+  mutate(patch=case_when(
+    patch == "c" ~ "Corridor",
+    patch == "m" ~ "Matrix",
+    patch == "w" ~ "Winged",
+    patch == "r" ~ "Rectangle",
+    .default = as.character(patch))) 
+
+
+
+abund_patch<-knitr::kable(btl_sums_patch, 
+      digits = 2,
+      align="lr",
+      format="latex",
+      row.names = FALSE,
+      booktabs=T,
+      linesep = "", #removes the blank line after every 5 lines
+      caption = "Total dung beetles captured in all replicates of a patch type.") %>%
+  kable_styling(bootstrap_options = c("striped"),
+                full_width = F,
+                latex_options="scale_down",
+                font_size = 12,
+                position = "left") %>% 
+  # column_spec(1, italic = T) %>% 
+  row_spec(0, bold = T) 
+  # row_spec(1:15, hline_after = T) 
+abund_patch
+
 ```
