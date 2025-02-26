@@ -7,7 +7,8 @@ library(tidyverse)
 library(here)
 library(lubridate) # to deal with dates https://lubridate.tidyverse.org/
 library(vegan)
-
+library(permute)
+library(lattice)
 # load data ---------------------------------------------------------------
 
 btl_data<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_clean","clean_btl_counts.csv"))
@@ -158,7 +159,7 @@ btl_sums_patch<-btl_data %>%
 # summaries by patch type -------------------------------------------------
 
 
-btl_data_sums<-btl_data %>%
+btl_sums_patch<-btl_data %>%
   pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
   group_by(species,patch) %>%
   summarize(n=sum(n, na.rm=TRUE)) %>%
@@ -344,13 +345,21 @@ btl_spec_patch<- btl_data |>
   group_by(species,patch) |>
   summarise(n=sum(n, na.rm=TRUE)) |>
   arrange(patch,desc(n)) |>
-  pivot_wider(values_from=n,names_from=species) |> 
+  pivot_wider(values_from=n,names_from=species) |>
+  mutate(patch=case_when(
+    patch == "c" ~ "Corridor",
+    patch == "m" ~ "Matrix",
+    patch == "w" ~ "Winged",
+    patch == "r" ~ "Rectangle",
+    .default = as.character(patch))) |>
   column_to_rownames("patch")
 # hill number comparisson 
-hill_btl <- renyi(hill_btl_data, hill = TRUE)
+hill_btl <- renyi(btl_spec_patch, hill = TRUE)
 
-plot(hill_btl)
-
+hill_plot<-plot(hill_btl)
+hill_plot
+# ggsave(hill_plot, 
+#        "hill_plot.png")
 # bray curtis
 #example
 #taxa_bray = vegan::vegdist(data, method = "bray", binary = FALSE)

@@ -50,6 +50,27 @@ biblio-style: apalike
 csl: ecology.csl
 ---
 
+
+```{r GlobalOptions, include = FALSE}
+options(knitr.duplicate.label = 'allow')
+```
+
+
+```{r setup, include = FALSE}
+
+knitr::opts_chunk$set(echo = FALSE,message=FALSE,warning=FALSE)
+library(here)
+library(tidyverse)
+library(kableExtra)
+# library(gridExtra)
+# library(egg)
+# library(magick)
+# library(citr)
+# library(devtools)
+# devtools::install_github("crsh/papaja")
+```
+
+
 # Abstract
 
 Thesis abstracts should be 250 words or less.
@@ -199,3 +220,96 @@ A biographical sketch is required of all candidates. The biographical sketch sho
 
 
 
+
+```{r Table1, echo=FALSE,message = FALSE,warning=FALSE}
+# https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html
+
+btl_data<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_clean","clean_btl_counts.csv"))
+spp_codes<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_raw","species_codes.csv"))
+
+btl_order<-btl_data %>%
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  group_by(species) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  arrange(desc(n)) %>%
+  mutate(species = reorder(species, desc(n))) %>% 
+  rename(sp_code=species)
+
+btl_sums_patch<-btl_data %>%
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  group_by(species,patch) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  arrange(patch,desc(n)) %>% 
+  rename(sp_code=species,
+         n_patch=n) %>% 
+  pivot_wider(
+    names_from = patch,
+    values_from = c(n_patch))
+
+btl_order<-full_join(btl_order,btl_sums_patch,by="sp_code")
+
+spp_table<-btl_order %>% 
+  left_join(spp_codes,by="sp_code") %>% 
+  unite("species",genus:species, sep=" ") %>% 
+  mutate(species=if_else(sp_code=="ap*", "Aphodius spp.",species)) %>% 
+  mutate(c=case_when(
+  c == 0 ~ " ",
+  c > 0 ~ "x",
+  .default = as.character(c)
+)) %>% 
+  mutate(m=case_when(
+  m == 0 ~ " ",
+  m > 0 ~ "x",
+  .default = as.character(m)
+)) %>% 
+  mutate(r=case_when(
+  r == 0 ~ " ",
+  r > 0 ~ "x",
+  .default = as.character(r)
+)) %>% 
+mutate(w=case_when(
+  w == 0 ~ " ",
+  w > 0 ~ "x",
+  .default = as.character(w)
+)) %>% 
+  select(species,n,m,c,w,r) %>% 
+  rename(Species=species,
+         N=n,
+         Matrix=m,
+         Corridor=c,
+         Winged=w,
+         Rectangular=r)
+
+
+spp_table<-knitr::kable(spp_table, 
+      digits = 2,
+      align="lrcccc",
+      format="latex",
+      row.names = FALSE,
+      booktabs=T,
+      linesep = "", #removes the blank line after every 5 lines
+      caption = "Dung beetle species sampled in the SRS site and their total abundance over the course of the study.") %>%
+  kable_styling(bootstrap_options = c("striped"),
+                full_width = F,
+                latex_options="scale_down",
+                font_size = 12,
+                position = "left") %>% 
+  column_spec(1, italic = T) %>% 
+  row_spec(0, bold = T) %>% 
+  row_spec(1:15, hline_after = T) 
+spp_table
+```
+
+
+
+
+
+
+
+```{r Table2, echo=FALSE,message = FALSE,warning=FALSE}
+# https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html
+
+btl_data<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_clean","clean_btl_counts.csv"))
+spp_codes<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_raw","species_codes.csv"))
+
+```
