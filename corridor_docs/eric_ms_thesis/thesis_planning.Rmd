@@ -70,19 +70,9 @@ INTRODUCTION
 
 - First Paragraph: What is the topic of your introduction and why is it important/interesting/relevant?
 
-As human disturbances continue to expand into natural landscapes, intact habitats are becoming increasingly fragmented. This degradation lends to loss in biodiversity on a global scale and interruptions in ecosystem processes and functions [@haddad_habitat_2015]. Effects from isolation can vary, however as habitats are broken down community structures are significantly altered [@WOS:000419965700012]. Corridors have been shown to be an important mechanism for facilitating the movement of organisms through fragmented landscapes with the goal of minimizing negative consequences of fragmentation[@haddad_corridor_2003].
+As human disturbances continue to expand into natural landscapes, intact habitats are becoming increasingly fragmented. This degradation lends to loss in biodiversity on a global scale and interruptions in ecosystem processes and functions [@haddad_habitat_2015]. Effects from isolation can vary, however as habitats are broken down community structures are significantly altered [@WOS:000419965700012]. Corridors have been shown to be an important mechanism for facilitating the movement of organisms through fragmented landscapes with the goal of minimizing negative consequences of fragmentation[@haddad_corridor_2003]. As disturbance continues to intensify, it is becoming increasingly more important to understand how different taxonomic groups. Here, we aim to gain an understanding of how dung beetles, a group of insects well known for strong dispersal ability in order to compete for ephemeral resources(Hanski and Cambefort 1991), interact with corridors in their landscapes.  
 
-What?
 
-Connectivity and fragmentation 
-understanding how movement corridors effect populations dung beetles 
-Dispersal ability 
-
-Why?
-
-Understanding responses to landscape change allows us to anticipate how environments might change with further disturbance. 
-Patterns in population distributions might suggest how we can study focal organisms in the future.
-Could help understand how interactions may be changing.
 
 - Second Paragraph: What is known about this topic already?
 
@@ -98,8 +88,9 @@ studying coprophagous insects
 - Third Paragraph: What isn't known about this topic and why might it change how we think/act about the topic?
 
 How corridors directly impact dung beetle communitites
-
 are changes driven by dispersal ability 
+
+Dung beetles are an incredibly well studied group of insects which play an important role in providng ecosystem services for dung removal, secondary seed distribution, and even suppressing populations of parasitic pests[@shepherd_dung_1998; @WOS:000369463100010]. Studies have also focused on how landscape structures alter community compositions[@WOS:000398662200001], yet direect 
 
 at our study site we can directly compare patch connectivity and patch shape with fragmented landscapes to obtain a strong idea of what landscape features effect dung beetle collection. 
 
@@ -124,6 +115,8 @@ Our study took place at the Savannah River Site(SRS), a National Environmental R
 Dung beetle sampling 
 
 In the months of July and August 2024 dung beetles were sampled in 4 blocks spread across SRS, baited pitfall traps were placed in one of each patch type and in one matrix plot per block. Traps were placed in groups of 3 in the centers of each patch approximately 250 meters from the midpoint of the central patch 40 m from patch edge. Pitfalls were oriented in a triangular pattern with the bottom two traps positioned towards the center patch, each trap 20 m apart. Plots in the matrix were set up in a similar fashion with the center point 250 m from the center placed equidistant between adjacent patches.  For each sample period, traps were baited with pig dung between 8-9 pm and picked up 12 hours later, all beetles captured were stored in ethanol for further processing. In total 16 sampling rounds were carried out with 4 rounds per block, 196 samples were collected. All dung beetles were counted and identified to species with the exception of beetles of the genus Aphodius, overall 15 species were identified and approximately 5300 individual beetles were collected.  
+
+Insert description above of individual trap
 
 ## Study site 
 
@@ -169,7 +162,6 @@ In the months of July and August 2024 dung beetles were sampled in 4 blocks spre
 
 
 # RESULTS
-git config --global user.email "you@example.com"
 some summary statistics: 
 
 
@@ -194,7 +186,7 @@ Acknowledgments must be written in complete sentences. Do not use direct address
 # OTHER REQUIRED TEXT
 
 ### Dedication 
-Your dedication is typed here. It should begin with the word “To.” (To my Mom is a typical dedication) If your dedication is longer than a single line it should be single-spaced, and centered vertically and horizontally
+To my family who never stopped supporting me along this journey, my friends who kept me company along the way, and my mentors at VCU who believed in me before I did myself. 
 
 
 ### List of Abbreviations

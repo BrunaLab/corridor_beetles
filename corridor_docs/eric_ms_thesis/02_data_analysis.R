@@ -368,7 +368,32 @@ btl_spec_patch<- btl_data |>
   column_to_rownames("patch")
 
 
+rarefaction_data<-btl_data %>% 
+  select(-c(month,day,year,date)) %>% 
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  group_by(sample_id,species) %>% 
+  summarize(n=sum(n)) %>% 
+  pivot_wider(values_from=n,names_from=species) %>% 
+  column_to_rownames("sample_id") %>% 
+  filter((rowSums(rarefaction_data) > 10)) 
 
+s <- specnumber(btl_spec_patch)
+s
+(raremax <- min(rowSums(btl_spec_patch)))
+
+btl.rare <- rarefy(btl_spec_patch, raremax)
+btl.rare
+plot(s,btl.rare,xlab = "Observed No. of Species", ylab = "Rarefied No. of Species")
+
+
+rarecurve(btl_spec_patch, step = 20, sample = raremax, col = "blue", cex = 0.6)
+
+rarecurve(rarefaction_data, 
+          step = 20, 
+          sample = raremax, 
+          col = "blue", 
+          cex = 0.6,
+          label=FALSE)
 
 
 
