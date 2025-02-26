@@ -315,9 +315,15 @@ rarecurve(rarefaction_data,
 # sandbox -----------------------------------------------------------------
 
 
+hill_num = renyi(data, hill= TRUE)
 
-
-
+btl_order<-btl_data %>%
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  group_by(species) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  arrange(desc(n)) %>%
+  mutate(species = reorder(species, desc(n)))
+btl_order
 
 
 
