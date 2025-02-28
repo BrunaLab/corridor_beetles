@@ -15,13 +15,114 @@ library(ggmosaic)
 btl_data<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_clean","clean_btl_counts.csv"))
 
 
-# quick summaries to look over the sampling point information ---------------
-# how many points in each block, how many points per treatment, etc.
 
-# names(btl)
-# 
-# smpl_pts %>% 
-#   group_by(block) %>% 
+# TO DO -------------------------------------------------------------------
+
+# total beetles captured --------------------------------------------------
+total_N<-btl_data %>% 
+  summarise(n=sum(sum, na.rm=TRUE))
+total_N
+# How many species total?
+total_spp<-btl_data %>% 
+  select(-sum) %>% 
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  group_by(species) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  arrange(desc(n)) %>%
+  mutate(species = reorder(species, desc(n))) %>% 
+  summarise(n_spp=n_distinct(species))
+total_spp
+
+# Number captured per species (all data pooled) ---------------------------
+btl_order<-btl_data %>%
+  select(-sum) %>% 
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  group_by(species) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  arrange(desc(n)) %>%
+  mutate(species = reorder(species, desc(n)))
+btl_order
+
+
+# Number captured per block -----------------------------------------------
+N_block<-btl_data %>%
+  select(-sum) %>% 
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  group_by(block) %>%
+  summarize(n=sum(n, na.rm=TRUE))
+N_block
+
+# number species per block ------------------------------------------------
+
+N_spp_block<-btl_data %>%
+  select(-sum) %>% 
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  filter(n>0) %>% 
+  group_by(block) %>%
+  summarize(n_spp=n_distinct(species, na.rm=TRUE))
+N_spp_block
+
+
+# count per species per block ---------------------------------------------
+
+btl_order_block<-btl_data %>%
+  select(-sum) %>% 
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  group_by(block,species) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  arrange(block,desc(n)) %>%
+  pivot_wider(names_from = block, 
+              values_from = n,
+              names_prefix = "block_")
+btl_order_block
+
+
+# number species per patch type --------------------------------------------
+
+N_spp_patch<-btl_data %>%
+  select(-sum) %>% 
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  filter(n>0) %>% 
+  group_by(patch) %>%
+  summarize(n_spp=n_distinct(species, na.rm=TRUE)) %>% 
+  arrange(desc(n_spp))
+N_spp_patch
+
+
+# count per species per patch type -----------------------------------------
+
+btl_order_patch<-btl_data %>%
+  select(-sum) %>% 
+  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  group_by(patch,species) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  pivot_wider(names_from = patch, 
+              values_from = n) %>% 
+  arrange(desc(c)) %>%
+  mutate(rank_c=row_number()) %>% 
+  relocate(rank_c,.after="c") %>% 
+  mutate(rank_c=if_else(c==0,NA,rank_c)) %>% 
+  arrange(desc(r)) %>%
+  mutate(rank_r=row_number()) %>% 
+  mutate(rank_r=if_else(r==0,NA,rank_r)) %>% 
+  relocate(rank_r,.after="r") %>% 
+  arrange(desc(w)) %>%
+  mutate(rank_w=row_number()) %>% 
+  mutate(rank_w=if_else(w==0,NA,rank_w)) %>% 
+  relocate(rank_w,.after="w") %>% 
+  arrange(desc(m)) %>%
+  relocate(m,.after="species") %>% 
+  mutate(rank_m=row_number()) %>% 
+  relocate(rank_m,.after="m") %>% 
+  mutate(rank_m=if_else(m==0,NA,rank_m)) 
+btl_order_patch
+
+
+
+# total number of sample points -------------------------------------------
+
+# smpl_pts %>%
+#   group_by(block) %>%
 #   tally()
 # 
 # smpl_pts %>% 
@@ -50,14 +151,6 @@ btl_data<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_clean",
 # summary data ------------------------------------------------------------
 
 
-# total beetles captured --------------------------------------------------
-
-
-total_N<-btl_data %>% summarise(n=sum(sum, na.rm=TRUE))
-
-
-# total N by species ------------------------------------------------------
-
 
 # total number of beetles sampled each round
 total_N_sample<-btl_data %>%
@@ -67,17 +160,6 @@ total_N_sample<-btl_data %>%
   arrange(date)
 total_N_sample
 
-
-# spp in order of no captured ---------------------------------------------
-
-
-btl_order<-btl_data %>%
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
-  group_by(species) %>%
-  summarize(n=sum(n, na.rm=TRUE)) %>%
-  arrange(desc(n)) %>%
-  mutate(species = reorder(species, desc(n)))
-btl_order
 
 
 btl_order_block_53n <-btl_data %>%
