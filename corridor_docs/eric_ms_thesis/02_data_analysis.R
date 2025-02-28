@@ -9,6 +9,7 @@ library(lubridate) # to deal with dates https://lubridate.tidyverse.org/
 library(vegan)
 library(permute)
 library(lattice)
+library(ggmosaic)
 # load data ---------------------------------------------------------------
 
 btl_data<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_clean","clean_btl_counts.csv"))
@@ -477,6 +478,20 @@ N_by_spp<-btl_data %>%
   
 
 
+#df = structure(list(effect = structure(c(2L, 2L, 1L, 1L), .Label = c("yes", 
+#                                                                     "no"), class = "factor"), sex = structure(c(1L, 2L, 1L, 2L), 
+#                                                                                                               .Label = c("f",  "m"), class = "factor"), n = c(8, 3, 8, 12)), 
+#               row.names = c(NA, -4L), class = "data.frame")
+
+#ggplot(df, aes(effect, y=n, fill = sex)) +
+#  geom_col(position="fill")
+
+head(btl_data_sums)
+
+mosaic_data <- filter(btl_data_sums, .by )
+
+ggplot(btl_data_sums, aes(species, y = n, fill = patch)) +
+  geom_col(position = "fill")
 
 # total N by date type --------------------------------------------------
 
