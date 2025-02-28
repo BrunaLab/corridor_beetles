@@ -1,0 +1,630 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\usepackage{lineno}
+\linenumbers
+\usepackage[default]{sourcesanspro}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyfoot{}
+\fancyhead[L]{EEC MS Thesis Draft}
+\fancyhead[R]{p. \thepage}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Influence of Connectivity on Dung Beetle Communities},
+  pdfauthor={ERIC IN ALL CAPS},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Influence of Connectivity on Dung Beetle Communities}
+\author{ERIC IN ALL CAPS}
+\date{}
+
+\begin{document}
+\maketitle
+
+\hypertarget{abstract}{%
+\section{Abstract}\label{abstract}}
+
+Thesis abstracts should be 250 words or less.
+
+\newpage
+
+\hypertarget{introduction}{%
+\section{INTRODUCTION}\label{introduction}}
+
+INTRODUCTION
+
+These movements are hypothesized to prevent species diversity from
+declining in fragments, as well as help maintain the ecosystem services
+provided by these species (at both the patch- and landscape-level)(Burt
+et al. 2022). Although there is some evidence that animals disperse
+between patches via corridors, and that connected patches have higher
+species diversity than unconnected ones, little work to date has
+investigated the consequences of these corridor-driven patterns for
+ecosystem services.
+
+Dung beetles have emerged as a model system with which to test
+hypotheses on how changes in landscape structure driven by human
+activities influence biodiversity and their ecosystem services (Roslin
+2000, Rös et al. 2012). The removal, breakdown, and burial of animal
+feces is an important ecosystem service provided by dung beetles such as
+enhanced nutrient cycling and soil quality and reduction of parasites on
+methane emissions from dung (Iwasa et al. 2015, Slade et al. 2016).
+Local assemblages of dung beetles can be species-rich with species
+comprising a broad range of functional traits (e.g., size, foraging
+style, resource-use) (deCastro-Arrazola et al. 2023). Previous studies
+have shown that isolated patches of habitat frequently have lower dung
+beetle diversity and abundance than areas of continuous habitat, as well
+as documented their presence in linear strips of habitat that resemble
+corridors (Gray et al. 2022). However, it remains unknown if corridors
+actually act to reduce the loss of dung beetle species from fragments,
+if such declines are influenced by inter-specific differences in
+dispersal capability, and what the consequences of these patterns are
+for the ecosystems services they provide. One major factor behind this
+lack of information is the challenge in finding locations where one can
+assess the role of corridors while also while controlling for
+confounding factors such as patch size, edge, and corridor length
+(Haddad 2015).
+
+\textbf{We sampled the commmunity of of dung beetles at the SRS Corridor
+Experiment to test the following prediction:} Species Richness, Species
+Diversity, and Functional Diversity will be higher in patches connected
+by corridors than in unconnected patches.
+
+\begin{itemize}
+\tightlist
+\item
+  First Paragraph: What is the topic of your introduction and why is it
+  important/interesting/relevant?
+\end{itemize}
+
+As human disturbances continue to expand into natural landscapes, intact
+habitats are becoming increasingly fragmented. This degradation lends to
+loss in biodiversity on a global scale and interruptions in ecosystem
+processes and functions (Haddad 2015). Effects from isolation can vary,
+however as habitats are broken down community structures are
+significantly altered (Laurance et al. 2018). Corridors have been shown
+to be an important mechanism for facilitating the movement of organisms
+through fragmented landscapes with the goal of minimizing negative
+consequences of fragmentation(Haddad et al. 2003). As disturbance
+continues to intensify, it is becoming increasingly more important to
+understand how different taxonomic groups. Here, we aim to gain an
+understanding of how dung beetles, a group of insects well known for
+strong dispersal ability in order to compete for ephemeral
+resources(Hanski and Cambefort 1991), interact with corridors in their
+landscapes.
+
+\begin{itemize}
+\tightlist
+\item
+  Second Paragraph: What is known about this topic already?
+\end{itemize}
+
+Effects of landscape change are already very well studied, accross
+different taxa . effects of edge, patch size, and direct habitat loss.
+using corridors to connect fragmented landscapes is also well studied
+and for many taxa. dung beetles as a model system for studying movement,
+functional diversity, and ecosystem health. dung beetle populations in
+connected and fragmented habitats . insect declines in fragmented
+landscapes.
+
+studying coprophagous insects
+
+\begin{itemize}
+\tightlist
+\item
+  Third Paragraph: What isn't known about this topic and why might it
+  change how we think/act about the topic?
+\end{itemize}
+
+How corridors directly impact dung beetle communitites are changes
+driven by dispersal ability
+
+Dung beetles are an incredibly well studied group of insects which play
+an important role in providng ecosystem services for dung removal,
+secondary seed distribution, and even suppressing populations of
+parasitic pests(Shepherd and Chapman 1998, Manning et al. 2016). Studies
+have also focused on how landscape structures alter community
+compositions(Costa et al. 2017), yet direect
+
+at our study site we can directly compare patch connectivity and patch
+shape with fragmented landscapes to obtain a strong idea of what
+landscape features effect dung beetle collection.
+
+\begin{itemize}
+\tightlist
+\item
+  Fourth Paragraph: Why hasn't this thing been studied/assessed/done
+  before?
+\end{itemize}
+
+other work at the corridor project but we are doing dung beetles instead
+
+\begin{itemize}
+\tightlist
+\item
+  Fifth Paragraph: Literally the words ``Here we\ldots{}''
+\end{itemize}
+
+Here sampled the commmunity of of dung beetles at the SRS Corridor
+Experiment to test the following prediction:
+
+Species richness, diversity, and functional diversity will be higher in
+patches connected by a movement corridor than in patches that are
+unconnected.
+
+\hypertarget{methods}{%
+\section{Methods}\label{methods}}
+
+Study site
+
+\begin{itemize}
+\tightlist
+\item
+  description of srs
+\end{itemize}
+
+Our study took place at the Savannah River Site(SRS), a National
+Environmental Research Park in southern South Carolina, US(33.208 N,
+81.408 W) in four of seven experimental landscapes designed for the
+purposes of directly observing the impacts of corridors and patch shape
+on the movements of plants and animals(Tewksbury et al. 2002). Each
+experimental landscape, termed blocks, consists of four patches of open
+habitat around a central patch all together within a matrix of pine
+savanna. In each replicant the central patch (100 x 100 m) is always
+connected to one peripheral patch with identical dimensions by a 150 x
+25 m corridor, this will hereafter be referred to as the connected
+patch. The remaining patches are either ``winged'' or ``rectangular''.
+The winged patch is also 100 x 100 m, however they exhibit their
+characteristic wings in the form of two 75 x 25 m offshoots meant to
+account for the extra area and edge space the corridor provides. The
+rectangular patch is 100 x 137.5 m also the same area as the space of
+the connected patch plus the corridor. Each block has a duplicate of
+either the winged or rectangle patch, all peripheral patches being 150 m
+from the center patch. For this study sampling was done in one of each
+patch type and in one matrix plot per block, all matrix blocks were set
+up 150 m away from the center as well.
+
+Dung beetle sampling
+
+In the months of July and August 2024 dung beetles were sampled in 4
+blocks spread across SRS, baited pitfall traps were placed in one of
+each patch type and in one matrix plot per block. Traps were placed in
+groups of 3 in the centers of each patch approximately 250 meters from
+the midpoint of the central patch 40 m from patch edge. Pitfalls were
+oriented in a triangular pattern with the bottom two traps positioned
+towards the center patch, each trap 20 m apart. Plots in the matrix were
+set up in a similar fashion with the center point 250 m from the center
+placed equidistant between adjacent patches. For each sample period,
+traps were baited with pig dung between 8-9 pm and picked up 12 hours
+later, all beetles captured were stored in ethanol for further
+processing. In total 16 sampling rounds were carried out with 4 rounds
+per block, 196 samples were collected. All dung beetles were counted and
+identified to species with the exception of beetles of the genus
+Aphodius, overall 15 species were identified and approximately 5300
+individual beetles were collected.
+
+Insert description above of individual trap
+
+\hypertarget{study-site}{%
+\subsection{Study site}\label{study-site}}
+
+\begin{itemize}
+\tightlist
+\item
+  description of srs
+\item
+  experimental design
+\item
+  conditions during sample period
+\item
+  historical significance of site and experimental design
+\item
+  justification for selected patches
+\end{itemize}
+
+\hypertarget{dung-beetle-sampling}{%
+\subsection{Dung beetle sampling}\label{dung-beetle-sampling}}
+
+\begin{itemize}
+\tightlist
+\item
+  structure and arrangment of traps
+\item
+  description of traps
+\item
+  bait
+\item
+  sample period
+\item
+  ID
+\item
+  biomass if we do biomass
+\end{itemize}
+
+\hypertarget{analyses}{%
+\subsubsection{Analyses}\label{analyses}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Species Richness:} absolute number? non-parametric estimators?
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Michaelis-Menten
+\item
+  choa?
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Species Diversity:} what index should we compare?
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  alpha diversity per patch type
+\item
+  beta between patch types
+\item
+  hill numbers
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Functional Diversity:} Need to assign each species to a
+  functional group: roller, tunneler. dweller, others?
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  habitat preference (forest, pasture, generalist)
+\end{itemize}
+
+\begin{quote}
+\emph{Look through dung beetle pubs and see how/what people compare}
+\end{quote}
+
+\begin{itemize}
+\tightlist
+\item
+  lets hammer this out
+\item
+  modeling?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    glmm with poisson dist reccomended by julian
+  \end{itemize}
+\item
+  beta, abundance, biomass? per site
+\item
+  species list by sampling blocks (anything with this?)
+\item
+  habitat preference
+\item
+  rarefaction
+\end{itemize}
+
+\hypertarget{results}{%
+\section{RESULTS}\label{results}}
+
+some summary statistics:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  total number of beetles \emph{from} total number of species
+\item
+  were all species found in all habitats? Were any species found in only
+  1 habitat?
+\item
+  Were all species found in all blocks? Were any restricted to only 1-2
+  blocks?
+\item
+  Were all species found in the matrix? (expect that so, since it is the
+  `baseline' or `source' habitat)
+\item
+  Number of species in each functional group
+\item
+  most common 3-4 species
+\item
+  any rare species?
+\end{enumerate}
+
+\hypertarget{discussion}{%
+\section{DISCUSSION}\label{discussion}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  dont forget o discuss the basic biology\ldots why might a species be
+  so common? why might one be rare?
+\end{enumerate}
+
+\hypertarget{acknowledgments}{%
+\section{ACKNOWLEDGMENTS}\label{acknowledgments}}
+
+Acknowledgments must be written in complete sentences. Do not use direct
+address. For example, instead of Thanks, Mom and Dad!, you should say I
+thank my parents. The heading ``ACKNOWLEDGMENTS'' uses the 002 CHAPTER
+TITLE style.. The paragraphs in this section should use the style called
+006 Body Text
+
+\hypertarget{other-required-text}{%
+\section{OTHER REQUIRED TEXT}\label{other-required-text}}
+
+\hypertarget{dedication}{%
+\subsubsection{Dedication}\label{dedication}}
+
+To my family who never stopped supporting me along this journey, my
+friends who kept me company along the way, and my mentors at VCU who
+believed in me before I did myself.
+
+\hypertarget{list-of-abbreviations}{%
+\subsubsection{List of Abbreviations}\label{list-of-abbreviations}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  A word to be defined: Write the definition here.
+\item
+  Another word: And the list continues with another definition.
+\end{enumerate}
+
+\hypertarget{biographical-sketch}{%
+\section{Biographical Sketch}\label{biographical-sketch}}
+
+A biographical sketch is required of all candidates. The biographical
+sketch should be in narrative form. Third person, past tense, it
+typically includes the educational background of the candidate. The
+author should have replaced this paragraph with their own.
+
+\begin{table}
+
+\caption{\label{tab:Table1}Dung beetle species sampled in the SRS site and their total abundance over the course of the study.}
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\fontsize{12}{14}\selectfont
+\begin{tabular}[t]{>{}lrcccc}
+\toprule
+\textbf{Species} & \textbf{N} & \textbf{Matrix} & \textbf{Corridor} & \textbf{Winged} & \textbf{Rectangular}\\
+\midrule
+\em{Canthon vigilans} & 1300 & x & x & x & x\\
+\midrule
+\em{Ateuchus lecontei} & 1112 & x & x & x & x\\
+\midrule
+\em{Phanaeus igneus} & 919 & x & x & x & x\\
+\midrule
+\em{Aphodius spp.} & 614 & x & x & x & x\\
+\midrule
+\em{Dichotomius carolinus} & 547 & x & x & x & x\\
+\midrule
+\em{Onthophagus pennsylvanicus} & 202 & x & x & x & x\\
+\midrule
+\em{Phanaeus vindex} & 131 & x & x & x & x\\
+\midrule
+\em{Melanocanthon bispinatus} & 75 & x & x & x & x\\
+\midrule
+\em{Boreocanthon probus} & 47 & x & x & x & x\\
+\midrule
+\em{Copris minutus} & 24 & x & x & x & x\\
+\midrule
+\em{Deltochilum gibbosum} & 14 & x & x & x & x\\
+\midrule
+\em{Melanocanthon vulturnatus} & 7 & x & x &  & x\\
+\midrule
+\em{Onthophagus striatulus} & 3 & x &  &  & x\\
+\midrule
+\em{Onthophagus concinnus} & 2 & x &  & x & \\
+\midrule
+\em{Geotrupes blackburnii} & 1 &  &  & x & \\
+\midrule
+\em{Onthophagus tuberculifrons} & 1 & x &  &  & \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\vadjust pre{\hypertarget{ref-burt_ants_2022}{}}%
+Burt, M. A., J. Resasco, N. M. Haddad, and S. R. Whitehead. 2022.
+\href{https://doi.org/10.1002/ecs2.4324}{Ants disperse seeds farther in
+habitat patches with corridors}. Ecosphere 13:e4324.
+
+\leavevmode\vadjust pre{\hypertarget{ref-WOS:000398662200001}{}}%
+Costa, C., V. H. F. Oliveira, R. Maciel, W. Beiroz, V. Korasaki, and J.
+Louzada. 2017. \href{https://doi.org/10.7717/peerj.3125}{Variegated
+tropical landscapes conserve diverse dung beetle communities}. {PEERJ}
+5.
+
+\leavevmode\vadjust pre{\hypertarget{ref-WOS:000891747700001}{}}%
+deCastro-Arrazola, I., N. R. Andrew, M. P. Berg, A. Curtsdotter, J.-P.
+Lumaret, R. Menendez, M. Moretti, B. Nervo, E. S. Nichols, F.
+Sanchez-Pinero, A. M. C. Santos, K. S. Sheldon, E. M. Slade, and J.
+Hortal. 2023. \href{https://doi.org/10.1111/1365-2656.13829}{A
+trait-based framework for dung beetle functional ecology}. {JOURNAL}
+{OF} {ANIMAL} {ECOLOGY} 92:44--65.
+
+\leavevmode\vadjust pre{\hypertarget{ref-WOS:000707546700001}{}}%
+Gray, R. E. J., L. F. Rodriguez, O. T. Lewis, A. Y. C. Chung, O.
+Ovaskainen, and E. M. Slade. 2022.
+\href{https://doi.org/10.1111/1365-2664.14049}{Movement of
+forest-dependent dung beetles through riparian buffers in bornean oil
+palm plantations}. {JOURNAL} {OF} {APPLIED} {ECOLOGY} 59:238--250.
+
+\leavevmode\vadjust pre{\hypertarget{ref-haddad_habitat_2015}{}}%
+Haddad, N. M. 2015, March 20. Habitat fragmentation and its lasting
+impact on earth's ecosystems {\textbar} science advances.
+\url{https://www-science-org.lp.hscl.ufl.edu/doi/10.1126/sciadv.1500052}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-haddad_corridor_2003}{}}%
+Haddad, N. M., D. R. Bowne, A. Cunningham, B. J. Danielson, D. J. Levey,
+S. Sargent, and T. Spira. 2003.
+\href{https://doi.org/10.1890/0012-9658(2003)084\%5B0609:CUBDT\%5D2.0.CO;2}{{CORRIDOR}
+{USE} {BY} {DIVERSE} {TAXA}}. Ecology 84:609--615.
+
+\leavevmode\vadjust pre{\hypertarget{ref-WOS:000350444300013}{}}%
+Iwasa, M., Y. Moki, and J. Takahashi. 2015.
+\href{https://doi.org/10.1093/ee/nvu023}{Effects of the activity of
+coprophagous insects on greenhouse gas emissions from cattle dung pats
+and changes in amounts of nitrogen, carbon, and energy}. {ENVIRONMENTAL}
+{ENTOMOLOGY} 44:106--113.
+
+\leavevmode\vadjust pre{\hypertarget{ref-WOS:000419965700012}{}}%
+Laurance, W. F., J. L. C. Camargo, P. M. Fearnside, T. E. Lovejoy, G. B.
+Williamson, R. C. G. Mesquita, C. F. J. Meyer, P. E. D. Bobrowiec, and
+S. G. W. Laurance. 2018. \href{https://doi.org/10.1111/brv.12343}{An
+amazonian rainforest and its fragments as a laboratory of global
+change}. {BIOLOGICAL} {REVIEWS} 93:223--247.
+
+\leavevmode\vadjust pre{\hypertarget{ref-WOS:000369463100010}{}}%
+Manning, P., E. M. Slade, S. A. Beynon, and O. T. Lewis. 2016.
+\href{https://doi.org/10.1016/j.agee.2015.11.007}{Functionally rich dung
+beetle assemblages are required to provide multiple ecosystem services}.
+{AGRICULTURE} {ECOSYSTEMS} \& {ENVIRONMENT} 218:87--94.
+
+\leavevmode\vadjust pre{\hypertarget{ref-ros_how_2012}{}}%
+Rös, M., F. Escobar, and G. Halffter. 2012.
+\href{https://doi.org/10.1111/j.1472-4642.2011.00834.x}{How dung beetles
+respond to a human-modified variegated landscape in mexican cloud
+forest: A study of biodiversity integrating ecological and
+biogeographical perspectives}. Diversity and Distributions 18:377--389.
+
+\leavevmode\vadjust pre{\hypertarget{ref-roslin_dung_2000}{}}%
+Roslin, T. 2000.
+\href{https://doi.org/10.1034/j.1600-0706.2000.910213.x}{Dung beetle
+movements at two spatial scales}. Oikos 91:323--335.
+
+\leavevmode\vadjust pre{\hypertarget{ref-shepherd_dung_1998}{}}%
+Shepherd, V. E., and C. A. Chapman. 1998.
+\href{https://doi.org/10.1017/S0266467498000169}{Dung beetles as
+secondary seed dispersers: Impact on seed predation and germination}.
+Journal of Tropical Ecology 14:199--215.
+
+\leavevmode\vadjust pre{\hypertarget{ref-slade_disentangling_2016}{}}%
+Slade, E. M., T. Roslin, M. Santalahti, and T. Bell. 2016.
+\href{https://doi.org/10.1111/oik.02640}{Disentangling the ``brown
+world' faecal-detritus interaction web: Dung beetle effects on soil
+microbial properties}. Oikos (Copenhagen, Denmark) 125:629--635.
+
+\leavevmode\vadjust pre{\hypertarget{ref-tewksbury_corridors_2002}{}}%
+Tewksbury, J. J., D. J. Levey, N. M. Haddad, S. Sargent, J. L. Orrock,
+A. Weldon, B. J. Danielson, J. Brinkerhoff, E. I. Damschen, and P.
+Townsend. 2002. \href{https://doi.org/10.1073/pnas.202242699}{Corridors
+affect plants, animals, and their interactions in fragmented
+landscapes}. Proceedings of the National Academy of Sciences
+99:12923--12926.
+
+\end{CSLReferences}
+
+\end{document}
