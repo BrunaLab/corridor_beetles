@@ -78,7 +78,7 @@ write_csv(smpl_pts,"./corridor_docs/eric_ms_thesis/ms_data/data_clean/clean_samp
 btl_counts<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_raw","beetle_counts.csv")) %>% 
   mutate(sample_id=as.factor(sample_id)) %>% 
   rowwise() %>%
-  mutate(sum = sum(c_across(pvin:ocon), na.rm = TRUE)) %>% 
+  mutate(sum = sum(c_across(pvin:osyl), na.rm = TRUE)) %>% 
   mutate(sum=ifelse(sum==0,NA,sum)) %>% 
 #  select(-c("...18","...19")) %>% 
   replace(is.na(.), 0) %>% 
