@@ -25,7 +25,7 @@ total_N
 # How many species total?
 total_spp<-btl_data %>% 
   select(-sum) %>% 
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   group_by(species) %>%
   summarize(n=sum(n, na.rm=TRUE)) %>%
   arrange(desc(n)) %>%
@@ -36,7 +36,7 @@ total_spp
 # Number captured per species (all data pooled) ---------------------------
 btl_order<-btl_data %>%
   select(-sum) %>% 
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   group_by(species) %>%
   summarize(n=sum(n, na.rm=TRUE)) %>%
   arrange(desc(n)) %>%
@@ -47,7 +47,7 @@ btl_order
 # Number captured per block -----------------------------------------------
 N_block<-btl_data %>%
   select(-sum) %>% 
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   group_by(block) %>%
   summarize(n=sum(n, na.rm=TRUE))
 N_block
@@ -56,7 +56,7 @@ N_block
 
 N_spp_block<-btl_data %>%
   select(-sum) %>% 
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   filter(n>0) %>% 
   group_by(block) %>%
   summarize(n_spp=n_distinct(species, na.rm=TRUE))
@@ -67,7 +67,7 @@ N_spp_block
 
 btl_order_block<-btl_data %>%
   select(-sum) %>% 
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   group_by(block,species) %>%
   summarize(n=sum(n, na.rm=TRUE)) %>%
   arrange(block,desc(n)) %>%
@@ -81,7 +81,7 @@ btl_order_block
 
 N_spp_patch<-btl_data %>%
   select(-sum) %>% 
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   filter(n>0) %>% 
   group_by(patch) %>%
   summarize(n_spp=n_distinct(species, na.rm=TRUE)) %>% 
@@ -93,7 +93,7 @@ N_spp_patch
 
 btl_order_patch<-btl_data %>%
   select(-sum) %>% 
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   group_by(patch,species) %>%
   summarize(n=sum(n, na.rm=TRUE)) %>%
   pivot_wider(names_from = patch, 
@@ -154,7 +154,7 @@ btl_order_patch
 
 # total number of beetles sampled each round
 total_N_sample<-btl_data %>%
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   group_by(date) %>% 
   summarise(n=sum(n, na.rm=TRUE)) %>% 
   arrange(date)
@@ -163,7 +163,7 @@ total_N_sample
 
 
 btl_order_block_53n <-btl_data %>%
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   filter(block == "53n") %>%
   group_by(species) %>%
   summarize(n=sum(n, na.rm=TRUE)) %>%
@@ -171,7 +171,7 @@ btl_order_block_53n <-btl_data %>%
   mutate(species = reorder(species, desc(n)))
 
 btl_order_block_8 <-btl_data %>%
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   filter(block == "8") %>%
   group_by(species) %>%
   summarize(n=sum(n, na.rm=TRUE)) %>%
@@ -179,7 +179,7 @@ btl_order_block_8 <-btl_data %>%
   mutate(species = reorder(species, desc(n)))
 
 btl_order_block_52 <-btl_data %>%
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   filter(block == "52") %>%
   group_by(species) %>%
   summarize(n=sum(n, na.rm=TRUE)) %>%
@@ -187,7 +187,7 @@ btl_order_block_52 <-btl_data %>%
   mutate(species = reorder(species, desc(n)))
 
 btl_order_block_54 <-btl_data %>%
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   filter(block == "54") %>%
   group_by(species) %>%
   summarize(n=sum(n, na.rm=TRUE)) %>%
@@ -195,7 +195,7 @@ btl_order_block_54 <-btl_data %>%
   mutate(species = reorder(species, desc(n)))
 
 btl_order_m <-btl_data %>%
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   filter(patch == "m") %>%
   group_by(species) %>%
   summarize(n=sum(n, na.rm=TRUE)) %>%
@@ -203,7 +203,7 @@ btl_order_m <-btl_data %>%
   mutate(species = reorder(species, desc(n)))
 
 btl_order_c <-btl_data %>%
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   filter(patch == "c") %>%
   group_by(species) %>%
   summarize(n=sum(n, na.rm=TRUE)) %>%
@@ -211,7 +211,7 @@ btl_order_c <-btl_data %>%
   mutate(species = reorder(species, desc(n)))
 
 btl_order_w <-btl_data %>%
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   filter(patch == "w") %>%
   group_by(species) %>%
   summarize(n=sum(n, na.rm=TRUE)) %>%
@@ -219,7 +219,7 @@ btl_order_w <-btl_data %>%
   mutate(species = reorder(species, desc(n)))
 
 btl_order_r <-btl_data %>%
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   filter(patch == "r") %>%
   group_by(species) %>%
   summarize(n=sum(n, na.rm=TRUE)) %>%
@@ -234,7 +234,7 @@ btl_order_r <-btl_data %>%
 
 btl_sums_patch<-btl_data %>%
   select(-sum) %>% 
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   group_by(patch) %>%
   summarize(n=sum(n, na.rm=TRUE)) %>%
   arrange(patch,desc(n)) %>% 
@@ -259,7 +259,7 @@ ggplot(btl_sums_patch, aes(x=as.factor(patch),
 
 btl_avg_patch<-btl_data %>%
   select(-sum) %>% 
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   group_by(block,patch) %>%
   summarize(sum=sum(n, na.rm=TRUE)) %>%
   group_by(patch) %>%
@@ -283,7 +283,7 @@ ggplot(btl_avg_patch, aes(x=as.factor(patch),
 
 btl_avg_patch2<-btl_data %>%
   select(-sum) %>% 
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   group_by(block,patch) %>%
   summarize(sum=sum(n, na.rm=TRUE)) %>%
   mutate(patch=case_when(
@@ -306,14 +306,14 @@ ggplot(btl_avg_patch2, aes(x=as.factor(patch),
 
 
 btl_sums_patch<-btl_data %>%
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   group_by(species,patch) %>%
   summarize(n=sum(n, na.rm=TRUE)) %>%
   arrange(patch,desc(n))
 
 
 btl_data_sums<-btl_data %>%
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   group_by(species,patch) %>%
   summarize(n=sum(n, na.rm=TRUE)) %>%
   arrange(patch,desc(n))
@@ -332,7 +332,7 @@ ggplot(btl_data_sums, aes(x=species, y=n)) +
 
 
 mega_spp<-btl_data %>%
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   group_by(species) %>% 
   summarise(n=sum(n, na.rm=TRUE)) %>% 
   filter(n>500) %>% 
@@ -342,7 +342,7 @@ mega_spp<-btl_data %>%
 
 
 rare_spp<-btl_data %>%
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   group_by(species) %>% 
   summarise(n=sum(n, na.rm=TRUE)) %>% 
   filter(n<50) %>% 
@@ -353,7 +353,7 @@ rare_spp<-btl_data %>%
 
 
 plot_n<-btl_data %>%
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   filter(species=="pign"|species=="alec"|species=="cvig")
 plot_btl_n <- function(data) {
   btl_n_plot<-ggplot(plot_n,
@@ -380,7 +380,7 @@ plot_btl_n <- function(data) {
 
 rarefaction_data<-btl_data %>%
   select(-c(month,day,year,sum,point,sample_id)) %>% 
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   mutate(sampling_date = as.integer(factor(date))) %>% 
   relocate(sampling_date,.before=1) %>% 
   # group_by(block,patch,sampling_date,species) %>%
@@ -396,7 +396,7 @@ rarefaction_data<-btl_data %>%
 
 
 #   
-#   pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+#   pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
 #   group_by(sample_id,species) %>% 
 #   summarize(n=sum(n)) %>% 
 #   pivot_wider(values_from=n,names_from=species) %>% 
@@ -404,7 +404,7 @@ rarefaction_data<-btl_data %>%
 # 
 # rarefaction_data<-btl_data %>% 
 #   select(-c(month,day,year,date, block, point)) %>% 
-#   pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+#   pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
 #   group_by(patch,species) %>% 
 #   summarize(n=sum(n)) %>% 
 #   pivot_wider(values_from=n,names_from=species) %>% 
@@ -429,7 +429,7 @@ rarefaction_data<-btl_data %>%
 # subsetting data so that there are no zeros 
 rarefaction_data<-btl_data %>% 
   select(-c(month,day,year,date)) %>% 
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   group_by(sample_id,species) %>% 
   summarize(n=sum(n)) %>% 
   pivot_wider(values_from=n,names_from=species) %>% 
@@ -465,7 +465,7 @@ rarecurve(rarefaction_data,
 #hill_num = renyi(data, hill= TRUE)
 
 #btl_order<-btl_data %>%
-  #pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  #pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   #group_by(species) %>%
   #summarize(n=sum(n, na.rm=TRUE)) %>%
   #arrange(desc(n)) %>%
@@ -473,21 +473,21 @@ rarecurve(rarefaction_data,
 #btl_order
 
 #btl_data_sums<-btl_data %>%
- # pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+ # pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   #group_by(species,patch) %>%
   #summarize(n=sum(n, na.rm=TRUE)) %>%
   #arrange(patch,desc(n))
 
 
 #btl_data_sums<-btl_data %>%
- # pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+ # pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   #group_by(species,patch) %>%
   #summarize(n=sum(n, na.rm=TRUE)) %>%
   #arrange(patch,desc(n))
 
 # species list by patch type
 btl_spec_patch<- btl_data |>
-  pivot_longer(pvin:ostr, names_to = "species", values_to = "n") |>
+  pivot_longer(pvin:osyl, names_to = "species", values_to = "n") |>
   group_by(species,patch) |>
   summarise(n=sum(n, na.rm=TRUE)) |>
   arrange(patch,desc(n)) |>
@@ -515,7 +515,7 @@ taxa_bray <- vegan::vegdist(btl_spec_patch, method = "bray", binary = FALSE)
 taxa_bray
 
 btl_spec_patch<- btl_data |>
-  pivot_longer(pvin:ostr, names_to = "species", values_to = "n") |>
+  pivot_longer(pvin:osyl, names_to = "species", values_to = "n") |>
   group_by(species,patch) |>
   summarise(n=sum(n, na.rm=TRUE)) |>
   arrange(patch,desc(n)) |>
@@ -525,7 +525,7 @@ btl_spec_patch<- btl_data |>
 
 rarefaction_data<-btl_data %>% 
   select(-c(month,day,year,date)) %>% 
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   group_by(sample_id,species) %>% 
   summarize(n=sum(n)) %>% 
   pivot_wider(values_from=n,names_from=species) %>% 
@@ -555,7 +555,7 @@ rarecurve(rarefaction_data,
 N_by_spp<-btl_data %>% 
   summarise(across(where(is.numeric), ~ sum(.x, na.rm = TRUE))) %>% 
   select(-c(sample_id,point,month,day,year,sum)) %>% 
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   arrange(desc(n))
   
 
@@ -584,7 +584,7 @@ N_by_patch<-btl_data %>%
 
   summarise(across(where(is.numeric), ~ sum(.x, na.rm = TRUE))) %>% 
   select(-c(sample_id,point,month,day,year,sum)) %>% 
-  pivot_longer(pvin:ostr,names_to = "species",values_to = "n") %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   arrange(desc(n)) 
 
 
