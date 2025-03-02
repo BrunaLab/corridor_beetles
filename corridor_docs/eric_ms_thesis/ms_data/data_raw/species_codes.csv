@@ -3,7 +3,7 @@ abic,Scarabaeidae,Aphodius,bicolor,,,y,,d
 acam,Scarabaeidae,Aphodius,campestris,,,y,,d
 acra,Scarabaeidae,Aphodius,crassulus,,,y,,d
 acyl,Scarabaeidae,Ataenius,cylindrus,,,y,,d
-alec,Scarabaeidae,Ateuchus,lecontei,,,y,y,
+alec,Scarabaeidae,Ateuchus,lecontei,,,y,y,t
 aliv,Scarabaeidae,Aphodius,lividus,,,y,,
 arub,Scarabaeidae,Aphodius,rubeolus,,,y,,
 astu,Scarabaeidae,Aphodius,stupidus,,,y,,
@@ -29,10 +29,12 @@ otub,Scarabaeidae,Onthophagus,tuberculifrons,,,y,y,t
 pign,Scarabaeidae,Phanaeus,igneus,floridanus,,y,y,t
 pper,Scarabaeidae,Pseudocanthon,perplexus,,,y,,
 ppro,Scarabaeidae,Peltotrupes,profundus,,,y,,
-pvin,Scarabaeidae,Phanaeus,vindex,,,n,y,tr
+pvin,Scarabaeidae,Phanaeus,vindex,,,n,y,t
 dgaz,Scarabaeidae,Digitonthophagous,gazella,,,n,y,t
 trog,Trogidae,Trox,unknown,,,n,y,
 stap,Staphylinidae,unknown,unknown,,,n,y,
 mvul,Scarabaeidae,Melanocanthon,vulturnatus,,,n,y,r
 hist,histeridae,saprinus,unknown,,,n,y,
 ostr,Scarabaeidae,Onthophagus,striatulus,striatulus,,n,y,t
+aaeg,Scarabaeidae,Aphodius,Alloblackburneus,aegrotus,,n,y,d
+osyl,Scarabaeidae,Aphodius,oximus,sylvestris,,n,y,d
