@@ -10,6 +10,7 @@ library(vegan)
 library(permute)
 library(lattice)
 library(ggmosaic)
+library(iNEXT)
 # load data ---------------------------------------------------------------
 
 btl_data<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_clean","clean_btl_counts.csv"))
@@ -427,14 +428,14 @@ rarefaction_data<-btl_data %>%
 #rarecurve(BCI, step = 20, sample = Raremax, col = "blue", cex = 0.6)
 
 # subsetting data so that there are no zeros 
-rarefaction_data<-btl_data %>% 
-  select(-c(month,day,year,date)) %>% 
-  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
-  group_by(sample_id,species) %>% 
-  summarize(n=sum(n)) %>% 
-  pivot_wider(values_from=n,names_from=species) %>% 
-  column_to_rownames("sample_id") %>% 
-  filter((rowSums(rarefaction_data) > 10)) 
+#rarefaction_data<-btl_data %>% 
+  #select(-c(month,day,year,date)) %>% 
+  #pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
+  #group_by(sample_id,species) %>% 
+  #summarize(n=sum(n)) %>% 
+  #pivot_wider(values_from=n,names_from=species) %>% 
+  #column_to_rownames("sample_id") %>% 
+  #filter((rowSums(rarefaction_data) > 10)) 
 
 s <- specnumber(rarefaction_data)
 s
@@ -575,7 +576,187 @@ mosaic_data <- filter(btl_data_sums, .by )
 ggplot(btl_data_sums, aes(species, y = n, fill = patch)) +
   geom_col(position = "fill")
 
-# total N by date type --------------------------------------------------
+# functions for ES TES and plot.TES
+
+ES <-  function (x,m=1,method=c("a","b"))
+{ 
+  method <- match.arg(method, c("a", "b"))
+  
+  if (m<1){warning("m must be a positive value");break}
+  if (m%%1!=0)warning("results may be meaningless because m is not an integer")
+  if (any(x < 0, na.rm = TRUE)) 
+  {warning("data have negative entries");break}
+  if (any(is.na(x))) 
+  {x [is.na(x)] <- 0; warning("empty data were replaced by '0' values")} 
+  if(!identical(all.equal(as.integer(x),  as.vector(x)), TRUE)) 
+    warning("results may be meaningless with non-integer data in method")
+  x <- as.vector(x)
+  x <- x[x>0]
+  Ni <- sum(x)
+  if (m>Ni){warning("m can not be larger than the total sample size");break}
+  
+  if(method  == "a")
+  {
+    ESSii <- sum(1 - exp(lchoose(Ni - x, m)- lchoose(Ni, m)))
+  }
+  
+  if(method  == "b")
+  {
+    ESSii <- sum(1-(1-x/sum(x))^m)
+  }
+  return(ESSii)
+}
+
+
+TES <- function(x,knots=40){
+  TESab <- function (x,knots=40,method=c("a","b"))
+  {
+    method <- match.arg(method, c("a", "b"))
+    x <- as.vector(x) 
+    if (any(x < 0, na.rm = TRUE)) 
+    {warning("data have negative entries");break}
+    if (any(is.na(x))) 
+    {x [is.na(x)] <- 0; warning("empty data were replaced by '0' values")} 
+    if(!identical(all.equal(as.integer(x),  as.vector(x)), TRUE)) 
+      warning("results may be meaningless with non-integer data in method")
+    
+    nm <- seq(from=1,to=log(sum(x)),length=knots) 
+    fm <- unique(floor(exp(nm)))
+    
+    result <- data.frame(value = sapply(fm, function(fm) ES(x,m=fm,method = method)),
+                         Logm=log(fm))
+    
+    a <- NA#Set a=NA if there is insufficient data to do the modelling
+    Error_four <- FALSE #Set Error_four as FALSE
+    xmax <- NA
+    
+    parameter='Weibull'
+    tryCatch(
+      {md <- nls(value ~ SSweibull(Logm, Asym, Drop, lrc, pwr),data=result) #Use selfStart model evaluates the Weibull model for growth curve data and its gradient. Logm is the "x" value at which to evaluate the model, while Asym, Drop, lrc, and pwr are model parameters. Model expression: Asym-Drop*exp(-exp(lrc)*x^pwr)      
+      Coe <- summary(md)$coefficients
+      a <- Coe[1,1]
+      s.d <- sqrt(Coe[1,2]^2*(nrow(result)-4)) 
+      b <- Coe[2,1]
+      c <- exp(Coe[3,1])
+      d <- Coe[4,1]
+      xmax <-  (-(log(0.1*a/b))/c)^(1/d)},#The 1/2 max value of x axis in plotting, at the value of y=0.9*a
+      error  = function(e){Error_four  <<- TRUE}
+    ) #Assign TRUE to Error_four
+    
+    if(Error_four) #If an error occur for four parameter model, then run three parameter model
+    {
+      parameter='logistic'
+      tryCatch({md <- nls(value~SSlogis(Logm, Asym, xmid, scal),data= result) #Use selfStart model evaluates the logistic function and its gradient. Logm is the "x" value at which to evaluate the model, while Asym, xmid, and scal are model parameters. Model expression: Asym/(1+exp((xmid-x)/scal))
+      Coe <- summary(md)$coefficients
+      a <- Coe[1,1]
+      s.d <- sqrt(Coe[1,2]^2*(nrow(result)-3)) 
+      xmax <-  1.8*Coe[2,1]},
+      error  = function(e){parameter  <<- NA })
+    }
+    if (is.na(a))
+    {
+      s.d <- NA
+      warning("Insufficient data to provide reliable estimators and associated s.e.")
+    }
+    if (!is.na(xmax)){
+      Predx <- seq(0, 2*xmax, length = 1000)
+      Predy <- predict(md, list(Logm = Predx))
+      attr(Predy, 'gradient') <- NULL
+      z <- list(par = c(a=round(a, 2), a.sd = round(s.d, 2),Model.par = parameter),
+                result = result,
+                xmax = xmax,
+                Predx = Predx,
+                Predy = Predy)
+    } else {
+      z <- list(par = c(a=a, a.sd = s.d,Model.par = parameter),
+                result = result)
+    }
+    return(z)
+  }  
+  TESa <- TESab(x,knots=knots,method="a")
+  TESb <- TESab(x,knots=knots,method="b")
+  tbl <- as.data.frame(rbind(TESa = TESa$par, TESb = TESb$par))
+  tbl[, 1:2] <- apply(tbl[, 1:2], 1:2, as.numeric)
+  tbl[3, 1] <- round(mean(tbl[, 1]), 2)
+  tbl[3, 2] <- round((sqrt(tbl[1, 2] ^ 2 + tbl[2, 2] ^ 2))/2, 2)
+  rownames(tbl)[3] <- 'TESab'
+  return(list(summary = tbl,
+              TESa = TESa,
+              TESb = TESb))
+}
+
+plot.TES <- function(TES_output){
+  TESa <- TES_output$TESa
+  TESb <- TES_output$TESb
+  par(mfrow = c(1, 2),mgp=c(2.5,1,0),las=1,mar=c(4,4,2,1))
+  if (is.na(TESa$par[1])) {
+    plot(1, type = "n", axes = FALSE, xlab = "", ylab = "", main="(a)")
+    text(1, 1, 'NA')
+  } else {
+    plot(x=TESa$result$Logm,y=TESa$result$value,xlim=c(0,2*TESa$xmax),ylim=c(0,1.2*as.numeric(TESa$par[1])), xlab = "ln(m)", ylab = "Value", main="(a)")
+    lines(TESa$Predx, TESa$Predy, col="red")
+    abline(h=TESa$par[1],lty=2)
+  }
+  
+  if (is.na(TESb$par[1])) {
+    plot(1, type = "n", axes = FALSE, xlab = "", ylab = "")
+    text(1, 1, 'NA')
+  } else {
+    plot(x=TESb$result$Logm,y=TESb$result$value,xlim=c(0,2*TESb$xmax),ylim=c(0,1.2*as.numeric(TESb$par[1])), xlab = "ln(m)", ylab = "Value", main="(b)")
+    lines(TESb$Predx, TESb$Predy, col="red")
+    abline(h=TESb$par[1],lty=2)
+  }
+}
+
+ESa.c <- ES(btl_order_c$n,m = 14, method = "a")
+ESb.c <- ES(btl_order_c$n, method = "b")
+
+TES_c <- TES(btl_order_c$n)
+plot.TES(TES_c)
+
+ESa.m <- ES(btl_order_m$n,m = 20, method = "a")
+ESb.m <- ES(btl_order_m$n, method = "b")
+
+TES_m <- TES(btl_order_m$n)
+plot.TES(TES_m)
+
+ESa.w <- ES(btl_order_w$n,m = 20, method = "a")
+ESb.w <- ES(btl_order_w$n, method = "b")
+
+TES_w <- TES(btl_order_w$n)
+plot.TES(TES_w)
+
+ESa.r <- ES(btl_order_r$n,m = 20, method = "a")
+ESb.r <- ES(btl_order_r$n, method = "b")
+
+TES_r <- TES(btl_order_r$n)
+plot.TES(TES_r)
+
+
+# iNEXT example
+
+data(spider)
+out1 <- iNEXT(spider, q=c(0,1,2), datatype="abundance")
+
+data(bird)
+out2 <- iNEXT(bird, q=0, datatype="abundance")
+out2
+
+div.data <- btl_sums_patch |>
+  column_to_rownames(var = "sp_code") 
+
+
+div.btl <- iNEXT(div.data, q = c(0,1,2), datatype = "abundance")
+
+
+z <- iNEXT(div.data, q=c(0,1,2), datatype="abundance")
+ggiNEXT(z, facet.var="Order.q", color.var="Assemblage")
+ggiNEXT(z, type = 2, se = TRUE)
+ggiNEXT(z, facet.var="Both", color.var="Both")
+
+div.btl$DataInfo
+div.btl$AsyEst
+# total NTES_c# total N by date type --------------------------------------------------
 
 
 N_by_patch<-btl_data %>% 
