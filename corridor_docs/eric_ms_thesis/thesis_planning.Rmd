@@ -321,8 +321,42 @@ Notable Bray-Curtis dissimilarity values were between connected and matrix (BC =
 
 # DISCUSSION
 
-1. dont forget o discuss the basic biology...why might a species be so common? why might one be rare?
+Recap main goals into findings
+ abundances in matrix vs connected patch and why this could be happening
+ - source pop to habiitat edge
+ 
+ species richness again supporting that matrix is more of an ideal habitat for dung beetle community 
+ 
+ diversity indices community structures weren't highly different between patch types 
+ 
+ bray curtis hinting at similar land uses between corridor and winged patch
+ - like julians paper corridors benefit certain populations and more fit populations are able to make better use
+ 
+Interpretation of results
+ Abundance 
+ - reasin for highest abundances in matrix and connected patch
+ - lower abundance in rectangle hinting at fragmentation effects
+ Species Richness & Diversity
+ - the role of hbitat connectivity in shaping community structure or lack thereof
+ - why do we think connnected had lowest species richness??
+ Functional traits and ecological impacts
+ - did corridoors favor a functional trait
+ - why might there be a trait response 
+ - implications for ecosystem processes
+ - like duung removal papers seed dispersal and yep
+ 
+Comparing to previous studies
+- how are things aligning
+- think about the biology 
 
+Limitations and future work
+- potential confounding factors (seasonality, distance from edge, sampling methodology and temmporal variation)
+- other directions to go (dispersal -> radar, secifically measuring changes in ecosystem services)
+
+Takeaways for conservation and management
+- dung beetles are robust
+- what do think about corridor design and considerations for fragmented lanndscapes
+- practical applications think about the beetles 
 
 # ACKNOWLEDGMENTS
 
