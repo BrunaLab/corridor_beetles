@@ -315,7 +315,7 @@ Eric Escobar-Chena completed his Bachelors education at Virginia Commonwealth Un
 
 
 
-```{r Table3, echo=FALSE,message = FALSE,warning=FALSE}
+```{r Figure 1, echo=FALSE,message = FALSE,warning=FALSE}
 library(iNEXT)
 
 btl_data<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_clean","clean_btl_counts.csv"))
@@ -347,5 +347,27 @@ div.btl <- iNEXT(div.data, q = c(0,1,2), datatype = "abundance")
 z <- iNEXT(div.data, q=c(0,1,2), datatype="abundance")
 ggiNEXT(z, facet.var="Order.q", color.var="Assemblage") + 
   theme_bw(base_size=18)
+
+```
+
+```{r Table 3, echo=FALSE,message = FALSE,warning=FALSE}
+btl_spec_patch<- btl_data |>
+  pivot_longer(pvin:osyl, names_to = "species", values_to = "n") |>
+  group_by(species,patch) |>
+  summarise(n=sum(n, na.rm=TRUE)) |>
+  arrange(patch,desc(n)) |>
+  pivot_wider(values_from=n,names_from=species) |>
+  mutate(patch=case_when(
+    patch == "c" ~ "Corridor",
+    patch == "m" ~ "Matrix",
+    patch == "w" ~ "Winged",
+    patch == "r" ~ "Rectangle",
+    .default = as.character(patch))) |>
+  column_to_rownames("patch")
+
+taxa_bray <- vegan::vegdist(btl_spec_patch, method = "bray", binary = FALSE)
+taxa_bray
+
+
 
 ```
