@@ -95,13 +95,11 @@ Our study took place at the Savannah River Site(SRS), a National Environmental R
 
 Dung beetle sampling 
 
-In the months of July and August 2024 dung beetles were sampled in 4 blocks spread across SRS, baited pitfall traps were placed in one of each patch type and in one matrix plot per block. Traps were placed in groups of 3 in the centers of each patch approximately 250 meters from the midpoint of the central patch 40 m from patch edge. Pitfalls were oriented in a triangular pattern with the bottom two traps positioned towards the center patch, each trap 20 m apart. Plots in the matrix were set up in a similar fashion with the center point 250 m from the center placed equidistant between adjacent patches.  For each sample period, traps were baited with pig dung between 8-9 pm and picked up 12 hours later, all beetles captured were stored in ethanol for further processing. In total 16 sampling rounds were carried out with 4 rounds per block, 196 samples were collected. All beetles of subfamily Scarabaeinae  were counted and identified to species using keys from @nemes_illustrated_2015 ### update bib. Overall 16 species were identified and approximately 5200 in total individual beetles were collected.    
+In the months of July and August 2024 dung beetles were sampled in 4 blocks spread across SRS, baited pitfall traps were placed in one of each patch type and in one matrix plot per block. Traps were placed in groups of 3 in the centers of each patch approximately 250 meters from the midpoint of the central patch 40 m from patch edge. Pitfalls were oriented in a triangular pattern with the bottom two traps positioned towards the center patch, each trap 20 m apart. Plots in the matrix were set up in a similar fashion with the center point 250 m from the center placed equidistant between adjacent patches.  For each sample period, traps were baited with pig dung between 8-9 pm and picked up 12 hours later, all beetles captured were stored in ethanol for further processing. In total 16 sampling rounds were carried out with 4 rounds per block, 196 samples were collected. All dung beetles were counted and identified to species with the exception of beetles of the genus Aphodius, overall 15 species were identified and approximately 5300 individual beetles were collected.     
 
 Analyses 
 
 Biodiversity between patch types was compared using Hill numbers (Jost 2006). We looked at community composition by increasing magnitudes of diversity components (qD) of 0D (species richness), 1D (Shannon entropy), and 2D (Simpson Diversity). Diversity numbers were calculated in R studio using package iNEXT (Chao et al. 2016). Bray-Curtis dissimiolarity values were calculated using package Vegan in R studio. Dung beetles were assigned traits by waste removal guild and habitat preference.  
-
-
 
 Insert description above of individual trap
 
@@ -202,7 +200,9 @@ spp_table<-knitr::kable(spp_table,
 spp_table
 ```
 
+
 Overall, 5,213 total dung beetles were collected belonging to 16 species. The most dominant species were Canthon vigilans (n=1473), Ateuchus lecontei (n=1115), and Phanaeus igneus (n=958) (Table 1). All but one species was found in matrix plots. Four species (Onthophagus striatulus, Onthophagus concinnus, Geotrupes Blackburnii, Onthophagus truberculifrons) were the only species not representative in every patch type. We had two singleton species, Geotrupes Blackburnii appearing only once in winged, and Onthophagus tuberculiofrons  in matrix.  
+
 
 ```{r Table2, echo=FALSE,message = FALSE,warning=FALSE}
 # https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html
@@ -282,7 +282,7 @@ ggiNEXT(z, facet.var="Order.q", color.var="Assemblage") +
   theme_bw(base_size=18)
 
 ```
-
+ 
 Species richness was distinctly different between patch types with matrix plots exhibited the highest richness while connected patches were lowest (Fig. 1).  Estimations of Shannon diversity index were fairly uniform between patch types. Simpson diversity indices were similarly even however winged patches showed a lower value. 
 
 ```{r Table 3, echo=FALSE,message = FALSE,warning=FALSE}
@@ -305,9 +305,19 @@ taxa_bray
 
 
 
+
 ```
 
 Notable Bray-Curtis dissimilarity values were between connected and matrix (BC = 0.127), connected and winged (BC = 0.077),  matrix and rectangle (BC = 0.318), and matrix and winged (BC = 0.189) (Table 3).  
+
+1. total number of beetles _from_ total number of species 
+1. were all species found in all habitats? Were any species found in only 1 habitat?
+1. Were all species found in all blocks? Were any restricted to only 1-2 blocks?
+1. Were all species found in the matrix? (expect that so, since it is the 'baseline' or 'source' habitat)
+1. Number of species in each functional group
+1. most common 3-4 species
+1. any rare species? 
+
 
 # DISCUSSION
 
@@ -332,11 +342,4 @@ To my family who never stopped supporting me along this journey, my friends who 
 # Biographical Sketch
 
 Eric Escobar-Chena completed his Bachelors education at Virginia Commonwealth University in 2023. During his time there he developed a fondness for insects which  grew into a curiosity of the natural world. He later began to explore this curiosity deeper in beginning his graduate education at the University of Florida as a Master's Student under the supervision of Emilio Bruna. 
-
-
-
-
-
-
-
 

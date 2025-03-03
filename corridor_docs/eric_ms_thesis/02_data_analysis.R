@@ -516,6 +516,8 @@ hill_plot
 taxa_bray <- vegan::vegdist(btl_spec_patch, method = "bray", binary = FALSE)
 taxa_bray
 
+
+
 btl_spec_patch<- btl_data |>
   pivot_longer(pvin:osyl, names_to = "species", values_to = "n") |>
   group_by(species,patch) |>
@@ -736,12 +738,27 @@ plot.TES(TES_r)
 
 # iNEXT example
 
-data(spider)
-out1 <- iNEXT(spider, q=c(0,1,2), datatype="abundance")
+library(iNEXT)
 
-data(bird)
-out2 <- iNEXT(bird, q=0, datatype="abundance")
-out2
+btl_data<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_clean","clean_btl_counts.csv"))
+spp_codes<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_raw","species_codes.csv"))
+
+btl_sums_patch<-btl_data %>%
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
+  group_by(species,patch) %>%
+  mutate(patch=case_when(
+    patch == "c" ~ "Corridor",
+    patch == "m" ~ "Matrix",
+    patch == "w" ~ "Winged",
+    patch == "r" ~ "Rectangle",
+    .default = as.character(patch))) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  arrange(patch,desc(n)) %>% 
+  rename(sp_code=species,
+         n_patch=n) %>% 
+  pivot_wider(
+    names_from = patch,
+    values_from = c(n_patch))
 
 btl_sums_patch<-btl_data %>%
   pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
@@ -760,14 +777,9 @@ div.data <- btl_sums_patch |>
 
 div.btl <- iNEXT(div.data, q = c(0,1,2), datatype = "abundance")
 
-
 z <- iNEXT(div.data, q=c(0,1,2), datatype="abundance")
-ggiNEXT(z, facet.var="Order.q", color.var="Assemblage")
-ggiNEXT(z, type = 2, se = TRUE)
-ggiNEXT(z, facet.var="Both", color.var="Both")
-
-div.btl$DataInfo
-div.btl$AsyEst
+ggiNEXT(z, facet.var="Order.q", color.var="Assemblage") + 
+  theme_bw(base_size=18)
 # total NTES_c# total N by date type --------------------------------------------------
 
 
