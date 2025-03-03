@@ -70,6 +70,27 @@ library(kableExtra)
 # devtools::install_github("crsh/papaja")
 ```
 
+```{r load-data, cached=TRUE, echo = FALSE, warning=FALSE, message = FALSE}
+
+btl_data<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_clean","clean_btl_counts.csv"))
+spp_codes<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_raw","species_codes.csv"))
+
+# total beetles captured 
+total_N<-btl_data %>% 
+  summarise(n=sum(sum, na.rm=TRUE))
+
+# total no of spp
+total_spp<-btl_data %>% 
+  select(-sum) %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
+  group_by(species) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  arrange(desc(n)) %>%
+  mutate(species = reorder(species, desc(n))) %>% 
+  summarise(n_spp=n_distinct(species))
+```
+
+
 
 # Abstract
 
@@ -148,7 +169,7 @@ btl_sums_patch<-btl_data %>%
 
 btl_order<-full_join(btl_order,btl_sums_patch,by="sp_code")
 
-spp_table<-btl_order %>% 
+spp_table_data<-btl_order %>% 
   left_join(spp_codes,by="sp_code") %>% 
   unite("species",genus:species, sep=" ") %>% 
   mutate(species=if_else(sp_code=="ap*", "Aphodius spp.",species)) %>% 
@@ -172,7 +193,7 @@ mutate(w=case_when(
   w > 0 ~ "x",
   .default = as.character(w)
 )) %>% 
-  select(species,n,m,c,w,r) %>% 
+  select(species,Guild,n,m,c,w,r) %>% 
   rename(Species=species,
          N=n,
          Matrix=m,
@@ -181,9 +202,9 @@ mutate(w=case_when(
          Rectangular=r)
 
 
-spp_table<-knitr::kable(spp_table, 
+spp_table<-knitr::kable(spp_table_data, 
       digits = 2,
-      align="lrcccc",
+      align="lcrcccc",
       format="latex",
       row.names = FALSE,
       booktabs=T,
@@ -198,10 +219,14 @@ spp_table<-knitr::kable(spp_table,
   row_spec(0, bold = T) %>% 
   row_spec(1:15, hline_after = T) 
 spp_table
+
+
+most_common<-spp_table_data %>% select(Species) %>% slice(1)
+most_common_n<-spp_table_data %>% select(N) %>% slice(1)
 ```
 
 
-Overall, 5,213 total dung beetles were collected belonging to 16 species. The most dominant species were Canthon vigilans (n=1473), Ateuchus lecontei (n=1115), and Phanaeus igneus (n=958) (Table 1). All but one species was found in matrix plots. Four species (Onthophagus striatulus, Onthophagus concinnus, Geotrupes Blackburnii, Onthophagus truberculifrons) were the only species not representative in every patch type. We had two singleton species, Geotrupes Blackburnii appearing only once in winged, and Onthophagus tuberculiofrons  in matrix.  
+Overall, `r total_N` total dung beetles were collected belonging to N = `r total_spp` species. The most dominant species were _`r most_common`_ (N = `r most_common_n`), Ateuchus lecontei (n=1115), and Phanaeus igneus (n=958) (Table 1). All but one species was found in matrix plots. Four species (Onthophagus striatulus, Onthophagus concinnus, Geotrupes Blackburnii, Onthophagus truberculifrons) were the only species not representative in every patch type. We had two singleton species, Geotrupes Blackburnii appearing only once in winged, and Onthophagus tuberculiofrons  in matrix.  
 
 
 ```{r Table2, echo=FALSE,message = FALSE,warning=FALSE}
