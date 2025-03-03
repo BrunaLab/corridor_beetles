@@ -107,6 +107,7 @@ Dung beetles have emerged as a model system with which to test spatial ecology h
 
 Here, we  aim to determine how connectivity and fragmentation affect Species Richness and Diversity, Abundance, and functional diversity. We sampled dung beetle communities in experimental landscapes developed for the express purposes of comparing connected and isolated patches, as well as the effects of patch to edge ratio and distance to edge. To ask the question of (1) how landscape connectivity impacts dung beetle assemblages dung beetles were collected, identified, and counted with the expectation that biodiversity and abundance would be higher in patches connected by corridors. Additionally we asked (2) Are corridors benefiting any one functional trait over another? Since our experimental system consists of open habitats amongst a forested matrix, we anticipate that species preferring open areas and generalists may be more common in our sampling. 
 
+\newpage
 
 # Methods
 
@@ -116,7 +117,9 @@ Our study took place at the Savannah River Site(SRS), a National Environmental R
 
 Dung beetle sampling 
 
-In the months of July and August 2024 dung beetles were sampled in 4 blocks spread across SRS, baited pitfall traps were placed in one of each patch type and in one matrix plot per block. Traps were placed in groups of 3 in the centers of each patch approximately 250 meters from the midpoint of the central patch 40 m from patch edge. Pitfalls were oriented in a triangular pattern with the bottom two traps positioned towards the center patch, each trap 20 m apart. Plots in the matrix were set up in a similar fashion with the center point 250 m from the center placed equidistant between adjacent patches.  For each sample period, traps were baited with pig dung between 8-9 pm and picked up 12 hours later, all beetles captured were stored in ethanol for further processing. In total 16 sampling rounds were carried out with 4 rounds per block, 196 samples were collected. All dung beetles were counted and identified to species with the exception of beetles of the genus Aphodius, overall 15 species were identified and approximately 5300 individual beetles were collected.     
+In the months of July and August 2024 dung beetles were sampled in 4 blocks spread across SRS, baited pitfall traps were placed in one of each patch type and in one matrix plot per block. Traps were placed in groups of 3 in the centers of each patch approximately 250 meters from the midpoint of the central patch 40 m from patch edge. Pitfalls were oriented in a triangular pattern with the bottom two traps positioned towards the center patch, each trap 20 m apart. Plots in the matrix were set up in a similar fashion with the center point 250 m from the center placed equidistant between adjacent patches. Individual pitfall traps consisted of two components, a 10cm tall by 8 cm wide cylinder base topped with a funnel with a 10cm wide rim. Pig feces was suspended above the funnel by a 6.5 cm by 6.5 cm mesh square.  For each sample period, traps were baited with pig dung between 8-9 pm and picked up 12 hours later, all beetles captured were stored in ethanol for further processing. In total 16 sampling rounds were carried out with 4 rounds per block, 196 samples were collected. 
+
+All dung beetles were counted and identified to species with the exception of beetles of the genus Aphodius, overall 15 species were identified and approximately 5300 individual beetles were collected.     
 
 Analyses 
 
@@ -139,6 +142,7 @@ Insert description above of individual trap
   - habitat preference 
   - rarefaction
 
+\newpage
 
 # RESULTS
 
@@ -343,6 +347,7 @@ Notable Bray-Curtis dissimilarity values were between connected and matrix (BC =
 1. most common 3-4 species
 1. any rare species? 
 
+\newpage
 
 # DISCUSSION
 
