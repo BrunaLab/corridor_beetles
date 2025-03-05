@@ -739,13 +739,17 @@ plot.TES(TES_r)
 # iNEXT example
 
 library(iNEXT)
-
+library(tidyverse)
+library(here)
 btl_data<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_clean","clean_btl_counts.csv"))
 spp_codes<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_raw","species_codes.csv"))
 
+# I edited the code so that it calculates the values for EACH LOCATION
+# to do this I needed to make a hybrid name of the plot and patch
+
 btl_sums_patch<-btl_data %>%
-  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
-  group_by(species,patch) %>%
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>%
+  group_by(species,patch,block) %>%
   mutate(patch=case_when(
     patch == "c" ~ "Corridor",
     patch == "m" ~ "Matrix",
@@ -753,23 +757,17 @@ btl_sums_patch<-btl_data %>%
     patch == "r" ~ "Rectangle",
     .default = as.character(patch))) %>%
   summarize(n=sum(n, na.rm=TRUE)) %>%
-  arrange(patch,desc(n)) %>% 
+  arrange(patch,desc(n)) %>%
   rename(sp_code=species,
-         n_patch=n) %>% 
+         n_patch=n) %>%
+  mutate(pb=paste(patch,block,sep="-")) %>% 
+  ungroup() %>% 
+  select(-patch,-block) %>% 
   pivot_wider(
-    names_from = patch,
-    values_from = c(n_patch))
+    names_from = pb,
+    values_from = c(n_patch)) 
 
-btl_sums_patch<-btl_data %>%
-  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
-  group_by(species,patch) %>%
-  summarize(n=sum(n, na.rm=TRUE)) %>%
-  arrange(patch,desc(n)) %>% 
-  rename(sp_code=species,
-         n_patch=n) %>% 
-  pivot_wider(
-    names_from = patch,
-    values_from = c(n_patch))
+
 
 div.data <- btl_sums_patch |>
   column_to_rownames(var = "sp_code") 
@@ -777,9 +775,65 @@ div.data <- btl_sums_patch |>
 
 div.btl <- iNEXT(div.data, q = c(0,1,2), datatype = "abundance")
 
+
+# 
 z <- iNEXT(div.data, q=c(0,1,2), datatype="abundance")
+# y<-z
+# # z<-y
+# # this creates two new columns - patch and block - based on
+# # the hybrid one created to do the analyses. it is to visualize them
+# # by patch below
+# 
+# 
+# z$DataInfo<-z$DataInfo %>% separate_wider_delim(
+#   Assemblage,
+#   delim = "-",
+#   names = c("patch", "block"),
+#   too_few = "align_start",
+#   too_many = "merge",
+#   cols_remove=FALSE
+# )
+# z$DataInfo<-as.data.frame(z$DataInfo)
+# 
+# 
+# z$iNextEst$size_based<-z$iNextEst$size_based %>% separate_wider_delim(
+#   Assemblage,
+#   delim = "-",
+#   names = c("patch", "block"),
+#   too_few = "align_start",
+#   too_many = "merge",
+#   cols_remove=FALSE
+# )
+# 
+# z$iNextEst$size_based<-as.data.frame(z$iNextEst$size_based)
+# z$iNextEst$coverage_based<-z$iNextEst$coverage_based %>% separate_wider_delim(
+#   Assemblage,
+#   delim = "-",
+#   names = c("patch", "block"),
+#   too_few = "align_start",
+#   too_many = "merge",
+#   cols_remove=FALSE
+# )
+# z$iNextEst$coverage_based<-as.data.frame(z$iNextEst$coverage_based)
+# z$AsyEst<-z$AsyEst %>% separate_wider_delim(
+#   Assemblage,
+#   delim = "-",
+#   names = c("patch", "block"),
+#   too_few = "align_start",
+#   too_many = "merge",
+#   cols_remove=FALSE
+# )
+# z$AsyEst<-as.data.frame(z$AsyEst)
+# foo<-z$iNextEst$size_based
+# foo<-z$iNextEst$coverage_based
+# foo<-z$DataInfo
+# foo<-z$AsyEst
+ggiNEXT(z, facet.var="Assemblage", color.var="Assemblage") + 
+  theme_bw(base_size=18)
+
 ggiNEXT(z, facet.var="Order.q", color.var="Assemblage") + 
   theme_bw(base_size=18)
+
 # total NTES_c# total N by date type --------------------------------------------------
 
 
