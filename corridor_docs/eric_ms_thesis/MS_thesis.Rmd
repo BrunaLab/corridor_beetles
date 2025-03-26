@@ -209,14 +209,66 @@ _Reason for this breakdown: _ - richness and diversity are "community level" res
 
 # RESULTS
 
+```{r data-load, include = FALSE, echo = TRUE, message = FALSE, warning = FALSE}
+
+btl_data<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_clean","clean_btl_counts.csv"))
+spp_codes<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_raw","species_codes.csv"))
+# total beetles captured --------------------------------------------------
+total_N<-btl_data %>% 
+  summarise(n=sum(sum, na.rm=TRUE))
+
+# How many species total?
+total_spp<-btl_data %>% 
+  select(-sum) %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
+  group_by(species) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  arrange(desc(n)) %>%
+  mutate(species = reorder(species, desc(n))) %>% 
+  summarise(n_spp=n_distinct(species))
+
+
+
+# most common species
+
+how_many_common<-3
+mega_spp<-btl_data %>%
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
+  group_by(species) %>% 
+  summarise(n=sum(n, na.rm=TRUE)) %>% 
+  filter(n>500) %>% 
+  ungroup() %>% 
+  select(species,n)%>% 
+  arrange(desc(n)) %>% 
+  rename("sp_code"="species") %>% 
+  left_join(spp_codes) %>% 
+  mutate(species=tolower(species)) %>% 
+  mutate(species=paste(genus,species,sep=" ")) %>% 
+  select(-c(subspecies,notes,ordway,srs,Guild,family,sp_code,genus)) %>% 
+  slice(1:how_many_common)
+
+# rare species
+rare_spp<-btl_data %>%
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
+  group_by(species) %>% 
+  summarise(n=sum(n, na.rm=TRUE)) %>% 
+  filter(n<50) %>% 
+  ungroup() %>% 
+  select(species,n) %>% 
+  arrange(n)
+
+```
+
+
+
 ### Overview
 
-1. total number of beetles _from_ total number of species 
+1. total number of beetles from total number of species: `r total_N` beetles from `r total_spp` species.
 1. were all species found in all habitats? Were any species found in only 1 habitat?
 1. Were all species found in all blocks? Were any restricted to only 1-2 blocks?
 1. Were all species found in the matrix? (expect that so, since it is the 'baseline' or 'source' habitat)
 1. Number of species in each functional group
-1. most common 3-4 species
+1. most common 3-4 species: The `r how_many_common` most common species were \textit{`r mega_spp[1,2]`}, \textit{`r mega_spp[2,2]`}, and \textit{`r mega_spp[3,2]`}.
 1. any rare species? 
 1. any invasive / exotic species?
 
