@@ -133,7 +133,7 @@ Paragraph 5: Here is what we did to address this unknown.
 
 > As human disturbances continue to expand into natural landscapes, intact habitats are becoming increasingly fragmented. This degradation lends to loss in biodiversity on a global scale and interruptions in ecosystem processes and functions [@haddad_habitat_2015]. Effects from isolation can vary, however as habitats are broken down community structures are significantly altered [@WOS:000419965700012]. Corridors have been shown to be an important mechanism for facilitating the movement of organisms through fragmented landscapes with the goal of minimizing negative consequences of fragmentation[@haddad_corridor_2003]. As disturbance continues to intensify, it is becoming increasingly more important to understand how different taxonomic groups. Here, we aim to gain an understanding of how dung beetles, a group of insects well known for strong dispersal ability in order to compete for ephemeral resources(Hanski and Cambefort 1991), interact with corridors in their landscapes.  
 
-> Dung beetles have emerged as a model system with which to test spatial ecology hypotheses  [@ros_how_2012; @roslin_dung_2000].They are an incredibly well studied group of insects which are well known for driving a multitude of ecosystem functions (Hasan et al. 2024). The removal, breakdown, and burial of animal feces is an important ecosystem service provided by dung beetles such as enhanced nutrient cycling and soil quality and reduction of parasites on methane emissions from dung [@slade_disentangling_2016; @WOS:000350444300013]. Local assemblages of dung beetles can be species-rich with species comprising a broad range of functional traits (e.g., size, foraging style, resource-use) [@WOS:000891747700001]. Previous studies have shown that isolated patches of habitat frequently have lower dung beetle diversity and abundance than areas of continuous habitat, as well as documented their presence in linear strips of habitat that resemble corridors [@WOS:000707546700001].  Past studies have also focused on how landscape structure alters the community compositions of dung beetles[@WOS:000398662200001], yet large landscape scale experimental studies with carefully controlled and replicated treatments are non-existent for this model species.
+> Dung beetles have emerged as a model system with which to test spatial ecology hypotheses [@ros_how_2012; @roslin_dung_2000].They are an incredibly well studied group of insects which are well known for driving a multitude of ecosystem functions (Hasan et al. 2024). The removal, breakdown, and burial of animal feces is an important ecosystem service provided by dung beetles such as enhanced nutrient cycling and soil quality and reduction of parasites on methane emissions from dung [@slade_disentangling_2016; @WOS:000350444300013]. Local assemblages of dung beetles can be species-rich with species comprising a broad range of functional traits (e.g., size, foraging style, resource-use) [@WOS:000891747700001]. Previous studies have shown that isolated patches of habitat frequently have lower dung beetle diversity and abundance than areas of continuous habitat, as well as documented their presence in linear strips of habitat that resemble corridors [@WOS:000707546700001].  Past studies have also focused on how landscape structure alters the community compositions of dung beetles[@WOS:000398662200001], yet large landscape scale experimental studies with carefully controlled and replicated treatments are non-existent for this model species.
 
 > Here, we  aim to determine how connectivity and fragmentation affect Species Richness and Diversity, Abundance, and functional diversity. We sampled dung beetle communities in experimental landscapes developed for the express purposes of comparing connected and isolated patches, as well as the effects of patch to edge ratio and distance to edge. To ask the question of (1) how landscape connectivity impacts dung beetle assemblages dung beetles were collected, identified, and counted with the expectation that biodiversity and abundance would be higher in patches connected by corridors. Additionally we asked (2) Are corridors benefiting any one functional trait over another? Since our experimental system consists of open habitats amongst a forested matrix, we anticipate that species preferring open areas and generalists may be more common in our sampling. 
 
@@ -143,7 +143,7 @@ Paragraph 5: Here is what we did to address this unknown.
 
 ## Study site
 
-Our study took place at the Savannah River Site(SRS), a National Environmental Research Park in southern South Carolina, US(33.208 N, 81.408 W) in four of seven experimental landscapes designed for the purposes of directly observing the impacts of corridors and patch shape on the movements of plants and animals(Tewksbury et al. 2002). Each experimental landscape, termed blocks, consists of four patches of open habitat around a central patch all together within a matrix of pine savanna. In each replicant the central patch (100 x 100 m) is always connected to one peripheral patch with identical dimensions by a 150 x 25 m corridor, this will hereafter be referred  to as the connected patch. The remaining patches are either "winged" or "rectangular".  The winged patch is also 100 x 100 m, however they exhibit their characteristic wings in the form of two 75 x 25 m offshoots meant to account for the extra area and edge space the corridor provides. The rectangular patch is 100 x 137.5 m also the same area as the space of the connected patch plus the corridor. Each block has a duplicate of either the winged or rectangle patch, all peripheral patches being 150 m from the center patch. For this study sampling was done in one of each patch type and in one matrix plot per block, all matrix blocks were set up 150 m away from the center as well. 
+Our study took place at the Savannah River Site (SRS), a National Environmental Research Park in southern South Carolina, US(33.208 N, 81.408 W) in four of seven experimental landscapes designed for the purposes of directly observing the impacts of corridors and patch shape on the movements of plants and animals (Tewksbury et al. 2002). Each experimental landscape, termed blocks, consists of four patches of open habitat around a central patch all together within a matrix of pine savanna. In each replicant the central patch (100 x 100 m) is always connected to one peripheral patch with identical dimensions by a 150 x 25 m corridor, this will hereafter be referred  to as the connected patch. The remaining patches are either "winged" or "rectangular".  The winged patch is also 100 x 100 m, however they exhibit their characteristic wings in the form of two 75 x 25 m offshoots meant to account for the extra area and edge space the corridor provides. The rectangular patch is 100 x 137.5 m also the same area as the space of the connected patch plus the corridor. Each block has a duplicate of either the winged or rectangle patch, all peripheral patches being 150 m from the center patch. For this study sampling was done in one of each patch type and in one matrix plot per block, all matrix blocks were set up 150 m away from the center as well. 
 
 ## Dung beetle sampling 
 
@@ -217,7 +217,7 @@ spp_codes<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_raw","
 total_N<-btl_data %>% 
   summarise(n=sum(sum, na.rm=TRUE))
 
-# How many species total?
+## How many species total?
 total_spp<-btl_data %>% 
   select(-sum) %>% 
   pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
@@ -229,14 +229,12 @@ total_spp<-btl_data %>%
 
 
 
-# most common species
-
-how_many_common<-3
-mega_spp<-btl_data %>%
+## Abundance by species
+spp_abund<-btl_data %>%
   pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
   group_by(species) %>% 
   summarise(n=sum(n, na.rm=TRUE)) %>% 
-  filter(n>500) %>% 
+  # filter(n>500) %>% 
   ungroup() %>% 
   select(species,n)%>% 
   arrange(desc(n)) %>% 
@@ -244,18 +242,97 @@ mega_spp<-btl_data %>%
   left_join(spp_codes) %>% 
   mutate(species=tolower(species)) %>% 
   mutate(species=paste(genus,species,sep=" ")) %>% 
-  select(-c(subspecies,notes,ordway,srs,Guild,family,sp_code,genus)) %>% 
-  slice(1:how_many_common)
+  select(-c(subspecies,notes,ordway,srs,Guild,family,sp_code,genus))
 
-# rare species
-rare_spp<-btl_data %>%
+## Common species 
+
+# by number (i.e., N most common)
+how_many_common<-3
+most_common_spp<-spp_abund %>% 
+  slice_head(n = how_many_common)
+
+# by abundance (i.e., over NNNN sampled)
+high_abund_cutoff<-500
+most_common_count<-spp_abund %>% 
+  filter(n>high_abund_cutoff)
+
+## Rare species 
+
+# by number (i.e., N most common)
+how_many_rare<-4
+rare_spp<-spp_abund %>% 
+  slice_tail(n=how_many_rare)
+
+# by abundance (i.e., over NNNN sampled)
+low_abund_cutoff<-10
+rare_spp_count<-spp_abund %>% 
+  filter(n<low_abund_cutoff)
+
+
+## Beetles by species and plot type (for Table 1)
+btl_sums_patch<-btl_data %>%
   pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
-  group_by(species) %>% 
-  summarise(n=sum(n, na.rm=TRUE)) %>% 
-  filter(n<50) %>% 
+  group_by(species,patch) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  arrange(patch,desc(n)) %>% 
+  rename(sp_code=species,
+         n_patch=n) %>% 
+  pivot_wider(
+    names_from = patch,
+    values_from = c(n_patch)) %>% 
+  left_join(spp_codes) %>% 
+  mutate(species=tolower(species)) %>% 
+  mutate(species=paste(genus,species,sep=" ")) %>% 
   ungroup() %>% 
-  select(species,n) %>% 
-  arrange(n)
+  select(species,Guild,m,c,w,r) %>% 
+  rename(Species=species)
+
+# which ones NOT found in all habitats?
+
+not_in_all_hab<-btl_sums_patch %>% 
+  rename(species=Species) %>% 
+  left_join(spp_abund) %>% 
+  select(-n,-Guild) %>% 
+  filter(m<1|c<1|w<1|r<1)
+
+# This finalizes the table for Table 1
+spp_table_data<-btl_sums_patch %>% 
+  rename(species=Species) %>% 
+  left_join(spp_abund) %>% 
+  relocate(n,.after="Guild") %>% 
+  mutate(c=case_when(
+  c == 0 ~ " ",
+  c > 0 ~ "x",
+  .default = as.character(c)
+)) %>% 
+  mutate(m=case_when(
+  m == 0 ~ " ",
+  m > 0 ~ "x",
+  .default = as.character(m)
+)) %>% 
+  mutate(r=case_when(
+  r == 0 ~ " ",
+  r > 0 ~ "x",
+  .default = as.character(r)
+)) %>% 
+mutate(w=case_when(
+  w == 0 ~ " ",
+  w > 0 ~ "x",
+  .default = as.character(w)
+)) %>% 
+  mutate(Guild=case_when(
+  Guild == "r" ~ "roll",
+  Guild == "t" ~ "tunnell",
+  Guild == "d" ~ "dwell",
+  .default = as.character(Guild)
+)) %>% 
+  rename(Species=species,
+         N=n,
+         Matrix=m,
+         Corridor=c,
+         Winged=w,
+         Rectangular=r)
+
 
 ```
 
@@ -268,7 +345,7 @@ rare_spp<-btl_data %>%
 1. Were all species found in all blocks? Were any restricted to only 1-2 blocks?
 1. Were all species found in the matrix? (expect that so, since it is the 'baseline' or 'source' habitat)
 1. Number of species in each functional group
-1. most common 3-4 species: The `r how_many_common` most common species were \textit{`r mega_spp[1,2]`}, \textit{`r mega_spp[2,2]`}, and \textit{`r mega_spp[3,2]`}.
+1. most common 3-4 species: The `r how_many_common` most common species were \textit{`r most_common_spp[1,2]`} (N = `r most_common_spp[1,1]`), \textit{`r most_common_spp[2,2]`} (N = `r most_common_spp[2,1]`), and \textit{`r most_common_spp[3,2]`} (N = `r most_common_spp[3,1]`).
 1. any rare species? 
 1. any invasive / exotic species?
 
@@ -419,59 +496,6 @@ We thank the USDA Forest Service for maintaining experimental landscapes and ass
 
 ```{r Table1, echo=FALSE,message = FALSE,warning=FALSE}
 # https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html
-
-btl_order<-btl_data %>%
-  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
-  group_by(species) %>%
-  summarize(n=sum(n, na.rm=TRUE)) %>%
-  arrange(desc(n)) %>%
-  mutate(species = reorder(species, desc(n))) %>% 
-  rename(sp_code=species)
-
-btl_sums_patch<-btl_data %>%
-  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
-  group_by(species,patch) %>%
-  summarize(n=sum(n, na.rm=TRUE)) %>%
-  arrange(patch,desc(n)) %>% 
-  rename(sp_code=species,
-         n_patch=n) %>% 
-  pivot_wider(
-    names_from = patch,
-    values_from = c(n_patch))
-
-btl_order<-full_join(btl_order,btl_sums_patch,by="sp_code")
-
-spp_table_data<-btl_order %>% 
-  left_join(spp_codes,by="sp_code") %>% 
-  unite("species",genus:species, sep=" ") %>% 
-  mutate(species=if_else(sp_code=="ap*", "Aphodius spp.",species)) %>% 
-  mutate(c=case_when(
-  c == 0 ~ " ",
-  c > 0 ~ "x",
-  .default = as.character(c)
-)) %>% 
-  mutate(m=case_when(
-  m == 0 ~ " ",
-  m > 0 ~ "x",
-  .default = as.character(m)
-)) %>% 
-  mutate(r=case_when(
-  r == 0 ~ " ",
-  r > 0 ~ "x",
-  .default = as.character(r)
-)) %>% 
-mutate(w=case_when(
-  w == 0 ~ " ",
-  w > 0 ~ "x",
-  .default = as.character(w)
-)) %>% 
-  select(species,Guild,n,m,c,w,r) %>% 
-  rename(Species=species,
-         N=n,
-         Matrix=m,
-         Corridor=c,
-         Winged=w,
-         Rectangular=r)
 
 
 spp_table<-knitr::kable(spp_table_data, 
