@@ -12,7 +12,7 @@ library(here)
 btl_wt<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_raw","btl_weight_equilibrium.csv"))
 
 btl_wt<-btl_wt %>% 
-  pivot_longer(wet_weight:weight_4,names_to = "interval") %>% 
+  pivot_longer(wet_weight:weight_5,names_to = "interval") %>% 
   mutate(interval=if_else(interval=="wet_weight","weight_0",interval)) %>% 
   arrange(sample_id,sp_code,interval) %>% 
   group_by(sample_id,sp_code) %>% 

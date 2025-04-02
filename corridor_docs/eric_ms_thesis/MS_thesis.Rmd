@@ -110,10 +110,12 @@ Habitat fragmentation threatens biodiversity across the globe as habitat loss, i
 **_Note from EB:_** _I don't want to see the words 'dung beetles' until paragraph 5_.
 
 Paragraph 1: Overall Topic & Why it is interesting and Important.     
+  As human disturbances continue to expand into natural landscapes, intact habitats are becoming increasingly fragmented. This degradation lends to loss in biodiversity on a global scale and interruptions in ecosystem processes and functions [@haddad_habitat_2015]. Effects from isolation can vary, however as habitats are broken down community structures are significantly altered [@WOS:000419965700012]. 
 
 >Topic Sentence:  
 
 Paragraph 2: What we know. 
+  Corridors have been shown to be an important mechanism for facilitating the movement of organisms through fragmented landscapes with the goal of minimizing negative consequences of fragmentation[@haddad_corridor_2003].
 
 >Topic Sentence:  
 
