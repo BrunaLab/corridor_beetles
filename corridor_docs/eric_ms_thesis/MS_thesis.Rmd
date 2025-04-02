@@ -293,9 +293,19 @@ not_in_all_hab<-btl_sums_patch %>%
   rename(species=Species) %>% 
   left_join(spp_abund) %>% 
   select(-n,-Guild) %>% 
-  filter(m<1|c<1|w<1|r<1)
+  mutate(row_sums=m+c+r+w) %>% 
+  filter(row_sums<4)
+
+# row_sums==1 for any restricted to only one habitat 
+# row_sums==2 for any restricted to only two habitats...
+  
+
+# filter(m<1|c<1|w<1|r<1)
+
+
 
 # This finalizes the table for Table 1
+
 spp_table_data<-btl_sums_patch %>% 
   rename(species=Species) %>% 
   left_join(spp_abund) %>% 

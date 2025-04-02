@@ -16,8 +16,7 @@ library(iNEXT)
 btl_data<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_clean","clean_btl_counts.csv"))
 
 
-
-# TO DO -------------------------------------------------------------------
+# SUMMARY STATS -----------------------------------------------------------
 
 # total beetles captured --------------------------------------------------
 total_N<-btl_data %>% 
@@ -370,6 +369,246 @@ plot_btl_n <- function(data) {
 }
 
 
+
+# GLMM OF DIV AND RICHNESS ------------------------------------------------
+
+
+# iNEXT example
+
+library(iNEXT)
+library(tidyverse)
+library(here)
+btl_data<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_clean","clean_btl_counts.csv"))
+spp_codes<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_raw","species_codes.csv"))
+
+
+# using hillR
+# https://github.com/daijiang/hillR/blob/master/README.md
+# https://daijiang.r-universe.dev/hillR
+library(hillR)
+
+
+hill_data<-btl_data %>%
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>%
+  group_by(species,patch,block) %>%
+  mutate(patch=case_when(
+    patch == "c" ~ "Connected",
+    patch == "m" ~ "Matrix",
+    patch == "w" ~ "Winged",
+    patch == "r" ~ "Rectangle",
+    .default = as.character(patch))) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  arrange(patch,desc(n)) %>%
+  rename(sp_code=species,
+         n_patch=n) %>%
+  mutate(patch_block=paste(patch,block,sep="_")) %>% 
+  ungroup() %>% 
+  select(-patch,-block) %>% 
+  pivot_wider(
+    names_from = sp_code,
+    values_from = n_patch) 
+
+
+
+spp_abund<-btl_data %>%
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>%
+  mutate(patch=case_when(
+    patch == "c" ~ "Connected",
+    patch == "m" ~ "Matrix",
+    patch == "w" ~ "Winged",
+    patch == "r" ~ "Rectangle",
+    .default = as.character(patch))) %>%
+  group_by(species,patch,block) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  arrange(patch,desc(n)) %>%
+  rename(sp_code=species) %>%
+  mutate(patch_block=paste(patch,block,sep="_")) %>% 
+  ungroup() %>% 
+  select(-patch,-block) %>% 
+  separate(patch_block,c("patch_type","block"),sep="_",remove=TRUE) %>% 
+  filter(sp_code=="cvig"|
+          sp_code=="alec"|
+          sp_code=="pign"|
+          sp_code=="aaeg")
+
+
+
+hill_data<-hill_data %>% column_to_rownames("patch_block")
+
+
+
+h_rich<-hill_taxa(hill_data, q = 0) # taxonomic alpha diversity
+h_rich<-as.data.frame(h_rich) |>
+  rownames_to_column() %>% 
+  separate(rowname,c("patch_type","block"),sep="_",remove=TRUE)
+
+# taxonomic shannon diversity
+h_shannon<-hill_taxa(hill_data, q = 1)
+
+h_shannon<-as.data.frame(h_shannon) |>
+  rownames_to_column() %>% 
+  separate(rowname,c("patch_type","block"),sep="_",remove=TRUE)
+
+# taxonomic simpson diversity
+h_simpson<-hill_taxa(hill_data, q = 2)
+
+h_simpson<-as.data.frame(h_simpson) |>
+  rownames_to_column() %>% 
+  separate(rowname,c("patch_type","block"),sep="_",remove=TRUE)
+
+
+hill_results<-h_rich %>% 
+  full_join(h_shannon,by=c("patch_type","block")) %>% 
+  full_join(h_simpson,by=c("patch_type","block"))
+
+
+
+
+# following tutorial of 
+# https://livinglandscapes.github.io/Course_EcologicalModeling/05-B-Generalized-Linear-Mixed-Models.html
+
+require(librarian, quietly = TRUE)
+shelf(tidyverse, 
+      performance, # For checking model convergence
+      MuMIn, # for model selection
+      lme4, # For mixed modeling
+      # pander,
+      lattice,
+      broom.mixed,
+      DHARMa, # For mixed model diagnostics
+      lib = tempdir(),
+      quiet = TRUE)
+
+
+hist(hill_results$h_rich,
+     xlab = "h_rich",
+     main = "")
+
+
+
+ggplot(spp_abund, 
+       aes(x = patch_type, 
+           y = n,
+           # y = h_rich,
+           # y = h_shannon,
+           color = block)) +
+  scale_color_viridis_d(option = "turbo") + 
+  # geom_point(position="jitter") + 
+  geom_point() + 
+  facet_wrap( ~ sp_code) + 
+  theme_bw()
+
+
+# Global model: Take 1
+M0 <- glmer(n ~ patch_type * sp_code + (1 + patch_type * sp_code | block), 
+            data = spp_abund, 
+            family = poisson)
+summary(M0)
+
+# residuals
+simulationOutput <- 
+  simulateResiduals(fittedModel = M0, plot = TRUE)
+
+
+# with iNEXT --------------------------------------------------------------
+# iNEXT focuses on three measures of Hill numbers of order q: 
+# https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12613
+# https://cran.r-project.org/web/packages/iNEXT/vignettes/Introduction.pdf
+# species richness (q = 0)
+# Shannon diversity (q = 1), the exponential of Shannon entropy) and 
+# Simpson diversity (q = 2, the inverse of Simpson
+#                                                                                                                                                                          concentration). For each diversity measure, iNEXT uses the observed sample of abundance or incidence
+# data (called the “reference sample”) to compute diversity estimates and 
+# the associated 95% confidence intervals for the following two types of 
+# rarefaction and extrapolation (R/E):
+# 
+# 1. Sample-size-based (or size-based) R/E sampling curves: iNEXT computes 
+# diversity estimates for rarefied and extrapolated samples up to an appropriate 
+# size. This type of sampling curve plots the diversity estimates with respect to sample size.
+# 
+# 2. Coverage‐based R/E sampling curves: iNEXT computes diversity estimates for 
+# rarefied and extrapolated samples based on a standardized level of sample 
+# completeness (as measured by sample coverage) up to an appropriate coverage value. 
+# This type of sampling curve plots the diversity estimates with respect to sample coverage.
+
+
+
+
+
+
+# I edited the code so that it calculates the values for EACH LOCATION
+# to do this I needed to make a hybrid name of the plot and patch
+
+btl_sums_patch<-btl_data %>%
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>%
+  group_by(species,patch,block) %>%
+  mutate(patch=case_when(
+    patch == "c" ~ "Corridor",
+    patch == "m" ~ "Matrix",
+    patch == "w" ~ "Winged",
+    patch == "r" ~ "Rectangle",
+    .default = as.character(patch))) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  arrange(patch,desc(n)) %>%
+  rename(sp_code=species,
+         n_patch=n) %>%
+  mutate(pb=paste(patch,block,sep="-")) %>% 
+  ungroup() %>% 
+  select(-patch,-block) %>% 
+  pivot_wider(
+    names_from = pb,
+    values_from = c(n_patch)) 
+
+
+
+div.data <- btl_sums_patch |>
+  select(sp_code,`Matrix-8`,`Matrix-52`) |>
+  column_to_rownames(var = "sp_code") 
+
+
+
+div.btl <- iNEXT(div.data, q = c(0,1,2), datatype = "abundance")
+
+
+# reference sample size (n)
+# observed species richness (S.obs)
+# sample coverage estimate for the reference sample (SC)
+# first ten frequency counts (f1‐f10). 
+# use: 
+div.btl$DataInfo
+
+
+ggiNEXT(div.btl, type=1, se=TRUE, facet.var="None", color.var="Assemblage", grey=FALSE) 
+
+out <- iNEXT(div.data, q=c(0, 1, 2), datatype="abundance", endpoint=500)
+ggiNEXT(out, type=1, facet.var="Assemblage")
+
+
+
+# with spAbundance --------------------------------------------------------
+# https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.14332
+# https://doserlab.com/files/spabundance-web/articles/glmm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# RAREFACTION CURVES ------------------------------------------------------
 
 
 # code for making a rarefaction curve -------------------------------------
