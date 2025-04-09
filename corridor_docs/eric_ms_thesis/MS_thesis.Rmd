@@ -125,7 +125,7 @@ Paragraph 3: What we don't know.
 
 Paragraph 4: Why we don't know it. _(hint: ecosystem services)_  
 
->Topic Sentence: Is this where we talk about challenges in large scale experimental design and the corridor project or is this where we talk about ecosystem services and biodiversity? 
+>Topic Sentence: Is this where we talk about challenges in large scale experimental design and the corridor project or is this where we talk about ecosystem services and biodiversity? Or sensitivity to ecosystem change and how that might impact functionality?
 
 Paragraph 5: Here is what we did to address this unknown. 
 
