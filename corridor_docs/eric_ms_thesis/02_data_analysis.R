@@ -118,6 +118,32 @@ btl_order_patch<-btl_data %>%
 btl_order_patch
 
 
+# FIGURE
+
+btl_n_patch_block<-btl_data %>%
+  select(-sum) %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
+  group_by(patch,species,block) %>%
+  # group_by(patch,species) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  pivot_wider(names_from = patch, 
+              values_from = n) %>% 
+  arrange(species,block) %>% 
+  pivot_longer(c:w,names_to = "patch",values_to = "n") 
+
+
+
+ggplot(data=btl_n_patch_block, aes(x=patch, y=n, group=block)) +
+  geom_line(size=0.5) + 
+  geom_point(size=2, aes(colour=block, shape=block))+
+  facet_wrap(vars(species), nrow = 2)+
+  ylab("No. of Beetles Captured")+
+  xlab("Patch Type")+
+  theme_classic()
+
+
+
+
 
 # total number of sample points -------------------------------------------
 
