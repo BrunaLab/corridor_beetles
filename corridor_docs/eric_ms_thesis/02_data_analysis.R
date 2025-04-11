@@ -531,6 +531,23 @@ M0 <- glmer(n ~ patch_type * sp_code + (1 + patch_type * sp_code | block),
             family = poisson)
 summary(M0)
 
+# Model for richness 
+M_rich <- glmer(h_rich ~ patch_type + (1 + patch_type | block),
+                data = h_rich,
+                family = poisson)
+summary(M_rich)
+
+# Model for shannons 
+h_shannon
+
+?glmer
+
+M_shannon <- glmer(h_shannon ~ patch_type + (1 + patch_type | block),
+                data = h_shannon,
+                family = gaussian)
+summary(M_shannon)
+
+
 # residuals
 simulationOutput <- 
   simulateResiduals(fittedModel = M0, plot = TRUE)
@@ -543,7 +560,7 @@ simulationOutput <-
 # species richness (q = 0)
 # Shannon diversity (q = 1), the exponential of Shannon entropy) and 
 # Simpson diversity (q = 2, the inverse of Simpson
-#                                                                                                                                                                          concentration). For each diversity measure, iNEXT uses the observed sample of abundance or incidence
+# concentration). For each diversity measure, iNEXT uses the observed sample of abundance or incidence
 # data (called the “reference sample”) to compute diversity estimates and 
 # the associated 95% confidence intervals for the following two types of 
 # rarefaction and extrapolation (R/E):
