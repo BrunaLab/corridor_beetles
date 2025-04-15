@@ -118,6 +118,32 @@ btl_order_patch<-btl_data %>%
 btl_order_patch
 
 
+# FIGURE
+
+btl_n_patch_block<-btl_data %>%
+  select(-sum) %>% 
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% 
+  group_by(patch,species,block) %>%
+  # group_by(patch,species) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  pivot_wider(names_from = patch, 
+              values_from = n) %>% 
+  arrange(species,block) %>% 
+  pivot_longer(c:w,names_to = "patch",values_to = "n") 
+
+
+
+ggplot(data=btl_n_patch_block, aes(x=patch, y=n, group=block)) +
+  geom_line(size=0.5) + 
+  geom_point(size=2, aes(colour=block, shape=block))+
+  facet_wrap(vars(species), nrow = 2)+
+  ylab("No. of Beetles Captured")+
+  xlab("Patch Type")+
+  theme_classic()
+
+
+
+
 
 # total number of sample points -------------------------------------------
 
@@ -505,6 +531,23 @@ M0 <- glmer(n ~ patch_type * sp_code + (1 + patch_type * sp_code | block),
             family = poisson)
 summary(M0)
 
+# Model for richness 
+M_rich <- glmer(h_rich ~ patch_type + (1 + patch_type | block),
+                data = h_rich,
+                family = poisson)
+summary(M_rich)
+
+# Model for shannons 
+h_shannon
+
+?glmer
+
+M_shannon <- glmer(h_shannon ~ patch_type + (1 + patch_type | block),
+                data = h_shannon,
+                family = gaussian)
+summary(M_shannon)
+
+
 # residuals
 simulationOutput <- 
   simulateResiduals(fittedModel = M0, plot = TRUE)
@@ -517,7 +560,7 @@ simulationOutput <-
 # species richness (q = 0)
 # Shannon diversity (q = 1), the exponential of Shannon entropy) and 
 # Simpson diversity (q = 2, the inverse of Simpson
-#                                                                                                                                                                          concentration). For each diversity measure, iNEXT uses the observed sample of abundance or incidence
+# concentration). For each diversity measure, iNEXT uses the observed sample of abundance or incidence
 # data (called the “reference sample”) to compute diversity estimates and 
 # the associated 95% confidence intervals for the following two types of 
 # rarefaction and extrapolation (R/E):
