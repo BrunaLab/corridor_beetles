@@ -474,19 +474,25 @@ We thank the USDA Forest Service for maintaining experimental landscapes and ass
 
 
 \newpage
-# FIGURES & TABLES
+# TABLES
 
 
 1. ~~Table: count by species by habitat.~~
 1. table: results of species richness analyses.
-1. Figure of species richness results.
 1. table: results of species diversity analyses.
-1. Figure of species diversity results.
 1. table: results of functional diversity analyses.
-1. Figure of biomass of different (R/T/D) functional groups.
+
+# FIGURES
 1. Map of where field site is located.
 1. ~~Figure of the patch layout with pitfalls~~.
 1. Pictures of different species, sampling, field sites?
+
+1. Figure of species richness results.
+1. Figure of species diversity results.
+1. Figure of biomass of different (R/T/D) functional groups.
+1. Figure of biomass by species.
+1. Figure of abundance by species
+
 
 \newpage
 
