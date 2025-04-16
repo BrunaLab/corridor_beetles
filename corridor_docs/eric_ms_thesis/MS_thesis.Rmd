@@ -1,8 +1,6 @@
 ---
 title: "Influence of Connectivity on Dung Beetle Communities"
 author: "ERIC ESCOBAR-CHENA"
-
-
 # date: "\\vspace{-1em}"
 header-includes:
  # - \AtBeginDocument{\let\maketitle\relax} # this removes default title section
@@ -153,7 +151,7 @@ Potential alternative routes:
 <!-- Paragraph 4: Why we don't know it. _(hint: ecosystem services)_   -->
 
 <!-- >Topic Sentence: Is this where we talk about challenges in large scale experimental design and the corridor project or is this where we talk about ecosystem services and biodiversity?  -->
->>>>>>> 00e63cc7839ab9ed385977c0070366fee8ea92f7
+
 
 Paragraph 5: Here is what we did to address this unknown. 
 
