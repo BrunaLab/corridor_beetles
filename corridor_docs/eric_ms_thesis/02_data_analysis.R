@@ -490,67 +490,7 @@ hill_results<-h_rich %>%
 
 
 
-# following tutorial of 
-# https://livinglandscapes.github.io/Course_EcologicalModeling/05-B-Generalized-Linear-Mixed-Models.html
 
-require(librarian, quietly = TRUE)
-shelf(tidyverse, 
-      performance, # For checking model convergence
-      MuMIn, # for model selection
-      lme4, # For mixed modeling
-      # pander,
-      lattice,
-      broom.mixed,
-      DHARMa, # For mixed model diagnostics
-      lib = tempdir(),
-      quiet = TRUE)
-
-
-hist(hill_results$h_rich,
-     xlab = "h_rich",
-     main = "")
-
-
-
-ggplot(spp_abund, 
-       aes(x = patch_type, 
-           y = n,
-           # y = h_rich,
-           # y = h_shannon,
-           color = block)) +
-  scale_color_viridis_d(option = "turbo") + 
-  # geom_point(position="jitter") + 
-  geom_point() + 
-  facet_wrap( ~ sp_code) + 
-  theme_bw()
-
-
-# Global model: Take 1
-M0 <- glmer(n ~ patch_type * sp_code + (1 + patch_type * sp_code | block), 
-            data = spp_abund, 
-            family = poisson)
-summary(M0)
-
-# Model for richness 
-M_rich <- glmer(h_rich ~ patch_type + (1 + patch_type | block),
-                data = h_rich,
-                family = poisson)
-summary(M_rich)
-
-# Model for shannons 
-h_shannon
-
-?glmer
-
-M_shannon <- glmer(h_shannon ~ patch_type + (1 + patch_type | block),
-                data = h_shannon,
-                family = gaussian)
-summary(M_shannon)
-
-
-# residuals
-simulationOutput <- 
-  simulateResiduals(fittedModel = M0, plot = TRUE)
 
 
 # with iNEXT --------------------------------------------------------------
