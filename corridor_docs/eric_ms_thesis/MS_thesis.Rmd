@@ -110,7 +110,9 @@ Habitat fragmentation threatens biodiversity across the globe as habitat loss, i
 **_Note from EB:_** _I don't want to see the words 'dung beetles' until paragraph 5_.
 
 Paragraph 1: Overall Topic & Why it is interesting and Important.     
-  As human disturbances continue to expand into natural landscapes, intact habitats are becoming increasingly fragmented.Effects from isolation can vary, however as habitats are broken down community structures are significantly altered [@WOS:000419965700012]. This degradation of structure lends to loss in biodiversity on a global scale and interruptions in ecosystem processes and functions [@haddad_habitat_2015]. 
+  As human disturbances continue to expand into natural landscapes, intact habitats are becoming increasingly fragmented. Effects from isolation can vary, however as habitats are broken down community structures are significantly altered [@WOS:000419965700012]. This degradation of structure lends to loss in biodiversity on a global scale and interruptions in ecosystem processes and functions [@haddad_habitat_2015]. 
+
+Like many ecological processes, fragmentation is a complex and multifaceted phenomenon 
 
 >Topic Sentence:  Fragmentation is an extensive problem across the globe and it is vital to understand shifts in biodiversity and community structures as a result of trophic cascades.  
 
@@ -121,6 +123,10 @@ Corridors have been shown to be an important mechanism for facilitating the move
 >Topic Sentence: Habitat connectivity is generally viewed as beneficial for ecosystems as a whole. We know that patch shape and size can be an influental factor for how populations are configured. Wildlife corridors
 
 Paragraph 3: What we don't know.
+
+With experimental designs we are able to isolate factors might be contributing to ecological patterns and processes. 
+
+
 
 <!-- stuff that these inviduals or species do: -->
 <!-- 1) their interactions with other species -->
