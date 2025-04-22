@@ -1,6 +1,8 @@
 ---
 title: "Influence of Connectivity on Dung Beetle Communities"
 author: "ERIC ESCOBAR-CHENA"
+
+
 # date: "\\vspace{-1em}"
 header-includes:
  # - \AtBeginDocument{\let\maketitle\relax} # this removes default title section
@@ -108,9 +110,10 @@ Habitat fragmentation threatens biodiversity across the globe as habitat loss, i
 **_Note from EB:_** _I don't want to see the words 'dung beetles' until paragraph 5_.
 
 Paragraph 1: Overall Topic & Why it is interesting and Important.     
-  As human disturbances continue to expand into natural landscapes, intact habitats are becoming increasingly fragmented. Effects from isolation can vary, however as habitats are broken down community structures are significantly altered [@WOS:000419965700012]. This degradation of structure lends to loss in biodiversity on a global scale and interruptions in ecosystem processes and functions [@haddad_habitat_2015]. 
+ 
+  As human disturbances continue to expand into natural landscapes, intact habitats are becoming increasingly fragmented. Like many ecological processes, fragmentation is a complex and multifaceted phenomenon bringing about many consequences which can be both positive and negative for ecosystems [@fahrig_effects_2003] [@fletcher_is_2018]. However, as habitats are broken down community structures are significantly altered [@WOS:000419965700012]. This alteration of structure typically lends to loss in biodiversity on a global scale and interruptions in ecosystem processes and functions [@haddad_habitat_2015]. Researchers today continue to search for strategies to mitigate the negative effects resulting from changes in landscape structure [@noh_forest_2022]. 
 
-Like many ecological processes, fragmentation is a complex and multifaceted phenomenon 
+
 
 >Topic Sentence:  Fragmentation is an extensive problem across the globe and it is vital to understand shifts in biodiversity and community structures as a result of trophic cascades.  
 
@@ -137,10 +140,6 @@ With experimental designs we are able to isolate factors might be contributing t
 <!-- - decomposition -->
 
 
-
->Topic Sentence: Is this where we talk about challenges in large scale experimental design and the corridor project or is this where we talk about ecosystem services and biodiversity? Or sensitivity to ecosystem change and how that might impact functionality?
-
-
 >Topic Sentence:  Changes in ecosystem fuction as a result of shifts in community structure (EB but we may not want to emphasize this given we didn't measure directly)
 
 Potential alternative routes: 
@@ -157,7 +156,6 @@ Potential alternative routes:
 <!-- Paragraph 4: Why we don't know it. _(hint: ecosystem services)_   -->
 
 <!-- >Topic Sentence: Is this where we talk about challenges in large scale experimental design and the corridor project or is this where we talk about ecosystem services and biodiversity?  -->
-
 
 Paragraph 5: Here is what we did to address this unknown. 
 
@@ -478,25 +476,19 @@ We thank the USDA Forest Service for maintaining experimental landscapes and ass
 
 
 \newpage
-# TABLES
+# FIGURES & TABLES
 
 
 1. ~~Table: count by species by habitat.~~
 1. table: results of species richness analyses.
+1. Figure of species richness results.
 1. table: results of species diversity analyses.
+1. Figure of species diversity results.
 1. table: results of functional diversity analyses.
-
-# FIGURES
+1. Figure of biomass of different (R/T/D) functional groups.
 1. Map of where field site is located.
 1. ~~Figure of the patch layout with pitfalls~~.
 1. Pictures of different species, sampling, field sites?
-
-1. Figure of species richness results.
-1. Figure of species diversity results.
-1. Figure of biomass of different (R/T/D) functional groups.
-1. Figure of biomass by species.
-1. Figure of abundance by species
-
 
 \newpage
 
