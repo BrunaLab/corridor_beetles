@@ -111,7 +111,11 @@ Habitat fragmentation threatens biodiversity across the globe as habitat loss, i
 
 Paragraph 1: Overall Topic & Why it is interesting and Important.     
  
-  As human disturbances continue to expand into natural landscapes, intact habitats are becoming increasingly fragmented. Like many ecological processes, fragmentation is a complex and multifaceted phenomenon bringing about many consequences which can be both positive and negative for ecosystems [@fahrig_effects_2003] [@fletcher_is_2018]. However, as habitats are broken down community structures are significantly altered [@WOS:000419965700012]. This alteration of structure typically lends to loss in biodiversity on a global scale and interruptions in ecosystem processes and functions [@haddad_habitat_2015]. Researchers today continue to search for strategies to mitigate the negative effects resulting from changes in landscape structure [@noh_forest_2022]. 
+  As human disturbances continue to expand into natural landscapes, intact habitats are becoming increasingly fragmented. Like many ecological processes, fragmentation is a complex and multifaceted phenomenon bringing about many consequences which can be both positive and negative for ecosystems [@fahrig_effects_2003] [@fletcher_is_2018]. However, as habitats are broken down community structures are significantly altered [@WOS:000419965700012]. This alteration of structure typically lends to loss in biodiversity on a global scale and interruptions in ecosystem processes and functions [@haddad_habitat_2015]. 
+  
+  
+
+# Researchers today continue to search for strategies to mitigate the negative effects resulting from changes in landscape structure [@noh_forest_2022]. 
 
 
 
