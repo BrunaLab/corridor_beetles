@@ -119,7 +119,11 @@ Paragraph 1: Overall Topic & Why it is interesting and Important.
 
 Paragraph 2: What we know. 
 
-Corridors have been shown to be an important mechanism for facilitating the movement of organisms through fragmented landscapes with the goal of minimizing negative consequences of fragmentation[@haddad_corridor_2003], including decreases in the abundance and diversity of species.
+Corridors have been shown to be an important mechanism for facilitating the movement of organisms through fragmented landscapes with the goal of minimizing negative consequences of fragmentation[@haddad_corridor_2003]. 
+
+Corridors are good and generally understood as beneficial for 
+
+
 
 >Topic Sentence: Habitat connectivity is generally viewed as beneficial for ecosystems as a whole. We know that patch shape and size can be an influental factor for how populations are configured. Wildlife corridors
 
