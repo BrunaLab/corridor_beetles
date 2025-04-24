@@ -103,6 +103,48 @@ total_spp<-btl_data %>%
 
 Habitat fragmentation threatens biodiversity across the globe as habitat loss, isolation, and edge effects become increasingly prevalent. Corridors have become an important tool in order to combat the negative effects of fragmentation, however they are difficult to study in natural systems without incurring confounding effects.  To observe changes in insect community composition as an effect of landscape features we sampled dung beetles in a landscape scale experiment. We did not see a difference in species richness or diversity, but dung beetle abundances were higher in continuous forest habitat and open habitat patches connected by a corridors than in isolated patches. 
 
+# TO DO LIST
+
+### Methods: 
+1. add a few sentences on drying, keys used to ID, and depositing vouchers
+
+### Analyses
+1. Write a short paragraph on how you calculated and compared species richness and diversity (hill numbers, glmm). 
+1. Write a short paragraph on how you calculated and compared functional diversity (how you measured it, how you compared it)
+
+### Results
+1. answer the overview questions, them stich them together into a paragraph
+ - ~~any species restricted to 1-2 habitat types~~
+ - Were all species found in all blocks? Were any restricted to only 1-2 blocks?
+ - Were all species found in the matrix? (expect that so, since it is the 'baseline' or 'source' habitat)
+ - Number of species in each functional group
+ - ~~most common 3-4 species~~
+ - any rare species? 
+ - any invasive / exotic species?
+
+### Figures 
+
+1. Figure of species richness results.
+1. Figure of species diversity results.
+1. Figure of biomass of different (R/T/D) functional groups.
+1. Figure of abundance of individual species.
+1. ~~Figure of the patch layout with pitfalls~~.
+
+### Tables
+
+1. ~~Table: count by species by habitat.~~
+1. table: results of species richness analyses.
+1. table: results of species diversity analyses.
+1. table: results of functional diversity analyses.
+
+### Misc. 
+
+1. Map of where field site is located.
+
+1. Pictures of different species, sampling, field sites
+
+
+
 \newpage
 
 # INTRODUCTION
@@ -113,9 +155,7 @@ Paragraph 1: Overall Topic & Why it is interesting and Important.
  
   As human disturbances continue to expand into natural landscapes, intact habitats are becoming increasingly fragmented. Like many ecological processes, fragmentation is a complex and multifaceted phenomenon bringing about many consequences which can be both positive and negative for ecosystems [@fahrig_effects_2003] [@fletcher_is_2018]. However, as habitats are broken down community structures are significantly altered [@WOS:000419965700012]. This alteration of structure typically lends to loss in biodiversity on a global scale and interruptions in ecosystem processes and functions [@haddad_habitat_2015]. 
   
-  
-
-# Researchers today continue to search for strategies to mitigate the negative effects resulting from changes in landscape structure [@noh_forest_2022]. 
+>_Researchers today continue to search for strategies to mitigate the negative effects resulting from changes in landscape structure [@noh_forest_2022]. _
 
 
 
@@ -190,25 +230,25 @@ Our study took place at the Savannah River Site (SRS), a National Environmental 
 
 In the months of July and August 2024 dung beetles were sampled in 4 blocks spread across SRS, baited pitfall traps were placed in one of each patch type and in one matrix plot per block. Traps were placed in groups of 3 in the centers of each patch approximately 250 meters from the midpoint of the central patch 40 m from patch edge. Pitfalls were oriented in a triangular pattern with the bottom two traps positioned towards the center patch, each trap 20 m apart. Plots in the matrix were set up in a similar fashion with the center point 250 m from the center placed equidistant between adjacent patches. Individual pitfall traps consisted of two components, a 10cm tall by 8 cm wide cylinder base topped with a funnel with a 10cm wide rim. Pig feces was suspended above the funnel by a 6.5 cm by 6.5 cm mesh square.  For each sample period, traps were baited with pig dung between 8-9 pm and picked up 12 hours later, all beetles captured were stored in ethanol for further processing. In total 16 sampling rounds were carried out with 4 rounds per block, 196 samples were collected. 
 
-All dung beetles were counted and identified to species.  
+All dung beetles were counted and identified to species
 
  - We also dried and weighed individuals to estimate biomass  
  - what guides/keys did you do to ID?  
- - did you deposit vouchers and if so where are they available?  
+ - "Voucher specimens of species I collected will be deposited at the Florida State Collection of Arthropods" (https://thefsca.org/services/specimen-donations/)
  
 
 ## Analyses 
 
 ### Overview
 
-_Don't have to describe these, just do it and report in results. this is just to remind us of what to do_
+<!-- _Don't have to describe these, just do it and report in results. this is just to remind us of what to do_ -->
 
-1. how many beetles total  
-1. most common species overall.  
-1. was. the same species the most common one in all habitats?  
-1. were there any that were caught in all habitats? Any restricted to only one?  
-1. any invasive / exotic species?  
-1. Table: count by species by habitat. 
+<!-- 1. how many beetles total   -->
+<!-- 1. most common species overall.   -->
+<!-- 1. was. the same species the most common one in all habitats?   -->
+<!-- 1. were there any that were caught in all habitats? Any restricted to only one?   -->
+<!-- 1. any invasive / exotic species?   -->
+<!-- 1. Table: count by species by habitat.  -->
 
 ### Species richness 
 
@@ -400,7 +440,9 @@ mutate(w=case_when(
 ### Overview
 
 1. total number of beetles from total number of species: `r total_N` beetles from `r total_spp` species.
-1. were all species found in all habitats? Were any species found in only 1 habitat?
+
+1. All but four species species were found in every patch type. _Onthophagus concinnus_ was found in the matrix and winged patches, while _Onthophagus striatulus_ was found in matrix habitat and rectanular patches. _Geotrupes blackburnii_ and _Onthophagus tuberculifrons_ were the only species restricted to one patch type (winged and matrix, respectively).
+
 1. Were all species found in all blocks? Were any restricted to only 1-2 blocks?
 1. Were all species found in the matrix? (expect that so, since it is the 'baseline' or 'source' habitat)
 1. Number of species in each functional group
