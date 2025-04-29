@@ -1,5 +1,5 @@
 library(tidyverse)
-
+library(here)
 
 
 # load and prep data ------------------------------------------------------
@@ -104,7 +104,7 @@ library(lme4)
 library(car)
 
 # LINEAR MEXED MODEL
-model <- lmer(h_rich ~ patch_type + (1|block), data = hill_results) # You should only use the 'aov()' for one-way ANOVAs with equal sample sizes
+model <- lmer(h_rich ~ patch_type + (1|block), data = hill_results)# You should only use the 'aov()' for one-way ANOVAs with equal sample sizes
 summary(model)
 Anova(model)
 shapiro.test(resid(model))
@@ -165,21 +165,36 @@ M0 <- glmer(n ~ patch_type * sp_code + (1 + patch_type * sp_code | block),
             family = poisson)
 summary(M0)
 
+Anova(M0)
+
 # Model for richness 
 M_rich <- glmer(h_rich ~ patch_type + (1 + patch_type | block),
                 data = h_rich,
                 family = poisson)
 summary(M_rich)
 
+Anova(M_rich)
+
+library(broom.mixed)
+tidy_model <- tidy(M_rich, effects = "fixed")
+
+library(gt)
+table <- tidy_model |>
+  gt() 
+
+library(flextable)
+ft <- flextable(tidy_model)
+save_as_image(ft, path = "glmer_table.png")
+
 # Model for shannons 
 h_shannon
 
 ?glmer
 
-M_shannon <- glmer(h_shannon ~ patch_type + (1 + patch_type | block),
-                   data = h_shannon,
-                   family = gaussian)
-summary(M_shannon)
+M_simpson <- glmer(h_simpson ~ patch_type + (1 + patch_type | block),
+                   data = h_simpson,
+                   family = poisson)
+summary(M_simpson)
 
 
 # residuals
@@ -211,11 +226,36 @@ ggplot(aes(x = block,
 hill_results %>% 
   ggplot(aes(x = patch_type, 
              # y = n,
-             # y = h_rich,
-             y = h_shannon,
+             y = h_rich,
+             # y = h_shannon,
              color = block)) +
   scale_color_viridis_d(option = "turbo") + 
   geom_point(position="jitter") + 
   theme_bw()+
-  theme(axis.text.x = element_text(angle = 45, vjust = 0.7, hjust = 0.9))
+  theme(axis.text.x = element_text(angle = 45, vjust = 0.7, hjust = 0.9))+
+  labs(x = "Patch Type", y = "Species Richness")
 
+
+spp_table<-knitr::kable(spp_table_data, 
+                        digits = 2,
+                        align="lcrcccc",
+                        format="latex",
+                        row.names = FALSE,
+                        booktabs=T,
+                        linesep = "", #removes the blank line after every 5 lines
+                        caption = "Dung beetle species sampled in the SRS site and their total abundance over the course of the study.") %>%
+  kable_styling(bootstrap_options = c("striped"),
+                full_width = F,
+                latex_options="scale_down",
+                font_size = 12,
+                position = "center") %>% 
+  column_spec(1, italic = T) %>% 
+  row_spec(0, bold = T) %>% 
+  row_spec(1:15, hline_after = T) 
+spp_table
+
+library(broom.mixed)
+tidy_model <- tidy(M0, effects = "fixed")
+library(knitr)
+M0_table <- kable(tidy_model, digits = 3)
+M0_table
