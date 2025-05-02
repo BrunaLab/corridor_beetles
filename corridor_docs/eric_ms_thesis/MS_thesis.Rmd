@@ -106,16 +106,16 @@ Habitat fragmentation threatens biodiversity across the globe as habitat loss, i
 # TO DO LIST
 
 ### Methods: 
-1. add a few sentences on drying, keys used to ID, and depositing vouchers
+1. ~~add a few sentences on drying, keys used to ID, and depositing vouchers~~
 
 ### Analyses
-1. Write a short paragraph on how you calculated and compared species richness and diversity (hill numbers, glmm). 
+1. ~~Write a short paragraph on how you calculated and compared species richness and diversity (hill numbers, glmm). ~~
 1. Write a short paragraph on how you calculated and compared functional diversity (how you measured it, how you compared it)
 
 ### Results
 1. answer the overview questions, them stich them together into a paragraph
  - ~~any species restricted to 1-2 habitat types~~
- - Were all species found in all blocks? Were any restricted to only 1-2 blocks?
+ - ~~Were all species found in all blocks? Were any restricted to only 1-2 blocks?~~
  - Were all species found in the matrix? (expect that so, since it is the 'baseline' or 'source' habitat)
  - Number of species in each functional group
  - ~~most common 3-4 species~~
@@ -232,6 +232,10 @@ Our study took place at the Savannah River Site (SRS), a National Environmental 
 In the months of July and August 2024 dung beetles were sampled in 4 blocks spread across SRS, baited pitfall traps were placed in one of each patch type and in one matrix plot per block. Traps were placed in groups of 3 in the centers of each patch approximately 250 meters from the midpoint of the central patch 40 m from patch edge. Pitfalls were oriented in a triangular pattern with the bottom two traps positioned towards the center patch, each trap 20 m apart. Plots in the matrix were set up in a similar fashion with the center point 250 m from the center placed equidistant between adjacent patches. Individual pitfall traps consisted of two components, a 10cm tall by 8 cm wide cylinder base topped with a funnel with a 10cm wide rim. Pig feces was suspended above the funnel by a 6.5 cm by 6.5 cm mesh square.  For each sample period, traps were baited with pig dung between 8-9 pm and picked up 12 hours later, all beetles captured were stored in ethanol for further processing. In total 16 sampling rounds were carried out with 4 rounds per block, 196 samples were collected. 
 
 All dung beetles were counted and identified to species as described in @nemes_illustrated_2015-1 and @edmonds_taxonomic_2023. Fifteen individuals of each species with adequate captures were dried to equalibrium and weighed for biomass measurements. Voucher specimcens for each species will be deposited at the Florida State Collection of Arthropods. 
+
+## Analysis
+
+Biodiversity between patch types was compared using Hill numbers (Jost 2006). We looked at community composition by increasing magnitudes of diversity components (qD) of 0D (species richness), 1D (Shannon entropy), and 2D (Simpson Diversity). Diversity numbers were calculated in R studio using package hillR and modeled using package lme4. For the purposes of this project richness was modeled using a generalized linear mixed model with a poisson distribution. A qqplot of our data shows that our residuals are normally distributed (Figure 1). 
 
  - We also dried and weighed individuals to estimate biomass  
  - what guides/keys did you do to ID?  
