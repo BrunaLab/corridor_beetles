@@ -55,12 +55,30 @@ spp_abund<-btl_data %>%
   mutate(patch_block=paste(patch,block,sep="_")) %>% 
   ungroup() %>% 
   select(-patch,-block) %>% 
+  separate(patch_block,c("patch_type","block"),sep="_",remove=TRUE) 
+
+spp_abund_top6<-btl_data %>%
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>%
+  mutate(patch=case_when(
+    patch == "c" ~ "Connected",
+    patch == "m" ~ "Matrix",
+    patch == "w" ~ "Winged",
+    patch == "r" ~ "Rectangle",
+    .default = as.character(patch))) %>%
+  group_by(species,patch,block) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  arrange(patch,desc(n)) %>%
+  rename(sp_code=species) %>%
+  mutate(patch_block=paste(patch,block,sep="_")) %>% 
+  ungroup() %>% 
+  select(-patch,-block) %>% 
   separate(patch_block,c("patch_type","block"),sep="_",remove=TRUE) %>% 
   filter(sp_code=="cvig"|
            sp_code=="alec"|
            sp_code=="pign"|
+           sp_code=="dcar"|
+           sp_code=="open"|
            sp_code=="aaeg")
-
 
 
 hill_data<-hill_data %>% column_to_rownames("patch_block")
@@ -145,8 +163,8 @@ hist(hill_results$h_rich,
      main = "")
 
 
-
-ggplot(spp_abund, 
+# foo<-spp_abund %>% group_by(patch_type,block) %>% summarize(n=sum(n))
+ggplot(spp_abund_top6, 
        aes(x = patch_type, 
            y = n,
            # y = h_rich,
@@ -159,13 +177,40 @@ ggplot(spp_abund,
   theme_bw()
 
 
-# Global model: Take 1
-M0 <- glmer(n ~ patch_type * sp_code + (1 + patch_type * sp_code | block), 
+
+# Global model: Take 1 abundance, indep of species ID
+M0 <- glmer(n ~ patch_type + (1 + patch_type | block), 
             data = spp_abund, 
             family = poisson)
 summary(M0)
 
 Anova(M0)
+
+# Model 2
+M2 <- glmer(n ~ sp_code + (1 | block), 
+            data = spp_abund, 
+            family = poisson)
+summary(M2)
+
+Anova(M2)
+
+
+
+# Model 3
+M3 <- glmer(n ~ sp_code * patch_type + (1 | block), 
+            data = spp_abund_top6, 
+            family = poisson)
+summary(M3)
+
+Anova(M3)
+
+# Global model: Take 1
+M1 <- glmer(n ~ patch_type * sp_code + (1 + patch_type * sp_code | block), 
+            data = spp_abund, 
+            family = poisson)
+summary(M1)
+
+Anova(M1)
 
 # Model for richness 
 M_rich <- glmer(h_rich ~ patch_type + (1 + patch_type | block),

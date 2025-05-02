@@ -105,6 +105,29 @@ Habitat fragmentation threatens biodiversity across the globe as habitat loss, i
 
 # TO DO LIST
 
+
+Next assignment:
+
+1) Are any of the Dung Beetles we collected considered "open habitat" specialists? (might want to look at the work on pastures in the southeast)
+
+2) Is there anything about these species that might be interesting in the context of corridors?
+  - are any species known to be good fliers/movers?
+  - specialists on deer dung?
+  - navigate by starlight?
+  - feeding preferences?
+  
+3) Did you get any species not captured in other long-leaf/SE USA forest sites?
+  
+4) What are hill numbers?
+
+5) What is the advantage of useing hill numbers to estimate diversity / richness?
+
+6) Are the diversity and richness estimates calculated with hill numbers sensitive to anything, e.g., rare species/abundance, etc:
+
+7) Find me the best example paragraph you think you read describing the use of hill numbers to estimate diversity/richness (field survey paper): _________________
+
+8) Find me the best TWO description of using GLMM to compare abundance/diversity/richness at the Corridor Project: _________________
+
 ### Methods: 
 1. ~~add a few sentences on drying, keys used to ID, and depositing vouchers~~
 
@@ -151,29 +174,18 @@ Habitat fragmentation threatens biodiversity across the globe as habitat loss, i
 
 **_Note from EB:_** _I don't want to see the words 'dung beetles' until paragraph 5_.
 
-Paragraph 1: Overall Topic & Why it is interesting and Important.     
- 
-  As human disturbances continue to expand into natural landscapes, intact habitats are becoming increasingly fragmented. Like many ecological processes, fragmentation is a complex and multifaceted phenomenon bringing about many consequences which can be both positive and negative for ecosystems [@fahrig_effects_2003] [@fletcher_is_2018]. However, as habitats are broken down community structures are significantly altered [@WOS:000419965700012]. This alteration of structure typically lends to loss in biodiversity on a global scale and interruptions in ecosystem processes and functions [@haddad_habitat_2015]. 
-  
->_Researchers today continue to search for strategies to mitigate the negative effects resulting from changes in landscape structure [@noh_forest_2022]. _
+Paragraph 1: Overall Topic & Why it is interesting and Important. _Fragmentation is an extensive problem across the globe and it is vital to understand shifts in biodiversity and community structures as a result of trophic cascades._
+
+>As human disturbances continue to expand into natural landscapes, intact habitats are becoming increasingly fragmented. Like many ecological processes, fragmentation is a complex and multifaceted phenomenon bringing about many consequences which can be both positive and negative for ecosystems [@fahrig_effects_2003] [@fletcher_is_2018]. However, as habitats are broken down community structures are significantly altered [@WOS:000419965700012]. This alteration of structure typically lends to loss in biodiversity on a global scale and interruptions in ecosystem processes and functions [@haddad_habitat_2015]. 
 
 
+Paragraph 2: What we know. _Habitat connectivity is generally viewed as beneficial for ecosystems as a whole. We know that patch shape and size can be an influental factor for how populations are configured. Wildlife corridors_
 
->Topic Sentence:  Fragmentation is an extensive problem across the globe and it is vital to understand shifts in biodiversity and community structures as a result of trophic cascades.  
+>Corridors have been shown to be an important mechanism for for minimizing negative consequences of fragmentation[@haddad_corridor_2003]. By improving habitat structure to help facilitate dispersal, wildlife corridors inform movement dynamics of local populations and can shape land uses and occupancy (insert richard forman 1995). Because of this dynamic it becomes necessary to understand responses by species compositions at all taxonomic levels and potential trophic cascades resulting from changes in habitat structure and connectivity.  
 
-Paragraph 2: What we know. 
+Paragraph 3: What we don't know. _Changes in ecosystem fuction as a result of shifts in community structure (EB but we may not want to emphasize this given we didn't measure directly_
 
-Corridors have been shown to be an important mechanism for for minimizing negative consequences of fragmentation[@haddad_corridor_2003]. By improving habitat structure to help facilitate dispersal, wildlife corridors inform movement dynamics of local populations and can shape land uses and occupancy (insert richard forman 1995). Because of this dynamic it becomes necessary to understand responses by species compositions at all taxonomic levels and potential trophic cascades resulting from changes in habitat structure and connectivity.  
-
-
->Topic Sentence: Habitat connectivity is generally viewed as beneficial for ecosystems as a whole. We know that patch shape and size can be an influental factor for how populations are configured. Wildlife corridors
-
-Paragraph 3: What we don't know.
-
-By measuring changes in biodiversity and species richness within experimental designs we are able to isolate factors might be contributing to ecological patterns and processes. Past studies have measured changes in biodiversity for many different taxa [@collins_fragmentation_2017; @graham_impact_2022; @tewksbury_corridors_2002], yet much work is still needed to build a full scope for how organisms are being effected. Furthermore it is important that we expand our knowledge on how composition changes might impact functional diversities and potential implications for the effectiveness of ecosystem services. 
-
-
-
+>By measuring changes in biodiversity and species richness within experimental designs we are able to isolate factors might be contributing to ecological patterns and processes. Past studies have measured changes in biodiversity for many different taxa [@collins_fragmentation_2017; @graham_impact_2022; @tewksbury_corridors_2002], yet much work is still needed to build a full scope for how organisms are being effected. Furthermore it is important that we expand our knowledge on how composition changes might impact functional diversities and potential implications for the effectiveness of ecosystem services. 
 
 <!-- stuff that these inviduals or species do: -->
 <!-- 1) their interactions with other species -->
@@ -186,38 +198,32 @@ By measuring changes in biodiversity and species richness within experimental de
 <!-- - decomposition -->
 
 
->Topic Sentence:  Changes in ecosystem fuction as a result of shifts in community structure (EB but we may not want to emphasize this given we didn't measure directly)
 
-Potential alternative routes: 
 
-1) We know far less on how corridors influence functional diversity. Functional diversity is important for the maintenance of ecosystems services, etc, so corridors cvould help ensure that.  (in context of dung beetles that would be feeding guilds (simplest), morphology etc. in deCastro Arrazola et al)
+<!-- Potential alternative routes:  -->
 
-2) Studies investigating corridors rarely look at whats i the matrix. The matrix could be a source of diversity that moves into patches and then through corridors or a completely different subset of species. (any other options?) Understanding whichh of these it is is important because it leads to differnt conclusions abiout role of corridors and conservation strategies
+<!-- 1) We know far less on how corridors influence functional diversity. Functional diversity is important for the maintenance of ecosystems services, etc, so corridors cvould help ensure that.  (in context of dung beetles that would be feeding guilds (simplest), morphology etc. in deCastro Arrazola et al) -->
 
-3) regardless, not a bad idea to discuss both matrix and functional group in diuscussion.
+<!-- 2) Studies investigating corridors rarely look at whats i the matrix. The matrix could be a source of diversity that moves into patches and then through corridors or a completely different subset of species. (any other options?) Understanding whichh of these it is is important because it leads to differnt conclusions abiout role of corridors and conservation strategies -->
 
-4) and the alternative approach: revamp into around spillover from matrix into patches and if depednent on corridors or edge 
+<!-- 3) regardless, not a bad idea to discuss both matrix and functional group in diuscussion. -->
+
+<!-- 4) and the alternative approach: revamp into around spillover from matrix into patches and if depednent on corridors or edge  -->
 
 
 <!-- Paragraph 4: Why we don't know it. _(hint: ecosystem services)_   -->
 
 <!-- >Topic Sentence: Is this where we talk about challenges in large scale experimental design and the corridor project or is this where we talk about ecosystem services and biodiversity?  -->
 
-Paragraph 5: Here is what we did to address this unknown. 
+Paragraph 4: Study System and why it is so excellent for this issue. _Here we talk about dung beetles how they fit into the broader scope of our question and directly state what questions we are asking._
 
-Dung beetles have emerged as a model system with which to test spatial ecology hypotheses [@ros_how_2012; @roslin_dung_2000].They are an incredibly well studied group of insects which are well known for driving a multitude of ecosystem functions (Hasan et al. 2024). The removal, breakdown, and burial of animal feces drive important ecosystem interactions provided by dung beetles enhancing nutrient cycling and soil quality, the reduction of breeding sites for parasites, and a reduction in methane emissions from dung [@slade_disentangling_2016; @WOS:000350444300013]
+>Dung beetles have emerged as a model system with which to test spatial ecology hypotheses [@ros_how_2012; @roslin_dung_2000].They are an incredibly well studied group of insects which are well known for driving a multitude of ecosystem functions (Hasan et al. 2024). The removal, breakdown, and burial of animal feces drive important ecosystem interactions provided by dung beetles enhancing nutrient cycling and soil quality, the reduction of breeding sites for parasites, and a reduction in methane emissions from dung [@slade_disentangling_2016; @WOS:000350444300013]
 Here, we aim to gain an understanding of how dung beetles, a group of insects well known for strong dispersal ability in order to compete for ephemeral resources(Hanski and Cambefort 1991), interact with corridors in their landscapes. We sampled dung beetle communities in experimental landscapes developed for the express purposes of comparing connected and isolated patches, as well as the effects of patch to edge ratio and distance to edge. To ask the question of (1) how landscape connectivity impacts dung beetle assemblages dung beetles were collected, identified, and counted with the expectation that biodiversity and abundance would be higher in patches connected by corridors. Additionally we asked are corridors benefiting any one functional trait over another? 
+
 <!-- Since our experimental system consists of open habitats amongst a forested matrix, we anticipate that species preferring open areas and generalists may be more common in our sampling. -->
 
->Topic Sentence:  Here we talk about dung beetles how they fit into the broader scope of our question and directly state what questions we are asking. 
+Paragraph 5: Here is what we did to address this unknown. _The hypotheses we tested_
 
----
-
-> As human disturbances continue to expand into natural landscapes, intact habitats are becoming increasingly fragmented. This degradation lends to loss in biodiversity on a global scale and interruptions in ecosystem processes and functions [@haddad_habitat_2015]. Effects from isolation can vary, however as habitats are broken down community structures are significantly altered [@WOS:000419965700012]. Corridors have been shown to be an important mechanism for facilitating the movement of organisms through fragmented landscapes with the goal of minimizing negative consequences of fragmentation[@haddad_corridor_2003]. As disturbance continues to intensify, it is becoming increasingly more important to understand how different taxonomic groups. Here, we aim to gain an understanding of how dung beetles, a group of insects well known for strong dispersal ability in order to compete for ephemeral resources(Hanski and Cambefort 1991), interact with corridors in their landscapes.  
-
-> Dung beetles have emerged as a model system with which to test spatial ecology hypotheses [@ros_how_2012; @roslin_dung_2000].They are an incredibly well studied group of insects which are well known for driving a multitude of ecosystem functions (Hasan et al. 2024). The removal, breakdown, and burial of animal feces drive important ecostystem interactions provided by dung beetles enhancing nutrient cycling and soil quality, the reduction of breeding sites for parasites, and a reduction in methane emissions from dung [@slade_disentangling_2016; @WOS:000350444300013]. Local assemblages of dung beetles can be species-rich with species comprising a broad range of functional traits (e.g., size, foraging style, resource-use) [@WOS:000891747700001]. Previous studies have shown that isolated patches of habitat frequently have lower dung beetle diversity and abundance than areas of continuous habitat, as well as documented their presence in linear strips of habitat that resemble corridors [@WOS:000707546700001].  Past studies have also focused on how landscape structure alters the community compositions of dung beetles[@WOS:000398662200001], yet large landscape scale experimental studies with carefully controlled and replicated treatments are non-existent for this model species.
-
-> Here, we  aim to determine how connectivity and fragmentation affect Species Richness and Diversity, Abundance, and functional diversity. We sampled dung beetle communities in experimental landscapes developed for the express purposes of comparing connected and isolated patches, as well as the effects of patch to edge ratio and distance to edge. To ask the question of (1) how landscape connectivity impacts dung beetle assemblages dung beetles were collected, identified, and counted with the expectation that biodiversity and abundance would be higher in patches connected by corridors. Additionally we asked (2) Are corridors benefiting any one functional trait over another? Since our experimental system consists of open habitats amongst a forested matrix, we anticipate that species preferring open areas and generalists may be more common in our sampling. 
 
 \newpage
 
@@ -235,7 +241,7 @@ All dung beetles were counted and identified to species as described in @nemes_i
 
 ## Analysis
 
-Biodiversity between patch types was compared using Hill numbers (Jost 2006). We looked at community composition by increasing magnitudes of diversity components (qD) of 0D (species richness), 1D (Shannon entropy), and 2D (Simpson Diversity). Diversity numbers were calculated in R studio using package hillR and modeled using package lme4. For the purposes of this project richness was modeled using a generalized linear mixed model with a poisson distribution. A qqplot of our data shows that our residuals are normally distributed (Figure 1). 
+Biodiversity between patch types was compared using Hill numbers (Jost 2006). Hill numbers are....  They are an alternative to...We looked at community composition by increasing magnitudes of diversity components (qD) of 0D (species richness), 1D (Shannon entropy), and 2D (Simpson Diversity). Diversity numbers were calculated in R studio using package hillR and modeled using package lme4. For the purposes of this project richness was modeled using a generalized linear mixed model with a poisson distribution. A qqplot of our data shows that our residuals are normally distributed (Figure 1). 
 
  - We also dried and weighed individuals to estimate biomass  
  - what guides/keys did you do to ID?  
@@ -449,8 +455,11 @@ mutate(w=case_when(
 1. All but four species species were found in every patch type. _Onthophagus concinnus_ was found in the matrix and winged patches, while _Onthophagus striatulus_ was found in matrix habitat and rectanular patches. _Geotrupes blackburnii_ and _Onthophagus tuberculifrons_ were the only species restricted to one patch type (winged and matrix, respectively).
 
 1. Were all species found in all blocks? Were any restricted to only 1-2 blocks?
+
 1. Were all species found in the matrix? (expect that so, since it is the 'baseline' or 'source' habitat)
+
 1. Number of species in each functional group
+
 1. most common 3-4 species: The `r how_many_common` most common species were \textit{`r most_common_spp[1,2]`} (N = `r most_common_spp[1,1]`), \textit{`r most_common_spp[2,2]`} (N = `r most_common_spp[2,1]`), and \textit{`r most_common_spp[3,2]`} (N = `r most_common_spp[3,1]`).
 1. any rare species? 
 1. any invasive / exotic species?
@@ -461,16 +470,6 @@ mutate(w=case_when(
 
 ### Functional diversity
 
-
----
-
-> Overall, `r total_N` total dung beetles were collected belonging to N = `r total_spp` species. The most dominant species were ______  (N = _____), _Ateuchus lecontei_ (n=_____), and _Phanaeus igneus_ (n=_958___) (Table 1). All but one species was found in matrix plots. Four species (_Onthophagus striatulus_, _Onthophagus concinnus_, _Geotrupes blackburnii_, _Onthophagus truberculifrons_) were the only species not representative in every patch type. We had two singleton species, _Geotrupes blackburnii_ appearing only once in winged, and _Onthophagus tuberculiofrons_ in matrix.  
-
-> Beetle abundance was significantly higher in matrix plots with 33% (n = 1713) of captures followed by 26% (n = 1359) caught in connected patches, 23% (n = 1199) in winged, and lastly 18% (n = 942) from rectangular patches (Table 2). 
-
-> Species richness was distinctly different between patch types with matrix plots exhibited the highest richness while connected patches were lowest (Fig. 1).  Estimations of Shannon diversity index were fairly uniform between patch types. Simpson diversity indices were similarly even however winged patches showed a lower value. 
-
-> Notable Bray-Curtis dissimilarity values were between connected and matrix (BC = 0.127), connected and winged (BC = 0.077),  matrix and rectangle (BC = 0.318), and matrix and winged (BC = 0.189) (Table 3).  
 
 
 
@@ -713,3 +712,14 @@ To my family who never stopped supporting me along this journey, my friends who 
 
 Eric Escobar-Chena completed his Bachelors education at Virginia Commonwealth University in 2023. During his time there he developed a fondness for insects which  grew into a curiosity of the natural world. He later began to explore this curiosity deeper in beginning his graduate education at the University of Florida as a Master's Student under the supervision of Emilio Bruna. 
 
+
+
+\newpage
+
+## Text Sandbox
+
+As human disturbances continue to expand into natural landscapes, intact habitats are becoming increasingly fragmented. This degradation lends to loss in biodiversity on a global scale and interruptions in ecosystem processes and functions [@haddad_habitat_2015]. Effects from isolation can vary, however as habitats are broken down community structures are significantly altered [@WOS:000419965700012]. Corridors have been shown to be an important mechanism for facilitating the movement of organisms through fragmented landscapes with the goal of minimizing negative consequences of fragmentation[@haddad_corridor_2003]. As disturbance continues to intensify, it is becoming increasingly more important to understand how different taxonomic groups. Here, we aim to gain an understanding of how dung beetles, a group of insects well known for strong dispersal ability in order to compete for ephemeral resources(Hanski and Cambefort 1991), interact with corridors in their landscapes.  
+
+Dung beetles have emerged as a model system with which to test spatial ecology hypotheses [@ros_how_2012; @roslin_dung_2000].They are an incredibly well studied group of insects which are well known for driving a multitude of ecosystem functions (Hasan et al. 2024). The removal, breakdown, and burial of animal feces drive important ecostystem interactions provided by dung beetles enhancing nutrient cycling and soil quality, the reduction of breeding sites for parasites, and a reduction in methane emissions from dung [@slade_disentangling_2016; @WOS:000350444300013]. Local assemblages of dung beetles can be species-rich with species comprising a broad range of functional traits (e.g., size, foraging style, resource-use) [@WOS:000891747700001]. Previous studies have shown that isolated patches of habitat frequently have lower dung beetle diversity and abundance than areas of continuous habitat, as well as documented their presence in linear strips of habitat that resemble corridors [@WOS:000707546700001].  Past studies have also focused on how landscape structure alters the community compositions of dung beetles[@WOS:000398662200001], yet large landscape scale experimental studies with carefully controlled and replicated treatments are non-existent for this model species.
+
+Here, we  aim to determine how connectivity and fragmentation affect Species Richness and Diversity, Abundance, and functional diversity. We sampled dung beetle communities in experimental landscapes developed for the express purposes of comparing connected and isolated patches, as well as the effects of patch to edge ratio and distance to edge. To ask the question of (1) how landscape connectivity impacts dung beetle assemblages dung beetles were collected, identified, and counted with the expectation that biodiversity and abundance would be higher in patches connected by corridors. Additionally we asked (2) Are corridors benefiting any one functional trait over another? Since our experimental system consists of open habitats amongst a forested matrix, we anticipate that species preferring open areas and generalists may be more common in our sampling. 
