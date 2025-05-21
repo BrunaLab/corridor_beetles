@@ -110,11 +110,30 @@ Next assignment:
 
 1) Are any of the Dung Beetles we collected considered "open habitat" specialists? (might want to look at the work on pastures in the southeast)
 
+cvig - open sand chaparral, open grassland preference nealis 1977
+mbis - open sand chapparal preference nealis 1977
+open - slight preference towards open chap and shaded chap, little open grassland nealis 1977 
+
+pign - sharing forest habitat but need more info conover 2019
+pvin - open habitat but share forest with pign conover 2019
+alec - forest preference conover 2019
+
+
 2) Is there anything about these species that might be interesting in the context of corridors?
   - are any species known to be good fliers/movers?
+    - Ospina 2018 -> wing shape py habitat preference and differences in wing shape determined by species groupings
+    ^ beetles with wider wings showed more preference towards open habitat, contrary to what is already known in literature on other taxa (butterflies)
+    ^ large body beetles tending towards lower energy flight strategies. maybe justification for corridor preference?
+    
+    = stanbrook and king 2022 -> tunnelers prefering open habitat and tunnelers also contributing more towards dung removal. 
+    
   - specialists on deer dung?
+    - Conover 2019 -> dung source being less of an issue than habitat type but some species were more responsive to specific bait types so future studies should use a mix of multiple bait types 
+  
   - navigate by starlight?
   - feeding preferences?
+  
+  
   
 3) Did you get any species not captured in other long-leaf/SE USA forest sites?
   
