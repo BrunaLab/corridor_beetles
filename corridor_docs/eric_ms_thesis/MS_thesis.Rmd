@@ -139,7 +139,14 @@ alec - forest preference conover 2019
   
 4) What are hill numbers?
 
+hill numbers are a set of biodiversity metrics designed to quantify biodiversity and richness differently depending on how we want to emphasize abundance while also accounting for differences in sampling sizes and efforts (read more about this Eric)
+
 5) What is the advantage of useing hill numbers to estimate diversity / richness?
+
+- Chao et al. 2014 -> incorporating abundance into calculating diversity metrics is important for studying functionality in particular since some species that may not be as abundant as others may not contribute to an ecosystem function as much as others.
+
+- ^ At the same time rare species may be filling a specific niche or we might be concerned about exotics or at risk species. 
+
 
 6) Are the diversity and richness estimates calculated with hill numbers sensitive to anything, e.g., rare species/abundance, etc:
 
