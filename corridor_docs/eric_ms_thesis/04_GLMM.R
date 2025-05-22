@@ -158,7 +158,7 @@ shelf(tidyverse,
       quiet = TRUE)
 
 
-hist(hill_results$h_rich,
+ hist(hill_results$h_rich,
      xlab = "h_rich",
      main = "")
 
@@ -186,6 +186,8 @@ summary(M0)
 
 Anova(M0)
 
+plot_model(M0, type = "pred")
+
 # Model 2
 M2 <- glmer(n ~ sp_code + (1 | block), 
             data = spp_abund, 
@@ -195,14 +197,29 @@ summary(M2)
 Anova(M2)
 
 
+plot_model(M2, type = "pred")
 
 # Model 3
+# sjplot 
+library(sjPlot)
+
 M3 <- glmer(n ~ sp_code * patch_type + (1 | block), 
             data = spp_abund_top6, 
             family = poisson)
 summary(M3)
 
 Anova(M3)
+
+plot_model(M3, type = "pred", terms = c("sp_code", "patch_type"))
+
+plot_model(M3, type = "pred", terms = c("patch_type", "sp_code"))
+
+
+?interaction.plot
+
+interaction.plot(M3)
+
+?plot_model
 
 # Global model: Take 1
 M1 <- glmer(n ~ patch_type * sp_code + (1 + patch_type * sp_code | block), 
@@ -220,6 +237,8 @@ summary(M_rich)
 
 Anova(M_rich)
 
+plot_model(M_rich, type = "pred")
+
 library(broom.mixed)
 tidy_model <- tidy(M_rich, effects = "fixed")
 
@@ -236,9 +255,10 @@ h_shannon
 
 ?glmer
 
-M_simpson <- glmer(h_simpson ~ patch_type + (1 + patch_type | block),
-                   data = h_simpson,
-                   family = poisson)
+h_simpson
+
+M_simpson <- lmer(h_simpson ~ patch_type + (1 | block),
+                   data = h_simpson)
 summary(M_simpson)
 
 
@@ -281,6 +301,10 @@ hill_results %>%
   labs(x = "Patch Type", y = "Species Richness")
 
 
+# figure attempts 
+
+
+# tables for model results 
 spp_table<-knitr::kable(spp_table_data, 
                         digits = 2,
                         align="lcrcccc",
