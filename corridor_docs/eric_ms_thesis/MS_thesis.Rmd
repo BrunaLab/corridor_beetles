@@ -125,10 +125,11 @@ alec - forest preference conover 2019
     ^ beetles with wider wings showed more preference towards open habitat, contrary to what is already known in literature on other taxa (butterflies)
     ^ large body beetles tending towards lower energy flight strategies. maybe justification for corridor preference?
     
-    = stanbrook and king 2022 -> tunnelers prefering open habitat and tunnelers also contributing more towards dung removal. 
+    = stanbrook and king 2022 -> tunnelers preferring open habitat and tunnelers also contributing more towards dung removal. 
     
   - specialists on deer dung?
     - Conover 2019 -> dung source being less of an issue than habitat type but some species were more responsive to specific bait types so future studies should use a mix of multiple bait types 
+    - Gimenez Gomez et al 2021 -> similar outcome some beetles were extra sensitive to specififc baits so a mix of baits should be used. However this study was done in a more tropical ecosystem so its hard to say if the same would apply to our more temperate system so more work is needed in this specific avenue. 
   
   - navigate by starlight?
   - feeding preferences?
@@ -139,7 +140,7 @@ alec - forest preference conover 2019
   
 4) What are hill numbers?
 
-hill numbers are a set of biodiversity metrics designed to quantify biodiversity and richness differently depending on how we want to emphasize abundance while also accounting for differences in sampling sizes and efforts (read more about this Eric)
+hill numbers are a set of biodiversity metrics designed to standardize metrics and quantify biodiversity and richness differently depending on how we want to emphasize abundance while also accounting for differences in sampling sizes and efforts (read more about this Eric)
 
 5) What is the advantage of useing hill numbers to estimate diversity / richness?
 
@@ -176,8 +177,8 @@ hill numbers are a set of biodiversity metrics designed to quantify biodiversity
 1. Figure of species richness results.
 1. Figure of species diversity results.
 1. Figure of biomass of different (R/T/D) functional groups.
-1. Figure of abundance of individual species.
-1. ~~Figure of the patch layout with pitfalls~~.
+1. ~~Figure of abundance of individual species.~~
+1. ~~Figure of the patch layout with pitfalls.~~
 
 ### Tables
 
