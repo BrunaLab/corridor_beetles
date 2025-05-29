@@ -372,3 +372,34 @@ tidy_model <- tidy(M0, effects = "fixed")
 library(knitr)
 M0_table <- kable(tidy_model, digits = 3)
 M0_table
+
+
+
+
+# emilio's suggestion for stats table -------------------------------------
+
+# broom gets you almost all the way to your final table
+
+M0_table %>% 
+kable(digits = 2,
+      format = "latex",
+      caption = "this is where your caption foes",
+      align = "llcccc",
+      escape = FALSE,
+      row.names = FALSE,
+      booktabs = T,
+      linesep = ""
+) %>%
+  kable_styling(
+    bootstrap_options = c("hover"),
+    # full_width = F,
+    latex_options = c("scale_down","hold_position"),
+    font_size = 12,
+    position = "center"
+  ) 
+
+
+
+# end of emilio's stats table ---------------------------------------------
+
+
