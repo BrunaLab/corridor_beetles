@@ -497,6 +497,12 @@ mutate(w=case_when(
 
 ### Species richness 
 
+
+results text blah blah (@sp_richness_patches)
+
+```{r  label = sp_richness_patches, echo = FALSE, fig.cap = "Dung beetle secies richness in three different.....and the forest matrix surrounding patches.", out.width = '75%'}
+knitr::include_graphics("corridor_docs/eric_ms_thesis/images/sp_richness_patches.png")
+```
 ### Species diversity
 
 ### Functional diversity
