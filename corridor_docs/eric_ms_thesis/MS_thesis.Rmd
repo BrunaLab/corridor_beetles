@@ -498,11 +498,6 @@ mutate(w=case_when(
 ### Species richness 
 
 
-results text blah blah (@sp_richness_patches)
-
-```{r  label = sp_richness_patches, echo = FALSE, fig.cap = "Dung beetle secies richness in three different.....and the forest matrix surrounding patches.", out.width = '75%'}
-knitr::include_graphics("corridor_docs/eric_ms_thesis/images/sp_richness_patches.png")
-```
 ### Species diversity
 
 ### Functional diversity
@@ -636,6 +631,14 @@ We thank the USDA Forest Service for maintaining experimental landscapes and ass
 \newpage
 
 
+![Dung beetle secies richness in three different --- and the forest matrix surrounding patches.](images/sp_richness_patches.png){height=100%}
+
+
+<!-- ```{r sp_richness_patches, echo = FALSE, fig.cap = "Dung beetle secies richness in three different --- and the forest matrix surrounding patches.", out.width = '100%'} -->
+<!-- knitr::include_graphics("./corridor_beetles/corridor_docs/eric_ms_thesis/images/sp_richness_patches.png") -->
+<!-- ``` -->
+
+\newpage
 ```{r Table1, echo=FALSE,message = FALSE,warning=FALSE}
 # https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html
 
