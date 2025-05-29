@@ -268,7 +268,14 @@ All dung beetles were counted and identified to species as described in @nemes_i
 
 ## Analysis
 
-Biodiversity between patch types was compared using Hill numbers (Jost 2006). Hill numbers are....  They are an alternative to...We looked at community composition by increasing magnitudes of diversity components (qD) of 0D (species richness), 1D (Shannon entropy), and 2D (Simpson Diversity). Diversity numbers were calculated in R studio using package hillR and modeled using package lme4. For the purposes of this project richness was modeled using a generalized linear mixed model with a poisson distribution. A qqplot of our data shows that our residuals are normally distributed (Figure 1). 
+Biodiversity between patch types was compared using Hill numbers (Jost 2006). Hill numbers are metrics developed with the goal of providing a unifying context for the quantification of the many ways we measure biodiversity. In our work, we use Hill numbers to explore the impacts of abundance in our diversity measurements. They are an alternative to more specialized metrics which are less intuitive for interpretation. We looked at community composition by increasing magnitudes of diversity components (qD) of 0D (species richness), 1D (Shannon entropy), and 2D (Simpson Diversity). Diversity numbers and species richness were calculated in R studio using package hill.
+
+To test for the effects of connectivity we modeled species abundance, richness, and species diversity using Shannon and Simpson indexes. For abundance and richness we used generalized linear mixed models fitted to a poisson distribution. We looked at the abundance of the top 6 most common species collected and overall species richness per patch type using our sampling blocks as random effects. To model our diversity metrics we took a similar approach but this time using glmms with a Gaussian distribution. All models were fit using lme4 package and we used qqplots to evaluate the the sutability of our data using DARMa package.  
+
+
+modeled using package lme4. 
+
+For the purposes of this project richness was modeled using a generalized linear mixed model with a poisson distribution. A qqplot of our data shows that our residuals are normally distributed. 
 
  - We also dried and weighed individuals to estimate biomass  
  - what guides/keys did you do to ID?  
