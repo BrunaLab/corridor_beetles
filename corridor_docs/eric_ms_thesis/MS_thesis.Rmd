@@ -273,14 +273,6 @@ Biodiversity between patch types was compared using Hill numbers (Jost 2006). Hi
 To test for the effects of connectivity on species abundance, richness, and diversity [we compared the values of the Hill Shannon and Simpson indexes in the different patch types and matrix]. For abundance and richness we used generalized linear mixed models (i.e., GLMM) fitted to a poisson distribution. We looked at [compared...looked at sounds squishy. try to use more active verbs like compared, quantified, assessed, etc.] (1) the overall species richness and (2) the abundance of the top 6 most common species in each patch type. We included the identity of the sampling block as a random effects. To model our diversity metrics we took a similar approach, but this time using GLMMs with a Gaussian distribution. All models were fit using `lme4` package.  Prior to conducting our modeling we used _qqplots_ (`DARMa` package) to evaluate the the suitability of our data.
 
 
-
- - We also dried and weighed individuals to estimate biomass  
- - what guides/keys did you do to ID?  
- - "Voucher specimens of species I collected will be deposited at the Florida State Collection of Arthropods" (https://thefsca.org/services/specimen-donations/)
- 
-
-## Analyses 
-
 ### Overview
 
 <!-- _Don't have to describe these, just do it and report in results. this is just to remind us of what to do_ -->
@@ -477,6 +469,9 @@ mutate(w=case_when(
 
 ```
 
+## Community Composition and Abundance
+
+Overall, 5213 total dung beetles were collected belonging to 16 species. The most dominant species were _Canthon vigilans_ (n = 1300) , _Ateuchus lecontei_ (n = 1112), and _Phanaeus igneus_ ( n =  958) (Table 1). All but four species were found in every patch type. _Onthophagus concinnus_ was found in the matrix and winged patches, while _Onthophagus striatulus_ was found in matrix habitat and rectangular patches. _Geotrupes blackburnii_ and _Onthophagus tuberculifrons_ were the only species restricted to one patch type (winged and matrix, respectively).
 
 
 ### Overview
