@@ -471,7 +471,27 @@ mutate(w=case_when(
 
 ## Community Composition and Abundance
 
-Overall, 5213 total dung beetles were collected belonging to 16 species. The most dominant species were _Canthon vigilans_ (n = 1300) , _Ateuchus lecontei_ (n = 1112), and _Phanaeus igneus_ ( n =  958) (Table 1). All but four species were found in every patch type. _Onthophagus concinnus_ was found in the matrix and winged patches, while _Onthophagus striatulus_ was found in matrix habitat and rectangular patches. _Geotrupes blackburnii_ and _Onthophagus tuberculifrons_ were the only species restricted to one patch type (winged and matrix, respectively).
+Overall, 5213 total dung beetles were collected belonging to 16 species. Of the most dominant species, the top 6 comprised of 94% of total captures, those being _Canthon vigilans_ (n = 1300) , _Ateuchus lecontei_ (n = 1112), _Phanaeus igneus_ ( n =  958), _Dichotomius carolinus_ (n = 556), _Aphodeus alloblackburneus_ (n = 585), and _Onthophagus pennsylvanicus_ (n = 207) (Table 1). All but four species were found in every patch type. _Onthophagus concinnus_ was found in the matrix and winged patches, while _Onthophagus striatulus_ was found in matrix habitat and rectangular patches. _Geotrupes blackburnii_ and _Onthophagus tuberculifrons_ were the only species restricted to one patch type (winged and matrix, respectively).
+
+When taking into account abundance independent of species ID, patch type was not significantly related to the total beetle counts aside from the rectangle patch where fewer individuals were typically captured. Any further statistical analysis relating to abundance focused on the six most abundant species. 
+
+### _QUESTION FOR EMILIO_ <-------
+And then here I want to talk about model M3 in 04_GLMM but this one is tricky there is a lot going on when looking at the model summary what should be the important info to report? 
+
+What i think is significant 
+when looking at counts for our most abundant species most follow a similar pattern where the most individuals of a given species are most frequent in the matrix then corridor and matrix with a dip at the rectangle patch. One difference to note is that _Aphodeus alloblackburneus_ had much higher counts in matrix patches in contrast to other patch types. 
+
+## Species Richness
+
+### Another _QUESTION FOR EMILIO_ <-------
+How best can I expand upon this more and same question for hill numbers, maybe means?
+
+
+Differences in species richness showed no significance across patch types. 
+
+## Biodiversity
+
+
 
 
 ### Overview
