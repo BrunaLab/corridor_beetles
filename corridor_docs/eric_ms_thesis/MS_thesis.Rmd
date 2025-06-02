@@ -418,12 +418,12 @@ mutate(w=case_when(
 
 ## Overview: Community Composition and Abundance
 
-Overall, I collected N = `r total_N` dung beetles belonging to N = `r total_spp` species. The N = `r how_many_common` species comprised of `r round((count_most_common/total_N)*100,1)`% of all captures: \textit{`r most_common_spp[1,2]`} (N = `r most_common_spp[1,1]`), \textit{`r most_common_spp[2,2]`} (N = `r most_common_spp[2,1]`), \textit{`r most_common_spp[3,2]`} (N = `r most_common_spp[3,1]`), \textit{`r most_common_spp[4,2]`} (N = `r most_common_spp[4,1]`), \textit{`r most_common_spp[5,2]`} (N = `r most_common_spp[5,1]`), and \textit{`r most_common_spp[6,2]`} (N = `r most_common_spp[6,1]`; Table 1). All but four species were captured in every patch type. _Onthophagus concinnus_ was only found in the matrix and winged patches, while _Onthophagus striatulus_ was only captured in matrix habitat and rectangular patches. _Geotrupes blackburnii_ and _Onthophagus tuberculifrons_ were the only species restricted to one patch type (winged and matrix, respectively).
+Overall, I collected N = `r total_N` dung beetles belonging to N = `r total_spp` species. The N = `r how_many_common` species comprised of `r round((count_most_common/total_N)*100,1)`% of all captures: \textit{`r most_common_spp[1,2]`} (N = `r most_common_spp[1,1]`), \textit{`r most_common_spp[2,2]`} (N = `r most_common_spp[2,1]`), \textit{`r most_common_spp[3,2]`} (N = `r most_common_spp[3,1]`), \textit{`r most_common_spp[4,2]`} (N = `r most_common_spp[4,1]`), \textit{`r most_common_spp[5,2]`} (N = `r most_common_spp[5,1]`), and \textit{`r most_common_spp[6,2]`} (N = `r most_common_spp[6,1]`; Table 1). All but four species were captured in every patch type. _Onthophagus concinnus_ was only found in the matrix and winged patches, while _Onthophagus striatulus_ was only captured in matrix habitat and rectangular patches. _Geotrupes blackburnii_ and _Onthophagus tuberculifrons_ were the only species restricted to one patch type (winged and matrix, respectively). All species were within their native ranges. 
 
 - any rare species? 
 - any invasive / exotic species?
 
-When comparing the total abundance of beetles (all species combined) across patch types, there were no significant difference with one exception: fewer individuals were captured in rectangulat patches. Statistical analysis of abundance relating to abundance focused on the six most abundant species. 
+When comparing the total abundance of beetles (all species combined) across patch types, there were no significant difference with one exception: fewer individuals were captured in rectangular patches. Statistical analysis of abundance relating to abundance focused on the six most abundant species. When looking at counts for our most abundant species, results were variable but overall follow a similar pattern where the most individuals of a given species are more frequent in the matrix then corridor and winged patches with a dip at the rectangle patch. One difference to note is that _Aphodius alloblackburneus_ had much higher counts in matrix patches in contrast to other patch types. 
 
 ### _QUESTION FOR EMILIO_ <-------
 And then here I want to talk about model M3 in 04_GLMM but this one is tricky there is a lot going on when looking at the model summary what should be the important info to report? 
@@ -433,7 +433,7 @@ FROM EB: THE BIG BICTURE - sometimes the big picture is a clear effect (abundanc
 
 
 What i think is significant:  
-when looking at counts for our most abundant species most follow a similar pattern where the most individuals of a given species are most frequent in the matrix then corridor and matrix with a dip at the rectangle patch. One difference to note is that _Aphodeus alloblackburneus_ had much higher counts in matrix patches in contrast to other patch types. 
+
 
 EB: there you go! That's how its done.
 
