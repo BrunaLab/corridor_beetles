@@ -370,9 +370,10 @@ spp_abund<-btl_data %>%
 ## Common species 
 
 # by number (i.e., N most common)
-how_many_common<-3
+how_many_common<-6
 most_common_spp<-spp_abund %>% 
   slice_head(n = how_many_common)
+count_most_common<-sum(most_common_spp$n)
 
 # by abundance (i.e., over NNNN sampled)
 high_abund_cutoff<-500
@@ -471,15 +472,21 @@ mutate(w=case_when(
 
 ## Community Composition and Abundance
 
-Overall, 5213 total dung beetles were collected belonging to 16 species. Of the most dominant species, the top 6 comprised of 94% of total captures, those being _Canthon vigilans_ (n = 1300) , _Ateuchus lecontei_ (n = 1112), _Phanaeus igneus_ ( n =  958), _Dichotomius carolinus_ (n = 556), _Aphodeus alloblackburneus_ (n = 585), and _Onthophagus pennsylvanicus_ (n = 207) (Table 1). All but four species were found in every patch type. _Onthophagus concinnus_ was found in the matrix and winged patches, while _Onthophagus striatulus_ was found in matrix habitat and rectangular patches. _Geotrupes blackburnii_ and _Onthophagus tuberculifrons_ were the only species restricted to one patch type (winged and matrix, respectively).
+Overall, I collected N = `r total_N` dung beetles belonging to N = `r total_spp` species. The N = `r how_many_common` species comprised of `r round((count_most_common/total_N)*100,1)`% of all captures: _Canthon vigilans_ (N = `r most_common_spp[1,1]`), _Ateuchus lecontei_ (N = `r most_common_spp[2,1]`), _Phanaeus igneus_ (N = `r most_common_spp[3,1]`), _Dichotomius carolinus_ (N = `r most_common_spp[4,1]`), _Aphodeus alloblackburneus_ (N = `r most_common_spp[5,1]`), and _Onthophagus pennsylvanicus_ (N = `r most_common_spp[6,1]`; Table 1). All but four species were captured in every patch type. _Onthophagus concinnus_ was only found in the matrix and winged patches, while _Onthophagus striatulus_ was only captured in matrix habitat and rectangular patches. _Geotrupes blackburnii_ and _Onthophagus tuberculifrons_ were the only species restricted to one patch type (winged and matrix, respectively).
 
-When taking into account abundance independent of species ID, patch type was not significantly related to the total beetle counts aside from the rectangle patch where fewer individuals were typically captured. Any further statistical analysis relating to abundance focused on the six most abundant species. 
+Wegen comparing the total abundance of beetles (all species combined) across patch types, there were no significant difference with one exception: fewer individuals were captured in rectangulat patches. Statistical analysis of abundance relating to abundance focused on the six most abundant species. 
 
 ### _QUESTION FOR EMILIO_ <-------
 And then here I want to talk about model M3 in 04_GLMM but this one is tricky there is a lot going on when looking at the model summary what should be the important info to report? 
 
-What i think is significant 
+FROM EB: THE BIG BICTURE - sometimes the big picture is a clear effect (abundance of all species was higher in the winged patches). SOmetimes it is a split result (eg abundance of species a higher in winged, abund of species b higher in connected). And sometimes it is messy. that looks like the case here, so say that in thesis language: "the results were highly variable, with some species higher in A (eg, spec 1, 2) whiole others were higher in b (sp 3,4). For some species there was no effect of patch type on abundance (sp 5). Complete results are in table X.  in other words in some cases "a lot going on" IS the message. 
+
+
+
+What i think is significant:  
 when looking at counts for our most abundant species most follow a similar pattern where the most individuals of a given species are most frequent in the matrix then corridor and matrix with a dip at the rectangle patch. One difference to note is that _Aphodeus alloblackburneus_ had much higher counts in matrix patches in contrast to other patch types. 
+
+EB: there you go! That's how its done.
 
 ## Species Richness
 
@@ -488,6 +495,8 @@ How best can I expand upon this more and same question for hill numbers, maybe m
 
 
 Differences in species richness showed no significance across patch types. 
+
+FROM EB: THIS IS WHAT YOU NEED TO SAY IN THE RESULTS. you can add a little. ("The hill numbers ranged from X in habitat Y to X in habitat z. However, there was no significant...") You expand on what it *means* in the discussion. Here just report the facts.
 
 ## Biodiversity
 
