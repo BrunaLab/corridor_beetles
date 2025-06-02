@@ -1,7 +1,7 @@
 library(tidyverse)
 library(here)
 library(kableExtra)
-
+library(sjPlot)
 # load and prep data ------------------------------------------------------
 
 
@@ -187,6 +187,18 @@ summary(M0)
 Anova(M0)
 
 plot_model(M0, type = "pred")
+
+# REQUIRES CLEANUP, BUT HERE IS HOW TO GET THE STATS TABLES IN KABLEEXTRA FOR YOUR THESIS
+# M0 %>% broom::tidy()
+# tidy(M0) %>%
+#   kbl() %>%
+#   kable_styling(font_size = 8)
+# library(rempsyc)
+# (stats.table <- tidy(M0, conf.int = TRUE))
+# nice_table(stats.table, broom = "glmm")
+# nice_table(stats.table, highlight = TRUE)
+
+
 
 # Model 2
 M2 <- glmer(n ~ sp_code + (1 | block), 
