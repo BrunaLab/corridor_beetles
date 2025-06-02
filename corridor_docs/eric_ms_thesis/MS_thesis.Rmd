@@ -256,7 +256,7 @@ All dung beetles were counted and identified to species as described in @nemes_i
 Biodiversity between patch types was compared using Hill numbers (Jost 2006). Hill numbers are metrics developed with the goal of providing a unifying context for the quantification of the many ways we measure biodiversity. [delete: In our work, we use Hill numbers to explore the impacts of abundance in our diversity measurements]. They are an alternative to more specialized metrics such as _________, which are less intuitive for interpretation. [maybe a sentence on how / why hill numbers are easier to interpret?]  We looked at [compared] community composition by increasing magnitudes of diversity components (qD) of 0D (species richness), 1D (Shannon entropy), and 2D (Simpson Diversity). _[can you add a sentence about how these are calculated? by which I mean - are the calculations different than for richness, shannon, etc.?]_ Diversity numbers and species richness were calculated in R studio using package `hill`.Diversity numbers were calculated in R studio using package iNEXT (Chao et al. 2016). Bray-Curtis dissimiolarity values were calculated using package Vegan in R studio. Dung beetles were assigned traits by waste removal guild and habitat preference.  
 
 
-To test for the effects of connectivity on  abundance, speciesrichness, and species diversity [we compared the values of the Hill Shannon and Simpson indexes in the different patch types and matrix]. For abundance and richness we used generalized linear mixed models (i.e., GLMM) fitted to a poisson distribution. We looked at [compared...looked at sounds squishy. try to use more active verbs like compared, quantified, assessed, etc.] (1) the overall species richness and (2) the abundance of the top 6 most common species in each patch type. We included the identity of the sampling block as a random effects. To model our diversity metrics we took a similar approach, but this time using GLMMs with a Gaussian distribution. All models were fit using `lme4` package.  Prior to conducting our modeling we used _qqplots_ (`DARMa` package) to evaluate the the suitability of our data.
+To test for the effects of connectivity on  abundance, species richness, and species diversity [we compared the values of the Hill Shannon and Simpson indexes in the different patch types and matrix]. For abundance and richness we used generalized linear mixed models (i.e., GLMM) fitted to a poisson distribution. We looked at [compared...looked at sounds squishy. try to use more active verbs like compared, quantified, assessed, etc.] (1) the overall species richness and (2) the abundance of the top 6 most common species in each patch type. We included the identity of the sampling block as a random effects. To model our diversity metrics we took a similar approach, but this time using GLMMs with a Gaussian distribution. All models were fit using `lme4` package.  Prior to conducting our modeling we used _qqplots_ (`DARMa` package) to evaluate the the suitability of our data.
 
 
 
@@ -431,10 +431,6 @@ And then here I want to talk about model M3 in 04_GLMM but this one is tricky th
 FROM EB: THE BIG BICTURE - sometimes the big picture is a clear effect (abundance of all species was higher in the winged patches). SOmetimes it is a split result (eg abundance of species a higher in winged, abund of species b higher in connected). And sometimes it is messy. that looks like the case here, so say that in thesis language: "the results were highly variable, with some species higher in A (eg, spec 1, 2) whiole others were higher in b (sp 3,4). For some species there was no effect of patch type on abundance (sp 5). Complete results are in table X.  in other words in some cases "a lot going on" IS the message. 
 
 
-
-What i think is significant:  
-
-
 EB: there you go! That's how its done.
 
 ### Species Richness
@@ -443,11 +439,15 @@ EB: there you go! That's how its done.
 How best can I expand upon this more and same question for hill numbers, maybe means?
 
 
-Differences in species richness showed no significance across patch types. 
+Differences in species richness showed no significance across patch types. The total number of species captured in each treatment varied by sampling block, however species totals generally ranged from 8 to 13 species. The patch with the most species captured was in the matrix at block 53n while the fewest were captured at the rectangle patch in block 8 (sp_richness.png). 
 
 FROM EB: THIS IS WHAT YOU NEED TO SAY IN THE RESULTS. you can add a little. ("The hill numbers ranged from X in habitat Y to X in habitat z. However, there was no significant...") You expand on what it *means* in the discussion. Here just report the facts.
 
 ### Species Diversity
+
+
+
+
 
 
 
