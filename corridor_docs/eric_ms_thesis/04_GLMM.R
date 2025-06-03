@@ -265,6 +265,16 @@ save_as_image(ft, path = "glmer_table.png")
 # Model for shannons 
 h_shannon
 
+M_shannon
+
+M_shannon <- lmer(h_shannon ~ patch_type + (1 | block),
+                  data = h_shannon)
+
+summary(M_shannon)
+
+plot_model(M_shannon, type = "pred")
+
+
 ?glmer
 
 h_simpson
@@ -273,6 +283,7 @@ M_simpson <- lmer(h_simpson ~ patch_type + (1 | block),
                    data = h_simpson)
 summary(M_simpson)
 
+plot_model(M_simpson, type = "pred")
 
 # residuals
 simulationOutput <- 
