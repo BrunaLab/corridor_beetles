@@ -445,6 +445,8 @@ FROM EB: THIS IS WHAT YOU NEED TO SAY IN THE RESULTS. you can add a little. ("Th
 
 ### Species Diversity
 
+Values for Hill numbers also showed no significance between patch types. Modeled values for both Shannon and Simpson's diversity had relatively high variance but averaged out at approximately qD = 5.29 and qD = 4.07 respectively. 
+
 
 
 
