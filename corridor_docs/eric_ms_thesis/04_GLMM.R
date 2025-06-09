@@ -139,6 +139,9 @@ isSingular(glmerLaplace, tol = 1e-4)
 summary(glmerLaplace)
 
 
+
+
+
 # GLMM 2 ------------------------------------------------------------------
 
 
@@ -182,17 +185,21 @@ ggplot(spp_abund_top6,
 M0 <- glmer(n ~ patch_type + (1 + patch_type | block), 
             data = spp_abund, 
             family = poisson)
-summary(M0)
 
 Anova(M0)
+aovM0<-Anova(M0)
 
 plot_model(M0, type = "pred")
 
+
+
+# EMILIO ADDITION - EXPORTING TABLE RESULTS TO UPLOAD TO THESIS DOC
+
 # REQUIRES CLEANUP, BUT HERE IS HOW TO GET THE STATS TABLES IN KABLEEXTRA FOR YOUR THESIS
-# M0 %>% broom::tidy()
-# tidy(M0) %>%
-#   kbl() %>%
-#   kable_styling(font_size = 8)
+tidyM0<-M0 %>% broom::tidy()
+aovM0<-aovM0 %>% broom::tidy()
+write_csv(tidyM0,"./corridor_docs/eric_ms_thesis/tables/m0.csv")
+write_csv(aovM0,"./corridor_docs/eric_ms_thesis/tables/aovM0.csv")
 # library(rempsyc)
 # (stats.table <- tidy(M0, conf.int = TRUE))
 # nice_table(stats.table, broom = "glmm")
@@ -208,8 +215,11 @@ summary(M2)
 
 Anova(M2)
 
-
 plot_model(M2, type = "pred")
+
+
+M2 %>% broom::tidy()
+
 
 # Model 3
 # sjplot 

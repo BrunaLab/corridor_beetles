@@ -14,6 +14,8 @@ header-includes:
  - \fancyfoot{} # cues the use of fancy footer
  - \fancyhead[L]{EEC MS Thesis Draft} # month & year on header left 
  - \fancyhead[R]{p. \thepage} # name and page on header right
+ - \usepackage{subcaption}
+ - \usepackage{float}
 # # - \fancyfoot[R]{ }
 # - \usepackage{setspace}{singlespace} # manipulate line spacing 
 # - \usepackage{parskip} # manipulate indents and spacing before/after paragra phs 
@@ -44,6 +46,7 @@ output:
       # in_header: style/preamble.tex
       template: null
       keep_tex: no
+      extra_dependencies: ["float"]
       # number_sections: true
 # documentclass: style/nsf2
 biblio-style: apalike
@@ -53,6 +56,10 @@ csl: ecology.csl
 
 ```{r GlobalOptions, include = FALSE}
 options(knitr.duplicate.label = 'allow')
+options(knitr.graphics.error = FALSE)  # This allows for the include_graphics to not use the path from root 
+knitr::opts_chunk$set(echo = TRUE, fig.align="center")
+knitr::opts_chunk$set(fig.pos = "H", out.extra = "")
+knitr::opts_chunk$set(tab.pos = "H", out.extra = "")
 ```
 
 
@@ -63,7 +70,10 @@ library(here)
 library(tidyverse)
 library(kableExtra)
 library(grateful)
+library(knitr)
+# library(grid)
 # library(gridExtra)
+# library(png)
 # library(egg)
 # library(magick)
 # library(citr)
@@ -170,7 +180,7 @@ Next assignment:
 
 ### Figures 
 
-1. Figure of species richness results.
+1. ~~Figure of species richness results.~~
 1. Figure of species diversity results.
 1. Figure of biomass of different (R/T/D) functional groups.
 1. ~~Figure of abundance of individual species.~~
@@ -517,23 +527,56 @@ We thank the USDA Forest Service for maintaining experimental landscapes and ass
 
 1. ~~Table: count by species by habitat.~~
 1. table: results of species richness analyses.
-1. Figure of species richness results.
+1. ~~Figure of species richness results.~~
 1. table: results of species diversity analyses.
 1. Figure of species diversity results.
 1. table: results of functional diversity analyses.
 1. Figure of biomass of different (R/T/D) functional groups.
-1. Map of where field site is located.
+1. ~~Map of where field site is located~~
 1. ~~Figure of the patch layout with pitfalls~~.
 1. Pictures of different species, sampling, field sites?
 
+
+<!-- (text - Nathan Fig of plots) -->
 \newpage
 
- 
-<!-- ```{r  label = pitfalls, echo = TRUE, fig.cap = "Experimental landscapes indicating location of the pitfall traps.", out.width = '50%'} -->
-<!-- knitr::include_graphics('./corridor_docs/eric_ms_thesis/pitfalls.png') -->
+
+<!-- ```{r, label = pitfalls, echo = FALSE, message = FALSE, warning = FALSE,fig.cap = 'Experimental landscapes indicating location of the pitfall traps.',  out.width="25%", fig.align='center'} -->
+
+<!-- a<-readPNG("images/pitfalls.png") -->
+<!-- b<-readPNG("images/srs-map.png") -->
+<!-- grid.arrange(rasterGrob(a),rasterGrob(b),ncol=1) -->
+
 <!-- ``` -->
 
-![Experimental landscapes indicating location of the pitfall traps.](pitfalls.png){height=50%}
+
+
+```{r, label = srs-map, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Experimental block with the different patches and distance between them.", out.width="40%", fig.align='center'}
+
+knitr::include_graphics("images/srs-map.png")
+
+```
+
+
+
+
+```{r, label = pitfalls, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Experimental block with the different patches and distance between them.", out.width="50%", fig.align='center'}
+
+knitr::include_graphics("images/pitfalls.png")
+
+```
+
+
+
+
+```{r, label = patches, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Experimental block with the different patches and distance between them.", out.width="50%", fig.align='center'}
+
+knitr::include_graphics("images/patches-pic.png")
+
+```
+
+
+
 
 <!-- ```{r Figure_hill, echo=FALSE,message = FALSE,warning=FALSE} -->
 <!-- library(iNEXT) -->
@@ -581,7 +624,13 @@ We thank the USDA Forest Service for maintaining experimental landscapes and ass
 \newpage
 
 
-![Dung beetle secies richness in three different --- and the forest matrix surrounding patches.](images/sp_richness_patches.png){height=100%}
+
+```{r, label = richness, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle secies richness in three different --- and the forest matrix surrounding patches.", out.width="50%", fig.align='center'}
+
+knitr::include_graphics("images/sp_richness_patches.png")
+
+```
+
 
 
 <!-- ```{r sp_richness_patches, echo = FALSE, fig.cap = "Dung beetle secies richness in three different --- and the forest matrix surrounding patches.", out.width = '100%'} -->
@@ -603,17 +652,18 @@ spp_table<-knitr::kable(spp_table_data,
       caption = "Dung beetle species sampled in the SRS site and their total abundance over the course of the study.") %>%
   kable_styling(bootstrap_options = c("striped"),
                 full_width = F,
-                latex_options="scale_down",
+                latex_options=c("scale_down","hold_position"),
                 font_size = 12,
                 position = "center") %>% 
   column_spec(1, italic = T) %>% 
-  row_spec(0, bold = T) %>% 
-  row_spec(1:15, hline_after = T) 
+  row_spec(0, bold = T) 
+# %>% 
+  # row_spec(1:15, hline_after = T) 
 spp_table
 
 
 ```
----
+
 
 \newpage
 
@@ -650,7 +700,7 @@ abund_patch <- knitr::kable(btl_sums_patch,
       caption = "Total dung beetles captured in all replicates of a patch type.") %>%
   kable_styling(bootstrap_options = c("striped"),
                 full_width = F,
-                latex_options="scale_down",
+                latex_options=c("scale_down","hold_position"),
                 font_size = 12,
                 position = "center") %>%
   # column_spec(1, italic = T) %>%
@@ -683,7 +733,33 @@ taxa_bray <- vegan::vegdist(btl_spec_patch, method = "bray", binary = FALSE)
 
 
 ```
----
+
+
+\newpage
+
+```{r Table aovMO, echo=FALSE,message = FALSE,warning=FALSE}
+
+aovM0<-read_csv("./corridor_docs/eric_ms_thesis/tables/aovM0.csv") %>% 
+  kable(
+      digits = 3,
+      align="lcc",
+      format="latex",
+      row.names = FALSE,
+      booktabs=T,
+      linesep = "", #removes the blank line after every 5 lines
+      caption = "AOV TABLE CAPTION") %>%
+  kable_styling(bootstrap_options = c("striped"),
+                full_width = F,
+                latex_options=c("scale_down","hold_position"),
+                font_size = 12,
+                position = "center") %>%
+  # column_spec(1, italic = T) %>%
+  row_spec(0, bold = T)
+  # row_spec(1:15, hline_after = T)
+aovM0
+```
+
+
 
 \newpage 
 

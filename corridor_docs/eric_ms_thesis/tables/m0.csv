@@ -1,0 +1,15 @@
+effect,group,term,estimate,std.error,statistic,p.value
+fixed,NA,(Intercept),2.9984297606714505,0.17766689698383087,16.876693472866428,6.678203844864072e-64
+fixed,NA,patch_typeMatrix,0.12509621209467597,0.13907121691300434,0.899511882267699,0.3683800696065814
+fixed,NA,patch_typeRectangle,-0.4023918298427681,0.08337428181257465,-4.826330387437037,1.390717276912568e-6
+fixed,NA,patch_typeWinged,-0.1779130199169115,0.1015668119992976,-1.7516845947487443,0.07982805728269747
+ran_pars,block,sd__(Intercept),0.35061299564262427,NA,NA,NA
+ran_pars,block,cor__(Intercept).patch_typeMatrix,0.7955429657433314,NA,NA,NA
+ran_pars,block,cor__(Intercept).patch_typeRectangle,0.710558103899406,NA,NA,NA
+ran_pars,block,cor__(Intercept).patch_typeWinged,0.5212727718287099,NA,NA,NA
+ran_pars,block,sd__patch_typeMatrix,0.26607868472623597,NA,NA,NA
+ran_pars,block,cor__patch_typeMatrix.patch_typeRectangle,0.7124507838916349,NA,NA,NA
+ran_pars,block,cor__patch_typeMatrix.patch_typeWinged,0.93048023295655,NA,NA,NA
+ran_pars,block,sd__patch_typeRectangle,0.13857841872416035,NA,NA,NA
+ran_pars,block,cor__patch_typeRectangle.patch_typeWinged,0.6168178934236818,NA,NA,NA
+ran_pars,block,sd__patch_typeWinged,0.18383061057795236,NA,NA,NA
