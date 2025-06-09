@@ -380,6 +380,84 @@ ggsave("corridor_docs/eric_ms_thesis/images/sp_richness_patches.png", width = 4,
 
 # figure attempts 
 
+sp_shannon_patches<-  
+  hill_results %>% 
+  mutate(patch_type = factor(patch_type,
+                             levels = c("Matrix", "Rectangle", "Winged", "Connected"))) %>%   # this changes the order of things on the x axis. suggest this order (Matrixm, then least to most)
+  ggplot(aes(x = patch_type, 
+             # y = n,
+             # y = h_rich,
+             y = h_shannon,
+             color = block,
+             shape = block)) +
+  scale_shape_manual(values=c(15:18))+ # change shapes of points
+  scale_color_viridis_d(option = "turbo") + 
+  geom_point(position=position_jitter(width=0.16, height=0.15))+ # manipulate spread of jitter
+  theme_classic()+
+  theme(axis.text.x = element_text(angle = 45, vjust = 0.9, hjust = 0.95,size = 10))+
+  labs(x = "Patch Type", 
+       y = "Shannon Diversity Index",
+       color="Block",   # edit legend title. be sure to do both shape & color
+       shape="Block")+ 
+  # theme(
+  #   legend.box.background = element_rect(color="black", linewidth = 0.1),
+  #   # legend.box.margin = margin(116, 6, 6, 6)
+  # )+
+  theme(
+    legend.box.background = element_rect(color="gray", size=1),
+    legend.box.margin = margin(0.1, 0.1, 0.1, 0.1),
+    legend.position = "top",
+    legend.text = element_text(size = 10, colour = "black"),
+    legend.title = element_text(size = 10, colour = "black")
+  )+
+  theme(axis.title.y = element_text(size = 12,face="bold"))+
+  theme(axis.title.x =element_text(size = 12,face="bold"))+
+  theme(axis.text.y = element_text(size = 10))+
+  scale_y_continuous(limits = c(1, 10), breaks = seq(1, 10, by = 2)) # y axis limit and breaks
+
+
+# This saves a png version of file to the images folder
+ggsave("corridor_docs/eric_ms_thesis/images/sp_shannon_patches.png", width = 4, height = 4, units = "in")
+
+sp_simpson_patches<-  
+  hill_results %>% 
+  mutate(patch_type = factor(patch_type,
+                             levels = c("Matrix", "Rectangle", "Winged", "Connected"))) %>%   # this changes the order of things on the x axis. suggest this order (Matrixm, then least to most)
+  ggplot(aes(x = patch_type, 
+             # y = n,
+             # y = h_rich,
+             #y = h_shannon,
+             y = h_simpson,
+             color = block,
+             shape = block)) +
+  scale_shape_manual(values=c(15:18))+ # change shapes of points
+  scale_color_viridis_d(option = "turbo") + 
+  geom_point(position=position_jitter(width=0.16, height=0.15))+ # manipulate spread of jitter
+  theme_classic()+
+  theme(axis.text.x = element_text(angle = 45, vjust = 0.9, hjust = 0.95,size = 10))+
+  labs(x = "Patch Type", 
+       y = "Simpson Diversity Index",
+       color="Block",   # edit legend title. be sure to do both shape & color
+       shape="Block")+ 
+  # theme(
+  #   legend.box.background = element_rect(color="black", linewidth = 0.1),
+  #   # legend.box.margin = margin(116, 6, 6, 6)
+  # )+
+  theme(
+    legend.box.background = element_rect(color="gray", size=1),
+    legend.box.margin = margin(0.1, 0.1, 0.1, 0.1),
+    legend.position = "top",
+    legend.text = element_text(size = 10, colour = "black"),
+    legend.title = element_text(size = 10, colour = "black")
+  )+
+  theme(axis.title.y = element_text(size = 12,face="bold"))+
+  theme(axis.title.x =element_text(size = 12,face="bold"))+
+  theme(axis.text.y = element_text(size = 10))+
+  scale_y_continuous(limits = c(1, 10), breaks = seq(1, 10, by = 2)) # y axis limit and breaks
+
+
+# This saves a png version of file to the images folder
+ggsave("corridor_docs/eric_ms_thesis/images/sp_simpson_patches.png", width = 4, height = 4, units = "in")
 
 # tables for model results 
 spp_table<-knitr::kable(spp_table_data, 
