@@ -459,21 +459,24 @@ Values for Simpson Diversity also showed no differences but instead for more abu
 
 ## Recap main goals into findings
  
-This study shows that while habitat type may have an impact on the species composition of dung beetles, the arrangement of individuals show little difference as a result of the presence of movement corridors. Past studies have shown similar trends where habitat type and forest regeneration stages are key in the partitioning of dung beetle assemblages[@conover_phenology_2019; @WOS:000386714700011; @arellano_response_2008]. This is further supported by the fact that capture rates were lowest in the rectangular patch, the treatment with the least edge to area ratio, suggesting that dung beetles in the matrix act as a source population which feeds into open patches through habitat edge. 
+This study shows that while habitat type may have an impact on the individual abundances of dung beetles, the arrangement of individuals show little difference as a result of the presence of movement corridors. Past studies have shown similar trends where habitat type and forest regeneration stages are key in the partitioning of dung beetle assemblages[@conover_phenology_2019; @WOS:000386714700011; @arellano_response_2008]. This is further supported by the fact that capture rates were lowest in the rectangular patch, the treatment with the least edge to area ratio, suggesting that dung beetles in the matrix act as a source population which feeds into open patches through habitat edge. 
  
- Richness was the same 
+While we did not detect any patterns of species richness between patch types in our modeling, 
+
+_i want to look back at rarefied richness, was sampling complete in each patch?_ 
  
+A comparison of total species richness per patch type per block shows that the sampling plot with the most total species captured was in the matrix. 
  
- 
- 
- 
+Analysis of Hill numbers indicated that species compositions were even between patch types. Comparing values of Simpson's Diversity between patches determined that dominant species were not prevalent in any one treatment type. Likewise, the Shannon index values insisted that rare species throughout the study population were even. 
+
+_here write about low sample sizes and reasons for why dung beetle communities would be so similar across treatment types. Dispersal, scale (roslin), maybe again a good reason to expect matrix as a source pop._  
  
  
  
  
  The total number of dung beetle species captured N = `r total_spp` and the total individuals N = `r total_N` are similar to those in studies conducted in similar habitats and regions of the US [@conover_phenology_2019; @nealis_habitat_1977; @stanbrook_dung_2022]. 
  
- 
+ revisit bray curtis
  
  
  1. Abundances in matrix vs connected patch and why this could be happening
