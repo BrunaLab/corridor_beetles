@@ -186,6 +186,7 @@ M0 <- glmer(n ~ patch_type + (1 + patch_type | block),
             data = spp_abund, 
             family = poisson)
 
+summary(M0)
 Anova(M0)
 aovM0<-Anova(M0)
 
