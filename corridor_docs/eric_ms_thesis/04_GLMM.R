@@ -244,6 +244,15 @@ interaction.plot(M3)
 
 ?plot_model
 
+# Eric trying table
+
+tidyM3<-M3 %>% broom::tidy()
+aovM3<-aovM0 %>% broom::tidy()
+write_csv(tidyM0,"./corridor_docs/eric_ms_thesis/tables/m0.csv")
+write_csv(aovM0,"./corridor_docs/eric_ms_thesis/tables/aovM0.csv")
+
+
+
 # Global model: Take 1
 M1 <- glmer(n ~ patch_type * sp_code + (1 + patch_type * sp_code | block), 
             data = spp_abund, 
@@ -495,7 +504,7 @@ M0_table
 M0_table %>% 
 kable(digits = 2,
       format = "latex",
-      caption = "this is where your caption foes",
+      caption = "this is where your caption goes",
       align = "llcccc",
       escape = FALSE,
       row.names = FALSE,
