@@ -735,8 +735,18 @@ hill_plot
 #taxa_bray = vegan::vegdist(data, method = "bray", binary = FALSE)
 #taxa_bray
 
+library(readr)
+
 taxa_bray <- vegan::vegdist(btl_spec_patch, method = "bray", binary = FALSE)
 taxa_bray
+
+
+matrix_bray<-as.matrix(taxa_bray)
+
+df_bray <- as.data.frame(matrix_bray)
+
+write_csv(df_bray,"./corridor_docs/eric_ms_thesis/tables/bray_patches.csv")
+
 
 
 

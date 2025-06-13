@@ -129,6 +129,8 @@ shapiro.test(resid(model))
 qqnorm(resid(model)) # plot of the normal theoretical quantiles against the exponential data quantiles
 qqline(resid(model)) # the residuals should fall along this line if they are normally distributed
 
+?qqnorm
+
 # GLMM
 glmerLaplace <- glmer(formula = h_rich ~ patch_type + (1 | block),
                       data = hill_results,
@@ -160,6 +162,7 @@ shelf(tidyverse,
       lib = tempdir(),
       quiet = TRUE)
 
+library(DHARMa)
 
  hist(hill_results$h_rich,
      xlab = "h_rich",
@@ -231,11 +234,10 @@ M3 <- glmer(n ~ sp_code * patch_type + (1 | block),
             family = poisson)
 summary(M3)
 
-Anova(M3)
+aovM3 <- Anova(M3)
 
 plot_model(M3, type = "pred", terms = c("sp_code", "patch_type"))
 
-plot_model(M3, type = "pred", terms = c("patch_type", "sp_code"))
 
 
 ?interaction.plot
@@ -247,9 +249,9 @@ interaction.plot(M3)
 # Eric trying table
 
 tidyM3<-M3 %>% broom::tidy()
-aovM3<-aovM0 %>% broom::tidy()
-write_csv(tidyM0,"./corridor_docs/eric_ms_thesis/tables/m0.csv")
-write_csv(aovM0,"./corridor_docs/eric_ms_thesis/tables/aovM0.csv")
+aovM3<-aovM3 %>% broom::tidy()
+write_csv(tidyM3,"./corridor_docs/eric_ms_thesis/tables/m3.csv")
+write_csv(aovM3,"./corridor_docs/eric_ms_thesis/tables/aovM3.csv")
 
 
 
@@ -468,6 +470,40 @@ sp_simpson_patches<-
 
 # This saves a png version of file to the images folder
 ggsave("corridor_docs/eric_ms_thesis/images/sp_simpson_patches.png", width = 4, height = 4, units = "in")
+
+# Figure for abundance model 
+
+?plot_model
+
+btl_abund_patch <- plot_model(M3, type = "pred", terms = c("patch_type", "sp_code"), title = NULL)
+btl_abund_patch
+
+btl_abund_patch + 
+  theme_minimal() +
+  labs( title = NULL ,
+       x = "Patch Type",
+       y = "Number of Beetles") +
+  theme(axis.text = element_text(size = 12)) +
+  scale_shape_manual(values=c(15:18))+ # change shapes of points
+  scale_color_viridis_d(option = "turbo") + 
+  #geom_point(position=position_jitter(width=0.16, height=0.15))+ # manipulate spread of jitter
+  theme_classic()+
+  theme(axis.text.x = element_text(angle = 45, vjust = 0.9, hjust = 0.95,size = 10)) +
+  theme(
+    legend.box.background = element_rect(color="gray", size=1),
+    legend.box.margin = margin(0.1, 0.1, 0.1, 0.1),
+    legend.position = "top",
+    legend.text = element_text(size = 10, colour = "black"),
+    legend.title = element_text(size = 10, colour = "black")
+  )+
+  theme(axis.title.y = element_text(size = 12,face="bold"))+
+  theme(axis.title.x =element_text(size = 12,face="bold"))+
+  theme(axis.text.y = element_text(size = 10))
+  #(limits = c(1, 10), breaks = seq(1, 10, by = 2))
+
+ggsave("corridor_docs/eric_ms_thesis/images/sp_abund_patch.png", width = 4, height = 4, units = "in")
+
+
 
 # tables for model results 
 spp_table<-knitr::kable(spp_table_data, 

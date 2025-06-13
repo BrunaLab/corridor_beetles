@@ -266,9 +266,9 @@ All dung beetles were counted and identified to species as described in @nemes_i
 
 ## Analyses 
 
-Biodiversity between patch types was compared using Hill numbers, a set of indexes developed with the goal of providing a unifying context for the quantification of the many ways we measure biodiversity [@jost_entropy_2006]. They are an alternative to more specialized metrics such as alpha, beta, and gamma diversities while being more standardized than other indexes such as Renyi or HCDT entropies, of which both groups of metrics are less intuitive for interpretation. Hill numbers are now the preferred metric for describing community dynamics for two reasons.  First, they are extrapolated from the same equation, manipulating a single parameter (i.e., _q_) to arrive at estimates of richness and diversity. Second, by  manipulating _q_ we can gain an understanding of compositional shifts otherwise obscured while using species richness [@chao_rarefaction_2014]. We compared community composition by increasing magnitudes of diversity components (i.e., _qD_) of _0D_ (i.e., species richness), _1D_ (i.e., Shannon entropy), and _2D_ (i.e, Simpson Diversity). <!--[can you add a sentence about how these are calculated? by which I mean - are the calculations different than for richness, shannon, etc.?]--> Diversity numbers and species richness were calculated using the package `hill` [@li_hillr_2018] for the R statistical programming language  **(citation)**. Diversity numbers were calculated using package `iNEXT` [@hsieh_inext_2016]. Bray-Curtis dissimilarity values were calculated using package `Vegan` [@oksanen_vegan_2025]. Dung beetles were assigned traits by waste removal guild and habitat preference.  
+Biodiversity between patch types was compared using Hill numbers, a set of indexes developed with the goal of providing a unifying context for the quantification of the many ways we measure biodiversity [@jost_entropy_2006]. They are an alternative to more specialized metrics such as alpha, beta, and gamma diversities while being more standardized than other indexes such as Renyi or HCDT entropies, of which both groups of metrics are less intuitive for interpretation. Hill numbers are now the preferred metric for describing community dynamics for two reasons.  First, they are extrapolated from the same equation, manipulating a single parameter (i.e., _q_) to arrive at estimates of richness and diversity. Second, by  manipulating _q_ we can gain an understanding of compositional shifts otherwise obscured while using species richness [@chao_rarefaction_2014]. We compared community composition by increasing magnitudes of diversity components (i.e., _qD_) of _0D_ (i.e., species richness), _1D_ (i.e., Shannon entropy), and _2D_ (i.e, Simpson Diversity). <!--[can you add a sentence about how these are calculated? by which I mean - are the calculations different than for richness, shannon, etc.?]--> Diversity numbers and species richness were calculated using the package `hill` [@li_hillr_2018] for the R statistical programming language  [@posit_team_rstudio_2025]. Diversity numbers were calculated using package `iNEXT` [@hsieh_inext_2016]. Bray-Curtis dissimilarity values were calculated using package `Vegan` [@oksanen_vegan_2025]. Dung beetles were assigned traits by waste removal guild and habitat preference.  
 
-To test for the effects of connectivity on  abundance, species richness, and species diversity we compared the values of the Hill Shannon and Simpson indexes in the different patch types and matrix. For abundance and richness we used generalized linear mixed models (i.e., GLMM) fitted to a poisson distribution  **(bolker citation?)**. Compared (1) the overall species richness and (2) the abundance of the top 6 most common species in each patch type. We included the identity of the sampling block as a random effects. To model our diversity metrics we took a similar approach, but this time using GLMMs with a Gaussian distribution  **(citation)**. All models were fit using `lme4` package  [@bates_fitting_2015].  Prior to conducting our modeling we evaluated the the suitability of our data with _qqplots_ generated with the `DARMa` package  **(citation)**.
+To test for the effects of connectivity on  abundance, species richness, and species diversity we compared the values of the Hill Shannon and Simpson indexes in the different patch types and matrix. For abundance and richness we used generalized linear mixed models (i.e., GLMM) fitted to a poisson distribution  **(bolker citation?)**. Compared (1) the overall species richness and (2) the abundance of the top 6 most common species in each patch type. We included the identity of the sampling block as a random effects. To model our diversity metrics we took a similar approach, but this time using GLMMs with a Gaussian distribution  **(citation)**. All models were fit using `lme4` package  [@bates_fitting_2015].  Prior to conducting our modeling we evaluated the the suitability of our data with _qqplots_ generated with the `DARMa` package  [@hartig_dharma_2024].
 
 
 
@@ -427,18 +427,18 @@ mutate(w=case_when(
 
 Overall, I collected N = `r total_N` dung beetles belonging to N = `r total_spp` species. The N = `r how_many_common` species comprised of `r round((count_most_common/total_N)*100,1)`% of all captures: \textit{`r most_common_spp[1,2]`} (N = `r most_common_spp[1,1]`), \textit{`r most_common_spp[2,2]`} (N = `r most_common_spp[2,1]`), \textit{`r most_common_spp[3,2]`} (N = `r most_common_spp[3,1]`), \textit{`r most_common_spp[4,2]`} (N = `r most_common_spp[4,1]`), \textit{`r most_common_spp[5,2]`} (N = `r most_common_spp[5,1]`), and \textit{`r most_common_spp[6,2]`} (N = `r most_common_spp[6,1]`; Table 1). All but four species were captured in every patch type. _Onthophagus concinnus_ was only found in the matrix and winged patches, while _Onthophagus striatulus_ was only captured in matrix habitat and rectangular patches. _Geotrupes blackburnii_ and _Onthophagus tuberculifrons_ were the only species restricted to one patch type (winged and matrix, respectively). All species were within their native ranges. 
 
-When comparing the total abundance of beetles (all species combined) across patch types, there were no significant difference with one exception: fewer individuals were captured in rectangular patches(P < 2e-6). Statistical analysis of abundance focused on the six most abundant species. When looking at counts for our most abundant species, results were variable but overall follow a consistent pattern where the most individuals of a given species are more frequent in the matrix then corridor and winged patches with a dip at the rectangle patch. One difference to note is that _Aphodius alloblackburneus_ had much higher counts in matrix patches in contrast to other patch types. 
+When comparing the total abundance of beetles (all species combined) across patch types, there were no significant difference with one exception: fewer individuals were captured in rectangular patches(GLMM, P < 2e-6, Table 4). Statistical analysis of abundance focused on the six most abundant species. When looking at counts for our most abundant species, results were variable but overall follow a consistent pattern where the most individuals of a given species are more frequent in the matrix then corridor and winged patches with a dip at the rectangle patch (Table 6). One difference to note is that _Aphodius alloblackburneus_ had much higher counts in matrix patches in contrast to other patch types (Figure 6). 
 
 ### Species Richness
 
-The number of species per patch varied from N = 8 (rectangle patch in block 8) to N = 13 (matrix patch in block 53N). Species richness was relatively even across patch types with matrix and connected patches averaging out to approximately N = 11 species and rectangle and winged patches averaging to approximately N = 10 species. Overall there were no significant effects, however species richness patterns were variable between sampling blocks. 
+The number of species per patch varied from N = 8 (rectangle patch in block 8) to N = 13 (matrix patch in block 53N). Species richness was relatively even across patch types with matrix and connected patches averaging out to approximately N = 11 species and rectangle and winged patches averaging to approximately N = 10 species (Figure 4). Overall there were no significant effects, however species richness patterns were variable between sampling blocks. 
 
 
 ### Species Diversity
 
-Values for Hill numbers showed no patterns for shifts in species composition by patch type. Data for Shannon diversity showed no differences in the distribution of rare species between patch types. On average connected patches had a value of D = 5.29, while mean estimates for all other patches remained close with +0.03% for rectangle, -0.02% for matrix, and -0.06% for winged patches. There was no significance between patch types but data was highly variable between patch types and sampling blocks. 
+Values for Hill numbers showed no patterns for shifts in species composition by patch type. Data for Shannon diversity showed no differences in the distribution of rare species between patch types. On average connected patches had a value of D = 5.29, while mean estimates for all other patches remained close with +0.03% for rectangle, -0.02% for matrix, and -0.06% for winged patches. There was no significance between patch types but data was highly variable between patch types and sampling blocks (Figure 5). 
 
-Values for Simpson Diversity also showed no differences but instead for more abundant species composing the dung beetle assemblages. Simpson diversity had a mean value of D = 4.07 in the connected patch, also with other values in close proximity with matrix +0.02%, rectangle +0.04%, and winged at -0.1%. There was no significant difference between patch types, however this data was also highly variable between patch type and sampling blocks. 
+Values for Simpson Diversity also showed no differences but instead for more abundant species composing the dung beetle assemblages. Simpson diversity had a mean value of D = 4.07 in the connected patch, also with other values in close proximity with matrix +0.02%, rectangle +0.04%, and winged at -0.1%. There was no significant difference between patch types, however this data was also highly variable between patch type and sampling blocks (Figure 7). 
 
 
 
@@ -641,6 +641,13 @@ knitr::include_graphics("images/sp_shannon_patches.png")
 
 ```
 
+```{r, label = abundance, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle abundance in three different --- and the forest matrix surrounding patches.", out.width="50%", fig.align='center'}
+
+knitr::include_graphics("images/sp_abund_patch.png")
+
+```
+
+
 ```{r, label = simpson, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle Simpson's index in three different --- and the forest matrix surrounding patches.", out.width="50%", fig.align='center'}
 
 knitr::include_graphics("images/sp_simpson_patches.png")
@@ -748,6 +755,28 @@ taxa_bray <- vegan::vegdist(btl_spec_patch, method = "bray", binary = FALSE)
 
 ```
 
+```{r Table bray_patches, echo=FALSE,message = FALSE,warning=FALSE}
+
+bray<-read_csv("~/Rstudio/corridor_beetles/corridor_docs/eric_ms_thesis/tables/bray_patches.csv") %>% 
+  kable(
+      digits = 3,
+      align="lcc",
+      format="latex",
+      row.names = FALSE,
+      booktabs=T,
+      linesep = "", #removes the blank line after every 5 lines
+      caption = "Bray-Curtis dissimilarity comparing composition of dung beetles between patches.") %>%
+  kable_styling(bootstrap_options = c("striped"),
+                full_width = F,
+                latex_options=c("scale_down","hold_position"),
+                font_size = 12,
+                position = "center") %>%
+  # column_spec(1, italic = T) %>%
+  row_spec(0, bold = T)
+  # row_spec(1:15, hline_after = T)
+bray
+```
+
 
 \newpage
 
@@ -773,6 +802,71 @@ aovM0<-read_csv("~/Rstudio/corridor_beetles/corridor_docs/eric_ms_thesis/tables/
 aovM0
 ```
 
+```{r Table MO, echo=FALSE,message = FALSE,warning=FALSE}
+
+M0<-read_csv("~/Rstudio/corridor_beetles/corridor_docs/eric_ms_thesis/tables/M0.csv") %>% 
+  kable(
+      digits = 3,
+      align="lcc",
+      format="latex",
+      row.names = FALSE,
+      booktabs=T,
+      linesep = "", #removes the blank line after every 5 lines
+      caption = "AOV TABLE CAPTION") %>%
+  kable_styling(bootstrap_options = c("striped"),
+                full_width = F,
+                latex_options=c("scale_down","hold_position"),
+                font_size = 12,
+                position = "center") %>%
+  # column_spec(1, italic = T) %>%
+  row_spec(0, bold = T)
+  # row_spec(1:15, hline_after = T)
+M0
+```
+
+```{r Table aovMO3, echo=FALSE,message = FALSE,warning=FALSE}
+
+aovM3<-read_csv("~/Rstudio/corridor_beetles/corridor_docs/eric_ms_thesis/tables/aovM3.csv") %>% 
+  kable(
+      digits = 3,
+      align="lcc",
+      format="latex",
+      row.names = FALSE,
+      booktabs=T,
+      linesep = "", #removes the blank line after every 5 lines
+      caption = "AOV TABLE CAPTION") %>%
+  kable_styling(bootstrap_options = c("striped"),
+                full_width = F,
+                latex_options=c("scale_down","hold_position"),
+                font_size = 12,
+                position = "center") %>%
+  # column_spec(1, italic = T) %>%
+  row_spec(0, bold = T)
+  # row_spec(1:15, hline_after = T)
+aovM3
+```
+
+```{r Table M3, echo=FALSE,message = FALSE,warning=FALSE}
+
+M3<-read_csv("~/Rstudio/corridor_beetles/corridor_docs/eric_ms_thesis/tables/M3.csv") %>% 
+  kable(
+      digits = 3,
+      align="lcc",
+      format="latex",
+      row.names = FALSE,
+      booktabs=T,
+      linesep = "", #removes the blank line after every 5 lines
+      caption = "AOV TABLE CAPTION") %>%
+  kable_styling(bootstrap_options = c("striped"),
+                full_width = F,
+                latex_options=c("scale_down","hold_position"),
+                font_size = 12,
+                position = "center") %>%
+  # column_spec(1, italic = T) %>%
+  row_spec(0, bold = T)
+  # row_spec(1:15, hline_after = T)
+M3
+```
 
 
 \newpage 
