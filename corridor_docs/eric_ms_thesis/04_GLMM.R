@@ -286,6 +286,9 @@ library(flextable)
 ft <- flextable(tidy_model)
 save_as_image(ft, path = "glmer_table.png")
 
+write_csv(tidy_model,"./corridor_docs/eric_ms_thesis/tables/M_rich.csv")
+
+
 # Model for shannons 
 h_shannon
 
@@ -298,6 +301,10 @@ summary(M_shannon)
 
 plot_model(M_shannon, type = "pred")
 
+tidyM_shan<-M_shannon %>% broom::tidy()
+write_csv(tidyM_shan,"./corridor_docs/eric_ms_thesis/tables/m_shan.csv")
+
+
 
 ?glmer
 
@@ -308,6 +315,9 @@ M_simpson <- lmer(h_simpson ~ patch_type + (1 | block),
 summary(M_simpson)
 
 plot_model(M_simpson, type = "pred")
+
+tidyMsimp<-M_simpson %>% broom::tidy()
+write_csv(tidyMsimp,"./corridor_docs/eric_ms_thesis/tables/m_simp.csv")
 
 # residuals
 simulationOutput <- 
@@ -560,5 +570,8 @@ kable(digits = 2,
 
 
 # end of emilio's stats table ---------------------------------------------
+
+
+
 
 
