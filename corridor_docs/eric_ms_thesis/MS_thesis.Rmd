@@ -456,13 +456,11 @@ Values for Simpson Diversity also showed no differences but instead for more abu
 
 ## Recap main goals into findings
  
-This study shows that while habitat type may have an impact on the individual abundances of dung beetles, the arrangement of individuals show little difference as a result of the presence of movement corridors. Past studies have shown similar trends where habitat type and forest regeneration stages are key in the partitioning of dung beetle assemblages[@conover_phenology_2019; @WOS:000386714700011; @arellano_response_2008]. This is further supported by the fact that capture rates were lowest in the rectangular patch, the treatment with the least edge to area ratio, suggesting that dung beetles in the matrix act as a source population which feeds into open patches through habitat edge. 
+This study advances our understanding of the factors shaping dung beetle community composition in temperate regions of the southeastern United States. In addition, the experimental design enables direct comparisons between populations in continuous matrix habitat and those in both isolated and corridor connected patches. Our main findings emphasized: (1) Dominant species were most abundant in forested matrix, but not equally for all species, some were represented proportionally higher in matrix than in open patch habitat. (2) Species richness and diversity were relatively consistent across all treatments, however variation across sampling blocks is evident.  
  
-While we did not detect any patterns of species richness between patch types in our modeling, 
-
-_i want to look back at rarefied richness, was sampling complete in each patch?_ 
+While habitat type may have an impact on the individual abundances of dung beetles, the arrangement of individuals show little difference as a result of the presence of movement corridors. Past studies have shown similar trends where habitat type and forest regeneration stages are key in the partitioning of dung beetle assemblages[@conover_phenology_2019; @WOS:000386714700011; @arellano_response_2008]. This is further supported by the fact that capture rates were lowest in the rectangular patch, the treatment with the least edge to area ratio, suggesting that dung beetles in the matrix may act as a source population which feeds into open patches through habitat edge. 
  
-A comparison of total species richness per patch type per block shows that the sampling plot with the most total species captured was in the matrix. 
+We did not detect any patterns of species richness between patch types in our modeling. Yet in comparing raw species counts the sampling plot with the most total species captured was in the matrix while the fewest species sampled were in a rectangular patch. _here look at other srs papers and see whats going on with edges_. 
  
 Analysis of Hill numbers indicated that species compositions were even between patch types. Comparing values of Simpson's Diversity between patches determined that dominant species were not prevalent in any one treatment type. Likewise, the Shannon index values insisted that rare species throughout the study population were even. 
 
@@ -491,20 +489,25 @@ _here write about low sample sizes and reasons for why dung beetle communities w
 1. Abundance 
  - reason for highest abundances in matrix and connected patch
  - lower abundance in rectangle hinting at fragmentation effects
+
 2. Species Richness & Diversity
  - the role of hbitat connectivity in shaping community structure or lack thereof
  - why do we think connnected had lowest species richness??
+
 3. Functional traits and ecological impacts
  - did corridoors favor a functional trait
  - why might there be a trait response 
  - implications for ecosystem processes
  - like duung removal papers seed dispersal and yep
+
 4. Comparing to previous studies
 - how are things aligning
 - think about the biology 
+
 5. Limitations and future work
 - potential confounding factors (seasonality, distance from edge, sampling methodology and temmporal variation)
 - other directions to go (dispersal -> radar, secifically measuring changes in ecosystem services)
+
 6. Takeaways for conservation and management
 - dung beetles are robust
 - what do think about corridor design and considerations for fragmented lanndscapes
@@ -512,7 +515,7 @@ _here write about low sample sizes and reasons for why dung beetle communities w
 
 # ACKNOWLEDGMENTS
 
-We thank the USDA Forest Service for maintaining experimental landscapes and assisting in getting established at the site, particularly Sabrie Breland, Ben Overly, and Eva Schwarz. We also thank Thomas Smith for his help in data collection, Sara Escobar-Chena for her help in processing and data entry, and to Nico Acajabon, Jarrett Emory, and Cayla Garmen for their advice in putting together this manuscript. 
+We thank the USDA Forest Service for maintaining experimental landscapes and assisting in getting established at the site. We also thank Thomas Smith for his help in data collection, Sara Escobar-Chena for her help in processing and data entry. 
 
 
 \newpage
@@ -627,7 +630,11 @@ knitr::include_graphics("images/patches-pic.png")
 
 \newpage
 
+```{r, label = simpson, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle Simpson's index in three different --- and the forest matrix surrounding patches.", out.width="50%", fig.align='center'}
 
+knitr::include_graphics("images/sp_simpson_patches.png")
+
+```
 
 ```{r, label = richness, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle secies richness in three different --- and the forest matrix surrounding patches.", out.width="50%", fig.align='center'}
 
@@ -647,12 +654,6 @@ knitr::include_graphics("images/sp_abund_patch.png")
 
 ```
 
-
-```{r, label = simpson, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle Simpson's index in three different --- and the forest matrix surrounding patches.", out.width="50%", fig.align='center'}
-
-knitr::include_graphics("images/sp_simpson_patches.png")
-
-```
 
 <!-- ```{r sp_richness_patches, echo = FALSE, fig.cap = "Dung beetle secies richness in three different --- and the forest matrix surrounding patches.", out.width = '100%'} -->
 <!-- knitr::include_graphics("./corridor_beetles/corridor_docs/eric_ms_thesis/images/sp_richness_patches.png") -->

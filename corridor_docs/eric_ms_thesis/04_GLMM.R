@@ -273,6 +273,8 @@ Anova(M_rich)
 
 plot_model(M_rich, type = "pred")
 
+
+
 library(broom.mixed)
 tidy_model <- tidy(M_rich, effects = "fixed")
 
