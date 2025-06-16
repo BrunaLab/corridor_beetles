@@ -458,20 +458,25 @@ Across both models, the block-level random effect standard deviation was slightl
 
 ## Recap main goals into findings
  
-This study advances our understanding of the factors shaping dung beetle community composition in temperate regions of the southeastern United States. In addition, the experimental design enables direct comparisons between populations in continuous matrix habitat and those in both isolated and corridor connected patches. Our main findings emphasized: (1) Habitat type and pathc shape were the main drivng factors for dung beetle species abundances were composed, however effects were species specific. (2) Patch shape and isolation had less of an influence on species richness which was relatively even on both a patch and block level. (3) Species diversity metrics were also relatively even across patch types however varied widely by sampling blocks. These results suggest that dung beetle species are fully capable of permeating fragmented landscapes and that habitat type and connectivity shape community compositions, but landscape effects of a larger scale are driving changes in biodiversity. 
+This study advances our understanding of the factors shaping dung beetle community composition in temperate regions of the southeastern United States. In addition, the experimental design enables direct comparisons between populations in continuous matrix habitat and those in both isolated and corridor connected patches. Our main findings emphasized: (1) Habitat type and patch shape were the main driving factors for dung beetle species abundances were composed, however effects were species specific. (2) Patch shape and isolation had less of an influence on species richness which was relatively even on both a patch and block level. (3) Species diversity metrics were also relatively even across patch types however varied widely by sampling blocks. These results suggest that dung beetle species are fully capable of permeating fragmented landscapes and that habitat type and connectivity shape community compositions, but landscape effects of a larger scale are driving changes in biodiversity. 
 
 
 ## Abundance
  
 The total number of dung beetle species captured N = `r total_spp` and the total individuals N = `r total_N` are similar to those in studies conducted in similar habitats and regions of the US [@conover_phenology_2019; @nealis_habitat_1977; @stanbrook_dung_2022].  
  
-Compared to the other treatment types the greatest number of individual beetles were captured from matrix habitat. Likewise, for each of the most dominant species the highest counts came from the matrix. 
-
-Past studies have shown similar trends where habitat type and forest regeneration stages are key in the partitioning of dung beetle assemblages[@conover_phenology_2019; @WOS:000386714700011; @arellano_response_2008]. This is further supported by the fact that capture rates were lowest in the rectangular patch, the treatment with the least edge to area ratio, suggesting that dung beetles in the matrix may act as a source population which feeds into open patches through habitat edge. 
+Dung beetle abundances were significantly lowest in rectangular patches. Matrix patches had the most total beetles collected and consistently had the highest counts for the most dominant species. However abundances were not significantly different between matrix, connected, and winged patches. This may suggest that isolation is leading to a decrease in abundances, but it is more likely that populations in the matrix are acting as a source, and since connected and winged patches have higher edge to area ratios dung beetles were more likely to move into those patches. Past studies have shown trends where habitat type and forest regeneration stages are key in the partitioning of dung beetle assemblages[@conover_phenology_2019; @WOS:000386714700011; @arellano_response_2008] which supports why we might see these differences in local populations. In addition distance from habitat edge has been attributed to differences in spillover from source populations[@WOS:000707546700001], emphasizing the importance of habitat edge in the context of our study.   
  
 ## Richness
  
-We did not detect any patterns of species richness between patch types in our modeling. Yet in comparing raw species counts the sampling plot with the most total species captured was in the matrix while the fewest species sampled were in a rectangular patch. _here look at other srs papers and see whats going on with edges_. 
+We did not detect any patterns of species richness between patch types in our modeling. Yet in comparing raw species counts the sampling plot with the most total species captured was in the matrix while the fewest species sampled were in a rectangular patch.
+
+
+
+_here look at other srs papers and see whats going on with edges_. 
+
+
+
 
 ##Diversity 
 
@@ -528,7 +533,7 @@ _here write about low sample sizes and reasons for why dung beetle communities w
 
 # ACKNOWLEDGMENTS
 
-We thank the USDA Forest Service for maintaining experimental landscapes and assisting in getting established at the site. We also thank Thomas Smith for his help in data collection, Sara Escobar-Chena for her help in processing and data entry. 
+We thank the USDA Forest Service for maintaining experimental landscapes and assisting in getting established at the site. I also wanted to specificallly thank Thomas Smith for his help in data collection, Sara Escobar-Chena for her help in processing and data entry. 
 
 
 \newpage
