@@ -425,7 +425,7 @@ mutate(w=case_when(
 
 ## Overview: Community Composition and Abundance
 
-Overall, I collected N = `r total_N` dung beetles belonging to N = `r total_spp` species. The N = `r how_many_common` most dominant species comprised of `r round((count_most_common/total_N)*100,1)`% of all captures: \textit{`r most_common_spp[1,2]`} (N = `r most_common_spp[1,1]`), \textit{`r most_common_spp[2,2]`} (N = `r most_common_spp[2,1]`), \textit{`r most_common_spp[3,2]`} (N = `r most_common_spp[3,1]`), \textit{`r most_common_spp[4,2]`} (N = `r most_common_spp[4,1]`), \textit{`r most_common_spp[5,2]`} (N = `r most_common_spp[5,1]`), and \textit{`r most_common_spp[6,2]`} (N = `r most_common_spp[6,1]`; Table 1). All but six species were captured in every patch type. _Onthophagus concinnus_ was only found in the matrix and winged patches, while _Onthophagus striatulus_ was only captured in matrix habitat and rectangular patches. _Geotrupes blackburnii_ and _Onthophagus tuberculifrons_ were the only species restricted to one patch type (winged and matrix, respectively). All species were within their native ranges. 
+Overall, I collected N = `r total_N` dung beetles belonging to N = `r total_spp` species. The N = `r how_many_common` most dominant species comprised of `r round((count_most_common/total_N)*100,1)`% of all captures: \textit{`r most_common_spp[1,2]`} (N = `r most_common_spp[1,1]`), \textit{`r most_common_spp[2,2]`} (N = `r most_common_spp[2,1]`), \textit{`r most_common_spp[3,2]`} (N = `r most_common_spp[3,1]`), \textit{`r most_common_spp[4,2]`} (N = `r most_common_spp[4,1]`), \textit{`r most_common_spp[5,2]`} (N = `r most_common_spp[5,1]`), and \textit{`r most_common_spp[6,2]`} (N = `r most_common_spp[6,1]`; Table 1). All but four species were captured in every patch type. _Onthophagus concinnus_ was only found in the matrix and winged patches, while _Onthophagus striatulus_ was only captured in matrix habitat and rectangular patches. _Geotrupes blackburnii_ and _Onthophagus tuberculifrons_ were the only species restricted to one patch type (winged and matrix, respectively). All species were within their native ranges. 
 
 When comparing the total abundance of beetles (all species combined) across patch types, there were no significant difference with one exception: fewer individuals were captured in rectangular patches(GLMM, P < 0.001, Table 4). 
 
@@ -458,18 +458,22 @@ Across both models, the block-level random effect standard deviation was slightl
 
 ## Recap main goals into findings
  
-This study advances our understanding of the factors shaping dung beetle community composition in temperate regions of the southeastern United States. In addition, the experimental design enables direct comparisons between populations in continuous matrix habitat and those in both isolated and corridor connected patches. Our main findings emphasized: (1) Dominant species were most abundant in forested matrix, but not equally for all species, some were represented proportionally higher in matrix than in open patch habitat. (2) Patch shape and isolation had less of an influence on species richness which was relatively even on both a patch and block level. (3) Species diversity metrics were also relatively even across patch types however varied widely by block. These results suggest that dung beetle species are fully capable of permeating fragmented landscapes and that habitat type and connectivity shape community compositions, but landscape effects of a larger scale are driving changes in biodiversity. 
+This study advances our understanding of the factors shaping dung beetle community composition in temperate regions of the southeastern United States. In addition, the experimental design enables direct comparisons between populations in continuous matrix habitat and those in both isolated and corridor connected patches. Our main findings emphasized: (1) Habitat type and pathc shape were the main drivng factors for dung beetle species abundances were composed, however effects were species specific. (2) Patch shape and isolation had less of an influence on species richness which was relatively even on both a patch and block level. (3) Species diversity metrics were also relatively even across patch types however varied widely by sampling blocks. These results suggest that dung beetle species are fully capable of permeating fragmented landscapes and that habitat type and connectivity shape community compositions, but landscape effects of a larger scale are driving changes in biodiversity. 
 
 
 ## Abundance
  
-While habitat type may have an impact on the individual abundances of dung beetles, the arrangement of individuals show little difference as a result of the presence of movement corridors. Past studies have shown similar trends where habitat type and forest regeneration stages are key in the partitioning of dung beetle assemblages[@conover_phenology_2019; @WOS:000386714700011; @arellano_response_2008]. This is further supported by the fact that capture rates were lowest in the rectangular patch, the treatment with the least edge to area ratio, suggesting that dung beetles in the matrix may act as a source population which feeds into open patches through habitat edge. 
+The total number of dung beetle species captured N = `r total_spp` and the total individuals N = `r total_N` are similar to those in studies conducted in similar habitats and regions of the US [@conover_phenology_2019; @nealis_habitat_1977; @stanbrook_dung_2022].  
+ 
+Compared to the other treatment types the greatest number of individual beetles were captured from matrix habitat. Likewise, for each of the most dominant species the highest counts came from the matrix. 
+
+Past studies have shown similar trends where habitat type and forest regeneration stages are key in the partitioning of dung beetle assemblages[@conover_phenology_2019; @WOS:000386714700011; @arellano_response_2008]. This is further supported by the fact that capture rates were lowest in the rectangular patch, the treatment with the least edge to area ratio, suggesting that dung beetles in the matrix may act as a source population which feeds into open patches through habitat edge. 
  
 ## Richness
  
 We did not detect any patterns of species richness between patch types in our modeling. Yet in comparing raw species counts the sampling plot with the most total species captured was in the matrix while the fewest species sampled were in a rectangular patch. _here look at other srs papers and see whats going on with edges_. 
 
-Diversity 
+##Diversity 
 
 Analysis of Hill numbers indicated that species compositions were even between patch types. Comparing values of Simpson's Diversity between patches determined that dominant species were not prevalent in any one treatment type. Likewise, the Shannon index values insisted that rare species throughout the study population were even. 
 
@@ -478,7 +482,7 @@ _here write about low sample sizes and reasons for why dung beetle communities w
  
  
  
- The total number of dung beetle species captured N = `r total_spp` and the total individuals N = `r total_N` are similar to those in studies conducted in similar habitats and regions of the US [@conover_phenology_2019; @nealis_habitat_1977; @stanbrook_dung_2022]. 
+
  
  revisit bray curtis
  
@@ -542,15 +546,15 @@ We thank the USDA Forest Service for maintaining experimental landscapes and ass
 
 
 1. ~~Table: count by species by habitat.~~
-1. table: results of species richness analyses.
+1. ~~table: results of species richness analyses.~~
 1. ~~Figure of species richness results.~~
-1. table: results of species diversity analyses.
-1. Figure of species diversity results.
+1. ~~table: results of species diversity analyses.~~
+1. ~~Figure of species diversity results.~~
 1. table: results of functional diversity analyses.
 1. Figure of biomass of different (R/T/D) functional groups.
 1. ~~Map of where field site is located~~
 1. ~~Figure of the patch layout with pitfalls~~.
-1. Pictures of different species, sampling, field sites?
+1. ~~Pictures of different species, sampling, field sites?~~
 
 
 <!-- (text - Nathan Fig of plots) -->
