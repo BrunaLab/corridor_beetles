@@ -469,7 +469,7 @@ Dung beetle abundances were significantly lowest in rectangular patches. Matrix 
  
 ## Richness
  
-We did not detect any patterns of species richness between patch types in our modeling. Yet in comparing raw species counts the sampling plot with the most total species captured was in the matrix while the fewest species sampled were in a rectangular patch.
+While abundances were different between patch types, we did not detect any patterns of species richness in our modeling. Total species counts were very even across patch types and sampling blocks. This difference indicates that even though habitat type or landscape features are informing occupational preferences, land use is more or less the same across the study site. This differs from past work where species richness is lower in forest fragments [@WOS:000178929600002] 
 
 
 
