@@ -466,10 +466,12 @@ This study advances our understanding of the factors shaping dung beetle communi
 The total number of dung beetle species captured N = `r total_spp` and the total individuals N = `r total_N` are similar to those in studies conducted in similar habitats and regions of the US [@conover_phenology_2019; @nealis_habitat_1977; @stanbrook_dung_2022].  
  
 Dung beetle abundances were significantly lowest in rectangular patches. Matrix patches had the most total beetles collected and consistently had the highest counts for the most dominant species. However abundances were not significantly different between matrix, connected, and winged patches. This may suggest that isolation is leading to a decrease in abundances, but it is more likely that populations in the matrix are acting as a source, and since connected and winged patches have higher edge to area ratios dung beetles were more likely to move into those patches. Past studies have shown trends where habitat type and forest regeneration stages are key in the partitioning of dung beetle assemblages[@conover_phenology_2019; @WOS:000386714700011; @arellano_response_2008] which supports why we might see these differences in local populations. In addition distance from habitat edge has been attributed to differences in spillover from source populations[@WOS:000707546700001], emphasizing the importance of habitat edge in the context of our study.   
+
+We also observed that patch effects were not equally proportional for all species. The abundances of all dominant species were positively influenced by matrix habitat, but _Aphoidius alloblackburneus_ responded more positively than any other species. _Phanaeus igneus_ and _Ateuchus lecontei_ 
  
 ## Richness
  
-While abundances were different between patch types, we did not detect any patterns of species richness in our modeling. Total species counts were very even across patch types and sampling blocks. This difference indicates that even though habitat type or landscape features are informing occupational preferences, land use is more or less the same across the study site. This differs from past work where species richness is lower in forest fragments [@WOS:000178929600002] 
+While abundances were different between patch types, we did not detect any patterns of species richness in our modeling. Total species counts were very even across patch types and sampling blocks. This difference indicates that even though habitat type or landscape features are informing occupational preferences, land use is more or less the same between patches and matrix. This differs from past work where species richness is lower in forest fragments [@WOS:000178929600002] 
 
 
 
@@ -480,7 +482,9 @@ _here look at other srs papers and see whats going on with edges_.
 
 ##Diversity 
 
-Analysis of Hill numbers indicated that species compositions were even between patch types. Comparing values of Simpson's Diversity between patches determined that dominant species were not prevalent in any one treatment type. Likewise, the Shannon index values insisted that rare species throughout the study population were even. 
+Analysis of Hill numbers indicated that species compositions were even between patch types. Comparing values of Simpson's Diversity between patches determined that dominant species were not prevalent in any one treatment type. Likewise, the Shannon index values insisted that rare species throughout the study population were even. However, for both metrics, values varied greatly by sampling blocks. Similar to our richness results this suggests that variation between patch and matrix is not distinct enough to limit the land use of dung beetles within our study site. 
+
+In contrast to what we observed with species richness it appears that assemblages larger landscape patterns are effecting the composition of assemblages across the study site. 
 
 _here write about low sample sizes and reasons for why dung beetle communities would be so similar across treatment types. Dispersal, scale (roslin), maybe again a good reason to expect matrix as a source pop._  
  
