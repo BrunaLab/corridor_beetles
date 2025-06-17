@@ -431,7 +431,7 @@ When comparing the total abundance of beetles (all species combined) across patc
 
 Statistical analysis of abundance focused on the six most abundant species. A generalized linear mixed model identified significant effects for both species ID and patch type on dung beetle abundance (Table 7). The baseline abundance (intercept) corresponds to the abundance of _Aphodius alloblackburneus_ in connected patches. Compared to this baseline, _Canthon vigilans_, _Ateuchus lecontei_, and _Phanaeus igneus_ showed significantly higher abundance  ($\beta$ = 1.05, 0.73, 0.66 respectively; all p < 0.001), while _Onthophagus pennsylvanicus_ had lower abundance ($\beta$ = –0.80, p < 0.001). 
 
-Species-patch interactions indicated indicated species specific responses to treatments. In matrix plots, the positive effect on abundance was reduced for all other species (e.g., cvig × Matrix $\beta$ = –0.59, p < 0.001). _Ateuchus lecontei_ and _Phanaeus igneus_ showed increased abundance in rectangle patches relative to expectations ($\beta$ = 0.40 and 0.47, respectively; p < 0.05). Random effects indicated moderate variability among blocks (standard deviation of intercept = 0.51).  
+Species-patch interactions indicated indicated species specific responses to treatments. In matrix plots, the positive effect on abundance was reduced for all other species (e.g., cvig × Matrix $\beta$ = –0.59, p < 0.001). _Ateuchus lecontei_ and _Phanaeus igneus_ showed increased effect on abundance in rectangle patches relative to expectations ($\beta$ = 0.40 and 0.47, respectively; p < 0.05). Random effects indicated moderate variability among blocks (standard deviation of intercept = 0.51).  
 
 ### Species Richness
 
@@ -467,7 +467,7 @@ The total number of dung beetle species captured N = `r total_spp` and the total
  
 Dung beetle abundances were significantly lowest in rectangular patches. Matrix patches had the most total beetles collected and consistently had the highest counts for the most dominant species. However abundances were not significantly different between matrix, connected, and winged patches. This may suggest that isolation is leading to a decrease in abundances, but it is more likely that populations in the matrix are acting as a source, and since connected and winged patches have higher edge to area ratios dung beetles were more likely to move into those patches. Past studies have shown trends where habitat type and forest regeneration stages are key in the partitioning of dung beetle assemblages[@conover_phenology_2019; @WOS:000386714700011; @arellano_response_2008] which supports why we might see these differences in local populations. In addition distance from habitat edge has been attributed to differences in spillover from source populations[@WOS:000707546700001], emphasizing the importance of habitat edge in the context of our study.   
 
-We also observed that patch effects were not equally proportional for all species. The abundances of all dominant species were positively influenced by matrix habitat, but _Aphoidius alloblackburneus_ responded more positively than any other species. _Phanaeus igneus_ and _Ateuchus lecontei_ 
+We also observed that patch effects were not equally proportional for all species. The abundances of all dominant species were positively influenced by matrix habitat, but _Aphoidius alloblackburneus_ responded more positively than any other species. _Phanaeus igneus_ and _Ateuchus lecontei_ also had higher positive effects in rectangle patches. . 
  
 ## Richness
  
@@ -488,6 +488,20 @@ In contrast to what we observed with species richness it appears that assemblage
 
 _here write about low sample sizes and reasons for why dung beetle communities would be so similar across treatment types. Dispersal, scale (roslin), maybe again a good reason to expect matrix as a source pop._  
  
+ 
+ 
+ 
+ notes that are important for discussion 
+ 
+ - habitat preference and seasonality (conover 2019, nealis 1977)
+ - habitat again but  only part of variation form habitat specifically aphodius also phenology(roslin 2001)
+ - spatial scales (roslin 2000)
+ - morphology (ospina 2018)
+ - functionality especially gas emissions (slade 2016)
+ - species id and funcitonality (slade 2017)
+ - faovored species dominating in fragments (resasco 2014)
+ - wind direction in corridors (damschen 2014) 
+
  
  
  
@@ -537,7 +551,7 @@ _here write about low sample sizes and reasons for why dung beetle communities w
 
 # ACKNOWLEDGMENTS
 
-We thank the USDA Forest Service for maintaining experimental landscapes and assisting in getting established at the site. I also wanted to specificallly thank Thomas Smith for his help in data collection, Sara Escobar-Chena for her help in processing and data entry. 
+We thank the USDA Forest Service for maintaining experimental landscapes and assisting in getting established at the site. I also wanted to specifically thank Thomas Smith for his help in data collection, Sara Escobar-Chena for her help in processing and data entry. 
 
 
 \newpage
