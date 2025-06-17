@@ -2,6 +2,10 @@ library(tidyverse)
 library(here)
 library(kableExtra)
 library(sjPlot)
+
+# READ THIS ABOUT GLMM REFERENCE LEVELS
+# https://stats.stackexchange.com/questions/628348/when-i-change-my-reference-level-on-my-glmer-in-r-why-do-the-p-values-change-an
+
 # load and prep data ------------------------------------------------------
 
 
@@ -239,12 +243,12 @@ aovM3 <- Anova(M3)
 plot_model(M3, type = "pred", terms = c("sp_code", "patch_type"))
 
 
-
-?interaction.plot
-
-interaction.plot(M3)
-
-?plot_model
+# 
+# ?interaction.plot
+# 
+# interaction.plot(M3)
+# 
+# ?plot_model
 
 # Eric trying table
 
@@ -254,14 +258,14 @@ write_csv(tidyM3,"./corridor_docs/eric_ms_thesis/tables/m3.csv")
 write_csv(aovM3,"./corridor_docs/eric_ms_thesis/tables/aovM3.csv")
 
 
-
-# Global model: Take 1
-M1 <- glmer(n ~ patch_type * sp_code + (1 + patch_type * sp_code | block), 
-            data = spp_abund, 
-            family = poisson)
-summary(M1)
-
-Anova(M1)
+# 
+# # Global model: Take 1
+# M1 <- glmer(n ~ patch_type * sp_code + (1 + patch_type * sp_code | block), 
+#             data = spp_abund, 
+#             family = poisson)
+# summary(M1)
+# 
+# Anova(M1)
 
 # Model for richness 
 M_rich <- glmer(h_rich ~ patch_type + (1 + patch_type | block),
@@ -292,7 +296,7 @@ write_csv(tidy_model,"./corridor_docs/eric_ms_thesis/tables/M_rich.csv")
 # Model for shannons 
 h_shannon
 
-M_shannon
+
 
 M_shannon <- lmer(h_shannon ~ patch_type + (1 | block),
                   data = h_shannon)
