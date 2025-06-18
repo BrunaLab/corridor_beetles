@@ -129,8 +129,8 @@ total_spp<-btl_data %>%
  
 \newpage
 
-YOUR TITLE GOES HERE 
-IN UPPER CASE SINGLE SPACE
+THE INFLUENCE OF CONNECTIVITY ON DUNG BEETLE COMMUNITIES 
+
 
 
 
@@ -138,7 +138,7 @@ IN UPPER CASE SINGLE SPACE
 
 By
 
-YOUR NAME GOES HERE IN ALL CAPITAL LETTERS
+ERIC ESCOBAR-CHENA
 
 
 
@@ -162,7 +162,7 @@ UNIVERSITY OF FLORIDA
 \newpage
 
 
-© 2025 Your Name Goes Here in Title Case
+© 2025 Eric Escobar-Chena
 
 \newpage
 
@@ -206,18 +206,16 @@ Abstract of Thesis Presented to the Graduate School
 of the University of Florida in Partial Fulfillment of the  
 Requirements for the Degree of Master of Science. 
 
-TITLE OF THE WORK, CENTERED, SINGLE-SPACED,
-IN ALL CAPITAL LETTERS, EXACTLY AS ON TITLE PAGE
+THE INFLUENCE OF CONNECTIVITY ON DUNG BEETLE COMMUNITIES
 
 By
 
-Your Name as on the Title Page, but in Title Case. 
+Eric Escobar-Chena
 
-Month and year of graduation   
+August 2025   
  
-Chair: Name (Do not put Dr. before the name, and do not put degrees after it)  
-Cochair: Name (if any, otherwise delete this line)  
-Major: See your Editorial Document Management record for your exact major  
+Chair: Emilio Bruna  
+Major: Wildlife Ecology and Conservation  
 
 
 Habitat fragmentation threatens biodiversity across the globe as habitat loss, isolation, and edge effects become increasingly prevalent. Corridors have become an important tool in order to combat the negative effects of fragmentation, however they are difficult to study in natural systems without incurring confounding effects.  To observe changes in insect community composition as an effect of landscape features we sampled dung beetles in a landscape scale experiment. We did not see a difference in species richness or diversity, but dung beetle abundances were higher in continuous forest habitat and open habitat patches connected by a corridors than in isolated patches. 
