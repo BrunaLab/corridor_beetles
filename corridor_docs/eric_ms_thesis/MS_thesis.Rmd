@@ -1,8 +1,6 @@
 ---
 title: "Influence of Connectivity on Dung Beetle Communities"
 author: "ERIC ESCOBAR-CHENA"
-
-
 # date: "\\vspace{-1em}"
 header-includes:
  # - \AtBeginDocument{\let\maketitle\relax} # this removes default title section
@@ -41,13 +39,13 @@ header-includes:
 # - \usepackage{indentfirst}
 # - \setlength\parindent{22pt} # uncomment if you want indented paragraphs
 bibliography: ["eric-thesis.bib"]
-output:
-  pdf_document:
-    includes:
-      # in_header: style/preamble.tex
-      template: null
-      keep_tex: no
-      extra_dependencies: ["float"]
+output: bookdown::pdf_document2
+  # pdf_document:
+  #   includes:
+  #     # in_header: style/preamble.tex
+  #     template: null
+  #     keep_tex: no
+  #     extra_dependencies: ["float"]
       # number_sections: true
 # documentclass: style/nsf2
 biblio-style: apalike
@@ -112,6 +110,20 @@ total_spp<-btl_data %>%
 
 # TO DO LIST
 
+FOR TOMORROW:
+
+1) Finish adding citations
+
+2) Stat results: biology first, then stats (e.g., abundance ranged form xxx in rectangular to xxx in winged)
+
+3) Review other papers to find:
+
+- those with similar results
+- those with contrary results
+- do this with dung bettles AND other insect taxa
+
+
+DOWN THE ROAD
 
 
 1) **Results:** Did you get any species not captured in other long-leaf/SE USA forest sites?
@@ -131,27 +143,9 @@ total_spp<-btl_data %>%
 
 THE INFLUENCE OF CONNECTIVITY ON DUNG BEETLE COMMUNITIES 
 
-
-
-
-
-
 By
 
 ERIC ESCOBAR-CHENA
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 A THESIS PRESENTED TO THE GRADUATE SCHOOL OF THE UNIVERSITY OF FLORIDA IN PARTIAL FULFILLMENT OF THE REQUIREMENTS FOR THE DEGREE OF MASTER OF SCIENCE
@@ -159,48 +153,33 @@ A THESIS PRESENTED TO THE GRADUATE SCHOOL OF THE UNIVERSITY OF FLORIDA IN PARTIA
 UNIVERSITY OF FLORIDA
 
 2025
-\newpage
 
+-----
 
 © 2025 Eric Escobar-Chena
 
-\newpage
+-----
 
-_Your dedication is typed here. It should begin with the word “To.”
-(To my Mom is a typical dedication) If your dedication is longer than a single line it should be single-spaced, and centered vertically and horizontally_
+<!-- _Your dedication is typed here. It should begin with the word “To.” (To my Mom is a typical dedication) If your dedication is longer than a single line it should be single-spaced, and centered vertically and horizontally_ -->
 
 
 
 To my family who never stopped supporting me along this journey, my friends who kept me company along the way, and my mentors at VCU who believed in me before I did myself. 
 
+---- 
 
-
-
-\newpage
-
-ACKNOWLEDGMENTS
-_Acknowledgments must be written in complete sentences. Do not use direct address. For example, instead of Thanks, Mom and Dad!, you should say I thank my parents._ 
-
+**ACKNOWLEDGMENTS**
+<!-- _Acknowledgments must be written in complete sentences. Do not use direct address. For example, instead of Thanks, Mom and Dad!, you should say I thank my parents._  -->
 
 We thank the USDA Forest Service for maintaining experimental landscapes and assisting in getting established at the site. I also wanted to specifically thank Thomas Smith for his help in data collection, Sara Escobar-Chena for her help in processing and data entry. 
 
-\newpage
+----
 
-LIST OF ABBREVIATIONS
-
-A word to be defined: Write the definition here. 
-
-Another word:	Another def. 
-
-Another word:	Another def. 
+**LIST OF ABBREVIATIONS**
 
 SRS:	Savannah River Site. 
 
-
-
-
-
-\newpage
+----
 
 Abstract of Thesis Presented to the Graduate School  
 of the University of Florida in Partial Fulfillment of the  
@@ -225,10 +204,9 @@ Habitat fragmentation threatens biodiversity across the globe as habitat loss, i
 
 \doublespacing
 
-## CHAPTER 1  
+**CHAPTER 1**  
 
-## TITLE OF CHAPTER ONE  
-
+**Influence of Connectivity on Dung Beetle Communities**  
 
 ## INTRODUCTION
 
@@ -254,11 +232,9 @@ By measuring changes in biodiversity and species richness within experimental de
 <!-- 2) Studies investigating corridors rarely look at whats i the matrix. The matrix could be a source of diversity that moves into patches and then through corridors or a completely different subset of species. (any other options?) Understanding whichh of these it is is important because it leads to differnt conclusions abiout role of corridors and conservation strategies. can also be spillover from matrix into patches and if depednent on corridors or edge -->
 
 
-Dung beetles have emerged as a model system with which to test spatial ecology hypotheses [@ros_how_2012; @roslin_dung_2000].They are an incredibly well studied group of insects which are well known for driving a multitude of ecosystem functions [@hasan_dung_2024]. The removal, breakdown, and burial of animal feces drive important ecosystem interactions provided by dung beetles enhancing nutrient cycling and soil quality, the reduction of breeding sites for parasites, and a reduction in methane emissions from dung [@slade_disentangling_2016; @WOS:000350444300013]
-Here, we aim to gain an understanding of how dung beetles, a group of insects well known for strong dispersal ability in order to compete for ephemeral resources [@hanski_dung_1991], interact with corridors in their landscapes. 
+Dung beetles have emerged as a model system with which to test spatial ecology hypotheses [@ros_how_2012; @roslin_dung_2000].They are an incredibly well studied group of insects which are well known for driving a multitude of ecosystem functions [@hasan_dung_2024]. The removal, breakdown, and burial of animal feces drive important ecosystem interactions provided by dung beetles enhancing nutrient cycling and soil quality, the reduction of breeding sites for parasites, and a reduction in methane emissions from dung [@slade_disentangling_2016; @WOS:000350444300013]. [**EB edit:** I added the following to justify dung veetles more, and then made the questions a second paragraph] Local assemblages of dung beetles can be species-rich with species comprising a broad range of functional traits (e.g., size, foraging style, resource-use) **(citation)**. Previous studies have shown that isolated patches of habitat frequently have lower dung beetle diversity and abundance than areas of continuous habitat, as well as documented their presence in linear strips of habitat that resemble corridors [@WOS:000707546700001].  Past studies have also focused on how landscape structure alters the community compositions of dung beetles[@WOS:000398662200001], yet large landscape scale experimental studies with carefully controlled and replicated treatments are non-existent for this model species.
 
-
-We sampled dung beetle communities in experimental landscapes developed for the express purposes of comparing connected and isolated patches, as well as the effects of patch area to edge ratio and distance to edge [@tewksbury_corridors_2002]. To ask the questions: (1) How are species abundances of dung beetles distributed within isolated and connected patches and what are their relationships with assemblages in matrix habitat? (2) Does species richness vary when movement between patches is facilitated by movement corridors? (3) Are there shifts in species diversity/composition and what are the implications for ecosystem service functionality? 
+Here, we aim to gain an understanding of how dung beetles, a group of insects well known for strong dispersal ability in order to compete for ephemeral resources [@hanski_dung_1991], interact with corridors in their landscapes. We sampled dung beetle communities in experimental landscapes developed for the express purposes of comparing connected and isolated patches, as well as the effects of patch area to edge ratio and distance to edge [@tewksbury_corridors_2002]. To ask the questions: (1) How are species abundances of dung beetles distributed within isolated and connected patches and what are their relationships with assemblages in matrix habitat? (2) Does species richness vary when movement between patches is facilitated by movement corridors? (3) Are there shifts in species diversity/composition and what are the implications for ecosystem service functionality? 
 
 <!--how landscape connectivity impacts dung beetle assemblages dung beetles were collected, identified, and counted with the expectation that biodiversity and abundance would be higher in patches connected by corridors. Additionally we asked are corridors benefiting any one functional trait over another? -->
 
@@ -268,11 +244,11 @@ We sampled dung beetle communities in experimental landscapes developed for the 
 
 ### Study site
 
-Our study took place at the Savannah River Site (SRS), a National Environmental Research Park in southern South Carolina, US (33.208$^\circ$ N, 81.408$^\circ$ W) in four of seven experimental landscapes designed for the purposes of directly observing the impacts of corridors and patch shape on the movements of plants and animals [@tewksbury_corridors_2002]. Each experimental landscape, termed blocks, consists of four patches of open habitat around a central patch all together within a matrix of pine savanna. In each block the central patch (100 $\times$ 100 m) is always connected to one peripheral patch with identical dimensions by a 150 $\times$ 25 m corridor, this will hereafter be referred  to as the connected patch. The remaining patches are either "winged" or "rectangular".  The winged patch is also 100 $\times$ 100 m, however they exhibit their characteristic wings in the form of two 75 $\times$ 25 m offshoots meant to account for the extra area and edge space the corridor provides. The rectangular patch is 100 $\times$ 137.5 m also the same area as the space of the connected patch plus the corridor. Each block has a duplicate of either the winged or rectangle patch, all peripheral patches being 150 m from the center patch. For this study sampling was done in one of each patch type and in one matrix plot per block, all matrix blocks were set up 150 m away from the center as well. 
+Our study took place at the Savannah River Site (SRS), a National Environmental Research Park in southern South Carolina, USA (33.208$^\circ$ N, 81.408$^\circ$ W, Figure \@ref(fig:srs-map)).  in four of seven experimental landscapes designed for the purposes of directly observing the impacts of corridors and patch shape on the movements of plants and animals [@tewksbury_corridors_2002]. Each experimental landscape, termed blocks, consists of four patches of open habitat around a central patch all together within a matrix of pine savanna (Figure \@ref(fig:patches)). In each block the central patch (100 $\times$ 100 m) is always connected to one peripheral patch with identical dimensions by a 150 $\times$ 25 m corridor, this will hereafter be referred  to as the connected patch. The remaining patches are either "winged" or "rectangular".  The winged patch is also 100 $\times$ 100 m, however they exhibit their characteristic wings in the form of two 75 $\times$ 25 m offshoots meant to account for the extra area and edge space the corridor provides. The rectangular patch is 100 $\times$ 137.5 m also the same area as the space of the connected patch plus the corridor. Each block has a duplicate of either the winged or rectangle patch, all peripheral patches being 150 m from the center patch. For this study sampling was done in one of each patch type and in one matrix plot per block, all matrix blocks were set up 150 m away from the center as well. 
 
 ### Dung beetle sampling 
 
-In the months of July and August 2024 dung beetles were sampled in 4 blocks spread across SRS, baited pitfall traps were placed in one of each patch type and in one matrix plot per block. Traps were placed in groups of 3 in the centers of each patch approximately 250 meters from the midpoint of the central patch 40 m from patch edge. Pitfalls were oriented in a triangular pattern with the bottom two traps positioned towards the center patch, each trap 20 m apart. Plots in the matrix were set up in a similar fashion with the center point 250 m from the center placed equidistant between adjacent patches. Individual pitfall traps consisted of two components, a 10cm tall by 8 cm wide cylinder base topped with a funnel with a 10cm wide rim. We sourced pig feces from the University of Florida Swine Barn Unit. Bait was processed into 5cm wide balls and wrapped in a layer of coffee filter material. For each sample period, traps were buried flush with the ground and baited with pig dung between 8-9 pm and picked up 12 hours later, all beetles captured were stored in ethanol for further processing. In total 16 sampling rounds were carried out with 4 rounds per block, 196 samples were collected. 
+In the months of July and August 2024 dung beetles were sampled in 4 blocks spread across SRS, baited pitfall traps were placed in one of each patch type and in one matrix plot per block (Figure \@ref(fig:pitfalls)). Traps were placed in groups of 3 in the centers of each patch approximately 250 meters from the midpoint of the central patch 40 m from patch edge. Pitfalls were oriented in a triangular pattern with the bottom two traps positioned towards the center patch, each trap 20 m apart. Plots in the matrix were set up in a similar fashion with the center point 250 m from the center placed equidistant between adjacent patches. Individual pitfall traps consisted of two components, a 10cm tall by 8 cm wide cylinder base topped with a funnel with a 10cm wide rim. We sourced pig feces from the University of Florida Swine Barn Unit. Bait was processed into 5cm wide balls and wrapped in a layer of coffee filter material. For each sample period, traps were buried flush with the ground and baited with pig dung between 8-9 pm and picked up 12 hours later, all beetles captured were stored in ethanol for further processing. In total 16 sampling rounds were carried out with 4 rounds per block, 196 samples were collected. 
 
 All dung beetles were counted and identified to species as described in @nemes_illustrated_2015-1 and @edmonds_taxonomic_2023. Fifteen individuals of each species with adequate captures were dried to equilibrium and weighed for biomass measurements. Voucher specimens for each species will be deposited at the Florida State Collection of Arthropods. 
 
@@ -435,9 +411,9 @@ mutate(w=case_when(
 
 ```
 
-### Overview: Community Composition and Abundance
-
 Overall, I collected N = `r total_N` dung beetles belonging to N = `r total_spp` species. The N = `r how_many_common` most dominant species comprised of `r round((count_most_common/total_N)*100,1)`% of all captures: \textit{`r most_common_spp[1,2]`} (N = `r most_common_spp[1,1]`), \textit{`r most_common_spp[2,2]`} (N = `r most_common_spp[2,1]`), \textit{`r most_common_spp[3,2]`} (N = `r most_common_spp[3,1]`), \textit{`r most_common_spp[4,2]`} (N = `r most_common_spp[4,1]`), \textit{`r most_common_spp[5,2]`} (N = `r most_common_spp[5,1]`), and \textit{`r most_common_spp[6,2]`} (N = `r most_common_spp[6,1]`; Table 1). All but four species were captured in every patch type. _Onthophagus concinnus_ was only found in the matrix and winged patches, while _Onthophagus striatulus_ was only captured in matrix habitat and rectangular patches. _Geotrupes blackburnii_ and _Onthophagus tuberculifrons_ were the only species restricted to one patch type (winged and matrix, respectively). All species were within their native ranges. 
+
+### Beetle Abundance  
 
 When comparing the total abundance of beetles (all species combined) across patch types, there were no significant difference with one exception: fewer individuals were captured in rectangular patches($\beta$ = -0.402, P < 0.001, Table 4). 
 
@@ -445,14 +421,11 @@ Statistical analysis of abundance focused on the six most abundant species. A ge
 
 Species-patch interactions indicated indicated species specific responses to treatments. In matrix plots, the positive effect on abundance was reduced for all other species (e.g., cvig × Matrix $\beta$ = –0.59, p < 0.001). _Ateuchus lecontei_ and _Phanaeus igneus_ showed increased effect on abundance in rectangle patches relative to expectations ($\beta$ = 0.40 and 0.47, respectively; p < 0.05). Random effects indicated moderate variability among blocks (standard deviation of intercept = 0.51).  
 
-### Species Richness
+### Beetle Richness and Diversity  
 
 Plotting species richness by patch type reveals consistent richness across patch types with some variation between sampling blocks (Figure 5).The number of species per patch varied from N = 8 (rectangle patch in block 8) to N = 13 (matrix patch in block 53N). Modeling the effect of patch type on species richness with block as a random effect determined there was no significant differences among patch types. Comparing treatments using connected patches as a baseline resulted in no significant differences in matrix ($\beta$ = 0.05, p = 0.83), rectangle ($\beta$ = -0.07, p = 0.74), and winged patches ($\beta$ = -0.05, p = 0.83). 
 
-
-### Species Diversity
-
-We used linear mixed-effects models to compare the influence of patch type on both Shannon Diversity and Simpson's indexes, including block as a random effect to account for spatial variation. In both models, the reference level for patch type was Connected.
+[**EB:** edit: shouldn't this go in the methods?] We used linear mixed-effects models to compare the influence of patch type on both Shannon Diversity and Simpson's indexes, including block as a random effect to account for spatial variation. In both models, the reference level for patch type was Connected.
 
 For Shannon Diversity, the estimated mean in Connected patches was 5.29 (SE = 0.66, t = 7.95). None of the alternative patch types showed statistically significant differences compared to Connected: Matrix ($\beta$ = –0.085, SE = 0.50, t = –0.17), Rectangle ($\beta$ = 0.15, SE = 0.50, t = 0.30), or Winged ($\beta$ = –0.34, SE = 0.50, t = –0.68).
 
@@ -462,7 +435,7 @@ Across both models, the block-level random effect standard deviation was slightl
 
 ## DISCUSSION
 
-_Don't repeat results...tell us:
+_Don't repeat results...tell us:_
 
 1) what your OVERALL conclusions are, 
 2) HOW your results compare to those of other studies, 
@@ -470,7 +443,6 @@ _Don't repeat results...tell us:
 4) BIOLOGICAL INSIGHTS you might have gained about partiicular species
 5) any CAVEATS to your results or shortcomings of your study
 6) the NEXT STEPS you recommend be taken by researchers interested in this toopic or system
-
 
 
 This study advances our understanding of the factors shaping dung beetle community composition in temperate regions of the southeastern United States. In addition, the experimental design enables direct comparisons between populations in continuous matrix habitat and those in both isolated and corridor connected patches. Our main findings emphasized: (1) Habitat type and patch shape were the main driving factors for dung beetle species abundances were composed, however effects were species specific. (2) Patch shape and isolation had less of an influence on species richness which was relatively even on both a patch and block level. (3) Species diversity metrics were also relatively even across patch types however varied widely by sampling blocks. These results suggest that dung beetle species are fully capable of permeating fragmented landscapes and that habitat type and connectivity shape community compositions, but landscape effects of a larger scale are driving changes in biodiversity. 
@@ -487,10 +459,6 @@ We also observed that patch effects were not equally proportional for all specie
 ### Richness
  
 While abundances were different between patch types, we did not detect any patterns of species richness in our modeling. Total species counts were very even across patch types and sampling blocks. This difference indicates that even though habitat type or landscape features are informing occupational preferences, land use is more or less the same between patches and matrix. This differs from past work where species richness is lower in forest fragments [@WOS:000178929600002] 
-
-
-
-_here look at other srs papers and see whats going on with edges_. 
 
 
 
@@ -627,18 +595,19 @@ knitr::include_graphics("images/srs-map.png")
 
 
 
-```{r, label = pitfalls, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Experimental block with the different patches and distance between them.", out.width="50%", fig.align='center'}
-
-knitr::include_graphics("images/pitfalls.png")
-
-```
-
-
 
 
 ```{r, label = patches, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Experimental block with the different patches and distance between them.", out.width="50%", fig.align='center'}
 
 knitr::include_graphics("images/patches-pic.png")
+
+```
+
+
+
+```{r, label = pitfalls, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Experimental block with the different patches and distance between them.", out.width="50%", fig.align='center'}
+
+knitr::include_graphics("images/pitfalls.png")
 
 ```
 
@@ -720,7 +689,7 @@ knitr::include_graphics("images/sp_abund_patch.png")
 <!-- ``` -->
 
 \newpage
-```{r Table1, echo=FALSE,message = FALSE,warning=FALSE}
+```{r summary-table, echo=FALSE,message = FALSE,warning=FALSE}
 # https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html
 
 
@@ -750,7 +719,7 @@ spp_table
 \newpage
 
 
-```{r Table2, echo=FALSE,message = FALSE,warning=FALSE}
+```{r abundance-patch, echo=FALSE,message = FALSE,warning=FALSE}
 # https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html
 
 btl_data<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_clean","clean_btl_counts.csv"))
@@ -792,8 +761,9 @@ abund_patch
 
 ```
 
+\newpage 
 
-```{r Table 3, echo=FALSE,message = FALSE,warning=FALSE}
+```{r bray-curtis, echo=FALSE,message = FALSE,warning=FALSE}
 btl_spec_patch<- btl_data |>
   pivot_longer(pvin:osyl, names_to = "species", values_to = "n") |>
   group_by(species,patch) |>
@@ -811,12 +781,6 @@ btl_spec_patch<- btl_data |>
 taxa_bray <- vegan::vegdist(btl_spec_patch, method = "bray", binary = FALSE)
 # taxa_bray
 
-
-
-
-```
-
-```{r Table bray_patches, echo=FALSE,message = FALSE,warning=FALSE}
 
 # bray<-read_csv("~/Rstudio/corridor_beetles/corridor_docs/eric_ms_thesis/tables/bray_patches.csv") 
 bray<-read_csv(here("corridor_docs","eric_ms_thesis","tables","bray_patches.csv")) %>% kable(
@@ -841,8 +805,11 @@ bray
 
 \newpage
 
-```{r Table aovMO, echo=FALSE,message = FALSE,warning=FALSE}
+```{r Table-aovMO, echo=FALSE,message = FALSE,warning=FALSE}
 aovM0<-read_csv(here("corridor_docs","eric_ms_thesis","tables","aovM0.csv")) %>%
+  mutate(term=case_when(
+    term == "patch_type" ~ "Patch type",
+    .default = as.character(term))) |>
 # aovM0<-read_csv("~/Rstudio/corridor_beetles/corridor_docs/eric_ms_thesis/tables/aovM0.csv") %>% 
   kable(
       digits = 3,
@@ -863,8 +830,13 @@ aovM0<-read_csv(here("corridor_docs","eric_ms_thesis","tables","aovM0.csv")) %>%
 aovM0
 ```
 
-```{r Table MO, echo=FALSE,message = FALSE,warning=FALSE}
+\newpage
+
+```{r Table-MO, echo=FALSE,message = FALSE,warning=FALSE}
 M0<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M0.csv")) %>%
+  replace_na(list(group=" ")) %>% 
+  # need to round numbers above to 4, convert to character, then na_replace
+  # replace_na(list(group=" ", std.error="",statistic=" ",p.value = "")) %>% 
 # M0<-read_csv("~/Rstudio/corridor_beetles/corridor_docs/eric_ms_thesis/tables/M0.csv") %>% 
   kable(
       digits = 3,
@@ -885,8 +857,15 @@ M0<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M0.csv")) %>%
 M0
 ```
 
-```{r Table aovMO3, echo=FALSE,message = FALSE,warning=FALSE}
+\newpage
+
+```{r Table-aovMO3, echo=FALSE,message = FALSE,warning=FALSE}
 aovM3<-read_csv(here("corridor_docs","eric_ms_thesis","tables","aovM3.csv")) %>%
+    mutate(term=case_when(
+    term == "sp_code" ~ "Species",
+    term == "patch_type" ~ "Patch type",
+    term == "sp_code:patch_type" ~ "Species x Patch type",
+    .default = as.character(term))) |>
 # aovM3<-read_csv("~/Rstudio/corridor_beetles/corridor_docs/eric_ms_thesis/tables/aovM3.csv") %>% 
   kable(
       digits = 3,
@@ -907,8 +886,13 @@ aovM3<-read_csv(here("corridor_docs","eric_ms_thesis","tables","aovM3.csv")) %>%
 aovM3
 ```
 
-```{r Table M3, echo=FALSE,message = FALSE,warning=FALSE}
+\newpage
+
+```{r Table-M3, echo=FALSE,message = FALSE,warning=FALSE}
 M3<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M3.csv")) %>%
+  replace_na(list(group=" ")) %>% 
+  # need to round numbers above to 4, convert to character, then na_replace
+  # replace_na(list(group=" ", std.error="",statistic=" ",p.value = "")) %>% 
 # M3<-read_csv("~/Rstudio/corridor_beetles/corridor_docs/eric_ms_thesis/tables/M3.csv") %>% 
   kable(
       digits = 3,
@@ -929,9 +913,16 @@ M3<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M3.csv")) %>%
 M3
 ```
 
+\newpage
 
-```{r Table M_rich, echo=FALSE,message = FALSE,warning=FALSE}
+
+```{r Table-M-rich, echo=FALSE,message = FALSE,warning=FALSE}
 M_rich<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M_rich.csv")) %>%
+   mutate(term=case_when(
+    term == "patch_typeMatrix" ~ "Patch Type: Matrix",
+    term == "patch_typeRectangle" ~ "Patch Type: Rectangle",
+    term == "patch_typeWinged" ~ "Patch Type: Winged",
+    .default = as.character(term))) |>
 # M_rich<-read_csv("~/Rstudio/corridor_beetles/corridor_docs/eric_ms_thesis/tables/M_rich.csv") %>% 
   kable(
       digits = 3,
@@ -952,8 +943,13 @@ M_rich<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M_rich.csv")) %
 M_rich
 ```
 
-```{r Table M_shan, echo=FALSE,message = FALSE,warning=FALSE}
+\newpage
+
+```{r Table-M-shan, echo=FALSE,message = FALSE,warning=FALSE}
 M_shan<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M_shan.csv")) %>%
+  replace_na(list(group=" ")) %>% 
+  # need to round numbers above to 4, convert to character, then na_replace
+  # replace_na(list(group=" ", std.error="",statistic=" ",p.value = "")) %>% 
 # M_shan<-read_csv("~/Rstudio/corridor_beetles/corridor_docs/eric_ms_thesis/tables/M_shan.csv") %>% 
   kable(
       digits = 3,
@@ -974,8 +970,13 @@ M_shan<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M_shan.csv")) %
 M_shan
 ```
 
-```{r Table M_simp, echo=FALSE,message = FALSE,warning=FALSE}
+\newpage
+
+```{r Table-M-simp, echo=FALSE,message = FALSE,warning=FALSE}
 M_simp<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M_simp.csv")) %>%
+  replace_na(list(group=" ")) %>% 
+  # need to round numbers above to 4, convert to character, then na_replace
+  # replace_na(list(group=" ", std.error="",statistic=" ",p.value = "")) %>% 
 # M_simp<-read_csv("~/Rstudio/corridor_beetles/corridor_docs/eric_ms_thesis/tables/M_simp.csv") %>% 
   kable(
       digits = 3,
@@ -1001,7 +1002,7 @@ M_simp
 # BIOGRAPHICAL SKETCH
 
 
-_A biographical sketch is required of all candidates. The biographical sketch should be in narrative form. Third person, past tense, it typically includes the educational background of the candidate. The author should have replaced this paragraph with their own._
+<!-- _A biographical sketch is required of all candidates. The biographical sketch should be in narrative form. Third person, past tense, it typically includes the educational background of the candidate. The author should have replaced this paragraph with their own._ -->
 
 Eric Escobar-Chena completed his Bachelors education at Virginia Commonwealth University in 2023. During his time there he developed a fondness for insects which  grew into a curiosity of the natural world. He later began to explore this curiosity deeper in beginning his graduate education at the University of Florida as a Master's Student under the supervision of Emilio Bruna. 
 
