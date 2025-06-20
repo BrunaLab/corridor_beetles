@@ -43,7 +43,7 @@ header-includes:
   - \usepackage{sectsty}\allsectionsfont{\raggedright}
   - \usepackage{sectsty}\sectionfont{\centering}{\normalfont} # center # headings
   - \usepackage{sectsty}\subsectionfont{\centering}{\normalfont} # center ## headings
-  - \usepackage{sectsty}\subsubsectionfont{\normalfont} # center ## headings
+  - \usepackage{sectsty}\subsubsectionfont{\bfseries} # center ## headings
   # - \usepackage{sectsty}\subsubsectionfont{\itshape} # no centering but italic subsu
   # - \usepackage{sectsty}\subsubsectionfont{\centering}{ital} # center ### headings
   # - \usepackage{sectsty}\sectionfont{\centering\color{darkmidnightblue}}
