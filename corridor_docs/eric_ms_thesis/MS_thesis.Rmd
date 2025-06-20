@@ -310,7 +310,12 @@ INFLUENCE OF CONNECTIVITY ON DUNG BEETLE COMMUNITIES\\
 
 As human disturbances continue to expand into natural landscapes, intact habitats are becoming increasingly fragmented [@diaz_pervasive_2019; @ma_global_2023; @taubert_global_2018]. Like many ecological processes, fragmentation is a complex and multifaceted phenomenon bringing about many consequences which can be both positive and negative for ecosystems [@fahrig_effects_2003; @fletcher_is_2018]. However, as habitats are broken down community structures are significantly altered [@WOS:000419965700012; @haddad_corridor_2003; @jennings_composition_2006]. This alteration of structure typically lends to loss in biodiversity on a global scale and interruptions in ecosystem processes and functions [@haddad_habitat_2015].
 
-Corridors have been shown to be an important mechanism for for minimizing negative consequences of fragmentation [@haddad_corridor_2003]. By improving habitat structure to help facilitate dispersal, wildlife corridors inform movement dynamics of local populations and can shape land uses and occupancy [@forman_general_1995]. *[**EB edit:** break this next sentence into 3 to carry reader though the logic: changes in species diverstiy are important to understand because species are involved in interactions. If we gain or lose species we could gain or lose interactions and resulting ecosystems processes. there is some evidence of this, but... look at the green text notes below]* Because of this dynamic it becomes necessary to understand responses by species compositions at all taxonomic levels and potential trophic cascades resulting from changes in habitat structure and connectivity [@debinski_survey_2000].
+Corridors have been shown to be an important mechanism for for minimizing negative consequences of fragmentation [@haddad_corridor_2003]. By improving habitat structure to help facilitate dispersal, wildlife corridors inform movement dynamics of local populations and can shape land uses and occupancy [@forman_general_1995]. *[**EB edit:** break this next sentence into 3 to carry reader though the logic: changes in species diverstiy are important to understand because species are involved in interactions. If we gain or lose species we could gain or lose interactions and resulting ecosystems processes. there is some evidence of this, but... look at the green text notes below]* 
+
+
+The resulting changes in species composition are important to identify because 
+
+Because of this dynamic it becomes necessary to understand responses by species compositions at all taxonomic levels and potential trophic cascades resulting from changes in habitat structure and connectivity [@debinski_survey_2000].
 
 <!-- stuff that these inviduals or species do: -->
 
