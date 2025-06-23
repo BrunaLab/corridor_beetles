@@ -27,3 +27,30 @@ btl_wt %>%
   # filter(interval!="weight_0") %>%
   ggplot( aes(x=interval, y=value, group=sample, color=sample)) +
   geom_line()
+
+
+
+#  btl weights ------------------------------------------------------------
+
+
+plate_weight<-btl_wt %>% 
+  ungroup() %>% 
+  filter(interval=="weight_5") %>% 
+  filter(sp_code=="plate") %>% 
+  select(value)  
+
+
+
+corrected_btl_wt<-
+btl_wt %>% 
+  filter(interval=="weight_5") %>% 
+  mutate(plate_weight=plate_weight$value) %>% 
+  filter(sp_code!="plate") %>% 
+  group_by(sp_code) %>% 
+  mutate(corrected_wt=value-plate_weight) %>% 
+  summarize(mean_wt=mean(corrected_wt))
+
+
+btl_wt_clean<-write_csv(corrected_btl_wt,here("corridor_docs","eric_ms_thesis","ms_data","data_clean","corrected_btl_wt.csv"))
+
+
