@@ -39,6 +39,15 @@ header-includes:
   - \usepackage{indentfirst}
   - \renewenvironment{abstract}{}{} #suppress the abstract
   - \usepackage{setspace}
+  - \setcounter{secnumdepth}{0} # removes numbering from sections and subsections
+  - \usepackage{sectsty}\allsectionsfont{\raggedright}
+  - \usepackage{sectsty}\sectionfont{\centering}{\normalfont} # center # headings
+  - \usepackage{sectsty}\subsectionfont{\centering}{\normalfont} # center ## headings
+  - \usepackage{sectsty}\subsubsectionfont{\bfseries} # center ## headings
+  # - \usepackage{sectsty}\subsubsectionfont{\itshape} # no centering but italic subsu
+  # - \usepackage{sectsty}\subsubsectionfont{\centering}{ital} # center ### headings
+  # - \usepackage{sectsty}\sectionfont{\centering\color{darkmidnightblue}}
+  
     
  # - doublespacing # manipulate line spacing 
 # - \usepackage{parskip} # manipulate indents and spacing before/after paragra phs 
@@ -161,19 +170,19 @@ DOWN THE ROAD
 
 
 
-\vspace{8cm}
+\vspace*{5cm}
 
 \begin{center}
 THE INFLUENCE OF CONNECTIVITY ON DUNG BEETLE COMMUNITIES
 \end{center}
 
-\vspace{6cm}
+\vspace{5cm}
 
 \begin{center}
 By
 \end{center}
 
-\vspace{3cm}
+\vspace{1cm}
 
 \begin{center}
 ERIC ESCOBAR-CHENA
@@ -182,21 +191,28 @@ ERIC ESCOBAR-CHENA
 \vspace{5cm}
 
 \begin{center}
-A THESIS PRESENTED TO THE GRADUATE SCHOOL OF THE UNIVERSITY OF FLORIDA IN PARTIAL FULFILLMENT OF THE REQUIREMENTS FOR THE DEGREE OF MASTER OF SCIENCE
+A THESIS PRESENTED TO THE GRADUATE SCHOOL\\  
+OF THE UNIVERSITY OF FLORIDA IN PARTIAL FULFILLMENT\\ 
+OF THE REQUIREMENTS FOR THE DEGREE OF\\  
+MASTER OF SCIENCE\\
 \end{center}
 
-\vspace{2cm}
+\begin{center}
+UNIVERSITY OF FLORIDA
+\end{center}
 
 \begin{center}
 2025
 \end{center}
 
 
-\newpage   
+\newpage
 
+\vspace*{11cm}
 
-\vspace{20cm}  
-
+   
+   
+   
 \begin{center}
 © 2025 Eric Escobar-Chena
 \end{center}
@@ -205,7 +221,7 @@ A THESIS PRESENTED TO THE GRADUATE SCHOOL OF THE UNIVERSITY OF FLORIDA IN PARTIA
 \newpage  
 
 
-\vspace{15cm} 
+\vspace*{10cm} 
 <!-- _Your dedication is typed here. It should begin with the word “To.” (To my Mom is a typical dedication) If your dedication is longer than a single line it should be single-spaced, and centered vertically and horizontally_ -->
 
 \begin{center}
@@ -218,81 +234,77 @@ To my family who never stopped supporting me along this journey, my friends who 
 
 \newpage  
 
-
-
-
 \begin{center}  
 
-
-ACKNOWLEDGMENTS
-
+\textbf{ACKNOWLEDGMENTS}  
 
 \end{center}
 <!-- _Acknowledgments must be written in complete sentences. Do not use direct address. For example, instead of Thanks, Mom and Dad!, you should say I thank my parents._  -->
-\begin{center}  
+\doublespacing 
 
 We thank the USDA Forest Service for maintaining experimental landscapes and assisting in getting established at the site. I also wanted to specifically thank Thomas Smith for his help in data collection, Sara Escobar-Chena for her help in processing and data entry. 
 
-\end{center}
 
 
 \newpage   
 
-
 \begin{center}  
-
-
-LIST OF ABBREVIATIONS   
-
-
+\textbf{LIST OF ABBREVIATIONS}
 \end{center}  
 
-
-
+\vspace{1cm}  
 
 SRS: Savannah River Site.  
 GLMM: Generalized Linear Mixed Model
 
 \newpage
 
+\vspace*{5cm}  
 
+\singlespacing 
 
 \begin{center}  
-
-Abstract of Thesis Presented to the Graduate School  
-
-of the University of Florida in Partial Fulfillment of the  
-
-Requirements for the Degree of Master of Science.   
-
-
+Abstract of Thesis Presented to the Graduate School\\  
+of the University of Florida in Partial Fulfillment of the\\  
+Requirements for the Degree of Master of Science.\\   
 \end{center}
 
+\vspace*{1cm}  
 
-\newpage  
-
-
- 
+\begin{center}
 THE INFLUENCE OF CONNECTIVITY ON DUNG BEETLE COMMUNITIES
+\end{center}
 
+\begin{center}
 By
+\end{center}
 
+\begin{center}
 Eric Escobar-Chena   
+\end{center}
 
+\begin{center}
 August 2025   
+\end{center}  
 
-Chair: Emilio Bruna 
-Major: Wildlife Ecology and Conservation   
+\begin{flushleft}
+Chair: Emilio Bruna\\  
+Major: Wildlife Ecology and Conservation\\   
+\end{flushleft}
+
+\doublespacing 
 
 Habitat fragmentation threatens biodiversity across the globe as habitat loss, isolation, and edge effects become increasingly prevalent. Corridors have become an important tool in order to combat the negative effects of fragmentation, however they are difficult to study in natural systems without incurring confounding effects. To observe changes in insect community composition as an effect of landscape features we sampled dung beetles in a landscape scale experiment. We did not see a difference in species richness or diversity, but dung beetle abundances were higher in continuous forest habitat and open habitat patches connected by a corridors than in isolated patches.
 
 \newpage
 
-\doublespacing
 
-**CHAPTER 1**
+\begin{center}
+CHAPTER 1\\  
+INFLUENCE OF CONNECTIVITY ON DUNG BEETLE COMMUNITIES\\  
+\end{center}  
 
-**Influence of Connectivity on Dung Beetle Communities**
+\doublespacing 
 
 ## INTRODUCTION
 
@@ -1093,9 +1105,16 @@ M_simp
 
 \newpage
 
-# BIOGRAPHICAL SKETCH
+\vspace*{1cm}
+
+\begin{center}
+\textbf{BIOGRAPHICAL SKETCH}
+\end{center}
+
 
 <!-- _A biographical sketch is required of all candidates. The biographical sketch should be in narrative form. Third person, past tense, it typically includes the educational background of the candidate. The author should have replaced this paragraph with their own._ -->
+
+\doublespacing
 
 Eric Escobar-Chena completed his Bachelors education at Virginia Commonwealth University in 2023. During his time there he developed a fondness for insects which grew into a curiosity of the natural world. He later began to explore this curiosity deeper in beginning his graduate education at the University of Florida as a Master's Student under the supervision of Emilio Bruna.
 
