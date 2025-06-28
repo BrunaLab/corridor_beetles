@@ -537,9 +537,9 @@ Overall, I collected N = `r total_N` dung beetles belonging to N = `r total_spp`
 
 When comparing the total abundance of beetles (all species combined) across patch types, there were no significant difference with one exception: fewer individuals were captured in rectangular patches($\beta$ = -0.402, P \< 0.001, Table 4).
 
-Statistical analysis of abundance focused on the six most abundant species. A generalized linear mixed model identified significant effects for both species ID and patch type on dung beetle abundance (Table 7). The baseline abundance (intercept) corresponds to the abundance of *Aphodius alloblackburneus* in connected patches. Compared to this baseline, *Canthon vigilans*, *Ateuchus lecontei*, and *Phanaeus igneus* showed significantly higher abundance ($\beta$ = 1.05, 0.73, 0.66 respectively; all p \< 0.001), while *Onthophagus pennsylvanicus* had lower abundance ($\beta$ = –0.80, p \< 0.001).
+Statistical analysis of abundance focused on the six most abundant species. A generalized linear mixed model identified significant effects for both species ID and patch type on dung beetle abundance (Table 7). The baseline abundance corresponds to the abundance of *Aphodius alloblackburneus* in connected patches. Compared to this baseline, *Canthon vigilans*, *Ateuchus lecontei*, and *Phanaeus igneus* showed significantly higher abundance ($\beta$ = 1.05, 0.73, 0.66 respectively; all p \< 0.001), while *Onthophagus pennsylvanicus* had lower abundance ($\beta$ = –0.80, p \< 0.001).
 
-Species-patch interactions indicated indicated species specific responses to treatments. In matrix plots, the positive effect on abundance was reduced for all other species (e.g., cvig × Matrix $\beta$ = –0.59, p \< 0.001). *Ateuchus lecontei* and *Phanaeus igneus* showed increased effect on abundance in rectangle patches relative to expectations ($\beta$ = 0.40 and 0.47, respectively; p \< 0.05). Random effects indicated moderate variability among blocks (standard deviation of intercept = 0.51).
+Species-patch interactions indicated species specific responses to treatments. In matrix plots, the positive effect on abundance was reduced for all other species (e.g., cvig × Matrix $\beta$ = –0.59, p \< 0.001). *Ateuchus lecontei* and *Phanaeus igneus* showed increased effect on abundance in rectangle patches relative to expectations ($\beta$ = 0.40 and 0.47, respectively; p \< 0.05). Random effects indicated moderate variability among blocks (standard deviation of intercept = 0.51).
 
 ### Beetle Richness and Diversity
 
@@ -568,9 +568,15 @@ For Shannon Diversity, the estimated mean in Connected patches was 5.29 (SE = 0.
 \textbf{Paragraph 1: }Overview: While there may indeed be effects of patch area and connectivity on dung beetle abundance on community composition, other (landscape-scale) drivers appear to be more important.
 \end{flushleft} 
 
+This study advances our understanding of the factors shaping dung beetle community composition in temperate regions of the southeastern United States. In addition, the experimental design enables direct comparisons between populations in continuous matrix habitat and those in both isolated and corridor connected patches. Our main findings emphasized: (1) Habitat type and patch shape were the main driving factors for dung beetle species abundances were composed, however effects were species specific. (2) Patch shape and isolation had less of an influence on species richness which was relatively even on both a patch and block level. (3) Species diversity metrics were also relatively even across patch types however varied widely by sampling blocks. These results suggest that while there may indeed be effects of patch structure and connectivity on dung beetle abundances and community composition, other landscape scale drivers appear to be more prominent for species richness and diversity. 
+
 \begin{flushleft} 
 \textbf{Paragraph 2: }Effects of Edge vs. Connectivity
 \end{flushleft} 
+
+
+
+
 
 - corridors vs. drift fence; predicted effects of body size and habitat preference  
 

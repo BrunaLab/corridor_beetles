@@ -2,7 +2,7 @@ library(tidyverse)
 library(here)
 library(kableExtra)
 library(sjPlot)
-
+library(lme4)
 # READ THIS ABOUT GLMM REFERENCE LEVELS
 # https://stats.stackexchange.com/questions/628348/when-i-change-my-reference-level-on-my-glmer-in-r-why-do-the-p-values-change-an
 
@@ -61,6 +61,11 @@ spp_abund<-btl_data %>%
   select(-patch,-block) %>% 
   separate(patch_block,c("patch_type","block"),sep="_",remove=TRUE) 
 
+#releveling
+spp_abund<-spp_abund %>% 
+  mutate(patch_type=as.factor(patch_type)) 
+spp_abund$patch_type<-relevel(spp_abund$patch_type,"Matrix")
+
 spp_abund_top6<-btl_data %>%
   pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>%
   mutate(patch=case_when(
@@ -84,6 +89,9 @@ spp_abund_top6<-btl_data %>%
            sp_code=="open"|
            sp_code=="aaeg")
 
+spp_abund_top6<-spp_abund_top6 %>% 
+  mutate(patch_type=as.factor(patch_type)) 
+spp_abund_top6$patch_type<-relevel(spp_abund_top6$patch_type,"Matrix")
 
 hill_data<-hill_data %>% column_to_rownames("patch_block")
 
@@ -188,6 +196,8 @@ ggplot(spp_abund_top6,
 
 
 
+
+
 # Global model: Take 1 abundance, indep of species ID
 M0 <- glmer(n ~ patch_type + (1 + patch_type | block), 
             data = spp_abund, 
@@ -213,7 +223,26 @@ write_csv(aovM0,"./corridor_docs/eric_ms_thesis/tables/aovM0.csv")
 # nice_table(stats.table, broom = "glmm")
 # nice_table(stats.table, highlight = TRUE)
 
+#re orienting models to use matrix as a baseline factor
 
+set.seed(123)
+x <- rnorm(100)
+DF <- data.frame(x = x,
+                 y = 4 + (1.5*x) + rnorm(100, sd = 2),
+                 b = gl(5, 20))
+head(DF)
+str(DF)
+
+m1 <- lm(y ~ x + b, data = DF)
+summary(m1)
+
+DF <- within(DF, b <- relevel(b, ref = 3))
+m2 <- lm(y ~ x + b, data = DF)
+summary(m2)
+
+spp_abund
+
+spp_abund_matrix <- within(spp_abund, patch_type <- relevel(patch_type, ref = Matrix))
 
 # Model 2
 M2 <- glmer(n ~ sp_code + (1 | block), 
@@ -242,6 +271,7 @@ aovM3 <- Anova(M3)
 
 plot_model(M3, type = "pred", terms = c("sp_code", "patch_type"))
 
+plot_model(M3, type = "pred", terms = c("patch_type", "sp_code"))
 
 # 
 # ?interaction.plot

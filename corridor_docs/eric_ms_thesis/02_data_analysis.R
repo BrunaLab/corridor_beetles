@@ -468,6 +468,11 @@ h_rich<-as.data.frame(h_rich) |>
   rownames_to_column() %>% 
   separate(rowname,c("patch_type","block"),sep="_",remove=TRUE)
 
+h_rich<-h_rich %>% 
+  mutate(patch_type=as.factor(patch_type)) 
+h_rich$patch_type<-relevel(h_rich$patch_type,"Matrix")
+
+
 # taxonomic shannon diversity
 h_shannon<-hill_taxa(hill_data, q = 1)
 
@@ -475,12 +480,20 @@ h_shannon<-as.data.frame(h_shannon) |>
   rownames_to_column() %>% 
   separate(rowname,c("patch_type","block"),sep="_",remove=TRUE)
 
+h_shannon<-h_shannon %>% 
+  mutate(patch_type=as.factor(patch_type)) 
+h_shannon$patch_type<-relevel(h_shannon$patch_type,"Matrix")
+
 # taxonomic simpson diversity
 h_simpson<-hill_taxa(hill_data, q = 2)
 
 h_simpson<-as.data.frame(h_simpson) |>
   rownames_to_column() %>% 
   separate(rowname,c("patch_type","block"),sep="_",remove=TRUE)
+
+h_simpson<-h_simpson %>% 
+  mutate(patch_type=as.factor(patch_type)) 
+h_simpson$patch_type<-relevel(h_simpson$patch_type,"Matrix")
 
 
 hill_results<-h_rich %>% 
