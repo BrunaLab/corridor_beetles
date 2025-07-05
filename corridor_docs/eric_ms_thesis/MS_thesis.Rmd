@@ -740,7 +740,7 @@ revisit bray curtis
 
 <!-- ``` -->
 
-```{r, label = srs-map, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Experimental block with the different patches and distance between them.", out.width="40%", fig.align='center'}
+```{r echo=FALSE, fig.align='center', fig.cap="Experimental block with the different patches and distance between them.", message=FALSE, warning=FALSE, label=srs-map, out.width="40%"}
 
 knitr::include_graphics("images/srs-map.png")
 
