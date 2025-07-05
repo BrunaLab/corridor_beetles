@@ -568,6 +568,7 @@ This study advances our understanding of the factors shaping dung beetle communi
 \textbf{Paragraph 2: }Effects of Edge vs. Connectivity
 \end{flushleft} 
 
+In comparing patc
 
 
 
