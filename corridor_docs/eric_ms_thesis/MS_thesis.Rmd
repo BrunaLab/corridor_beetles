@@ -572,54 +572,32 @@ This study advances our understanding of the factors shaping dung beetle communi
 In our comparison of dung beetle compositions, connectivity and habitat edge accounted for differences in dung beetle abundances, yet species richness and diversity were even across patch types and in  the matrix. Total beetle counts were consistently highest in the matrix, in comparison abundances is connected patches were not significantly different while those of the winged and rectangular patches were lower. Additionally, we also observed that patch effects were not equally proportional for all species. This suggests that the species captured could be exhibiting habitat preferences between the open patches versus forested matrix. Another potential explanation is that species in the matrix are acting as a source population which feeds into patches with edge acting as a drift fence for directing movement. The latter example seems more likely because flies, which have similar resource dependencies were also found to have a similar interaction ** fried **, and also studies on dung beetles in the tropics found more dramatic differences in dung beetle populations in fragments and matrix [@bustamante-sanchez_dung_2004; @WOS:000180797500010; @WOS:000288810500026].     
 
 
-
-
-- corridors vs. drift fence; predicted effects of body size and habitat preference  
-
-- important difference from previous drift fence studies: ours has both passive drift effects AND directed movement towards dung
-
-- by laying out the same amount of dung in traps in all patch types, we eliminated the potential confounding effects of resource levels and abundance (sensu nick butterfly paper). Our results therefore reflect the effects of patch area / isolateion/ block rather than background abundnance.  
-
 \begin{flushleft} 
 \textbf{Paragraph 3: }What then are the drivers of dung beetle diversity and abundance?
 \end{flushleft} 
 
-Although richness and diversity were the same among treatments, there was notable variability between sampling blocks.  
-
-
-
-
-- if not area, edge, or connectivity...what are we (and maybe others) missing? Block effects suggest something at much larger scales.  Potential hypotheses:   
-
-  > a) _landscape-scale variation in abundance of large mammals (deer, hogs) at SRS._ Primary dung sources likely to be deer (?), wild hogs (?), maybe gopher tortoise, coyote, and fox (?). Is anything known about the abundance of these at the SRS site, wither in patches or at the block level?  
-  
-  > b) _matrix permeability/structure/canopy cover_ Is the matrix denser around patches where captures were lower?  
-  
-  > c) _gradients in soil moisture/compaction/quality_ (related to breeding)  
-  
-  > d) _land-use history / legacy of ag / road proximity_ (looping around to mammal abund)  
-  
+Although richness and diversity were the same among treatments, there was notable variability between sampling blocks. Block 8 generally had the lowest species richness and biodiversity while 53n had the highest. While the design of the experimental blocks control for as much as possible, landscape features across the sight are different enough to influence species composition. Several factors may explain this pattern, including soil quality which influences where beetles can reproduce [@arellano_response_2008; @conover_phenology_2019] as well as matrix permeability, canopy cover, and different land-use types (e.g., roadways, water sources)** harvey **[@WOS:000651446900001]. Not only do these impact dung beetle movement, but also these landscape features can affect mammal movement, which in turn limits dung availability for beetles.  
 
 \begin{flushleft} 
 \textbf{Paragraph 4: }That said, there were some interspecific differences in abundance. 
 \end{flushleft} 
 
-- What are they and what could be behind them?  
+Species specific differences are apparent but do not follow any particular trend. _Aphodius alloblackburneus_ had a disproportionate positive effect to being captured in matrix patches as compared to other species. Beetles from the genus _Aphodius_ do tend to show patterns of habitat specificity[@roslin_distribution_2001], so it is not unexpected that they might show a preference towards either forested matrix or open patches. We did not detect that any species was more positively associated with open patches despite expectations that some species ( eg. _Canthon vigilans_, _Melanocanthon bispinatus_) would prefer open habitat [@conover_phenology_2019; @nealis_habitat_1977]. Altogether this could be another sign pointing towards matrix acting as a source population, and since open habitat was much less dominant in our experimental system beetles could be moving into patches from habitat edge. 
+
 
 \begin{flushleft} 
 \textbf{Paragraph 5:} Our results largely echo/constrast with previous ones from the SRS and elsewhere 
 \end{flushleft} 
 
-- example 1:  
-
-- example 2:   
-
-- example 3:   
-
+Despite dung beetles being a well studied model system, most of the current work in fragmented habitats come from tropical climates[@nichols_global_2007], with any work in temperate locations coming from Europe where _Aphodius_ beetles dominate[@roslin_distribution_2001]. Many studies in the tropics have found patterns of habitat preference between open fields and continuous forest similar to what we did in this study[@arellano_response_2008; @WOS:000349242000004]. However, differences in composition were much more distinctly different with some species being exclusive to habitat types unlike we see in this paper. Of the limited work out of the south eastern United States we did recover assemblages similar to other work [@conover_phenology_2019; @nealis_habitat_1977; @young_pines_nodate], and even returned results to another study where differences between treatment types were non-significant while variation on a larger scale was more apparent[@young_dung_2023]. In comparison to other studies from SRS our results were similar to thise  of small mammals which were more likely to be using matrix land *mabry*. We did expect some species to be more dominant in patches with higher edge ratios as was found with ants at SRS [@resasco_landscape_2014], but species were evenly present in all patches. 
 
 \begin{flushleft} 
 \textbf{Paragraph 6: }Caveats
 \end{flushleft} 
+
+
+
+
 
 - potential effects of seasonality   
 
