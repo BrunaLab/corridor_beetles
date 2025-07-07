@@ -314,7 +314,7 @@ Here, we aim to gain an understanding of how dung beetles, a group of insects we
 
 <!-- Since our experimental system consists of open habitats amongst a forested matrix, we anticipate that species preferring open areas and generalists may be more common in our sampling. -->
 
-## Methods
+## METHODS
 
 ### Study site
 
@@ -543,7 +543,7 @@ Species specific differences are apparent but do not follow any particular trend
 \textbf{Paragraph 5:} Our results largely echo/constrast with previous ones from the SRS and elsewhere 
 \end{flushleft} 
 
-Despite ample work documenting their ecological importance, there is a surprising lack of research on dung beetle diversity and corridors outside of the tropics[@nichols_global_2007], with any work in temperate locations coming from Europe where _Aphodius_ beetles dominate[@roslin_distribution_2001]. Many studies in the tropics have found patterns of habitat preference between open fields and continuous forest similar to what we did in this study[@WOS:000349242000004], and some work that found that forest species were using living fences as corridors[@arellano_response_2008]. However, differences in composition were much more distinctly different with some species being exclusive to habitat types unlike we see in this paper. Of the limited work out of the south eastern United States we did recover assemblages similar to other work [@conover_phenology_2019; @nealis_habitat_1977; @young_pines_nodate], and even returned results to another study where differences between treatment types were non-significant while variation on a larger scale was more apparent[@young_dung_2023]. In comparison to other studies from SRS our results were similar to those of small mammals which were more likely to be using matrix land *mabry*. We did expect some species to be more dominant in patches with higher edge ratios as was found with ants at SRS [@resasco_landscape_2014], but species were evenly present in all patches. 
+Despite ample work documenting their ecological importance, there is a surprising lack of research on dung beetle diversity and corridors outside of the tropics[@nichols_global_2007], with any work in temperate locations coming from Europe where _Aphodius_ beetles dominate[@roslin_distribution_2001]. Many studies in the tropics have found patterns of habitat preference between open fields and continuous forest similar to what we did in this study[@WOS:000349242000004], and some work that found that forest species were using living fences as corridors[@arellano_response_2008]. However, differences in composition were much more distinctly different with some species being exclusive to habitat types unlike we see in this paper. Of the limited work out of the south eastern United States we did recover assemblages similar to other work [@conover_phenology_2019; @nealis_habitat_1977], and even returned results to another study where differences between treatment types were non-significant while variation on a larger scale was more apparent[@young_dung_2023]. In comparison to other studies from SRS our results were similar to those of small mammals which were more likely to be using matrix land [@mabry_influence_2003]. We did expect some species to be more dominant in patches with higher edge ratios as was found with ants at SRS [@resasco_landscape_2014], but species were evenly present in all patches. 
 
 \begin{flushleft} 
 \textbf{Paragraph 6: }Caveats
@@ -592,7 +592,7 @@ Although there is plentiful work to be done, this study paints an encouraging pi
 
 <!-- ``` -->
 
-```{r echo=FALSE, fig.align='center', fig.cap="Experimental block with the different patches and distance between them.", message=FALSE, warning=FALSE, label=srs-map, out.width="40%"}
+```{r echo=FALSE, fig.align='center', fig.cap="All experimental blocks at SRS. Orange indicates blocks sampled.", message=FALSE, warning=FALSE, label=srs-map, out.width="40%"}
 
 knitr::include_graphics("images/srs-map.png")
 
@@ -604,7 +604,7 @@ knitr::include_graphics("images/patches-pic.png")
 
 ```
 
-```{r, label = pitfalls, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Experimental block with the different patches and distance between them.", out.width="50%", fig.align='center'}
+```{r, label = pitfalls, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Placement of traps within patch types and in the matrix as well as their orientation.", out.width="50%", fig.align='center'}
 
 knitr::include_graphics("images/pitfalls.png")
 
@@ -673,31 +673,31 @@ knitr::include_graphics("images/pitfalls.png")
 <!-- ``` -->
 
 \newpage
-```{r, label = patch, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle abundance in three different --- and the forest matrix surrounding patches.", out.width="50%", fig.align='center'}
+```{r, label = patch, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle abundance in three different treatments and the forest matrix surrounding patches.", out.width="50%", fig.align='center'}
 
 knitr::include_graphics("images/sp_abund.png")
 
 ```
 
-```{r, label = abundance, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle abundance in three different --- and the forest matrix surrounding patches.", out.width="50%", fig.align='center'}
+```{r, label = abundance, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle abundance of the top 6 most abundant species in three different treatments and the forest matrix surrounding patches.", out.width="50%", fig.align='center'}
 
 knitr::include_graphics("images/sp_abund_patch.png")
 
 ```
 
-```{r, label = richness, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle secies richness in three different --- and the forest matrix surrounding patches.", out.width="50%", fig.align='center'}
+```{r, label = richness, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle secies richness in three different treatments and the forest matrix surrounding patches.", out.width="50%", fig.align='center'}
 
 knitr::include_graphics("images/sp_richness_patches.png")
 ```
 
 
-```{r, label = shannon, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle Shannon diversity in three different --- and the forest matrix surrounding patches.", out.width="50%", fig.align='center'}
+```{r, label = shannon, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle Shannon diversity in three different treatments and the forest matrix surrounding patches.", out.width="50%", fig.align='center'}
 
 knitr::include_graphics("images/sp_shannon_patches.png")
 
 ```
 
-```{r, label = simpson, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle Simpson's index in three different --- and the forest matrix surrounding patches.", out.width="50%", fig.align='center'}
+```{r, label = simpson, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle Simpson's index in three different treatments and the forest matrix surrounding patches.", out.width="50%", fig.align='center'}
 
 knitr::include_graphics("images/sp_simpson_patches.png")
 
@@ -867,7 +867,7 @@ M0<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M0.csv")) %>%
       row.names = FALSE,
       booktabs=T,
       linesep = "", #removes the blank line after every 5 lines
-      caption = "AOV TABLE CAPTION") %>%
+      caption = "Model of species abundance by patch type.") %>%
   kable_styling(bootstrap_options = c("striped"),
                 full_width = F,
                 latex_options=c("scale_down","hold_position"),
@@ -896,7 +896,7 @@ aovM3<-read_csv(here("corridor_docs","eric_ms_thesis","tables","aovM3.csv")) %>%
       row.names = FALSE,
       booktabs=T,
       linesep = "", #removes the blank line after every 5 lines
-      caption = "aovM3 patch type effects on...") %>%
+      caption = "AOV patch type effects on species abundance and interavtive term.") %>%
   kable_styling(bootstrap_options = c("striped"),
                 full_width = F,
                 latex_options=c("scale_down","hold_position"),
@@ -923,7 +923,7 @@ M3<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M3.csv")) %>%
       row.names = FALSE,
       booktabs=T,
       linesep = "", #removes the blank line after every 5 lines
-      caption = "M3 patch type effects on...") %>%
+      caption = "M3 patch type effects on species abundance of top 6 most abundant speceies and interactive term for patch type and species ID.") %>%
   kable_styling(bootstrap_options = c("striped"),
                 full_width = F,
                 latex_options=c("scale_down","hold_position"),
