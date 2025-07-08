@@ -1,0 +1,163 @@
+---
+title: "Text Sandbox"
+author: "ERIC ESCOBAR-CHENA"
+# date: "\\vspace{-1em}"
+# header-includes:
+ # - \AtBeginDocument{\let\maketitle\relax} # this removes default title section
+#  - \usepackage{lineno}
+#  - \linenumbers
+#  - \usepackage[default]{sourcesanspro}
+#  - \usepackage{fancyhdr} # modify header into left, center, right
+#  - \pagestyle{fancy} # cues the use of fancy headers
+#  - \fancyfoot{} # cues the use of fancy footer
+#  - \fancyhead[L]{EEC MS Thesis Draft} # month & year on header left 
+#  - \fancyhead[R]{p. \thepage} # name and page on header right
+#  - \usepackage{subcaption}
+#  - \usepackage{float}
+# # # - \fancyfoot[R]{ }
+#  - \usepackage{setspace}
+ 
+header-includes:
+  - \AtBeginDocument{\let\maketitle\relax} # this removes default title section
+  - \usepackage{float} #to keep figure in the location placed instead of end
+  - \floatplacement{figure}{H}
+  - \usepackage{booktabs}
+  - \raggedbottom
+  - \usepackage{fancyhdr}
+  - \pagestyle{plain}
+  - \fancyfoot[C]{\thepage}
+  - \fancyhead[L]{}
+  - \fancyhead[R]{\small{EEC MS Thesis Draft}}
+  - \thispagestyle{fancy}
+  - \usepackage{tabu}
+  - \usepackage{makecell}
+  - \usepackage{pdflscape}
+  - \usepackage{longtable}
+  - \newcommand{\blandscape}{\begin{landscape}}
+  - \newcommand{\elandscape}{\end{landscape}}
+  - \setlength\parindent{22pt}
+  - \usepackage{indentfirst}
+  - \renewenvironment{abstract}{}{} #suppress the abstract
+  - \usepackage{setspace}
+  - \setcounter{secnumdepth}{0} # removes numbering from sections and subsections
+  - \usepackage{sectsty}\allsectionsfont{\raggedright}
+  - \usepackage{sectsty}\sectionfont{\centering}{\normalfont} # center # headings
+  - \usepackage{sectsty}\subsectionfont{\centering}{\normalfont} # center ## headings
+  - \usepackage{sectsty}\subsubsectionfont{\bfseries} # center ## headings
+  # - \usepackage{sectsty}\subsubsectionfont{\itshape} # no centering but italic subsu
+  # - \usepackage{sectsty}\subsubsectionfont{\centering}{ital} # center ### headings
+  # - \usepackage{sectsty}\sectionfont{\centering\color{darkmidnightblue}}
+  
+    
+ # - doublespacing # manipulate line spacing 
+# - \usepackage{parskip} # manipulate indents and spacing before/after paragra phs 
+# - \usepackage{xcolor} # changes colors of text
+# # http://latexcolor.com/ to choose colors
+# # define the colors used above with rgb codes
+# - \definecolor{darkcerulean}{rgb}{0.03, 0.27, 0.49}
+# - \definecolor{darkmidnightblue}{rgb}{0.0, 0.2, 0.4}
+# # to center to top level (#) headings (my name) and change color of font
+# # more info # https://www.ctan.org/pkg/sectsty
+# - \usepackage{sectsty}
+# - \sectionfont{\centering\color{darkmidnightblue}}
+# # to center to sub-sub-headings (###) and change color of font
+# - \usepackage{sectsty} 
+# - \subsectionfont{\centering\color{darkmidnightblue}}
+# - \usepackage{sectsty} 
+# - \subsubsectionfont{\raggedright\color{darkmidnightblue}}
+# - \usepackage{wrapfig} 
+# - \newcommand{\blandscape}{\begin{landscape}}
+# - \newcommand{\elandscape}{\end{landscape}}
+# - \usepackage[font=small,labelfont=bf]{caption} #Required for specifying captions to tables and figures
+# - \usepackage{indentfirst}
+# - \setlength\parindent{22pt} # uncomment if you want indented paragraphs
+bibliography: ["eric-thesis.bib"]
+output: bookdown::pdf_document2
+  # pdf_document:
+  #   includes:
+  #     # in_header: style/preamble.tex
+  #     template: null
+  #     keep_tex: no
+  #     extra_dependencies: ["float"]
+      # number_sections: true
+# documentclass: style/nsf2
+biblio-style: apalike
+csl: ecology.csl
+---
+
+
+## Text Sandbox
+
+As human disturbances continue to expand into natural landscapes, intact habitats are becoming increasingly fragmented. This degradation lends to loss in biodiversity on a global scale and interruptions in ecosystem processes and functions [@haddad_habitat_2015]. Effects from isolation can vary, however as habitats are broken down community structures are significantly altered [@WOS:000419965700012]. Corridors have been shown to be an important mechanism for facilitating the movement of organisms through fragmented landscapes with the goal of minimizing negative consequences of fragmentation[@haddad_corridor_2003]. As disturbance continues to intensify, it is becoming increasingly more important to understand how different taxonomic groups. Here, we aim to gain an understanding of how dung beetles, a group of insects well known for strong dispersal ability in order to compete for ephemeral resources(Hanski and Cambefort 1991), interact with corridors in their landscapes.
+
+Here, we aim to determine how connectivity and fragmentation affect Species Richness and Diversity, Abundance, and functional diversity. We sampled dung beetle communities in experimental landscapes developed for the express purposes of comparing connected and isolated patches, as well as the effects of patch to edge ratio and distance to edge. To ask the question of (1) how landscape connectivity impacts dung beetle assemblages dung beetles were collected, identified, and counted with the expectation that biodiversity and abundance would be higher in patches connected by corridors. Additionally we asked (2) Are corridors benefiting any one functional trait over another? Since our experimental system consists of open habitats amongst a forested matrix, we anticipate that species preferring open areas and generalists may be more common in our sampling.
+
+Furthermore it is important that we expand our knowledge on how composition changes might impact functional diversities and potential implications for the effectiveness of ecosystem services [@hevia_trait-based_2017]. [**EB edit:** these last sentences don't really make the case for experiments, whcih were the initial emphasis of the paragraph. Might want to opt for another option, like the ones in the green notes below]
+
+This study advances our understanding of the factors shaping dung beetle community composition in subtropical regions of the southeastern United States. In addition, the experimental design enables direct comparisons between populations in continuous matrix habitat and those in both isolated and corridor connected patches. Our main findings emphasized: (1) Habitat type and patch shape were the main driving factors for dung beetle species abundances were composed, however effects were species specific. (2) Patch shape and isolation had less of an influence on species richness which was relatively even on both a patch and block level. (3) Species diversity metrics were also relatively even across patch types however varied widely by sampling blocks. These results suggest that dung beetle species are fully capable of permeating fragmented landscapes and that habitat type and connectivity shape community compositions, but landscape effects of a larger scale are driving changes in biodiversity.
+
+### Abundance
+
+
+Dung beetle abundances were significantly lowest in rectangular patches. Matrix patches had the most total beetles collected and consistently had the highest counts for the most dominant species. However abundances were not significantly different between matrix, connected, and winged patches. This may suggest that isolation is leading to a decrease in abundances, but it is more likely that populations in the matrix are acting as a source, and since connected and winged patches have higher edge to area ratios dung beetles were more likely to move into those patches. Past studies have shown trends where habitat type and forest regeneration stages are key in the partitioning of dung beetle assemblages[@conover_phenology_2019; @WOS:000386714700011; @arellano_response_2008] which supports why we might see these differences in local populations. In addition distance from habitat edge has been attributed to differences in spillover from source populations[@WOS:000707546700001], emphasizing the importance of habitat edge in the context of our study.
+
+We also observed that patch effects were not equally proportional for all species. The abundances of all dominant species were positively influenced by matrix habitat, but *Aphoidius alloblackburneus* responded more positively than any other species. *Phanaeus igneus* and *Ateuchus lecontei* also had higher positive effects in rectangle patches.
+
+### Richness
+
+While abundances were different between patch types, we did not detect any patterns of species richness in our modeling. Total species counts were very even across patch types and sampling blocks. This difference indicates that even though habitat type or landscape features are informing occupational preferences, land use is more or less the same between patches and matrix. This differs from past work where species richness is lower in forest fragments [@WOS:000178929600002]
+
+### Diversity
+
+Analysis of Hill numbers indicated that species compositions were even between patch types. Comparing values of Simpson's Diversity between patches determined that dominant species were not prevalent in any one treatment type. Likewise, the Shannon index values insisted that rare species throughout the study population were even. However, for both metrics, values varied greatly by sampling blocks. Similar to our richness results this suggests that variation between patch and matrix is not distinct enough to limit the land use of dung beetles within our study site.
+
+In contrast to what we observed with species richness it appears that assemblages larger landscape patterns are effecting the composition of assemblages across the study site.
+
+*here write about low sample sizes and reasons for why dung beetle communities would be so similar across treatment types. Dispersal, scale (roslin), maybe again a good reason to expect matrix as a source pop.*
+
+notes that are important for discussion
+
+-   habitat preference and seasonality (conover 2019, nealis 1977)
+> -   cvig - open sand chaparral, open grassland preference nealis 1977
+> -   mbis - open sand chapparal preference nealis 1977
+> -   open - slight preference towards open chap and shaded chap, little open grassland nealis 1977
+> -   pign - sharing forest habitat but need more info conover 2019
+> -   pvin - open habitat but share forest with pign conover 2019
+> -   alec - forest preference conover 2019
+
+-   habitat again but only part of variation form habitat specifically aphodius also phenology (roslin 2001)
+-   spatial scales (roslin 2000)
+-   morphology
+
+> -   Ospina 2018: wing shape py habitat preference and differences in wing shape determined by species groupings. Beetles with wider wings showed more preference towards open habitat, contrary to what is already known in literature on other taxa (butterflies). Large body beetles tending towards lower energy flight strategies. maybe justification for corridor preference?
+> -   stanbrook and king 2022: tunnelers preferring open habitat and tunnelers also contributing more towards dung removal.
+> -   Conover 2019: dung source being less of an issue than habitat type but some species were more responsive to specific bait types so future studies should use a mix of multiple bait types
+> -   Gimenez Gomez et al 2021 -\> similar outcome some beetles were extra sensitive to specififc baits so a mix of baits should be used. However this study was done in a more tropical ecosystem so its hard to say if the same would apply to our more temperate system so more work is needed in this specific avenue.
+
+-   functionality especially gas emissions (slade 2016)
+-   species id and funcitonality (slade 2017)
+-   faovored species dominating in fragments (resasco 2014)
+-   wind direction in corridors (damschen 2014)
+
+revisit bray curtis
+
+1.  Abundances in matrix vs connected patch and why this could be happening
+
+-   source pop to habiitat edge
+
+2.  species richness again supporting that matrix is more of an ideal habitat for dung beetle community
+
+3.  diversity indices community structures weren't highly different between patch types
+
+4.  bray curtis hinting at similar land uses between corridor and winged patch
+
+-   like julians paper corridors benefit certain populations and more fit populations are able to make better use
+
+
+\begin{flushleft}
+\textbf{NEED}
+\end{flushleft}
+
+1. rarefaction curves
+1. add biomass to table 1
+1. add totals of habitat in table 2 to table 1.

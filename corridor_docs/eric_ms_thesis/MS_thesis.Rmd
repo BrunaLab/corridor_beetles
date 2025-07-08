@@ -72,7 +72,10 @@ header-includes:
 # - \usepackage{indentfirst}
 # - \setlength\parindent{22pt} # uncomment if you want indented paragraphs
 bibliography: ["eric-thesis.bib"]
-output: bookdown::pdf_document2
+output:
+  bookdown::pdf_document2:
+    toc: false
+# output: bookdown::pdf_document2
   # pdf_document:
   #   includes:
   #     # in_header: style/preamble.tex
@@ -137,6 +140,7 @@ total_spp<-btl_data %>%
 # most_common_n<-spp_table_data %>% select(N) %>% slice(1)
 
 ```
+\newpage
 
 \vspace*{5cm}
 
@@ -210,7 +214,7 @@ To my mom, dad, and two sisters. This thesis is a chapter in our immigrant story
 <!-- _Acknowledgments must be written in complete sentences. Do not use direct address. For example, instead of Thanks, Mom and Dad!, you should say I thank my parents._  -->
 \doublespacing 
 
-We thank the USDA Forest Service for maintaining experimental landscapes and assisting in getting established at the site. I also wanted to specifically thank Thomas Smith for his help in data collection, Sara Escobar-Chena for her help in processing and data entry. 
+I thank the USDA Forest Service for maintaining experimental landscapes and assisting in getting established at the site. I also wanted to specifically thank Thomas Smith for his help in data collection, Sara Escobar-Chena for her help in processing and data entry. 
 
 
 
@@ -222,8 +226,14 @@ We thank the USDA Forest Service for maintaining experimental landscapes and ass
 
 \vspace{1cm}  
 
+\begin{flushleft}
+
 SRS: Savannah River Site.  
-GLMM: Generalized Linear Mixed Model
+
+GLMM: Generalized Linear Mixed Model.  
+
+
+\end{flushleft}
 
 \newpage
 
@@ -262,7 +272,7 @@ Major: Wildlife Ecology and Conservation\\
 
 \doublespacing 
 
-Habitat fragmentation threatens biodiversity across the globe as habitat loss, isolation, and edge effects become increasingly prevalent. Corridors have become an important tool in order to combat the negative effects of fragmentation, however they are difficult to study in natural systems without incurring confounding effects. To observe changes in insect community composition as an effect of landscape features we sampled dung beetles in a landscape scale experiment. We did not see a difference in species richness or diversity, but dung beetle abundances were higher in continuous forest habitat and open habitat patches connected by a corridors than in isolated patches.
+Habitat fragmentation threatens biodiversity across the globe as habitat loss, isolation, and edge effects become increasingly prevalent. Corridors have become an important tool in order to combat the negative effects of fragmentation, however they are difficult to study in natural systems without incurring confounding effects. To observe changes in insect community composition as an effect of landscape features I sampled dung beetles in a landscape scale experiment. I did not see a difference in species richness or diversity, but dung beetle abundances were higher in continuous forest habitat and open habitat patches connected by a corridors than in isolated patches.
 
 \newpage
 
@@ -276,7 +286,7 @@ THE INFLUENCE OF CONNECTIVITY ON DUNG BEETLE COMMUNITIES\\
 
 ## INTRODUCTION
 
-As human disturbances continue to expand into natural landscapes, intact habitats are becoming increasingly fragmented [@diaz_pervasive_2019; @ma_global_2023; @taubert_global_2018]. Like many ecological processes, fragmentation is a complex and multifaceted phenomenon bringing about many consequences which can be both positive and negative for ecosystems [@fahrig_effects_2003; @fletcher_is_2018]. However, as habitats are broken down community structures are significantly altered [@WOS:000419965700012; @haddad_corridor_2003; @jennings_composition_2006; [@harrison_habitat_1999]]. This alteration of structure typically lends to loss in biodiversity on a global scale and interruptions in ecosystem processes and functions [@haddad_habitat_2015].
+As human disturbances continue to expand into natural landscapes, intact habitats are becoming increasingly fragmented [@diaz_pervasive_2019; @ma_global_2023; @taubert_global_2018]. Like many ecological processes, fragmentation is a complex and multifaceted phenomenon bringing about many consequences which can be both positive and negative for ecosystems [@fahrig_effects_2003; @fletcher_is_2018]. However, as habitats are broken down community structures are significantly altered [@WOS:000419965700012; @haddad_corridor_2003; @jennings_composition_2006; @harrison_habitat_1999]. This alteration of structure typically lends to loss in biodiversity on a global scale and interruptions in ecosystem processes and functions  [@haddad_habitat_2015].
 
 Corridors have been shown to be an important mechanism for for minimizing negative consequences of fragmentation [@haddad_corridor_2003]. By improving habitat structure to help facilitate dispersal, wildlife corridors inform movement dynamics of local populations and can shape land uses and occupancy [@forman_general_1995]. The resulting changes in species composition are important to identify because any species impacted would have corresponding effects depending on how they interact with the ecosystem [@zhou_linking_2023]. Any gain or loss in key members of an community could disrupt processes which on their own could shape ecosystems [@WOS:000374962000009], or effect other organisms which rely on said interaction [@wu_brown-world_2011]. Because of this dynamic it becomes necessary to understand responses by species compositions at all taxonomic levels and potential trophic cascades resulting from changes in habitat structure and connectivity [@debinski_survey_2000].
 
@@ -299,7 +309,7 @@ Corridors have been shown to be an important mechanism for for minimizing negati
 
 <!-- - decomposition -->
 
-By measuring changes in biodiversity and species richness within experimental designs we are able to isolate factors might be contributing to ecological patterns and processes [@fletcher_jr_landscape_2023; @resasco_contribution_2017]. Past studies have endeavored to experimentally measure changes in community compositions as a result of connecting habitats with corridors [@collins_fragmentation_2017; @graham_impact_2022; @tewksbury_corridors_2002]  Yet very few have directly compared matrix and patch populations. Land use is different from one species to another so it is vital to understand where compositions are distributed and what processes might be driving population differences[@haddad_corridor_1999]. 
+By measuring changes in biodiversity and species richness within experimental designs I am able to isolate factors might be contributing to ecological patterns and processes [@fletcher_jr_landscape_2023; @resasco_contribution_2017]. Past studies have endeavored to experimentally measure changes in community compositions as a result of connecting habitats with corridors [@collins_fragmentation_2017; @graham_impact_2022; @tewksbury_corridors_2002]  Yet very few have directly compared matrix and patch populations. Land use is different from one species to another so it is vital to understand where compositions are distributed and what processes might be driving population differences[@haddad_corridor_1999]. 
 
 
 <!-- 1) We know far less on how corridors influence functional diversity. Functional diversity is important for the maintenance of ecosystems services, etc, so corridors cvould help ensure that.  (in context of dung beetles that would be feeding guilds (simplest), morphology etc. in deCastro Arrazola et al) -->
@@ -308,7 +318,7 @@ By measuring changes in biodiversity and species richness within experimental de
 
 Dung beetles have emerged as a model system with which to test spatial ecology hypotheses [@ros_how_2012; @roslin_dung_2000].They are an incredibly well studied group of insects which are well known for driving a multitude of ecosystem functions [@hasan_dung_2024]. The removal, breakdown, and burial of animal feces drive important ecosystem interactions provided by dung beetles enhancing nutrient cycling and soil quality, the reduction of breeding sites for parasites, and a reduction in methane emissions from dung [@slade_disentangling_2016; @WOS:000350444300013; @nichols_ecological_2008]. Local assemblages of dung beetles can be species-rich with species comprising a broad range of functional traits [e.g., size, foraging style, resource-use, [@decastro-arrazola_trait-based_2023; @ospina-garces_dung_2018]]. Previous studies have shown that isolated patches of habitat frequently have lower dung beetle diversity and abundance than areas of continuous habitat, as well as documented their presence in linear strips of habitat that resemble corridors [@WOS:000707546700001]. Past studies have also focused on how landscape structure alters the community compositions of dung beetles[@WOS:000398662200001], yet large landscape scale experimental studies with carefully controlled and replicated treatments are non-existent for this model species.
 
-Here, we aim to gain an understanding of how dung beetles, a group of insects well known for strong dispersal ability in order to compete for ephemeral resources [@hanski_dung_1991], interact with corridors in their landscapes. We sampled dung beetle communities in experimental landscapes developed for the express purposes of comparing connected and isolated patches, as well as the effects of patch area to edge ratio and distance to edge [@tewksbury_corridors_2002]. To ask the questions: (1) How are species abundances of dung beetles distributed within isolated and connected patches and what are their relationships with assemblages in matrix habitat? (2) Does species richness vary when movement between patches is facilitated by movement corridors? (3) Are there shifts in species diversity/composition and what are the implications for ecosystem service functionality?
+Here, I aim to gain an understanding of how dung beetles, a group of insects well known for strong dispersal ability in order to compete for ephemeral resources [@hanski_dung_1991], interact with corridors in their landscapes. I sampled dung beetle communities in experimental landscapes developed for the express purposes of comparing connected and isolated patches, as well as the effects of patch area to edge ratio and distance to edge [@tewksbury_corridors_2002]. To ask the questions: (1) How are species abundances of dung beetles distributed within isolated and connected patches and what are their relationships with assemblages in matrix habitat? (2) Does species richness vary when movement between patches is facilitated by movement corridors? (3) Are there shifts in species diversity/composition and what are the implications for ecosystem service functionality?
 
 <!--how landscape connectivity impacts dung beetle assemblages dung beetles were collected, identified, and counted with the expectation that biodiversity and abundance would be higher in patches connected by corridors. Additionally we asked are corridors benefiting any one functional trait over another? -->
 
@@ -322,17 +332,17 @@ Our study took place at the Savannah River Site (SRS), a National Environmental 
 
 ### Dung beetle sampling
 
-In the months of July and August 2024 dung beetles were sampled in 4 blocks spread across SRS, baited pitfall traps were placed in one of each patch type and in one matrix plot per block (Figure \@ref(fig:pitfalls)). Traps were placed in groups of 3 in the centers of each patch approximately 250 meters from the midpoint of the central patch 40 m from patch edge. Pitfalls were oriented in a triangular pattern with the bottom two traps positioned towards the center patch, each trap 20 m apart. Plots in the matrix were set up in a similar fashion with the center point 250 m from the center placed equidistant between adjacent patches. Individual pitfall traps consisted of two components, a 10cm tall by 8 cm wide cylinder base topped with a funnel with a 10cm wide rim. We sourced pig feces from the University of Florida Swine Barn Unit. Bait was processed into 5cm wide balls and wrapped in a layer of coffee filter material. For each sample period, traps were buried flush with the ground and baited with pig dung between 8-9 pm and picked up 12 hours later, all beetles captured were stored in ethanol for further processing. In total 16 sampling rounds were carried out with 4 rounds per block, 196 samples were collected.
+Dung beetles were sampled in July and August 2024 in four of the SRS blocks (8, 52, 53n, and 54; Figure \@ref(fig:srs-map)). In each block sampling was conducted using baited pitfall traps placed in each patch type as well as the matrix surrounding the patches (Figure \@ref(fig:pitfalls)). Traps were placed in groups of 3 in the centers of each patch, approximately 250 meters from the midpoint of the central patch 40 m from patch edge. Pitfalls were oriented in a triangular pattern with the bottom two traps positioned towards the center patch, each trap 20 m apart. Plots in the matrix were set up in a similar fashion with the center point 250 m from the center placed equidistant between adjacent patches. Individual pitfall traps consisted of two components, a 10cm tall by 8 cm wide cylinder base topped with a funnel with a 10cm wide rim. I sourced pig feces from the University of Florida Swine Barn Unit. Bait was processed into 5cm wide balls and wrapped in a layer of coffee filter material. For each sample period, traps were buried flush with the ground and baited with pig dung between 8-9 pm and picked up 12 hours later, all beetles captured were stored in ethanol for further processing. In total 16 sampling rounds were carried out with 4 rounds per block, 196 samples were collected.
 
-All dung beetles were counted and identified to species as described in @nemes_illustrated_2015-1 and @edmonds_taxonomic_2023. Fifteen individuals of each species with adequate captures were dried to equilibrium and weighed for biomass measurements. Voucher specimens for each species will be deposited at the Florida State Collection of Arthropods.
+All dung beetles were counted and identified to species using @nemes_illustrated_2015 and @edmonds_taxonomic_2023. Fifteen individuals of each species with adequate captures were dried to equilibrium and weighed for biomass measurements. Voucher specimens for each species will be deposited at the Florida State Collection of Arthropods upon completion of all analyses.
 
 ### Analyses
 
-Biodiversity between patch types was compared using Hill numbers, a set of indexes developed with the goal of providing a unifying context for the quantification of the many ways we measure biodiversity [@jost_entropy_2006]. They are an alternative to more specialized metrics such as alpha, beta, and gamma diversities while being more standardized than other indexes such as Renyi or HCDT entropies, of which both groups of metrics are less intuitive for interpretation. Hill numbers are now the preferred metric for describing community dynamics for two reasons. First, they are extrapolated from the same equation, manipulating a single parameter (i.e., *q*) to arrive at estimates of richness and diversity. Second, by manipulating *q* we can gain an understanding of compositional shifts otherwise obscured while using species richness [@chao_rarefaction_2014]. We compared community composition by increasing magnitudes of diversity components (i.e., *qD*) of *0D* (i.e., species richness), *1D* (i.e., Shannon entropy), and *2D* (i.e, Simpson Diversity). Diversity numbers and species richness were calculated using the package `hill` [@li_hillr_2018] for the R statistical programming language [@posit_team_rstudio_2025]. Diversity numbers were calculated using package `iNEXT` [@hsieh_inext_2016]. Bray-Curtis dissimilarity values were calculated using package `Vegan` [@oksanen_vegan_2025]. Dung beetles were assigned traits by waste removal guild and habitat preference.
+Biodiversity between patch types was compared using Hill numbers, a set of indexes developed with the goal of providing a unifying context for the quantification of the many ways we measure biodiversity [@jost_entropy_2006]. They are an alternative to more specialized metrics such as alpha, beta, and gamma diversities while being more standardized than other indexes such as Renyi or HCDT entropies, of which both groups of metrics are less intuitive for interpretation. Hill numbers are now the preferred metric for describing community dynamics for two reasons. First, they are extrapolated from the same equation, manipulating a single parameter (i.e., *q*) to arrive at estimates of richness and diversity. Second, by manipulating *q* we can gain an understanding of compositional shifts otherwise obscured while using species richness [@chao_rarefaction_2014]. I compared community composition by increasing magnitudes of diversity components (i.e., *qD*) of *0D* (i.e., species richness), *1D* (i.e., Shannon entropy), and *2D* (i.e, Simpson Diversity). Diversity numbers and species richness were calculated using the package `hill` [@li_hillr_2018] for the R statistical programming language [@posit_team_rstudio_2025]. Diversity numbers were calculated using package `iNEXT` [@hsieh_inext_2016]. Bray-Curtis dissimilarity values were calculated using package `Vegan` [@oksanen_vegan_2025]. Dung beetles were assigned traits by waste removal guild and habitat preference.
 
-To test for the effects of connectivity on abundance, species richness, and species diversity we compared the values of the Hill Shannon and Simpson indexes in the different patch types and matrix. For abundance and richness we used generalized linear mixed models (i.e., GLMM) fitted to a poisson distribution [@bolker_generalized_2009]. Compared (1) the overall species richness and (2) the abundance of the top 6 most common species in each patch type. We included the identity of the sampling block as a random effects. To model our diversity metrics we took a similar approach, but this time using linear mixed effects models with a Gaussian distribution [@chao_rarefaction_2014]. In all models, the reference level for patch type was Matrix. All models were fit using `lme4` package [@bates_fitting_2015]. Prior to conducting our modeling we evaluated the the suitability of our data with *qqplots* generated with the `DARMa` package [@hartig_dharma_2024].
+To test for the effects of connectivity on abundance, species richness, and species diversity I compared the values of the Hill Shannon and Simpson indexes in the different patch types and matrix. For abundance and richness I used generalized linear mixed models (i.e., GLMM) fitted to a poisson distribution [@bolker_generalized_2009]. Compared (1) the overall species richness and (2) the abundance of the top 6 most common species in each patch type. I included the identity of the sampling block as a random effects. To model my diversity metrics I took a similar approach, but this time using linear mixed effects models with a Gaussian distribution [@chao_rarefaction_2014]. In all models, the reference level for patch type was Matrix. All models were fit using `lme4` package [@bates_fitting_2015]. Prior to conducting my modeling I evaluated the the suitability of my data with *qqplots* generated with the `DARMa` package [@hartig_dharma_2024].
 
-We used linear mixed-effects models to compare the influence of patch type on both Shannon Diversity and Simpson's indexes, including block as a random effect to account for spatial variation. Across both diversity models, the block-level random effect standard deviation was slightly greater than the residual error, indicating that variation between blocks accounted for a substantial portion of the overall variability.
+I used linear mixed-effects models to compare the influence of patch type on both Shannon Diversity and Simpson's indexes, including block as a random effect to account for spatial variation. Across both diversity models, the block-level random effect standard deviation was slightly greater than the residual error, indicating that variation between blocks accounted for a substantial portion of the overall variability.
 
 
 
@@ -371,7 +381,19 @@ total_spp<-btl_data %>%
   mutate(species = reorder(species, desc(n))) %>% 
   summarise(n_spp=n_distinct(species))
 
+## Abund by patch
 
+
+btl_sums_patch<-btl_data %>%
+  select(-sum) %>%
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>%
+  group_by(patch) %>%
+  summarize(n=sum(n, na.rm=TRUE)) 
+
+n_corr<-btl_sums_patch %>% filter(patch=="c") %>% select(n) %>% as.numeric()
+n_mat<-btl_sums_patch %>% filter(patch=="m") %>% select(n) %>% as.numeric()
+n_rect<-btl_sums_patch %>% filter(patch=="r") %>% select(n) %>% as.numeric()
+n_wing<-btl_sums_patch %>% filter(patch=="w") %>% select(n) %>% as.numeric()
 
 ## Abundance by species
 spp_abund<-btl_data %>%
@@ -491,12 +513,9 @@ mutate(w=case_when(
 
 ```
 
-Overall, I collected N = `r total_N` dung beetles belonging to N = `r total_spp` species. The N = `r how_many_common` most dominant species comprised of `r round((count_most_common/total_N)*100,1)`% of all captures: \textit{`r most_common_spp[1,2]`} (N = `r most_common_spp[1,1]`), \textit{`r most_common_spp[2,2]`} (N = `r most_common_spp[2,1]`), \textit{`r most_common_spp[3,2]`} (N = `r most_common_spp[3,1]`), \textit{`r most_common_spp[4,2]`} (N = `r most_common_spp[4,1]`), \textit{`r most_common_spp[5,2]`} (N = `r most_common_spp[5,1]`), and \textit{`r most_common_spp[6,2]`} (N = `r most_common_spp[6,1]`; Table 1). All but four species were captured in every patch type. *Onthophagus concinnus* was only found in the matrix and winged patches, while *Onthophagus striatulus* was only captured in matrix habitat and rectangular patches. *Geotrupes blackburnii* and *Onthophagus tuberculifrons* were the only species restricted to one patch type (winged and matrix, respectively). All species were within their native ranges.
+Overall, I collected N = `r total_N` dung beetles (N = `r n_corr` in Connected patches, N = `r n_wing` in Winged patches, N = `r n_rect` in Rectangle patches, N = `r n_mat` in the Matrix). These beetles belonged to N = `r total_spp` species; the N = `r how_many_common` most dominant species comprised of `r round((count_most_common/total_N)*100,1)`% of all captures: \textit{`r most_common_spp[1,2]`} (N = `r most_common_spp[1,1]`), \textit{`r most_common_spp[2,2]`} (N = `r most_common_spp[2,1]`), \textit{`r most_common_spp[3,2]`} (N = `r most_common_spp[3,1]`), \textit{`r most_common_spp[4,2]`} (N = `r most_common_spp[4,1]`), \textit{`r most_common_spp[5,2]`} (N = `r most_common_spp[5,1]`), and \textit{`r most_common_spp[6,2]`} (N = `r most_common_spp[6,1]`; Table 1). All but four species were captured in every patch type. *Onthophagus concinnus* was only found in the matrix and winged patches, while *Onthophagus striatulus* was only captured in matrix habitat and rectangular patches. *Geotrupes blackburnii* and *Onthophagus tuberculifrons* were the only species restricted to one patch type (winged and matrix, respectively). All species were within their native ranges.
 
 ### Beetle Abundance
-
-
-
 
 When comparing the overall abundance of beetles (all species combined) across patch types, matrix plots had the highest captures, followed by connected patches, then winged, with the fewest in rectangular patches. Abundances from connected patches were not significantly different from those in the matrix while rectangle and winged patches had significantly fewer than the matrix ($\beta$ = -0.528 and -0.303 respectively, P \< 0.001, Table 4). 
 
@@ -511,56 +530,35 @@ Biodiversity was also even among patch types, however metric values were varied 
 
 ## DISCUSSION
 
-\singlespacing
+<!-- Paragraph 1: Overview: While there may indeed be effects of patch area and connectivity on dung beetle abundance on community composition, other (landscape-scale) drivers appear to be more important.  -->
 
-\begin{flushleft} 
-\textbf{Paragraph 1: }Overview: While there may indeed be effects of patch area and connectivity on dung beetle abundance on community composition, other (landscape-scale) drivers appear to be more important.
-\end{flushleft} 
+This study advances our understanding of the factors shaping dung beetle community composition in temperate regions of the southeastern United States. In addition, the experimental design enables direct comparisons between populations in continuous matrix habitat and those in both isolated and corridor connected patches. My main findings emphasized: (1) Habitat type and patch shape were the main driving factors for determining how dung beetle species abundances were composed, however effects were species specific. (2) Patch shape and isolation had less of an influence on species richness which was relatively even on both a patch and block level. (3) Species diversity metrics were also relatively even across patch types however varied widely by sampling blocks. These results suggest that while there may indeed be effects of patch structure and connectivity on dung beetle abundances and community composition, other landscape scale drivers appear to be more prominent for species richness and diversity. 
 
-This study advances our understanding of the factors shaping dung beetle community composition in temperate regions of the southeastern United States. In addition, the experimental design enables direct comparisons between populations in continuous matrix habitat and those in both isolated and corridor connected patches. Our main findings emphasized: (1) Habitat type and patch shape were the main driving factors for determining how dung beetle species abundances were composed, however effects were species specific. (2) Patch shape and isolation had less of an influence on species richness which was relatively even on both a patch and block level. (3) Species diversity metrics were also relatively even across patch types however varied widely by sampling blocks. These results suggest that while there may indeed be effects of patch structure and connectivity on dung beetle abundances and community composition, other landscape scale drivers appear to be more prominent for species richness and diversity. 
+<!-- Paragraph 2: Effects of Edge vs. Connectivity -->
 
-\begin{flushleft} 
-\textbf{Paragraph 2: }Effects of Edge vs. Connectivity
-\end{flushleft} 
+In my comparison of dung beetle compositions, connectivity and habitat edge accounted for differences in dung beetle abundances, yet species richness and diversity were even across patch types and in  the matrix. Total beetle counts were consistently highest in the matrix, in comparison abundances is connected patches were not significantly different while those of the winged and rectangular patches were lower. Additionally, I also observed that patch effects were not equally proportional for all species. This suggests that the species captured could be exhibiting habitat preferences between the open patches versus forested matrix. Another potential explanation is that species in the matrix are acting as a source population which feeds into patches with edge acting as a drift fence for directing movement. The latter example seems more likely because flies, which have similar resource dependencies were also found to have a similar interaction [@fried_habitat_2005], and also studies on dung beetles in the tropics found more dramatic differences in dung beetle populations in fragments and matrix [@bustamante-sanchez_dung_2004; @WOS:000180797500010; @WOS:000288810500026].
+<!-- Paragraph 3: }What then are the drivers of dung beetle diversity and abundance? -->
 
-In our comparison of dung beetle compositions, connectivity and habitat edge accounted for differences in dung beetle abundances, yet species richness and diversity were even across patch types and in  the matrix. Total beetle counts were consistently highest in the matrix, in comparison abundances is connected patches were not significantly different while those of the winged and rectangular patches were lower. Additionally, we also observed that patch effects were not equally proportional for all species. This suggests that the species captured could be exhibiting habitat preferences between the open patches versus forested matrix. Another potential explanation is that species in the matrix are acting as a source population which feeds into patches with edge acting as a drift fence for directing movement. The latter example seems more likely because flies, which have similar resource dependencies were also found to have a similar interaction [@fried_habitat_2005], and also studies on dung beetles in the tropics found more dramatic differences in dung beetle populations in fragments and matrix [@bustamante-sanchez_dung_2004; @WOS:000180797500010; @WOS:000288810500026].     
+Although richness and diversity were the same among treatments, there was notable variability between sampling blocks. Block 8 generally had the lowest species richness and biodiversity while 53n had the highest. While the design of the experimental blocks control for as much as possible, landscape features across the sight are different enough to influence species composition. Several factors may explain this pattern, including soil quality which influences where beetles can reproduce [@arellano_response_2008; @conover_phenology_2019] as well as matrix permeability, canopy cover, and different land-use types (e.g., roadways, water sources)[@WOS:000241362400032; @WOS:000651446900001]. Not only do these impact dung beetle movement, but also these landscape features can affect mammal movement, which in turn limits dung availability for beetles. 
 
+<!-- Paragraph 4: That said, there were some interspecific differences in abundance.  -->
 
-\begin{flushleft} 
-\textbf{Paragraph 3: }What then are the drivers of dung beetle diversity and abundance?
-\end{flushleft} 
+Species specific differences are apparent but do not follow any particular trend. _Aphodius alloblackburneus_ had a disproportionate positive effect to being captured in matrix patches as compared to other species. Beetles from the genus _Aphodius_ do tend to show patterns of habitat specificity[@roslin_distribution_2001], so it is not unexpected that they might show a preference towards either forested matrix or open patches. I did not detect that any species was more positively associated with open patches despite expectations that some species ( eg. _Canthon vigilans_, _Melanocanthon bispinatus_) would prefer open habitat [@conover_phenology_2019; @nealis_habitat_1977]. Altogether this could be another sign pointing towards matrix acting as a source population, and since open habitat was much less dominant in my experimental system beetles could be moving into patches from habitat edge. 
 
-Although richness and diversity were the same among treatments, there was notable variability between sampling blocks. Block 8 generally had the lowest species richness and biodiversity while 53n had the highest. While the design of the experimental blocks control for as much as possible, landscape features across the sight are different enough to influence species composition. Several factors may explain this pattern, including soil quality which influences where beetles can reproduce [@arellano_response_2008; @conover_phenology_2019] as well as matrix permeability, canopy cover, and different land-use types (e.g., roadways, water sources)[@WOS:000241362400032; @WOS:000651446900001]. Not only do these impact dung beetle movement, but also these landscape features can affect mammal movement, which in turn limits dung availability for beetles.  
+<!-- Paragraph 5: Our results largely echo/constrast with previous ones from the SRS and elsewhere  -->
 
-\begin{flushleft} 
-\textbf{Paragraph 4: }That said, there were some interspecific differences in abundance. 
-\end{flushleft} 
+Despite ample work documenting their ecological importance, there is a surprising lack of research on dung beetle diversity and corridors outside of the tropics[@nichols_global_2007], with any work in temperate locations coming from Europe where _Aphodius_ beetles dominate[@roslin_distribution_2001]. Many studies in the tropics have found patterns of habitat preference between open fields and continuous forest similar to what I did in this study[@WOS:000349242000004], and some work that found that forest species were using living fences as corridors[@arellano_response_2008]. However, differences in composition were much more distinctly different with some species being exclusive to habitat types unlike I see in this paper. Of the limited work out of the south eastern United States I did recover assemblages similar to other work [@conover_phenology_2019; @nealis_habitat_1977], and even returned results to another study where differences between treatment types were non-significant while variation on a larger scale was more apparent[@young_dung_2023]. In comparison to other studies from SRS my results were similar to those of small mammals which were more likely to be using matrix land [@mabry_influence_2003]. I did expect some species to be more dominant in patches with higher edge ratios as was found with ants at SRS [@resasco_landscape_2014], but species were evenly present in all patches. 
 
-Species specific differences are apparent but do not follow any particular trend. _Aphodius alloblackburneus_ had a disproportionate positive effect to being captured in matrix patches as compared to other species. Beetles from the genus _Aphodius_ do tend to show patterns of habitat specificity[@roslin_distribution_2001], so it is not unexpected that they might show a preference towards either forested matrix or open patches. We did not detect that any species was more positively associated with open patches despite expectations that some species ( eg. _Canthon vigilans_, _Melanocanthon bispinatus_) would prefer open habitat [@conover_phenology_2019; @nealis_habitat_1977]. Altogether this could be another sign pointing towards matrix acting as a source population, and since open habitat was much less dominant in our experimental system beetles could be moving into patches from habitat edge. 
+<!-- Paragraph 6: Caveats -->
 
+There were some limitations of this study which should be addressed in any future work to capture a clearer picture of how populations are being altered by habitat connectivity. First, sampling for this study was conducted over a two month period in the summer of 2024, sufficient data was collected but due to a lack of available resources temporal patterns were obscured due to inconsistent sampling periods. This is highly important since dung beetles exhibit consistent patterns of seasonality [@conover_phenology_2019; @davis_feeding_1966]. Another potential avenue for improvement is lowering the grain size of sampling and changing trap placement to better understand the effects of edge proximity and connectivity. I also used one of the best bait types for collecting dung beetles in pig dung [@marsh_optimising_2013], but a mix of differently sourced baits may have been more optimal as more diverse baits attract more diverse species [@frank_nutrient_2017; @frank_search_2018; @gimenez_gomez_dung_2021].
 
-\begin{flushleft} 
-\textbf{Paragraph 5:} Our results largely echo/constrast with previous ones from the SRS and elsewhere 
-\end{flushleft} 
+<!-- Paragraph 7: Moving forward -->
 
-Despite ample work documenting their ecological importance, there is a surprising lack of research on dung beetle diversity and corridors outside of the tropics[@nichols_global_2007], with any work in temperate locations coming from Europe where _Aphodius_ beetles dominate[@roslin_distribution_2001]. Many studies in the tropics have found patterns of habitat preference between open fields and continuous forest similar to what we did in this study[@WOS:000349242000004], and some work that found that forest species were using living fences as corridors[@arellano_response_2008]. However, differences in composition were much more distinctly different with some species being exclusive to habitat types unlike we see in this paper. Of the limited work out of the south eastern United States we did recover assemblages similar to other work [@conover_phenology_2019; @nealis_habitat_1977], and even returned results to another study where differences between treatment types were non-significant while variation on a larger scale was more apparent[@young_dung_2023]. In comparison to other studies from SRS our results were similar to those of small mammals which were more likely to be using matrix land [@mabry_influence_2003]. We did expect some species to be more dominant in patches with higher edge ratios as was found with ants at SRS [@resasco_landscape_2014], but species were evenly present in all patches. 
-
-\begin{flushleft} 
-\textbf{Paragraph 6: }Caveats
-\end{flushleft} 
-
-There were some limitations of this study which should be addressed in any future work to capture a clearer picture of how populations are being altered by habitat connectivity. First, sampling for this study was conducted over a two month period in the summer of 2024, sufficient data was collected but due to a lack of available resources temporal patterns were obscured due to inconsistent sampling periods. This is highly important since dung beetles exhibit consistent patterns of seasonality [@conover_phenology_2019; @davis_feeding_1966]. Another potential avenue for improvement is lowering the grain size of sampling and changing trap placement to better understand the effects of edge proximity and connectivity. We also used one of the best bait types for collecting dung beetles in pig dung [@marsh_optimising_2013], but a mix of differently sourced baits may have been more optimal as more diverse baits attract more diverse species [@frank_nutrient_2017; @frank_search_2018; @gimenez_gomez_dung_2021].
-
-\begin{flushleft} 
-\textbf{Paragraph 7: }Moving forward
-\end{flushleft} 
-
-Moving forward, there is a bounty of knowledge yet to be collected for dung beetles in the south eastern United States. Relative to what is already known in tropical ecosystems, this study provides a glimpse on how dung beetles are responding to fragmentation and connectivity in subtropic pine habitats, but much can still be learned about dung beetles in these spaces and the role they play in ecosystems as well as how they interact with landscapes. The unique role of dung beetles as waste removers is fascinating enough and of great importance for maintaining landscapes so dominated by pastures like Southern US [@cheng_dweller_2022; @WOS:000368243300001]. Not only waste removal but also secondary effect such as seed dispersal and parasitic reduction are important to understand in the context of fragmentation [@fincher_effects_1975; @vulinec_dung_2002]. SRS provides an excellent experimental design for direct comparison of landscapes but another main goal of the site is to study dispersal, dung beetles would be an excellent system for studying movement. They already show promise, in preliminary trials we released beetles from both the connected and rectangular patches with baited traps in the central patch. We recovered one recapture which originated from the connected patch, indicating that individuals do move through corridors.  
+Moving forward, there is a bounty of knowledge yet to be collected for dung beetles in the south eastern United States. Relative to what is already known in tropical ecosystems, this study provides a glimpse on how dung beetles are responding to fragmentation and connectivity in subtropic pine habitats, but much can still be learned about dung beetles in these spaces and the role they play in ecosystems as well as how they interact with landscapes. The unique role of dung beetles as waste removers is fascinating enough and of great importance for maintaining landscapes so dominated by pastures like Southern US [@cheng_dweller_2022; @WOS:000368243300001]. Not only waste removal but also secondary effect such as seed dispersal and parasitic reduction are important to understand in the context of fragmentation [@fincher_effects_1975; @vulinec_dung_2002]. SRS provides an excellent experimental design for direct comparison of landscapes but another main goal of the site is to study dispersal, dung beetles would be an excellent system for studying movement. They already show promise, in preliminary trials I released beetles from both the connected and rectangular patches with baited traps in the central patch. I recovered one recapture which originated from the connected patch, indicating that individuals do move through corridors.  
 
 
-\begin{flushleft} 
-\textbf{Paragraph 8: } Close with takeaways for conservation and management
-\end{flushleft} 
+<!-- Paragraph 8: Close with takeaways for conservation and management -->
 
 Although there is plentiful work to be done, this study paints an encouraging picture that while dung beetles face disturbances that make habitats less preferential, they are robust enough to persist throughout fragmented landscapes and the management strategies we do have to connect fragmented landscapes work to mitigate losses. Because assemblages remain mostly the same across these landscapes, ecosystem services should remain uninterrupted allowing continuing benefits to all community members. While this study of dung beetles in fragmented landscapes was conducted in a relatively protected area, in real world application we could consider the use of movement corridors within disturbed areas to help bolster effected populations, but also near areas of high importance such as pastures to provide areas of refuge for beetles. In this case it is important to consider the inverse of what was manipulated in this study where open field acts as matrix and forested area is focal landscape, thus it is vital to continue learning more about how landscape composition and connectivity effect dung beetle populations.  
 
@@ -742,47 +740,50 @@ spp_table
 
 \newpage
 
-```{r abundance-patch, echo=FALSE,message = FALSE,warning=FALSE}
-# https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html
+<!-- ```{r abundance-patch, echo=FALSE,message = FALSE,warning=FALSE} -->
+<!-- # https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html -->
 
-btl_data<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_clean","clean_btl_counts.csv"))
-spp_codes<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_raw","species_codes.csv"))
-
-
-
-btl_sums_patch<-btl_data %>%
-  select(-sum) %>%
-  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>%
-  group_by(patch) %>%
-  summarize(n=sum(n, na.rm=TRUE)) %>%
-  arrange(patch,desc(n)) %>%
-  mutate(patch=case_when(
-    patch == "c" ~ "Corridor",
-    patch == "m" ~ "Matrix",
-    patch == "w" ~ "Winged",
-    patch == "r" ~ "Rectangle",
-    .default = as.character(patch)))
+<!-- btl_data<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_clean","clean_btl_counts.csv")) -->
+<!-- spp_codes<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_raw","species_codes.csv")) -->
 
 
-abund_patch <- knitr::kable(btl_sums_patch,
-      digits = 2,
-      align="lr",
-      format="latex",
-      row.names = FALSE,
-      booktabs=T,
-      linesep = "", #removes the blank line after every 5 lines
-      caption = "Total dung beetles captured in all replicates of a patch type.") %>%
-  kable_styling(bootstrap_options = c("striped"),
-                full_width = F,
-                latex_options=c("scale_down","hold_position"),
-                font_size = 12,
-                position = "center") %>%
-  # column_spec(1, italic = T) %>%
-  row_spec(0, bold = T)
-  # row_spec(1:15, hline_after = T)
-abund_patch
 
-```
+<!-- btl_sums_patch<-btl_data %>% -->
+<!--   select(-sum) %>% -->
+<!--   pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>% -->
+<!--   group_by(patch) %>% -->
+<!--   summarize(n=sum(n, na.rm=TRUE)) %>% -->
+<!--   arrange(patch,desc(n)) %>% -->
+<!--   mutate(patch=case_when( -->
+<!--     patch == "c" ~ "Corridor", -->
+<!--     patch == "m" ~ "Matrix", -->
+<!--     patch == "w" ~ "Winged", -->
+<!--     patch == "r" ~ "Rectangle", -->
+<!--     .default = as.character(patch))) -->
+
+<!-- # if wanted to make a bar graph -->
+<!-- # ggplot(btl_sums_patch, aes(x=patch, y=n)) +  -->
+<!-- #   geom_bar(stat = "identity") -->
+<!-- #  -->
+<!-- abund_patch <- knitr::kable(btl_sums_patch, -->
+<!--       digits = 2, -->
+<!--       align="lr", -->
+<!--       format="latex", -->
+<!--       row.names = FALSE, -->
+<!--       booktabs=T, -->
+<!--       linesep = "", #removes the blank line after every 5 lines -->
+<!--       caption = "Total dung beetles captured in all replicates of a patch type.") %>% -->
+<!--   kable_styling(bootstrap_options = c("striped"), -->
+<!--                 full_width = F, -->
+<!--                 latex_options=c("scale_down","hold_position"), -->
+<!--                 font_size = 12, -->
+<!--                 position = "center") %>% -->
+<!--   # column_spec(1, italic = T) %>% -->
+<!--   row_spec(0, bold = T) -->
+<!--   # row_spec(1:15, hline_after = T) -->
+<!-- abund_patch -->
+
+<!-- ``` -->
 
 \newpage
 
@@ -802,11 +803,27 @@ btl_spec_patch<- btl_data |>
   column_to_rownames("patch")
 
 taxa_bray <- vegan::vegdist(btl_spec_patch, method = "bray", binary = FALSE)
+
 # taxa_bray
+tb<-as.matrix(taxa_bray)
+tb[lower.tri(tb)] <- 0
+tb<-as.data.frame(tb)
+tb<-tb %>% 
+  mutate_if(is.numeric, round, digits=3) %>% 
+  select(-Corridor) 
 
+row.names.remove <- c("Winged")
+tb<-tb[!(row.names(tb) %in% row.names.remove), ]
+tb[tb == 0] <- ""
+col1<-row.names(tb)
+col1<-as.data.frame(col1)
 
+tb<-bind_cols(col1,tb) %>% 
+  rename(" "=col1)
 # bray<-read_csv("~/Rstudio/corridor_beetles/corridor_docs/eric_ms_thesis/tables/bray_patches.csv") 
-bray<-read_csv(here("corridor_docs","eric_ms_thesis","tables","bray_patches.csv")) %>% kable(
+# bray<-read_csv(here("corridor_docs","eric_ms_thesis","tables","bray_patches.csv")) %>% 
+  bray<-tb %>% 
+  kable(
       digits = 3,
       align="lcc",
       format="latex",
@@ -820,7 +837,8 @@ bray<-read_csv(here("corridor_docs","eric_ms_thesis","tables","bray_patches.csv"
                 font_size = 12,
                 position = "center") %>%
   # column_spec(1, italic = T) %>%
-  row_spec(0, bold = T)
+  row_spec(0, bold = T) %>% 
+  column_spec(1, bold = T)
   # row_spec(1:15, hline_after = T)
 bray
 ```
@@ -857,6 +875,30 @@ bray
 ```{r Table-MO, echo=FALSE,message = FALSE,warning=FALSE}
 M0<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M0.csv")) %>%
   replace_na(list(group=" ")) %>% 
+  rename(SE = std.error,
+         Estimate=estimate,
+         Term=term,
+         Group=group,
+         Effect=effect,
+         Statistic=statistic,
+         P=p.value) %>% 
+  mutate(Effect=if_else(Effect=="ran_pars","Random",Effect)) %>% 
+  mutate(Effect=if_else(Effect=="fixed","Fixed",Effect)) %>% 
+  mutate(Group=if_else(Group=="block","Block",Group)) %>% 
+  mutate(Term=gsub("patch_type","patch type - ",Term)) %>% 
+  mutate(Term=gsub("cor__","correlation: ",Term)) %>% 
+  mutate(Term=gsub("sd__","SD: ",Term)) %>% 
+  mutate(Term=gsub("[.]"," x ",Term)) %>% 
+  mutate(SE=round(SE,3)) %>% 
+  mutate(Estimate=round(Estimate,3)) %>% 
+  mutate(Statistic=round(Statistic,3)) %>% 
+  mutate(P=round(P,3)) %>% 
+  mutate_all(as.character) %>% 
+  mutate(P=if_else(as.numeric(P)<0.001,"< 0.001",P)) %>% 
+  replace_na(list(SE="",Statistic="",P="")) %>% 
+  
+  
+  
   # need to round numbers above to 4, convert to character, then na_replace
   # replace_na(list(group=" ", std.error="",statistic=" ",p.value = "")) %>% 
 # M0<-read_csv("~/Rstudio/corridor_beetles/corridor_docs/eric_ms_thesis/tables/M0.csv") %>% 
@@ -888,6 +930,11 @@ aovM3<-read_csv(here("corridor_docs","eric_ms_thesis","tables","aovM3.csv")) %>%
     term == "patch_type" ~ "Patch type",
     term == "sp_code:patch_type" ~ "Species x Patch type",
     .default = as.character(term))) |>
+  mutate(p.value=as.character(p.value)) %>% 
+  mutate(p.value=if_else(as.numeric(p.value)<0.001,"< 0.001",p.value)) %>% 
+  rename(P=p.value,
+         Term=term,
+         Statistic=statistic) %>% 
 # aovM3<-read_csv("~/Rstudio/corridor_beetles/corridor_docs/eric_ms_thesis/tables/aovM3.csv") %>% 
   kable(
       digits = 3,
@@ -913,6 +960,38 @@ aovM3
 ```{r Table-M3, echo=FALSE,message = FALSE,warning=FALSE}
 M3<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M3.csv")) %>%
   replace_na(list(group=" ")) %>% 
+  # mutate(p.value=as.character(p.value)) %>% 
+  # mutate(p.value=if_else(as.numeric(p.value)<0.001,"< 0.001",p.value)) %>% 
+  rename(P=p.value,
+         SE = std.error,
+         Estimate=estimate,
+         Term=term,
+         Group=group,
+         Effect=effect,
+         Statistic=statistic) %>% 
+  
+  
+  mutate(Effect=if_else(Effect=="ran_pars","Random",Effect)) %>% 
+  mutate(Effect=if_else(Effect=="fixed","Fixed",Effect)) %>% 
+  mutate(Group=if_else(Group=="block","Block",Group)) %>% 
+  mutate(Term=gsub("patch_type","patch type - ",Term)) %>% 
+  mutate(Term=gsub("cor__","correlation: ",Term)) %>% 
+  mutate(Term=gsub("sd__","SD: ",Term)) %>% 
+  mutate(Term=gsub("sp_code","Species - ",Term)) %>% 
+  mutate(Term=gsub("[.]"," x ",Term)) %>% 
+  mutate(Term=gsub("[:]"," : ",Term)) %>% 
+  mutate(SE=round(SE,3)) %>% 
+  mutate(Estimate=round(Estimate,3)) %>% 
+  mutate(Statistic=round(Statistic,3)) %>% 
+  mutate(P=round(P,3)) %>% 
+  mutate_all(as.character) %>% 
+  mutate(P=if_else(as.numeric(P)<0.001,"< 0.001",P)) %>% 
+  replace_na(list(SE="",Statistic="",P="")) %>% 
+  
+  
+  
+  
+  
   # need to round numbers above to 4, convert to character, then na_replace
   # replace_na(list(group=" ", std.error="",statistic=" ",p.value = "")) %>% 
 # M3<-read_csv("~/Rstudio/corridor_beetles/corridor_docs/eric_ms_thesis/tables/M3.csv") %>% 
@@ -940,10 +1019,30 @@ M3
 ```{r Table-M-rich, echo=FALSE,message = FALSE,warning=FALSE}
 M_rich<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M_rich.csv")) %>%
    mutate(term=case_when(
-    term == "patch_typeMatrix" ~ "Patch Type: Matrix",
-    term == "patch_typeRectangle" ~ "Patch Type: Rectangle",
-    term == "patch_typeWinged" ~ "Patch Type: Winged",
+    term == "patch_typeMatrix" ~ "Patch Type - Matrix",
+    term == "patch_typeRectangle" ~ "Patch Type - Rectangle",
+    term == "patch_typeWinged" ~ "Patch Type - Winged",
+    term == "patch_typeConnected" ~ "Patch Type - Connected",
     .default = as.character(term))) |>
+  rename(P=p.value,
+         SE = std.error,
+         Estimate=estimate,
+         Term=term,
+         Effect=effect,
+         Statistic=statistic) %>% 
+  
+  
+  mutate(Effect=if_else(Effect=="ran_pars","Random",Effect)) %>% 
+  mutate(Effect=if_else(Effect=="fixed","Fixed",Effect)) %>% 
+  
+  mutate(SE=round(SE,3)) %>% 
+  mutate(Estimate=round(Estimate,3)) %>% 
+  mutate(Statistic=round(Statistic,3)) %>% 
+  mutate(P=round(P,3)) %>% 
+  mutate_all(as.character) %>% 
+  mutate(P=if_else(as.numeric(P)<0.001,"< 0.001",P)) %>% 
+  replace_na(list(SE="",Statistic="",P="")) %>% 
+  
 # M_rich<-read_csv("~/Rstudio/corridor_beetles/corridor_docs/eric_ms_thesis/tables/M_rich.csv") %>% 
   kable(
       digits = 3,
@@ -969,6 +1068,30 @@ M_rich
 ```{r Table-M-shan, echo=FALSE,message = FALSE,warning=FALSE}
 M_shan<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M_shan.csv")) %>%
   replace_na(list(group=" ")) %>% 
+  
+  
+  rename(SE = std.error,
+         Estimate=estimate,
+         Term=term,
+         Group=group,
+         Effect=effect,
+         Statistic=statistic) %>% 
+  
+  mutate(Effect=if_else(Effect=="ran_pars","Random",Effect)) %>% 
+  mutate(Effect=if_else(Effect=="fixed","Fixed",Effect)) %>% 
+  mutate(Group=if_else(Group=="block","Block",Group)) %>% 
+  
+  mutate(Term=gsub("patch_type","patch type - ",Term)) %>% 
+  mutate(Term=gsub("cor__","correlation: ",Term)) %>% 
+  mutate(Term=gsub("sd__","SD: ",Term)) %>% 
+  mutate(SE=round(SE,3)) %>% 
+  mutate(Estimate=round(Estimate,3)) %>% 
+  mutate(Statistic=round(Statistic,3)) %>% 
+
+  mutate_all(as.character) %>% 
+
+  replace_na(list(SE="",Statistic="")) %>% 
+  
   # need to round numbers above to 4, convert to character, then na_replace
   # replace_na(list(group=" ", std.error="",statistic=" ",p.value = "")) %>% 
 # M_shan<-read_csv("~/Rstudio/corridor_beetles/corridor_docs/eric_ms_thesis/tables/M_shan.csv") %>% 
@@ -996,6 +1119,30 @@ M_shan
 ```{r Table-M-simp, echo=FALSE,message = FALSE,warning=FALSE}
 M_simp<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M_simp.csv")) %>%
   replace_na(list(group=" ")) %>% 
+  rename(SE = std.error,
+         Estimate=estimate,
+         Term=term,
+         Group=group,
+         Effect=effect,
+         Statistic=statistic) %>% 
+  
+  
+  mutate(Effect=if_else(Effect=="ran_pars","Random",Effect)) %>% 
+  mutate(Effect=if_else(Effect=="fixed","Fixed",Effect)) %>% 
+  mutate(Group=if_else(Group=="block","Block",Group)) %>% 
+  
+  mutate(Term=gsub("patch_type","patch type - ",Term)) %>% 
+  mutate(Term=gsub("cor__","correlation: ",Term)) %>% 
+  mutate(Term=gsub("sd__","SD: ",Term)) %>% 
+  mutate(SE=round(SE,3)) %>% 
+  mutate(Estimate=round(Estimate,3)) %>% 
+  mutate(Statistic=round(Statistic,3)) %>% 
+
+  mutate_all(as.character) %>% 
+
+  replace_na(list(SE="",Statistic="")) %>% 
+  
+  
   # need to round numbers above to 4, convert to character, then na_replace
   # replace_na(list(group=" ", std.error="",statistic=" ",p.value = "")) %>% 
 # M_simp<-read_csv("~/Rstudio/corridor_beetles/corridor_docs/eric_ms_thesis/tables/M_simp.csv") %>% 
@@ -1033,81 +1180,3 @@ M_simp
 
 Eric Escobar-Chena completed his Bachelors education at Virginia Commonwealth University in 2023. During his time there he developed a fondness for insects which grew into a curiosity of the natural world. He later began to explore this curiosity deeper in beginning his graduate education at the University of Florida as a Master's Student under the supervision of Emilio Bruna.
 
-\newpage
-
-## Text Sandbox
-
-As human disturbances continue to expand into natural landscapes, intact habitats are becoming increasingly fragmented. This degradation lends to loss in biodiversity on a global scale and interruptions in ecosystem processes and functions [@haddad_habitat_2015]. Effects from isolation can vary, however as habitats are broken down community structures are significantly altered [@WOS:000419965700012]. Corridors have been shown to be an important mechanism for facilitating the movement of organisms through fragmented landscapes with the goal of minimizing negative consequences of fragmentation[@haddad_corridor_2003]. As disturbance continues to intensify, it is becoming increasingly more important to understand how different taxonomic groups. Here, we aim to gain an understanding of how dung beetles, a group of insects well known for strong dispersal ability in order to compete for ephemeral resources(Hanski and Cambefort 1991), interact with corridors in their landscapes.
-
-Here, we aim to determine how connectivity and fragmentation affect Species Richness and Diversity, Abundance, and functional diversity. We sampled dung beetle communities in experimental landscapes developed for the express purposes of comparing connected and isolated patches, as well as the effects of patch to edge ratio and distance to edge. To ask the question of (1) how landscape connectivity impacts dung beetle assemblages dung beetles were collected, identified, and counted with the expectation that biodiversity and abundance would be higher in patches connected by corridors. Additionally we asked (2) Are corridors benefiting any one functional trait over another? Since our experimental system consists of open habitats amongst a forested matrix, we anticipate that species preferring open areas and generalists may be more common in our sampling.
-
-Furthermore it is important that we expand our knowledge on how composition changes might impact functional diversities and potential implications for the effectiveness of ecosystem services [@hevia_trait-based_2017]. [**EB edit:** these last sentences don't really make the case for experiments, whcih were the initial emphasis of the paragraph. Might want to opt for another option, like the ones in the green notes below]
-
-This study advances our understanding of the factors shaping dung beetle community composition in subtropical regions of the southeastern United States. In addition, the experimental design enables direct comparisons between populations in continuous matrix habitat and those in both isolated and corridor connected patches. Our main findings emphasized: (1) Habitat type and patch shape were the main driving factors for dung beetle species abundances were composed, however effects were species specific. (2) Patch shape and isolation had less of an influence on species richness which was relatively even on both a patch and block level. (3) Species diversity metrics were also relatively even across patch types however varied widely by sampling blocks. These results suggest that dung beetle species are fully capable of permeating fragmented landscapes and that habitat type and connectivity shape community compositions, but landscape effects of a larger scale are driving changes in biodiversity.
-
-### Abundance
-
-The total number of dung beetle species captured N = `r total_spp` and the total individuals N = `r total_N` are similar to those in studies conducted in similar habitats and regions of the US [@conover_phenology_2019; @nealis_habitat_1977; @stanbrook_dung_2022].
-
-Dung beetle abundances were significantly lowest in rectangular patches. Matrix patches had the most total beetles collected and consistently had the highest counts for the most dominant species. However abundances were not significantly different between matrix, connected, and winged patches. This may suggest that isolation is leading to a decrease in abundances, but it is more likely that populations in the matrix are acting as a source, and since connected and winged patches have higher edge to area ratios dung beetles were more likely to move into those patches. Past studies have shown trends where habitat type and forest regeneration stages are key in the partitioning of dung beetle assemblages[@conover_phenology_2019; @WOS:000386714700011; @arellano_response_2008] which supports why we might see these differences in local populations. In addition distance from habitat edge has been attributed to differences in spillover from source populations[@WOS:000707546700001], emphasizing the importance of habitat edge in the context of our study.
-
-We also observed that patch effects were not equally proportional for all species. The abundances of all dominant species were positively influenced by matrix habitat, but *Aphoidius alloblackburneus* responded more positively than any other species. *Phanaeus igneus* and *Ateuchus lecontei* also had higher positive effects in rectangle patches.
-
-### Richness
-
-While abundances were different between patch types, we did not detect any patterns of species richness in our modeling. Total species counts were very even across patch types and sampling blocks. This difference indicates that even though habitat type or landscape features are informing occupational preferences, land use is more or less the same between patches and matrix. This differs from past work where species richness is lower in forest fragments [@WOS:000178929600002]
-
-### Diversity
-
-Analysis of Hill numbers indicated that species compositions were even between patch types. Comparing values of Simpson's Diversity between patches determined that dominant species were not prevalent in any one treatment type. Likewise, the Shannon index values insisted that rare species throughout the study population were even. However, for both metrics, values varied greatly by sampling blocks. Similar to our richness results this suggests that variation between patch and matrix is not distinct enough to limit the land use of dung beetles within our study site.
-
-In contrast to what we observed with species richness it appears that assemblages larger landscape patterns are effecting the composition of assemblages across the study site.
-
-*here write about low sample sizes and reasons for why dung beetle communities would be so similar across treatment types. Dispersal, scale (roslin), maybe again a good reason to expect matrix as a source pop.*
-
-notes that are important for discussion
-
--   habitat preference and seasonality (conover 2019, nealis 1977)
-> -   cvig - open sand chaparral, open grassland preference nealis 1977
-> -   mbis - open sand chapparal preference nealis 1977
-> -   open - slight preference towards open chap and shaded chap, little open grassland nealis 1977
-> -   pign - sharing forest habitat but need more info conover 2019
-> -   pvin - open habitat but share forest with pign conover 2019
-> -   alec - forest preference conover 2019
-
--   habitat again but only part of variation form habitat specifically aphodius also phenology (roslin 2001)
--   spatial scales (roslin 2000)
--   morphology
-
-> -   Ospina 2018: wing shape py habitat preference and differences in wing shape determined by species groupings. Beetles with wider wings showed more preference towards open habitat, contrary to what is already known in literature on other taxa (butterflies). Large body beetles tending towards lower energy flight strategies. maybe justification for corridor preference?
-> -   stanbrook and king 2022: tunnelers preferring open habitat and tunnelers also contributing more towards dung removal.
-> -   Conover 2019: dung source being less of an issue than habitat type but some species were more responsive to specific bait types so future studies should use a mix of multiple bait types
-> -   Gimenez Gomez et al 2021 -\> similar outcome some beetles were extra sensitive to specififc baits so a mix of baits should be used. However this study was done in a more tropical ecosystem so its hard to say if the same would apply to our more temperate system so more work is needed in this specific avenue.
-
--   functionality especially gas emissions (slade 2016)
--   species id and funcitonality (slade 2017)
--   faovored species dominating in fragments (resasco 2014)
--   wind direction in corridors (damschen 2014)
-
-revisit bray curtis
-
-1.  Abundances in matrix vs connected patch and why this could be happening
-
--   source pop to habiitat edge
-
-2.  species richness again supporting that matrix is more of an ideal habitat for dung beetle community
-
-3.  diversity indices community structures weren't highly different between patch types
-
-4.  bray curtis hinting at similar land uses between corridor and winged patch
-
--   like julians paper corridors benefit certain populations and more fit populations are able to make better use
-
-
-\begin{flushleft}  
-\textbf{NEED}
-\end{flushleft} 
-
-1. rarefaction curves  
-1. add biomass to table 1  
-1. add totals of habitat in table 2 to table 1. 
