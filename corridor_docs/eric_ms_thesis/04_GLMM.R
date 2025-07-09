@@ -235,7 +235,7 @@ aovM0<-Anova(M0)
 plot_model(M0, type = "pred")
 
 
-
+ggsave("./corridor_docs/eric_ms_thesis/images/total_abund.png",width = 10, height = 10, units = "cm")
 # EMILIO ADDITION - EXPORTING TABLE RESULTS TO UPLOAD TO THESIS DOC
 
 # REQUIRES CLEANUP, BUT HERE IS HOW TO GET THE STATS TABLES IN KABLEEXTRA FOR YOUR THESIS

@@ -37,12 +37,15 @@ header-includes:
   - \newcommand{\elandscape}{\end{landscape}}
   - \setlength\parindent{22pt}
   - \usepackage{indentfirst}
+  # - \usepackage{caption}
+  # - \captionsetup[figure]{name={Figure 1-},labelsep=period}
+  # - \captionsetup[table]{name={Table 1-},labelsep=period}
   - \renewenvironment{abstract}{}{} #suppress the abstract
   - \usepackage{setspace}
   - \setcounter{secnumdepth}{0} # removes numbering from sections and subsections
   - \usepackage{sectsty}\allsectionsfont{\raggedright}
-  - \usepackage{sectsty}\sectionfont{\centering}{\normalfont} # center # headings
-  - \usepackage{sectsty}\subsectionfont{\centering}{\normalfont} # center ## headings
+  # - \usepackage{sectsty}\sectionfont{\centering}{\normalfont} # center # headings
+  # - \usepackage{sectsty}\subsectionfont{\centering}{\normalfont} # center ## headings
   - \usepackage{sectsty}\subsubsectionfont{\bfseries} # center ## headings
   # - \usepackage{sectsty}\subsubsectionfont{\itshape} # no centering but italic subsu
   # - \usepackage{sectsty}\subsubsectionfont{\centering}{ital} # center ### headings
@@ -74,7 +77,15 @@ header-includes:
 bibliography: ["eric-thesis.bib"]
 output:
   bookdown::pdf_document2:
-    toc: false
+    # toc: false
+    number_sections: true
+    fig_caption: true
+
+# output: bookdown::word_document2
+# output: word_document
+# output: html_document
+
+
 # output: bookdown::pdf_document2
   # pdf_document:
   #   includes:
@@ -284,7 +295,6 @@ THE INFLUENCE OF CONNECTIVITY ON DUNG BEETLE COMMUNITIES\\
 
 \doublespacing 
 
-## INTRODUCTION
 
 As human disturbances continue to expand into natural landscapes, intact habitats are becoming increasingly fragmented [@diaz_pervasive_2019; @ma_global_2023; @taubert_global_2018]. Like many ecological processes, fragmentation is a complex and multifaceted phenomenon bringing about many consequences which can be both positive and negative for ecosystems [@fahrig_effects_2003; @fletcher_is_2018]. However, as habitats are broken down community structures are significantly altered [@WOS:000419965700012; @haddad_corridor_2003; @jennings_composition_2006; @harrison_habitat_1999]. This alteration of structure typically lends to loss in biodiversity on a global scale and interruptions in ecosystem processes and functions  [@haddad_habitat_2015].
 
@@ -324,8 +334,9 @@ Here, I aim to gain an understanding of how dung beetles, a group of insects wel
 
 <!-- Since our experimental system consists of open habitats amongst a forested matrix, we anticipate that species preferring open areas and generalists may be more common in our sampling. -->
 
-## METHODS
-
+\begin{center} 
+\textbf{Methods}
+\end{center}
 ### Study site
 
 Our study took place at the Savannah River Site (SRS), a National Environmental Research Park in southern South Carolina, USA (33.208$^\circ$ N, 81.408$^\circ$ W, Figure \@ref(fig:srs-map)). in four of seven experimental landscapes designed for the purposes of directly observing the impacts of corridors and patch shape on the movements of plants and animals [@tewksbury_corridors_2002]. Each experimental landscape, termed blocks, consists of four patches of open habitat around a central patch all together within a matrix of pine savanna (Figure \@ref(fig:patches)). In each block the central patch (100 $\times$ 100 m) is always connected to one peripheral patch with identical dimensions by a 150 $\times$ 25 m corridor, this will hereafter be referred to as the connected patch. The remaining patches are either "winged" or "rectangular". The winged patch is also 100 $\times$ 100 m, however they exhibit their characteristic wings in the form of two 75 $\times$ 25 m offshoots meant to account for the extra area and edge space the corridor provides. The rectangular patch is 100 $\times$ 137.5 m also the same area as the space of the connected patch plus the corridor. Each block has a duplicate of either the winged or rectangle patch, all peripheral patches being 150 m from the center patch. For this study sampling was done in one of each patch type and in one matrix plot per block, all matrix blocks were set up 150 m away from the center as well.
@@ -361,7 +372,9 @@ I used linear mixed-effects models to compare the influence of patch type on bot
 
 <!-- Functional Diversity: Need to assign each species to a functional group: roller, tunneler. dweller, others?  - habitat preference (forest, pasture, generalist). Look through dung beetle pubs and see how/what people compare_ what stats / computer packages did you use to analyze and visualize the data? -->
 
-## RESULTS
+\begin{center} 
+\textbf{Results}
+\end{center}
 
 ```{r data-load, include = FALSE, echo = TRUE, message = FALSE, warning = FALSE}
 
@@ -528,8 +541,9 @@ Plotting species richness by patch type reveals consistent richness across patch
 Biodiversity was also even among patch types, however metric values were varied by sampling blocks. For Shannon Diversity, the estimated mean in matrix patches was 5.202 (SE = 0.665, t = 7.825). None of the alternative patch types showed statistically significant differences compared to matrix: connected ($\beta$ = –0.085, SE = 0.495, t = 0.17), rectangle ($\beta$ = 0.234, SE = 0.495, t = 0.472), or winged ($\beta$ = –0.251, SE = 0.495, t = –0.506). Similarly, for Simpson's Diversity, the average value in matrix patches was 4.181 (SE = 0.640, t = 6.535). Again, none of the other patch types had significant effects: matrix ($\beta$ = -0.107, SE = 0.411, t = -0.259), rectangle ($\beta$ = 0.059, SE = 0.411, t = 0.143), and winged ($\beta$ = –0.480, SE = 0.411, t = –1.169).
 
 
-## DISCUSSION
-
+\begin{center} 
+\textbf{Discussion}
+\end{center}
 <!-- Paragraph 1: Overview: While there may indeed be effects of patch area and connectivity on dung beetle abundance on community composition, other (landscape-scale) drivers appear to be more important.  -->
 
 This study advances our understanding of the factors shaping dung beetle community composition in temperate regions of the southeastern United States. In addition, the experimental design enables direct comparisons between populations in continuous matrix habitat and those in both isolated and corridor connected patches. My main findings emphasized: (1) Habitat type and patch shape were the main driving factors for determining how dung beetle species abundances were composed, however effects were species specific. (2) Patch shape and isolation had less of an influence on species richness which was relatively even on both a patch and block level. (3) Species diversity metrics were also relatively even across patch types however varied widely by sampling blocks. These results suggest that while there may indeed be effects of patch structure and connectivity on dung beetle abundances and community composition, other landscape scale drivers appear to be more prominent for species richness and diversity. 
@@ -565,7 +579,9 @@ Although there is plentiful work to be done, this study paints an encouraging pi
 
 \newpage
 
-## REFERENCES
+\begin{center} 
+\textbf{References}
+\end{center}
 
 \smallskip
 
@@ -573,8 +589,6 @@ Although there is plentiful work to be done, this study paints an encouraging pi
 :::
 
 \newpage
-
-## FIGURES & TABLES
 
 <!-- (text - Nathan Fig of plots) -->
 
@@ -673,7 +687,7 @@ knitr::include_graphics("images/pitfalls.png")
 \newpage
 ```{r, label = patch, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle abundance in three different treatments and the forest matrix surrounding patches.", out.width="50%", fig.align='center'}
 
-knitr::include_graphics("images/sp_abund.png")
+knitr::include_graphics("images/total_abund.png")
 
 ```
 
