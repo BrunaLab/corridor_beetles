@@ -197,10 +197,35 @@ ggplot(spp_abund_top6,
 
 
 
+# comparing total abundance by patches ------------------------------------
+
+total_abund_each_patch<-btl_data %>%
+  pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>%
+  mutate(patch=case_when(
+    patch == "c" ~ "Connected",
+    patch == "m" ~ "Matrix",
+    patch == "w" ~ "Winged",
+    patch == "r" ~ "Rectangle",
+    .default = as.character(patch))) %>%
+  group_by(patch,block) %>%
+  summarize(n=sum(n, na.rm=TRUE)) %>%
+  arrange(patch,desc(n)) %>%
+  # rename(sp_code=species) %>%
+  mutate(patch_block=paste(patch,block,sep="_")) %>% 
+  ungroup() %>% 
+  select(-patch,-block) %>% 
+  separate(patch_block,c("patch_type","block"),sep="_",remove=TRUE) 
+
+#releveling
+total_abund_each_patch<-total_abund_each_patch %>% 
+  mutate(patch_type=as.factor(patch_type)) 
+total_abund_each_patch$patch_type<-relevel(total_abund_each_patch$patch_type,"Matrix")
+
+
 
 # Global model: Take 1 abundance, indep of species ID
 M0 <- glmer(n ~ patch_type + (1 + patch_type | block), 
-            data = spp_abund, 
+            data = total_abund_each_patch, 
             family = poisson)
 
 summary(M0)
@@ -256,6 +281,9 @@ plot_model(M2, type = "pred")
 
 
 M2 %>% broom::tidy()
+
+
+# species by patch type ---------------------------------------------------
 
 
 # Model 3
