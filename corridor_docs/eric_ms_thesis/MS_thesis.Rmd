@@ -1,6 +1,7 @@
 ---
 title: "The Influence of Connectivity on Dung Beetle Communities"
 author: "ERIC ESCOBAR-CHENA"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
 # date: "\\vspace{-1em}"
 # header-includes:
  # - \AtBeginDocument{\let\maketitle\relax} # this removes default title section
@@ -27,7 +28,7 @@ header-includes:
   - \pagestyle{plain}
   - \fancyfoot[C]{\thepage}
   - \fancyhead[L]{}
-  - \fancyhead[R]{\small{EEC MS Thesis Draft}}
+  - \fancyhead[R]{\tiny{EEC MS Thesis Draft (`r format(Sys.time(), '%d %B %Y')`)}}
   - \thispagestyle{fancy}
   - \usepackage{tabu}
   - \usepackage{makecell}
