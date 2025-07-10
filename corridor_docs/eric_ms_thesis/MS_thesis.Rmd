@@ -550,14 +550,15 @@ This study advances our understanding of the factors shaping dung beetle communi
 
 <!-- Paragraph 2: Effects of Edge vs. Connectivity -->
 
-In my comparison of dung beetle compositions, connectivity and habitat edge accounted for differences in dung beetle abundances, yet species richness and diversity were even across patch types and in  the matrix. Total beetle counts were consistently highest in the matrix, in comparison abundances is connected patches were not significantly different while those of the winged and rectangular patches were lower. Additionally, I also observed that patch effects were not equally proportional for all species. This suggests that the species captured could be exhibiting habitat preferences between the open patches versus forested matrix. Another potential explanation is that species in the matrix are acting as a source population which feeds into patches with edge acting as a drift fence for directing movement. The latter example seems more likely because flies, which have similar resource dependencies were also found to have a similar interaction [@fried_habitat_2005], and also studies on dung beetles in the tropics found more dramatic differences in dung beetle populations in fragments and matrix [@bustamante-sanchez_dung_2004; @WOS:000180797500010; @WOS:000288810500026].
+In my comparison of dung beetle compositions, connectivity and habitat edge accounted for differences in dung beetle abundances, yet species richness and diversity were even across patch types and in  the matrix. Total beetle counts were consistently highest in the matrix, in comparison abundances is connected patches were not significantly different while those of the winged and rectangular patches were lower. Additionally, I also observed that patch effects were not equally proportional for all species. This suggests that the species captured could be exhibiting habitat preferences between the open patches versus forested matrix. Another potential explanation is that species in the matrix are acting as a source population which feeds into patches with edge acting as a drift fence for directing movement. The latter example seems more likely because flies, which have similar resource dependencies were also found to have a similar interaction [@fried_habitat_2005], and also studies on dung beetles in the tropics found more dramatic differences in dung beetle populations in fragments and matrix [@WOS:000288810500026]. 
 <!-- Paragraph 3: }What then are the drivers of dung beetle diversity and abundance? -->
 
-Although richness and diversity were the same among treatments, there was notable variability between sampling blocks. Block 8 generally had the lowest species richness and biodiversity while 53n had the highest. While the design of the experimental blocks control for as much as possible, landscape features across the sight are different enough to influence species composition. Several factors may explain this pattern, including soil quality which influences where beetles can reproduce [@arellano_response_2008; @conover_phenology_2019] as well as matrix permeability, canopy cover, and different land-use types (e.g., roadways, water sources)[@WOS:000241362400032; @WOS:000651446900001]. Not only do these impact dung beetle movement, but also these landscape features can affect mammal movement, which in turn limits dung availability for beetles. 
+Although richness and diversity were the same among treatments, there was notable variability between sampling blocks. Block 8 generally had the lowest species richness and biodiversity while 53n had the highest. While the design of the experimental blocks control for as much as possible, landscape features across the sight are different enough to influence species composition. Several factors may explain this pattern, at the time this study was conducted block 8 had the densest matrix of any of the other sampling blocks which could have hindered the scent permeability of our bait. Other habitat characteristics might have been influential as well, including soil quality and forest cover which can determine where beetles can reproduce [@arellano_response_2008; @conover_phenology_2019] 
+Not only do these impact dung beetle movement, but also these landscape features can affect mammal movement, which in turn limits dung availability for beetles. In this regard it is also important to consider other geographical differences, block 8 was nearest to roadways used by all employees at SRS and the eastern side of the sight had large bodies of water. Both of which would effect the land-use by larger mammals[@WOS:000241362400032; Dechen Quinn et al 2013; @WOS:000651446900001]. Additionally, deer and feral hogs are the most dominant mammals at the site, two species that do well in patchy landscapes(Castillo-Contreras et al. 2018, Fraser et al. 2019). This might explain the lack of variation in richness or diversity in patches while differences are more apparent at greater distances across the site. 
 
 <!-- Paragraph 4: That said, there were some interspecific differences in abundance.  -->
 
-Species specific differences are apparent but do not follow any particular trend. _Aphodius alloblackburneus_ had a disproportionate positive effect to being captured in matrix patches as compared to other species. Beetles from the genus _Aphodius_ do tend to show patterns of habitat specificity[@roslin_distribution_2001], so it is not unexpected that they might show a preference towards either forested matrix or open patches. I did not detect that any species was more positively associated with open patches despite expectations that some species ( eg. _Canthon vigilans_, _Melanocanthon bispinatus_) would prefer open habitat [@conover_phenology_2019; @nealis_habitat_1977]. Altogether this could be another sign pointing towards matrix acting as a source population, and since open habitat was much less dominant in my experimental system beetles could be moving into patches from habitat edge. 
+Species specific differences are apparent but do not follow any particular trend. _Aphodius alloblackburneus_ had a disproportionate positive effect to being captured in matrix patches as compared to other species. Beetles from the genus _Aphodius_ do tend to show patterns of habitat specificity[@roslin_distribution_2001], and many preferring forested habitat*frank*,  so it is not unexpected that they might show a preference towards forested matrix. I did not detect that any species was more positively associated with open patches despite expectations that some species ( eg. _Canthon vigilans_, _Melanocanthon bispinatus_) would prefer open habitat [@conover_phenology_2019; @nealis_habitat_1977]. Altogether this could be another sign pointing towards matrix acting as a source population, and since open habitat was much less dominant in my experimental system beetles could be moving into patches from habitat edge. 
 
 <!-- Paragraph 5: Our results largely echo/constrast with previous ones from the SRS and elsewhere  -->
 
@@ -685,31 +686,31 @@ knitr::include_graphics("images/pitfalls.png")
 <!-- ``` -->
 
 \newpage
-```{r, label = patch, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle abundance in three different treatments and the forest matrix surrounding patches.", out.width="50%", fig.align='center'}
+```{r, label = patch, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Average total dung beetle abundance by patch type with standard deviations as error bars.", out.width="50%", fig.align='center'}
 
 knitr::include_graphics("images/total_abund.png")
 
 ```
 
-```{r, label = abundance, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle abundance of the top 6 most abundant species in three different treatments and the forest matrix surrounding patches.", out.width="50%", fig.align='center'}
+```{r, label = abundance, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Average abundance of the top 6 most abundant species by patch type.", out.width="50%", fig.align='center'}
 
 knitr::include_graphics("images/sp_abund_patch.png")
 
 ```
 
-```{r, label = richness, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle secies richness in three different treatments and the forest matrix surrounding patches.", out.width="50%", fig.align='center'}
+```{r, label = richness, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle secies richness by patch type.", out.width="50%", fig.align='center'}
 
 knitr::include_graphics("images/sp_richness_patches.png")
 ```
 
 
-```{r, label = shannon, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle Shannon diversity in three different treatments and the forest matrix surrounding patches.", out.width="50%", fig.align='center'}
+```{r, label = shannon, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle Shannon diversity by patch type.", out.width="50%", fig.align='center'}
 
 knitr::include_graphics("images/sp_shannon_patches.png")
 
 ```
 
-```{r, label = simpson, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle Simpson's index in three different treatments and the forest matrix surrounding patches.", out.width="50%", fig.align='center'}
+```{r, label = simpson, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle Simpson's index y patch type.", out.width="50%", fig.align='center'}
 
 knitr::include_graphics("images/sp_simpson_patches.png")
 
