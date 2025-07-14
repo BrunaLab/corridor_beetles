@@ -292,6 +292,20 @@ Habitat fragmentation threatens biodiversity across the globe as habitat loss, i
 
 \begin{center}
 CHAPTER 1\\  
+INTRODUCTION\\  
+\end{center}  
+
+\doublespacing 
+
+
+Corridors have been shown to be an important mechanism for facilitating the movement of organisms through fragmented landscapes [@haddad_corridor_2003]. These movements are hypothesized to prevent species diversity from declining in fragments, as well as help maintain the ecosystem services provided by these species (at both the patch- and landscape-level)[@burt_ants_2022]. Although there is some evidence that animals disperse between patches via corridors, and that connected patches have higher species diversity than unconnected ones, little work to date has investigated the consequences of these corridor-driven patterns for ecosystem services. 
+
+
+\newpage
+
+
+\begin{center}
+CHAPTER 2\\  
 THE INFLUENCE OF CONNECTIVITY ON DUNG BEETLE COMMUNITIES\\  
 \end{center}  
 
@@ -573,13 +587,23 @@ There were some limitations of this study which should be addressed in any futur
 
 <!-- Paragraph 7: Moving forward -->
 
+
+
+\newpage
+
+
+\begin{center}
+CHAPTER 3\\  
+CONCLUSIONS AND FUTURE DIRECTIONS\\  
+\end{center}  
+
+\doublespacing 
 Moving forward, there is a bounty of knowledge yet to be collected for dung beetles in the south eastern United States. Relative to what is already known in tropical ecosystems, this study provides a glimpse on how dung beetles are responding to fragmentation and connectivity in subtropic pine habitats, but much can still be learned about dung beetles in these spaces and the role they play in ecosystems as well as how they interact with landscapes. The unique role of dung beetles as waste removers is fascinating enough and of great importance for maintaining landscapes so dominated by pastures like Southern US [@cheng_dweller_2022; @WOS:000368243300001]. Not only waste removal but also secondary effect such as seed dispersal and parasitic reduction are important to understand in the context of fragmentation [@fincher_effects_1975; @vulinec_dung_2002]. SRS provides an excellent experimental design for direct comparison of landscapes but another main goal of the site is to study dispersal, dung beetles would be an excellent system for studying movement. They already show promise, in preliminary trials I released beetles from both the connected and rectangular patches with baited traps in the central patch. I recovered one recapture which originated from the connected patch, indicating that individuals do move through corridors.  
 
 
 <!-- Paragraph 8: Close with takeaways for conservation and management -->
 
 Although there is plentiful work to be done, this study paints an encouraging picture that while dung beetles face disturbances that make habitats less preferential, they are robust enough to persist throughout fragmented landscapes and the management strategies we do have to connect fragmented landscapes work to mitigate losses. Because assemblages remain mostly the same across these landscapes, ecosystem services should remain uninterrupted allowing continuing benefits to all community members. While this study of dung beetles in fragmented landscapes was conducted in a relatively protected area, in real world application we could consider the use of movement corridors within disturbed areas to help bolster effected populations, but also near areas of high importance such as pastures to provide areas of refuge for beetles. In this case it is important to consider the inverse of what was manipulated in this study where open field acts as matrix and forested area is focal landscape, thus it is vital to continue learning more about how landscape composition and connectivity effect dung beetle populations.  
-
 
 \newpage
 
