@@ -5,6 +5,8 @@
 
 library(tidyverse)
 library(here)
+library(lme4)
+library(sjPlot)
 # load data ---------------------------------------------------------------
 
 
@@ -41,6 +43,7 @@ biomass_per_spp<-biomass_per_spp %>%
   ungroup() %>% 
   rename(species=sp_code)
 
+
 ggplot(biomass_per_spp, 
        aes(
          x=reorder(species,-spp_biomass), 
@@ -48,6 +51,15 @@ ggplot(biomass_per_spp,
          )
        ) + 
   geom_bar(stat = "identity")
+
+biomass_top_6 <- biomass_per_spp %>% 
+  filter(species=="cvig"|
+           species=="alec"|
+           species=="pign"|
+           species=="dcar"|
+           species=="open"|
+           species=="aaeg")
+
 
 
 biomass_2<-btl_data %>%
@@ -87,6 +99,9 @@ biomass_2 %>%
   group_by(patch) %>% 
   summarize(tot_bm=sum(spp_biomass))
 
+biomass_2<-biomass_2 %>% 
+  mutate(patch=as.factor(patch)) 
+biomass_2$patch<-relevel(biomass_2$patch,"Matrix")
 
 patch_type_mean_bm<-
 biomass_2 %>% 
@@ -104,6 +119,29 @@ ggplot(patch_type_mean_bm,
        )
 ) + 
   geom_bar(stat = "identity")
+
+M5 <- lmer(spp_biomass ~ patch + (1 + patch | block), 
+            data = biomass_2)
+
+plot_model(M5, type = "pred")
+
+summary(M5)
+
+
+biomass_2_top_6 <- biomass_2 %>% 
+  filter(sp_code=="cvig"|
+           sp_code=="alec"|
+           sp_code=="pign"|
+           sp_code=="dcar"|
+           sp_code=="open"|
+           sp_code=="aaeg")
+
+M6 <- lmer(spp_biomass ~ patch + (1 + patch | block), 
+           data = biomass_2_top_6)
+
+summary(M6)
+
+plot_model(M6, type = "pred")
 
 b2<-biomass %>%
   ungroup() %>% 
