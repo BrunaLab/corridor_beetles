@@ -185,3 +185,111 @@ ggplot(b2, aes(
   pivot_wider(
     names_from = sp_code,
     values_from = n_patch) 
+
+  
+
+# ind biomass v abundance -------------------------------------------------
+
+  # https://www.sciencedirect.com/science/article/pii/S0169534707000985?via%3Dihub
+  
+  body_mass_v_abund<-btl_data %>%
+    pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>%
+    group_by(species, patch,block) %>%
+    # group_by(block) %>%
+    # group_by(patch,block) %>%
+    mutate(patch=case_when(
+      patch == "c" ~ "Connected",
+      patch == "m" ~ "Matrix",
+      patch == "w" ~ "Winged",
+      patch == "r" ~ "Rectangle",
+      .default = as.character(patch))) %>%
+    summarize(n=sum(n, na.rm=TRUE)) %>%
+    arrange(desc(n)) %>%
+    rename(sp_code=species) %>% 
+    left_join(spp_bmass,by="sp_code") %>%
+    # select(-n.y) %>% 
+    # rename(n=n.x) %>% 
+    # select(-sd, -n_btls) %>% 
+    mutate(spp_biomass=n*avg_bmass) %>% 
+    ungroup() %>% 
+    select(-sd) %>% 
+    # select(-sp_code,-avg_bmass) %>% 
+    drop_na() 
+  
+  indiv_bmass<-body_mass_v_abund %>% 
+    select(sp_code,avg_bmass) %>% 
+    distinct() %>% 
+    arrange(desc(avg_bmass)) %>% 
+    mutate(sp_code = fct_inorder(factor(sp_code))) %>% 
+    group_by(sp_code) %>% 
+    mutate(shape=cur_group_id()) %>% 
+    mutate(shape=as.factor(shape))
+
+
+# overall species mass v abundance ----------------------------------------
+
+    library(RColorBrewer)
+  library(geomtextpath)
+  
+  
+  
+  total_n<- body_mass_v_abund %>% group_by(sp_code) %>% 
+    summarize(total_n=sum(n))
+  total_n<-full_join(indiv_bmass,total_n)
+  total_n %>% 
+    ggplot(aes(x=avg_bmass, y=total_n, color=sp_code)) + 
+    # scale_shape_manual(values = total_n$shape)+
+    # ggplot(aes(x=log(avg_bmass), y=log(total_n), color=sp_code,shape=sp_code)) + 
+    geom_point()+
+    geom_smooth(method=lm , color="darkgray", se=FALSE) +
+    theme_classic()
+  
+  
+
+# block species mass v abundance ------------------------------------------
+
+  
+  block_n<- body_mass_v_abund %>% group_by(sp_code,block) %>% 
+    summarize(total_n=sum(n))
+  block_n<-full_join(indiv_bmass,block_n)
+  
+  
+  
+  
+  block_n %>% 
+    ggplot(aes(x=avg_bmass, y=total_n, color=block,shape=block)) + 
+    geom_point()+
+    # scale_fill_brewer(palette = "Spectral")+
+    # scale_shape_manual(values = total_n$shape)+
+    geom_labelsmooth(aes(label = block), fill = "white",
+                     method = "lm", formula = y ~ x,
+                     size = 6, linewidth = 1, boxlinewidth = 0.6) +
+    # geom_smooth(method=lm , color="darkgray", se=FALSE) +
+  
+    theme_classic()
+  
+  
+
+# patch species mass v abundance ------------------------------------------
+
+  
+  patch_n<- body_mass_v_abund %>% group_by(sp_code,patch) %>% 
+    summarize(total_n=sum(n))
+  patch_n<-full_join(indiv_bmass,patch_n)
+  
+  
+  patch_n %>% 
+    ggplot(aes(x=avg_bmass, y=total_n, shape=patch,color=patch)) + 
+    geom_point()+
+    scale_fill_brewer(palette = "Spectral")+
+    geom_labelsmooth(aes(label = patch), fill = "white",
+                     method = "lm", formula = y ~ x,
+                     size = 6, linewidth = 1, boxlinewidth = 0.6) +
+    
+    # scale_fill_brewer(palette = "Spectral") +
+    theme_classic()
+
+# 
+  
+  
+  
