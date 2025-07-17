@@ -143,6 +143,26 @@ summary(M6)
 
 plot_model(M6, type = "pred")
 
+M7 <- lmer(spp_biomass ~ sp_code + patch + (1 | block), 
+     data = biomass_2_top_6)
+
+summary(M7)
+
+plot_model(M7, type = "pred", terms = "sp_code")
+
+plot_model(M7, type = "pred", terms = c("sp_code", "patch"))
+
+M8 <- lmer(spp_biomass ~ n + sp_code + (1| block),
+           data = biomass_2_top_6)
+
+summary(M8)
+
+plot_model(M8, type = "pred")
+
+plot_model(M8, type = "pred", terms = c("n", "sp_code"))
+ 
+plot_model(M8, type = "pred", terms = c("sp_code", "n"))
+
 b2<-biomass %>%
   ungroup() %>% 
   select(-c(sp_code,n,avg_bmass)) %>% 
