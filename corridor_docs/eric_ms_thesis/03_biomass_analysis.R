@@ -13,14 +13,25 @@ library(sjPlot)
 btl_data<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_clean","clean_btl_counts.csv"))
 spp_codes<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_raw","species_codes.csv"))
 
-spp_bmass<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_raw","spp_weights.csv")) %>% 
+# need to add how many beetles were included in each raw weight (some too small)
+btls_per_tray<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_raw","spp_weights.csv")) %>%
   group_by(sp_code) %>% 
-  summarize(avg_bmass=mean(weight),
-            sd=sd(weight),
-            n_btls=n_distinct(weight)) %>% 
-  arrange(desc(avg_bmass))
+  summarize(n_tray=n()) %>% 
+  mutate(btls_per_tray=case_when(
+    n_tray==15~1,
+    n_tray==5~3,
+    n_tray==3~5,
+    n_tray==1~15,
+    .default = as.integer(n_tray)
+  ))
 
 
+spp_bmass<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_raw","spp_weights.csv")) %>% 
+  left_join(btls_per_tray,by="sp_code")  %>% 
+  mutate(indiv_bmass=weight/btls_per_tray) %>% 
+  group_by(sp_code) %>% 
+  summarize(avg_ind_bmass=mean(indiv_bmass),
+            sd = sd(indiv_bmass))
 
 biomass_per_spp<-btl_data %>%
   pivot_longer(pvin:osyl,names_to = "species",values_to = "n") %>%
@@ -35,8 +46,8 @@ biomass_per_spp<-btl_data %>%
   arrange(desc(n)) %>%
   rename(sp_code=species) %>% 
   left_join(spp_bmass,by="sp_code") %>% 
-  select(-sd, -n_btls) %>% 
-  mutate(spp_biomass=n*avg_bmass)
+  # select(-sd, -n_btls) %>% 
+  mutate(spp_biomass=n*avg_ind_bmass)
 
 biomass_per_spp<-biomass_per_spp %>% 
   drop_na() %>% 
@@ -80,7 +91,7 @@ biomass_2<-btl_data %>%
   # select(-n.y) %>% 
   # rename(n=n.x) %>% 
   # select(-sd, -n_btls) %>% 
-  mutate(spp_biomass=n*avg_bmass) %>% 
+  mutate(spp_biomass=n*avg_ind_bmass) %>% 
   ungroup() %>% 
   select(-sd) %>% 
   # select(-sp_code,-avg_bmass) %>% 
@@ -120,7 +131,7 @@ ggplot(patch_type_mean_bm,
 ) + 
   geom_bar(stat = "identity")
 
-M5 <- lmer(spp_biomass ~ patch + (1 + patch | block), 
+M5 <- lmer(avg_ind_bmass ~ patch + (1 + patch | block), 
             data = biomass_2)
 
 plot_model(M5, type = "pred")
@@ -136,7 +147,10 @@ biomass_2_top_6 <- biomass_2 %>%
            sp_code=="open"|
            sp_code=="aaeg")
 
-M6 <- lmer(spp_biomass ~ patch + (1 + patch | block), 
+M6 <- lmer(avg_ind_bmass ~ patch + (1 | block), 
+           data = biomass_2_top_6)
+
+M6 <- aov(avg_ind_bmass ~ patch + block, 
            data = biomass_2_top_6)
 
 summary(M6)
@@ -152,7 +166,7 @@ plot_model(M7, type = "pred", terms = "sp_code")
 
 plot_model(M7, type = "pred", terms = c("sp_code", "patch"))
 
-M8 <- lmer(spp_biomass ~ n + sp_code + (1| block),
+M8 <- lmer(avg_ind_bmass ~ n + (1| block),
            data = biomass_2_top_6)
 
 summary(M8)
@@ -165,7 +179,7 @@ plot_model(M8, type = "pred", terms = c("sp_code", "n"))
 
 b2<-biomass %>%
   ungroup() %>% 
-  select(-c(sp_code,n,avg_bmass)) %>% 
+  select(-c(sp_code,n,avg_ind_bmass)) %>% 
   group_by(patch,block) %>%
   filter(is.na(spp_biomass)==FALSE) %>% 
   summarise(total_bmass=sum(spp_biomass))
@@ -210,16 +224,16 @@ ggplot(b2, aes(
     # select(-n.y) %>% 
     # rename(n=n.x) %>% 
     # select(-sd, -n_btls) %>% 
-    mutate(spp_biomass=n*avg_bmass) %>% 
+    mutate(spp_biomass=n*avg_ind_bmass) %>% 
     ungroup() %>% 
     select(-sd) %>% 
     # select(-sp_code,-avg_bmass) %>% 
     drop_na() 
   
   indiv_bmass<-body_mass_v_abund %>% 
-    select(sp_code,avg_bmass) %>% 
+    select(sp_code,avg_ind_bmass) %>% 
     distinct() %>% 
-    arrange(desc(avg_bmass)) %>% 
+    arrange(desc(avg_ind_bmass)) %>% 
     mutate(sp_code = fct_inorder(factor(sp_code))) %>% 
     group_by(sp_code) %>% 
     mutate(shape=cur_group_id()) %>% 
@@ -237,7 +251,7 @@ ggplot(b2, aes(
     summarize(total_n=sum(n))
   total_n<-full_join(indiv_bmass,total_n)
   total_n %>% 
-    ggplot(aes(x=avg_bmass, y=total_n, color=sp_code)) + 
+    ggplot(aes(x=avg_ind_bmass, y=total_n, color=sp_code)) + 
     # scale_shape_manual(values = total_n$shape)+
     # ggplot(aes(x=log(avg_bmass), y=log(total_n), color=sp_code,shape=sp_code)) + 
     geom_point()+
@@ -257,7 +271,7 @@ ggplot(b2, aes(
   
   
   block_n %>% 
-    ggplot(aes(x=avg_bmass, y=total_n, color=block,shape=block)) + 
+    ggplot(aes(x=avg_ind_bmass, y=total_n, color=block,shape=block)) + 
     geom_point()+
     # scale_fill_brewer(palette = "Spectral")+
     # scale_shape_manual(values = total_n$shape)+
@@ -279,7 +293,7 @@ ggplot(b2, aes(
   
   
   patch_n %>% 
-    ggplot(aes(x=avg_bmass, y=total_n, shape=patch,color=patch)) + 
+    ggplot(aes(x=avg_ind_bmass, y=total_n, shape=patch,color=patch)) + 
     geom_point()+
     scale_fill_brewer(palette = "Spectral")+
     geom_labelsmooth(aes(label = patch), fill = "white",
