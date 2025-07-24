@@ -50,18 +50,55 @@ biomass_per_spp<-btl_data %>%
   mutate(spp_biomass=n*avg_ind_bmass)
 
 biomass_per_spp<-biomass_per_spp %>% 
-  drop_na() %>% 
+  drop_na(avg_ind_bmass) %>% 
   ungroup() %>% 
   rename(species=sp_code)
 
 
+
+write_csv(biomass_per_spp,here("corridor_docs","eric_ms_thesis","ms_data","data_raw","biomass_per_spp.csv"))
+
+biomass_per_spp<-
+biomass_per_spp %>% 
+rename(sp_code=species) %>% 
+  left_join(spp_codes) %>% 
+  mutate(species=tolower(species)) %>% 
+  mutate(species=paste(genus, species, sep=" ")) 
+
+sp_biomass_plot<-
 ggplot(biomass_per_spp, 
        aes(
          x=reorder(species,-spp_biomass), 
          y=spp_biomass
          )
        ) + 
-  geom_bar(stat = "identity")
+  labs(x="Species",y="Total biomass collected")+
+  geom_bar(stat = "identity")+
+  theme_classic()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  theme(axis.text.x = element_text(face = 'italic'))
+
+ggsave("corridor_docs/eric_ms_thesis/images/sp_biomass_plot.png", width = 4, height = 4, units = "in")
+
+
+
+sp_abundance_plot<-
+ggplot(biomass_per_spp, 
+       aes(
+         x=reorder(species,-spp_biomass), 
+         y=n
+       )
+) + 
+  labs(x="Species",y="Total No. collected")+
+  geom_bar(stat = "identity")+
+  theme_classic()+
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  theme(axis.text.x = element_text(face = 'italic'))
+
+ggsave("corridor_docs/eric_ms_thesis/images/sp_abundance_plot.png", width = 4, height = 4, units = "in")
+
+
+
 
 biomass_top_6 <- biomass_per_spp %>% 
   filter(species=="cvig"|
@@ -123,20 +160,85 @@ biomass_2 %>%
             sd_bm=sd(tot_bm))
 
 
+avg_bmass_patch_plot<-
 ggplot(patch_type_mean_bm, 
        aes(
          x=reorder(patch,-avg_bm), 
          y=avg_bm
        )
 ) + 
-  geom_bar(stat = "identity")
+  geom_errorbar(aes(x=patch, ymin=avg_bm-sd_bm, ymax=avg_bm+sd_bm), 
+                width=0.2, colour="black", alpha=0.9, size=0.5) +
+  labs(x="Patch Type",y= "Biomass (Mean ± SD)")+
+  geom_bar(stat = "identity")+
+  theme_classic() 
+  
 
-M5 <- lmer(avg_ind_bmass ~ patch + (1 + patch | block), 
+
+ggsave("corridor_docs/eric_ms_thesis/images/avg_bmass_patch_plot.png", width = 4, height = 4, units = "in")
+
+
+
+block_type_mean_bm<-
+  biomass_2 %>% 
+  group_by(patch,block) %>% 
+  summarize(tot_bm=sum(spp_biomass)) %>% 
+  group_by(block) %>% 
+  summarize(avg_bm=mean(tot_bm),
+            sd_bm=sd(tot_bm))
+
+
+
+avg_bmass_block_plot<-
+  ggplot(block_type_mean_bm, 
+         aes(
+           x=reorder(block,-avg_bm), 
+           y=avg_bm
+         )
+  ) + 
+  geom_errorbar(aes(x=block, ymin=avg_bm-sd_bm, ymax=avg_bm+sd_bm), 
+                width=0.2, colour="black", alpha=0.9, size=0.5) +
+  labs(x="Patch Type",y= "Biomass (Mean ± SD)")+
+  geom_bar(stat = "identity")+
+  theme_classic() 
+
+
+ggsave("corridor_docs/eric_ms_thesis/images/avg_bmass_block_plot.png", width = 4, height = 4, units = "in")
+
+
+# http://users.stat.umn.edu/~gary/book/RExamples/randommixed-effects.html#random-effects-models
+# TOTAL BIOMASS
+total_bmass<-
+  
+  
+  
+  
+biomass_2 %>% 
+  group_by(patch,block) %>% 
+  summarize(biomass=sum(spp_biomass))
+
+M5_1 <- lmer(biomass ~  patch  + (1 | block), 
+           data =total_bmass )
+plot_model(M5_1, type = "pred")
+summary(M5_1)
+
+M5_1_table<- broom::tidy(M5_1)
+write_csv(M5_1_table,"./corridor_docs/eric_ms_thesis/tables/lmerM5_1.csv")
+
+
+
+M5_2 <- lmer(spp_biomass ~ sp_code +  patch  + (1 | block), 
             data = biomass_2)
+plot_model(M5_2, type = "pred")
+summary(M5_2)
 
-plot_model(M5, type = "pred")
 
-summary(M5)
+M5_2_table<- broom::tidy(M5_2)
+write_csv(M5_2_table,"./corridor_docs/eric_ms_thesis/tables/lmerM5_2.csv")
+
+plot_model(M5_2, type = "pred", terms = c("sp_code", "patch"))
+plot_model(M5_2, type = "pred", terms = c("patch","sp_code"))
+
 
 
 biomass_2_top_6 <- biomass_2 %>% 
