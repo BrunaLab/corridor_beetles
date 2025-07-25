@@ -578,8 +578,11 @@ Biodiversity was also even among patch types, however metric values were varied 
 
 ### Dung Beetle Biomass
 
-Dung beetle biomass follows a pattern very similar to abundance where biomass is the highest in matrix plots, followed by connected, then winged, with a large drop in rectangle patches (Figure X). However, variation between individual beetle biomass  
-is to large to detect a pattern in statistical analysis (Table X). 
+Pooling dung beetle biomass by patch type follows a pattern very similar to abundance where biomass is the highest in matrix plots, followed by connected, then winged, with a large drop in rectangle patches (Figure 7). When comparing to biomass collected in matrix plots, statistical analysis showed a non-significant relationship with connected ($\beta$ = -7.337, SE = 8.659, t = -0.847; Table 4) and winged patches ($\beta$ = -9.608, SE = 8.659, t = -1.11; Table 4), while significant results were returned for rectangle patches ($\beta$ = -23.296, SE = 8.659, t = -2.69; Table 4). Block effects continue to be important for explaining high variation as the total biomass collected in block 52 nearly quadrupled that of block 8 (Table 8).
+
+Parsing biomass by species emphasizes the morphological variability between our study species as some of the most common contribute very little to total biomass (i.e. *Ateuchus lecontei*, *Aphodius allobloackburneus*; Figure 6). Linear mixed effects models further showcases these species specific differences (Table 5). 
+
+
 
 \begin{center} 
 \textbf{Discussion}
@@ -597,11 +600,11 @@ Although richness and diversity were the same among treatments, there was notabl
 
 <!-- Paragraph 4: That said, there were some interspecific differences in abundance.  -->
 
-Species specific differences are apparent but do not follow any particular trend. _Aphodius alloblackburneus_ had a disproportionate positive effect to being captured in matrix patches as compared to other species. Beetles from the genus _Aphodius_ do tend to show patterns of habitat specificity [@roslin_distribution_2001], and many preferring forested habitat*frank*,  so it is not unexpected that they might show a preference towards forested matrix. I did not detect that any species was more positively associated with open patches despite expectations that some species (e.g., _Canthon vigilans_, _Melanocanthon bispinatus_) would prefer open habitat [@conover_phenology_2019; @nealis_habitat_1977]. Altogether this could be another sign pointing towards matrix acting as a source population, and since open habitat was much less dominant in my experimental system beetles could be moving into patches from habitat edge. 
+Species specific differences are apparent but do not follow any particular trend. _Aphodius alloblackburneus_ had a disproportionate positive effect to being captured in matrix patches as compared to other species. Beetles from the genus _Aphodius_ do tend to show patterns of habitat specificity [@roslin_distribution_2001], and many preferring forested habitat[@frank_land_2017],  so it is not unexpected that they might show a preference towards forested matrix. I did not detect that any species was more positively associated with open patches despite expectations that some species (e.g., _Canthon vigilans_, _Melanocanthon bispinatus_) would prefer open habitat [@conover_phenology_2019; @nealis_habitat_1977]. Altogether this could be another sign pointing towards matrix acting as a source population, and since open habitat was much less dominant in my experimental system beetles could be moving into patches from habitat edge. 
 
 <!-- Paragraph 5: Beetle Biomass  -->
 
-**[Paragraph 6: biomass]** The patterns in dung beetle biomass largeley echo the ones for richness and abundnace,. these have potential implications for ecosystem functioning. PS might want to add someting to the Future directions about "Interestingly, dung beetles appear to be an exception to the globally and taxonomically robust rule that abundance  is negatively correlated with individual biomass....
+**[Paragraph 6: biomass]** The patterns in dung beetle biomass largeley echo the ones for richness and abundance,. these have potential implications for ecosystem functioning. PS might want to add someting to the Future directions about "Interestingly, dung beetles appear to be an exception to the globally and taxonomically robust rule that abundance  is negatively correlated with individual biomass....
 
 <!-- Paragraph 6: Our results largely echo/constrast with previous ones from the SRS and elsewhere  -->
 
@@ -611,7 +614,7 @@ Despite ample work documenting their ecological importance, there is a surprisin
 
 **[Paragraph 7: spatial scale of experimental plots vs. dung detectability]** 
 
-Finally, it is important to emphasize that while dung beetles are capable of long distance flight and detecting dung at distances of over 50 meters *gray*, the results I observed are likely the result of a mismatch between the spatial scale of the experimental replicates and dung beetle movement. Put another way, some beetles were almost certainly drawn by the dung used in baits from the matrix into the plots. If this were a big effect we'd expect all plots to be similar to the matrix, or at least to each other. The fact that rectangular are lower suggests that some sort of landscape effect is apparent, likely related to habitat edge since connected and winged patches were the most similar. 
+Finally, it is important to emphasize that while dung beetles are capable of long distance flight and detecting dung at distances of over 50 meters [@WOS:000707546700001], the results I observed are likely the result of a mismatch between the spatial scale of the experimental replicates and dung beetle movement. Put another way, some beetles were almost certainly drawn by the dung used in baits from the matrix into the plots. If this were a big effect we'd expect all plots to be similar to the matrix, or at least to each other. The fact that rectangular are lower suggests that some sort of landscape effect is apparent, likely related to habitat edge since connected and winged patches were the most similar. 
 
 <!-- Paragraph 7: Caveats -->
 
