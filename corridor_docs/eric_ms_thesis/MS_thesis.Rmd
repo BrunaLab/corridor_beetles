@@ -604,7 +604,7 @@ Species specific differences are apparent but do not follow any particular trend
 
 <!-- Paragraph 5: Beetle Biomass  -->
 
-**[Paragraph 6: biomass]** The patterns in dung beetle biomass largeley echo the ones for richness and abundance,. these have potential implications for ecosystem functioning. PS might want to add someting to the Future directions about "Interestingly, dung beetles appear to be an exception to the globally and taxonomically robust rule that abundance  is negatively correlated with individual biomass....
+The patterns in dung beetle biomass largely echo what we observed for abundance, however this distinction is important to make since dung beetles vary greatly in terms of morphology and functionality [@ospina-garces_dung_2018]. Understanding these patterns is of particular interest since biomass is understood to be positively associated with dung removal [@WOS:000287168100017]. Because of this we can expect that the magnitude of removal might be greater in areas of larger biomass (i.e. matrix or connected patches), however future work should aim to directly measure this potential pattern. In addition to this, dung beetles appear to be an exception to the globally and taxonomically robust rule that abundance is negatively correlated with individual biomass [@white_relationships_2007]. More intensive sampling could determine whether this trend is truly apparent.  
 
 <!-- Paragraph 6: Our results largely echo/constrast with previous ones from the SRS and elsewhere  -->
 
