@@ -74,11 +74,23 @@ rename(sp_code=species) %>%
 
 
 # Basic scatter plot.
-p1 <- ggplot(biomass_per_spp, aes(x=avg_ind_bmass, y=n)) + 
+bmass_v_abund <- ggplot(biomass_per_spp, aes(x=avg_ind_bmass, y=n)) + 
   geom_point( color="navyblue") +
-  geom_smooth(method=lm , color="black", se=TRUE) +
-  theme_classic()
-labs(x="Species",y="Total biomass collected")+
+  geom_smooth(method=lm , color="black", se=FALSE) +
+  geom_text(
+    label=biomass_per_spp$sp_code, 
+    nudge_x = 0.025, nudge_y = 0.025, 
+    check_overlap = T
+  )+
+  theme_classic()+
+labs(x="Avg. Individual Biomass",y="Total Number Captured")
+  
+
+ggsave("corridor_docs/eric_ms_thesis/images/bmass_v_abund.png", width = 4, height = 4, units = "in")
+
+# total biomass per species plot ------------------------------------------
+
+
 
 sp_biomass_plot<-
 ggplot(biomass_per_spp, 
