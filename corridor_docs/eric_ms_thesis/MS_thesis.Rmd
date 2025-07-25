@@ -118,10 +118,10 @@ library(kableExtra)
 # library(grateful)
 library(knitr)
 # library(grid)
-# library(gridExtra)
-# library(png)
+library(gridExtra)
+library(png)
 # library(egg)
-# library(magick)
+library(magick)
 # library(citr)
 # library(devtools)
 # devtools::install_github("crsh/papaja")
@@ -132,6 +132,9 @@ library(knitr)
 
 btl_data<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_clean","clean_btl_counts.csv"))
 spp_codes<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_raw","species_codes.csv"))
+bmass<-read_csv(here("corridor_docs","eric_ms_thesis","ms_data","data_raw","biomass_per_spp.csv"))
+  
+
 
 # total beetles captured 
 total_N<-btl_data %>% 
@@ -147,6 +150,21 @@ total_spp<-btl_data %>%
   mutate(species = reorder(species, desc(n))) %>% 
   summarise(n_spp=n_distinct(species))
 
+
+# biomass
+bmass<-bmass %>%
+  rename(sp_code=species) %>% 
+  left_join(spp_codes) %>% 
+  mutate(species=tolower(species)) %>% 
+  mutate(species=paste(genus, species, sep=" ")) %>% 
+  select(species,
+         `Individual Biomass (mean)`=avg_ind_bmass,
+         SD=sd) %>% 
+  mutate(SD=round(SD,3)) %>% 
+  mutate(SD=as.character(SD)) %>% 
+  replace_na(list(SD=""))
+  
+  
 
 # 
 # most_common<-spp_table_data %>% select(Species) %>% slice(1)
@@ -365,7 +383,7 @@ My study took place at the Savannah River Site (SRS), a National Environmental R
 
 Dung beetles were sampled in July and August 2024 in four of the SRS blocks (8, 52, 53n, and 54; Figure \@ref(fig:srs-map)). In each block sampling was conducted using baited pitfall traps placed in each patch type as well as the matrix surrounding the patches (Figure \@ref(fig:pitfalls)). Traps were placed in groups of 3 in the centers of each patch, approximately 250 meters from the midpoint of the central patch 40 m from patch edge. Pitfalls were oriented in a triangular pattern with the bottom two traps positioned towards the center patch, each trap 20 m apart. Plots in the matrix were set up in a similar fashion with the center point 250 m from the center placed equidistant between adjacent patches. Individual pitfall traps consisted of two components, a 10cm tall by 8 cm wide cylinder base topped with a funnel with a 10cm wide rim. I sourced pig feces from the University of Florida Swine Barn Unit. Bait was processed into 5cm wide balls and wrapped in a layer of coffee filter material. For each sample period, traps were buried flush with the ground and baited with pig dung between 8-9 pm and picked up 12 hours later, all beetles captured were stored in ethanol for further processing. In total 16 sampling rounds were carried out with 4 rounds per block, 196 samples were collected.
 
-All dung beetles were counted and identified to species using @nemes_illustrated_2015 and @edmonds_taxonomic_2023. Fifteen individuals of each species with adequate captures were dried and weighed for biomass measurements. Ten species had the required counts for weighing which I dried in drying oven until all specimen reached a stable mass. I weighed each beetle using an Ohaus Adventurer Pro AV53 microbalance, with the exception of individuals whose weights were extremely small. Individual biomass for these species was estimated by weighing in batches of N = 3 (i.e., *Ateuchus lecontei*), N = 5 (i.e., *Onthophagus pennsylvanicus*), or N = 15 (i.e., *Aphodius alloblackburneus*) and then calculated by average biomass per beetle. Values for individual biomass were then used to estimate the totall dung beetle biomass for each -- all species combined and for each individual species - in each block and patch. Voucher specimens for each species will be deposited at the Florida State Collection of Arthropods upon completion of all analyses. 
+All dung beetles were counted and identified to species using @nemes_illustrated_2015 and @edmonds_taxonomic_2023. Fifteen individuals of each species with adequate captures were dried and weighed for biomass measurements. Ten species had the required counts for weighing which I dried in drying oven until all specimen reached a stable mass. I weighed each beetle using an Ohaus Adventurer Pro AV53 microbalance, with the exception of individuals whose weights were extremely small. Individual biomass for these species was estimated by weighing in batches of N = 3 (i.e., *Ateuchus lecontei*), N = 5 (i.e., *Onthophagus pennsylvanicus*), or N = 15 (i.e., *Aphodius alloblackburneus*) and then calculated by average biomass per beetle. Values for individual biomass were then used to estimate the total biomass of each species in each patch, as well as the total beetle biomass (i.e., all species combined) in each patch. Voucher specimens for each species will be deposited at the Florida State Collection of Arthropods upon completion of all analyses. 
 
 ### Analyses
 
@@ -373,11 +391,8 @@ Biodiversity between patch types was compared using Hill numbers, a set of index
 
 To test for the effects of connectivity on abundance, species richness, and species diversity I compared the values of the Hill Shannon and Simpson indexes in the different patch types and matrix. For abundance and richness I used generalized linear mixed models (i.e., GLMM) fitted to a poisson distribution [@bolker_generalized_2009]. Compared (1) the overall species richness and (2) the abundance of the top 6 most common species in each patch type. I included the identity of the sampling block as a random effects. To model my diversity metrics I took a similar approach, but this time using linear mixed effects models with a Gaussian distribution [@chao_rarefaction_2014]. In all models, the reference level for patch type was Matrix. All models were fit using `lme4` package [@bates_fitting_2015]. Prior to conducting my modeling I evaluated the the suitability of my data with *qqplots* generated with the `DARMa` package [@hartig_dharma_2024].
 
-I used linear mixed-effects models to compare the influence of patch type on both Shannon Diversity and Simpson's indexes, including block as a random effect to account for spatial variation. Across both diversity models, the block-level random effect standard deviation was slightly greater than the residual error, indicating that variation between blocks accounted for a substantial portion of the overall variability. Likewise, linear mixed-effects models were used to compare the average biomass of individual dung beetles in each patch type, once again including block as a random effect. 
+I used linear mixed-effects models to compare the influence of patch type on both Shannon Diversity and Simpson's indexes, including block as a random effect to account for spatial variation. Across both diversity models, the block-level random effect standard deviation was slightly greater than the residual error, indicating that variation between blocks accounted for a substantial portion of the overall variability. Likewise, I used linear mixed-effects models to compare for differences between patch types in (1) total dung beetle biomass, and (2) the total biomass of each of the ten species, again including block as a random effect.
 
-
-
-**[need to add to the last paragraph:** that you did these analyses for the dung beetle biomass as well. And it would be cool for guild...**]**
 
 <!-- ### Functional diversity -->
 
@@ -551,20 +566,18 @@ Overall, I collected N = `r total_N` dung beetles (N = `r n_corr` in Connected p
 
 ### Dung Beetle Abundance
 
-When comparing the overall abundance of beetles (all species combined) across patch types, matrix plots had the highest captures, followed by connected patches, then winged, with the fewest in rectangular patches. Abundances from connected patches were not significantly different from those in the matrix while rectangle and winged patches had significantly fewer than the matrix ($\beta$ = -0.528 and -0.303 respectively, P \< 0.001, Table 4). 
+When comparing the overall abundance of beetles (all species combined) across patch types, matrix plots had the highest captures, followed by connected patches, then winged, with the fewest in rectangular patches (Figure \@ref(fig:patch)). Abundances from connected patches were not significantly different from those in the matrix while rectangle and winged patches had significantly fewer than the matrix ($\beta$ = -0.528 and -0.303 respectively, P \< 0.001, Table \@ref(tab:Table-MO)). 
 
-Statistical analysis of abundance focused on the six most abundant species. A generalized linear mixed model identified significant effects for both species ID and patch type on dung beetle abundance (Table 7). The baseline abundance corresponds to the abundance of *Aphodius alloblackburneus* in matrix patches. Compared to this baseline, results were highly variable, emphasizing species specific responses to patch type. Similarly, species showed to have disproportionate responses to patch since interaction terms varied widely (Table 6).
+Statistical analysis of abundance focused on the six most abundant species. A generalized linear mixed model identified significant effects for both species ID and patch type on dung beetle abundance (Table \@ref(tab:Table-M3)). The baseline abundance corresponds to the abundance of *Aphodius alloblackburneus* in matrix patches. Compared to this baseline, results were highly variable, emphasizing species specific responses to patch type. Similarly, species showed to have disproportionate responses to patch since interaction terms varied widely (Table \@ref(tab:Table-M3)).
 
 ### Dung Beetle Richness and Diversity
 
-Plotting species richness by patch type reveals consistent richness across patch types with some variation between sampling blocks (Figure 5).The number of species per patch varied from N = 8 (rectangle patch in block 8) to N = 13 (matrix patch in block 53N). Modeling the effect of patch type on species richness with block as a random effect determined there was no significant differences among patch types. Comparing treatments using matrix patches as a baseline resulted in no significant differences in connected ($\beta$ = 0.216, p = 0.839; Table 7), rectangle ($\beta$ = -0.548, p = 0.583; Table 7), and winged patches ($\beta$ = -0.095, p = 0.663; Table 7).
+Plotting species richness by patch type reveals consistent richness across patch types with some variation between sampling blocks (Figure \@ref(fig:richness)).The number of species per patch varied from N = 8 (rectangle patch in block 8) to N = 13 (matrix patch in block 53N). Modeling the effect of patch type on species richness with block as a random effect determined there was no significant differences among patch types. Comparing treatments using matrix patches as a baseline resulted in no significant differences in connected ($\beta$ = 0.216, p = 0.839; Table \@ref(tab:Table-M-rich)), rectangle ($\beta$ = -0.548, p = 0.583; Table \@ref(tab:Table-M-rich)), and winged patches ($\beta$ = -0.095, p = 0.663; Table \@ref(tab:Table-M-rich)).
 
-Biodiversity was also even among patch types, however metric values were varied by sampling blocks. For Shannon Diversity, the estimated mean in matrix patches was 5.202 (SE = 0.665, t = 7.825). None of the alternative patch types showed statistically significant differences compared to matrix: connected ($\beta$ = –0.085, SE = 0.495, t = 0.17), rectangle ($\beta$ = 0.234, SE = 0.495, t = 0.472), or winged ($\beta$ = –0.251, SE = 0.495, t = –0.506). Similarly, for Simpson's Diversity, the average value in matrix patches was 4.181 (SE = 0.640, t = 6.535). Again, none of the other patch types had significant effects: matrix ($\beta$ = -0.107, SE = 0.411, t = -0.259), rectangle ($\beta$ = 0.059, SE = 0.411, t = 0.143), and winged ($\beta$ = –0.480, SE = 0.411, t = –1.169).
+Biodiversity was also even not significantly different between patch types, however the values of the different metrics varied significantly across sampling blocks (Figures \@ref(fig:shannon)-\@ref(fig:simpson)). For Shannon Diversity, the estimated mean in matrix patches was 5.202 (SE = 0.665, t = 7.825; Table \@ref(tab:Table-M-shan)). None of the alternative patch types showed statistically significant differences compared to matrix: connected ($\beta$ = –0.085, SE = 0.495, t = 0.17), rectangle ($\beta$ = 0.234, SE = 0.495, t = 0.472), or winged ($\beta$ = –0.251, SE = 0.495, t = –0.506; Table \@ref(tab:Table-M-shan)). Results for Simpson's Diversity were similar (Table \@ref(tab:Table-M-simp)), with the average value in matrix patches was 4.181 (SE = 0.640, t = 6.535). Again, none of the other patch types were significantly different from the others: matrix ($\beta$ = -0.107, SE = 0.411, t = -0.259), rectangle ($\beta$ = 0.059, SE = 0.411, t = 0.143), and winged ($\beta$ = –0.480, SE = 0.411, t = –1.169; Table \@ref(tab:Table-M-simp)).
 
 ### Dung Beetle Biomass
-
-Dung beetle biomass follows a pattern very similar to abundance where biomass is the highest in matrix plots, followed by connected, then winged, with a large drop in rectangle patches (Figure X). However, variation between individual beetle biomass  
-is to large to detect a pattern in statistical analysis (Table X). 
+Patterns of biomass by patch type were similar to those for abundance: biomass was highest in matrix plots, followed by connected and winged, with biomass in rectangle patches being far lower than in the other locations (Figure \@ref(fig:patch-bmass)). There was no significant difference in the total beetle biomass of matrix plots when compared to connected ($\beta$ = -7.337, SE = 8.659, t = -0.847; Table \@ref(tab:Table-aovM51)) and winged patches ($\beta$ = -9.608, SE = 8.659, t = -1.11; Table \@ref(tab:Table-aovM51)), but biomass in rectangle patches was significantly different ($\beta$ = -23.296, SE = 8.659, t = -2.69; Table \@ref(tab:Table-aovM51)). Block effects continue to be important for explaining high variation as the total biomass collected in block 52 was nearly quadruple that collected in Block 8 (Figure \@ref(fig:block-bmass)). Linear mixed effects models also indicate significant differences between the biomass of different species  (Table \@ref(tab:Table-aovM52), Figure \@ref(fig:sp-bmass)). 
 
 \begin{center} 
 \textbf{Discussion}
@@ -575,28 +588,26 @@ This study advances our understanding of the factors shaping dung beetle communi
 
 <!-- Paragraph 2: Effects of Edge vs. Connectivity -->
 
-In my comparison of dung beetle compositions, connectivity and habitat edge accounted for differences in dung beetle abundances, yet species richness and diversity were even across patch types and in  the matrix. Total beetle counts were consistently highest in the matrix, in comparison abundances is connected patches were not significantly different while those of the winged and rectangular patches were lower. Additionally, I also observed that patch effects were not equally proportional for all species. This suggests that the species captured could be exhibiting habitat preferences between the open patches versus forested matrix. Another potential explanation is that species in the matrix are acting as a source population which feeds into patches with edge acting as a drift fence for directing movement. The latter example seems more likely because flies, which have similar resource dependencies were also found to have a similar interaction [@fried_habitat_2005], and also studies on dung beetles in the tropics found more dramatic differences in dung beetle populations in fragments and matrix [@WOS:000288810500026]. 
+In my comparison of dung beetle compositions, connectivity and habitat edge accounted for differences in dung beetle abundances, yet species richness and diversity were even across patch types and in  the matrix. Total beetle counts were consistently highest in the matrix, in comparison abundances is connected patches were not significantly different while those of the winged and rectangular patches were lower. Additionally, I also observed that patch effects were not equally proportional for all species. This suggests that the species captured could be exhibiting habitat preferences between the open patches versus forested matrix. Another potential explanation is that species in the matrix are acting as a source population which feeds into patches with edge acting as a drift fence for directing movement. The latter example seems more likely - small mammals at SRS, which are a potential source of dung, appear to preferentially use matrix habitat [@mabry_influence_2003] and flies, which have similar resource dependencies were also found to have a similar interaction [@fried_habitat_2005]. Moreover studies on dung beetles in the tropics found more dramatic differences in dung beetle populations in fragments and matrix [@WOS:000288810500026]. 
 <!-- Paragraph 3: }What then are the drivers of dung beetle diversity and abundance? -->
 
-Although richness and diversity were the same among treatments, there was notable variability between sampling blocks. Block 8 generally had the lowest species richness and biodiversity while 53n had the highest. While the design of the experimental blocks control for as much as possible, landscape features across the sight are different enough to influence species composition. Several factors may explain this pattern, at the time this study was conducted block 8 had the densest matrix of any of the other sampling blocks which could have hindered the scent permeability of the bait. Other habitat characteristics might have been influential as well, including soil quality and forest cover which can determine where beetles can reproduce [@arellano_response_2008; @conover_phenology_2019]. Furthermore in the context of my study site, land-use history could be an important driver to consider as much of the land would have previously been used for agriculture and during development of experimental units cleared with heavy machinery might experience heavy soil compaction *brudvig*. Another important consideration to take is that these landscape features can affect mammal movement, which in turn limits dung availability for beetles. In this regard it is also important to consider other geographical differences, block 8 was nearest to roadways used by all employees at SRS and the eastern side of the sight had large bodies of water. Both of which would effect the land-use by larger mammals [@WOS:000241362400032; @dechen_quinn_landscape_2013; @WOS:000651446900001]. Additionally, deer and feral hogs are the most dominant mammals at the site, two species that do well in patchy landscapes [@castillo-contreras_urban_2018; @fraser_connectivity_2019]. This might explain the lack of variation in richness or diversity in patches while differences are more apparent at greater distances across the site.  **[need to add and discuss soil compaction at 8 here in this paragraph: 1-2 sentences]**
+Although richness and diversity were the same among treatments, there was notable variability between sampling blocks. Block 8 generally had the lowest species richness and biodiversity while 53n had the highest. While the experimental design attempted to control for the effects of patch size and edge, there could be large (and potential unknown) environmental gradients across the SRS landscape that could influence the observed patterns in diversity and abundance. For instance, at the time of my study Block 8 had the densest matrix of any of the blocks. This could have hindered the diffusion of bait scent, leading to lower capture rates in this block. Other habitat characteristics that might dsiffer among blocks could have been influential as well -- for example, soil quality and forest cover can determine where beetles can reproduce [@arellano_response_2008; @conover_phenology_2019]. The same is true for land-use history; much of the SES land would have previously been used for agriculture, and during development of experimental units cleared with heavy machinery might experience heavy soil compaction *brudvig*. Landscape features could also affect mammal movement, which might in turn limit dung availability - Block 8 was nearest to roadways used by all employees at SRS, and the eastern side of the site had large bodies of water upon which mammals are dependent [@WOS:000241362400032; @dechen_quinn_landscape_2013; @WOS:000651446900001]. Additionally, deer and feral hogs are the most dominant mammals at the site, two species that do well in patchy landscapes [@castillo-contreras_urban_2018; @fraser_connectivity_2019]. The locally variable patterns of abundance in the landscape of these generalist large mammals, coupled with ability to easily move through modified landscapes, might help explain the limited variation in richness or diversity within blocks (i.e., between patch types) but large block effects. Deer also commonly forage along the edges of habitat patches and forest ecotones. If they are spending more time in these locations, the higher abundance and diversity in connected and winged patches might in part be due to  'drift-fence' effects **citation of levey drift fence**.  
 
-<!-- Paragraph 4: That said, there were some interspecific differences in abundance.  -->
-
-Species specific differences are apparent but do not follow any particular trend. _Aphodius alloblackburneus_ had a disproportionate positive effect to being captured in matrix patches as compared to other species. Beetles from the genus _Aphodius_ do tend to show patterns of habitat specificity [@roslin_distribution_2001], and many preferring forested habitat*frank*,  so it is not unexpected that they might show a preference towards forested matrix. I did not detect that any species was more positively associated with open patches despite expectations that some species (e.g., _Canthon vigilans_, _Melanocanthon bispinatus_) would prefer open habitat [@conover_phenology_2019; @nealis_habitat_1977]. Altogether this could be another sign pointing towards matrix acting as a source population, and since open habitat was much less dominant in my experimental system beetles could be moving into patches from habitat edge. 
+Species-specific differences are apparent but do not follow any particular trend. _Aphodius alloblackburneus_ had a disproportionate positive effect to being captured in matrix patches as compared to other species. Beetles from the genus _Aphodius_ do tend to show patterns of habitat specificity [@roslin_distribution_2001], and many preferring forested habitat [@frank_land_2017],  so it is not unexpected that they might show a preference towards forested matrix. I did not detect that any species was more positively associated with open patches despite suggestions that some species (e.g., _Canthon vigilans_, _Melanocanthon bispinatus_) prefered open habitat [@conover_phenology_2019; @nealis_habitat_1977]. This could be another sign pointing towards matrix acting as a source population, and since open habitat was much less dominant in my experimental system beetles could be moving into patches from habitat edge. 
 
 <!-- Paragraph 5: Beetle Biomass  -->
 
-**[Paragraph 6: biomass]** The patterns in dung beetle biomass largeley echo the ones for richness and abundnace,. these have potential implications for ecosystem functioning. PS might want to add someting to the Future directions about "Interestingly, dung beetles appear to be an exception to the globally and taxonomically robust rule that abundance  is negatively correlated with individual biomass....
+The patterns in dung beetle biomass largely echo what we observed for abundance. Although biomass is understood to be positively associated with dung removal [@WOS:000287168100017], dung beetle species vary greatly in terms of morphology and functionality [@ospina-garces_dung_2018] so evaluating species-specific patterns is particularly important. Because of this we can expect that the magnitude of removal might be greater in areas of larger biomass (i.e. matrix or connected patches), however future work should aim to directly measure this potential pattern. Indeed comparing the biomass of different species emphasizes the morphological variability between our study species - some of the most common species (e.g., *Ateuchus lecontei*, *Aphodius allobloackburneus*) contribute very little to total biomass (Figure \@ref(fig:sp-bmass)). In addition to this, dung beetles appear to be an exception to the globally and taxonomically robust rule that abundance is negatively correlated with individual biomass [@white_relationships_2007]. More intensive sampling could determine whether this trend is truly apparent.  
 
 <!-- Paragraph 6: Our results largely echo/constrast with previous ones from the SRS and elsewhere  -->
 
-Despite ample work documenting their ecological importance, there is a surprising lack of research on dung beetle diversity and corridors outside of the tropics [@nichols_global_2007], with any work in temperate locations coming from Europe where _Aphodius_ beetles dominate [@roslin_distribution_2001]. Many studies in the tropics have found patterns of habitat preference between open fields and continuous forest similar to what I did in this study [@WOS:000349242000004], and some work that found that forest species were using living fences as corridors [@arellano_response_2008]. However, differences in composition were much more distinctly different with some species being exclusive to habitat types unlike I see in this paper. Of the limited work out of the south eastern United States I did recover assemblages similar to other work [@conover_phenology_2019; @nealis_habitat_1977], and even returned results similar to another study where differences between treatment types were non-significant while variation on a larger scale was more apparent [@young_dung_2023]. In comparison to other studies from SRS my results were similar to those of small mammals which were more likely to be using matrix land [@mabry_influence_2003]. I did expect some species to be more dominant in patches with higher edge ratios as was found with ants at SRS [@resasco_landscape_2014], but species were evenly present in all patches. 
+Despite ample work documenting their ecological importance, there is a surprising lack of research on dung beetle diversity and corridors outside of the tropics [@nichols_global_2007], with work in temperate locations coming primarily from Europe where _Aphodius_ beetles dominate [@roslin_distribution_2001]. Many studies conducted in the tropics found strong preference by some species for open fields vs. continuous forest [@WOS:000349242000004], while othersfound that forest species were using living fences as corridors [@arellano_response_2008]. I did not observe such intense habitat specificity, which may not be especially common outside of the tropics. I found similar patterns of community composition as did the small number of prior dung beetle biodiversity surveys conducted in the southeastern United States [@conover_phenology_2019; @nealis_habitat_1977], including at least one more where differences between treatment types were non-significant while variation on a larger scale was more apparent [@young_dung_2023]. I did expect some species to be more dominant in patches with higher edge ratios as was found with ants at SRS [@resasco_landscape_2014], but species were evenly present in all patches. 
 
 <!-- Paragraph 7: spatial scale of experimental plots vs. dung detectability  -->
 
 **[Paragraph 7: spatial scale of experimental plots vs. dung detectability]** 
 
-Finally, it is important to emphasize that while dung beetles are capable of long distance flight and detecting dung at distances of over 50 meters *gray*, the results I observed are likely the result of a mismatch between the spatial scale of the experimental replicates and dung beetle movement. Put another way, some beetles were almost certainly drawn by the dung used in baits from the matrix into the plots. If this were a big effect we'd expect all plots to be similar to the matrix, or at least to each other. The fact that rectangular are lower suggests that some sort of landscape effect is apparent, likely related to habitat edge since connected and winged patches were the most similar. 
+Finally, it is important to emphasize that while dung beetles are capable of long distance flight and detecting dung at distances of over 50 meters [@WOS:000707546700001], the results I observed are likely the result of a mismatch between the spatial scale of the experimental replicates and dung beetle movement. Put another way, some beetles were almost certainly drawn by the dung used in baits from the matrix into the plots. If this were an overarching effect we'd expect all plots to be similar to the matrix, or at least to each other. The fact that rectangular are have lower abundance suggests that some sort of landscape effect is apparent, likely related to habitat edge since connected and winged patches were the most similar. To remedy this issue any future work in this site should either focus solely on dung beetles with more limited dispersal ability or consider conducting mark-release-recapture experiments in an attempt to document movements within and between patches.  
 
 <!-- Paragraph 7: Caveats -->
 
@@ -736,11 +747,56 @@ knitr::include_graphics("images/total_abund.png")
 
 ```
 
-```{r, label = abundance, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Average abundance of the top 6 most abundant species by patch type.", out.width="70%", fig.align='center'}
+```{r spcodes}
+
+sp_code_table<-data.frame(sp_code=c("aaeg", "cvig", "dcar", "open", "pign", "alec"))
+species_names<-spp_codes %>% 
+  filter(sp_code%in%sp_code_table$sp_code) %>% 
+  mutate(species=tolower(species)) %>% 
+  mutate(species=paste(species=genus,species,sep=" ")) %>% 
+  select(sp_code, species) %>% 
+mutate(species=paste(sp_code,species,sep=": ")) 
+species_names<-paste(species_names$species,collapse=", ")
+
+```
+
+
+```{r, label = abundance, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = paste("Average abundance of the top 6 most abundant species by patch type. Species codes: ", species_names,".",sep=""), out.width="70%", fig.align='center'}
 
 knitr::include_graphics("images/sp_abund_patch.png")
 
 ```
+
+
+
+
+```{r, label = sp-bmass, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Total dung beetle biomass collected for each species with sufficient weights.", out.width="70%", fig.align='center'}
+
+
+knitr::include_graphics("images/sp_biomass_plot.png")
+# knitr::include_graphics("images/sp_abundance_plot.png")
+# grid.arrange(p1[1], p2[1], nrow = 1)
+
+```
+
+
+```{r, label = patch-bmass, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Average total biomass by patch type with standard deviation as error bars.", out.width="70%", fig.align='center'}
+
+
+knitr::include_graphics("images/avg_bmass_patch_plot.png")
+```
+
+
+```{r, label = block-bmass, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Average total biomass by sampling block with standard deviation as error bars.", out.width="70%", fig.align='center'}
+
+
+knitr::include_graphics("images/avg_bmass_block_plot.png")
+```
+
+
+
+
+
 
 ```{r, label = richness, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle species richness in each patch type. The point shapes indicates the block in which each patch was located.", out.width="70%", fig.align='center'}
 
@@ -754,7 +810,7 @@ knitr::include_graphics("images/sp_shannon_patches.png")
 
 ```
 
-```{r, label = simpson, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle Simpson's index y patch type.", out.width="70%", fig.align='center'}
+```{r, label = simpson, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle Simpson's index by patch type.", out.width="70%", fig.align='center'}
 
 knitr::include_graphics("images/sp_simpson_patches.png")
 
@@ -844,63 +900,6 @@ spp_table
 
 <!-- ``` -->
 
-\newpage
-
-```{r bray-curtis, echo=FALSE,message = FALSE,warning=FALSE}
-btl_spec_patch<- btl_data |>
-  pivot_longer(pvin:osyl, names_to = "species", values_to = "n") |>
-  group_by(species,patch) |>
-  summarise(n=sum(n, na.rm=TRUE)) |>
-  arrange(patch,desc(n)) |>
-  pivot_wider(values_from=n,names_from=species) |>
-  mutate(patch=case_when(
-    patch == "c" ~ "Corridor",
-    patch == "m" ~ "Matrix",
-    patch == "w" ~ "Winged",
-    patch == "r" ~ "Rectangle",
-    .default = as.character(patch))) |>
-  column_to_rownames("patch")
-
-taxa_bray <- vegan::vegdist(btl_spec_patch, method = "bray", binary = FALSE)
-
-# taxa_bray
-tb<-as.matrix(taxa_bray)
-tb[lower.tri(tb)] <- 0
-tb<-as.data.frame(tb)
-tb<-tb %>% 
-  mutate_if(is.numeric, round, digits=3) %>% 
-  select(-Corridor) 
-
-row.names.remove <- c("Winged")
-tb<-tb[!(row.names(tb) %in% row.names.remove), ]
-tb[tb == 0] <- ""
-col1<-row.names(tb)
-col1<-as.data.frame(col1)
-
-tb<-bind_cols(col1,tb) %>% 
-  rename(" "=col1)
-# bray<-read_csv("~/Rstudio/corridor_beetles/corridor_docs/eric_ms_thesis/tables/bray_patches.csv") 
-# bray<-read_csv(here("corridor_docs","eric_ms_thesis","tables","bray_patches.csv")) %>% 
-  bray<-tb %>% 
-  kable(
-      digits = 3,
-      align="lcc",
-      format="latex",
-      row.names = FALSE,
-      booktabs=T,
-      linesep = "", #removes the blank line after every 5 lines
-      caption = "Bray-Curtis dissimilarity comparing composition of dung beetles between patches.") %>%
-  kable_styling(bootstrap_options = c("striped"),
-                full_width = F,
-                latex_options=c("scale_down","hold_position"),
-                font_size = 12,
-                position = "center") %>%
-  # column_spec(1, italic = T) %>%
-  row_spec(0, bold = T) %>% 
-  column_spec(1, bold = T)
-  # row_spec(1:15, hline_after = T)
-bray
-```
 
 \newpage
 
@@ -944,9 +943,9 @@ M0<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M0.csv")) %>%
   mutate(Effect=if_else(Effect=="ran_pars","Random",Effect)) %>% 
   mutate(Effect=if_else(Effect=="fixed","Fixed",Effect)) %>% 
   mutate(Group=if_else(Group=="block","Block",Group)) %>% 
-  mutate(Term=gsub("patch_type","patch type - ",Term)) %>% 
+  mutate(Term=gsub("patch_type","Patch type: ",Term)) %>% 
   mutate(Term=gsub("cor__","correlation: ",Term)) %>% 
-  mutate(Term=gsub("sd__","SD: ",Term)) %>% 
+  mutate(Term=gsub("sd__","SD ",Term)) %>% 
   mutate(Term=gsub("[.]"," x ",Term)) %>% 
   mutate(SE=round(SE,3)) %>% 
   mutate(Estimate=round(Estimate,3)) %>% 
@@ -980,6 +979,121 @@ M0<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M0.csv")) %>%
 M0
 ```
 \elandscape
+
+\newpage
+
+```{r Table-aovM51, echo=FALSE,message = FALSE,warning=FALSE}
+lmerM51<-read_csv(here("corridor_docs","eric_ms_thesis","tables","lmerM5_1.csv")) %>%
+    mutate(term=case_when(
+    term == "patchConnected" ~ "Patch: Connected",
+    term == "patchRectangle" ~ "Patch: Rectangle",
+    term == "patchWinged" ~ "Patch: Winged",
+    term == "sd__(Intercept)" ~ "SD (Intercept)",
+    term == "sd__Observation" ~ "SD (Observation)",
+    .default = as.character(term))) |>
+mutate(effect=if_else(effect=="ran_pars","Random",effect)) %>% 
+  mutate(effect=if_else(effect=="fixed","Fixed",effect)) %>% 
+  mutate(group=if_else(effect=="block","Block",group)) %>% 
+  mutate(std.error=round(std.error,3)) %>% 
+  mutate(statistic=round(statistic,3)) %>% 
+  mutate(std.error=(as.character(std.error))) %>% 
+  mutate(statistic=(as.character(statistic))) %>% 
+  replace_na(list(group="",std.error="",statistic="")) %>% 
+  rename(SE = std.error,
+         Estimate=estimate,
+         Term=term,
+         Group=group,
+         Effect=effect,
+         Statistic=statistic) %>% 
+  kable(
+      digits = 3,
+      align="lllccc",
+      format="latex",
+      row.names = FALSE,
+      booktabs=T,
+      linesep = "", #removes the blank line after every 5 lines
+      caption = "Linear mixed effects model of pooled total biomass by patch type including sampling block as a random effect.") %>%
+  kable_styling(bootstrap_options = c("striped"),
+                full_width = F,
+                latex_options=c("scale_down","hold_position"),
+                font_size = 12,
+                position = "center") %>%
+  # column_spec(1, italic = T) %>%
+  row_spec(0, bold = T)
+  # row_spec(1:15, hline_after = T)
+lmerM51
+```
+\newpage
+
+```{r Table-aovM52, echo=FALSE,message = FALSE,warning=FALSE}
+
+
+sp_code_table<-data.frame(sp_code=c("bpro", "cvig", "dcar", "mbis", "ocon", "open", "pign", "pvin"))
+species_names<-spp_codes %>% 
+  filter(sp_code%in%sp_code_table$sp_code) %>% 
+  mutate(species=tolower(species)) %>% 
+  mutate(species=paste(species=genus,species,sep=" ")) %>% 
+  select(sp_code, species) %>% 
+mutate(species=paste(sp_code,species,sep=": ")) 
+species_names<-paste(species_names$species,collapse=", ")
+
+lmerM52<-read_csv(here("corridor_docs","eric_ms_thesis","tables","lmerM5_2.csv")) %>%
+    mutate(term=case_when(
+    term == "patchConnected" ~ "Patch: Connected",
+    term == "patchRectangle" ~ "Patch: Rectangle",
+    term == "patchWinged" ~ "Patch: Winged",
+    term == "sd__(Intercept)" ~ "SD (Intercept)",
+    term == "sd__Observation" ~ "SD (Observation)",
+    .default = as.character(term))) |>
+  mutate(term=case_when(
+term == "sp_codealec" ~ "Species: alec",
+    term == "sp_codebpro" ~ "Species: bpro",
+term == "sp_codecvig" ~ "Species: bvig",
+term == "sp_codedcar" ~ "Species: dcar",
+term == "sp_codembis" ~ "Species: mbis",
+term == "sp_codeocon" ~ "Species: ocon",
+term == "sp_codeopen" ~ "Species: open",
+term == "sp_codepign" ~ "Species: pign",
+term == "sp_codepvin" ~ "Species: pvin",
+  .default = as.character(term))) |>
+  
+mutate(effect=if_else(effect=="ran_pars","Random",effect)) %>% 
+  mutate(effect=if_else(effect=="fixed","Fixed",effect)) %>% 
+  mutate(group=if_else(effect=="block","Block",group)) %>% 
+  mutate(std.error=round(std.error,3)) %>% 
+  mutate(statistic=round(statistic,3)) %>% 
+  mutate(std.error=(as.character(std.error))) %>% 
+  mutate(statistic=(as.character(statistic))) %>% 
+  replace_na(list(group="",std.error="",statistic="")) %>% 
+  rename(SE = std.error,
+         Estimate=estimate,
+         Term=term,
+         Group=group,
+         Effect=effect,
+         Statistic=statistic) %>% 
+  kable(
+      digits = 3,
+      align="lllccc",
+      format="latex",
+      row.names = FALSE,
+      booktabs=T,
+      linesep = "", #removes the blank line after every 5 lines
+      caption = paste("Linear mixed effects model of biomass by species and patch type including sampling block as a random effect. Species codes = ",species_names, sep="")
+      ) %>%
+  kable_styling(bootstrap_options = c("striped"),
+                full_width = F,
+                latex_options=c("scale_down","hold_position"),
+                font_size = 12,
+                position = "center") %>%
+  # column_spec(1, italic = T) %>%
+  row_spec(0, bold = T)
+  # row_spec(1:15, hline_after = T)
+  
+lmerM52
+```
+
+
+
 \newpage
 
 ```{r Table-aovMO3, echo=FALSE,message = FALSE,warning=FALSE}
@@ -1002,7 +1116,7 @@ aovM3<-read_csv(here("corridor_docs","eric_ms_thesis","tables","aovM3.csv")) %>%
       row.names = FALSE,
       booktabs=T,
       linesep = "", #removes the blank line after every 5 lines
-      caption = "AOV patch type effects on species abundance and interavtive term.") %>%
+      caption = "Results of an analysis of assesing the effects of species identity, patch type, and their interaction on the abundance of dung beetle species.") %>%
   kable_styling(bootstrap_options = c("striped"),
                 full_width = F,
                 latex_options=c("scale_down","hold_position"),
@@ -1018,6 +1132,18 @@ aovM3
 
 \blandscape
 ```{r Table-M3, echo=FALSE,message = FALSE,warning=FALSE}
+
+sp_code_table<-data.frame(sp_code=c("alec", "cvig", "dcar", "open", "pign"))
+species_names<-spp_codes %>% 
+  filter(sp_code%in%sp_code_table$sp_code) %>% 
+  mutate(species=tolower(species)) %>% 
+  mutate(species=paste(species=genus,species,sep=" ")) %>% 
+  select(sp_code, species) %>% 
+mutate(species=paste(sp_code,species,sep=": ")) 
+species_names<-paste(species_names$species,collapse=", ")
+
+
+
 M3<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M3.csv")) %>%
   replace_na(list(group=" ")) %>% 
   # mutate(p.value=as.character(p.value)) %>% 
@@ -1034,12 +1160,12 @@ M3<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M3.csv")) %>%
   mutate(Effect=if_else(Effect=="ran_pars","Random",Effect)) %>% 
   mutate(Effect=if_else(Effect=="fixed","Fixed",Effect)) %>% 
   mutate(Group=if_else(Group=="block","Block",Group)) %>% 
-  mutate(Term=gsub("patch_type","patch type - ",Term)) %>% 
-  mutate(Term=gsub("cor__","correlation: ",Term)) %>% 
-  mutate(Term=gsub("sd__","SD: ",Term)) %>% 
-  mutate(Term=gsub("sp_code","Species - ",Term)) %>% 
-  mutate(Term=gsub("[.]"," x ",Term)) %>% 
-  mutate(Term=gsub("[:]"," : ",Term)) %>% 
+  mutate(Term=gsub("patch_type","Patch type: ",Term)) %>% 
+  mutate(Term=gsub("cor__","Correlation: ",Term)) %>% 
+  mutate(Term=gsub("sd__","SD ",Term)) %>% 
+  mutate(Term=gsub("sp_code","Species: ",Term)) %>% 
+  # mutate(Term=gsub("[.]"," x ",Term)) %>% 
+  mutate(Term=gsub(":P"," x P",Term)) %>% 
   mutate(SE=round(SE,3)) %>% 
   mutate(Estimate=round(Estimate,3)) %>% 
   mutate(Statistic=round(Statistic,3)) %>% 
@@ -1062,7 +1188,7 @@ M3<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M3.csv")) %>%
       row.names = FALSE,
       booktabs=T,
       linesep = "", #removes the blank line after every 5 lines
-      caption = "M3 patch type effects on species abundance of top 6 most abundant speceies and interactive term for patch type and species ID.") %>%
+      caption = "Generalized linear mixed model of abundance by patch type of the 6 most abundant species and interaction term for patch type and species including sampling block as a random effect.") %>%
   kable_styling(bootstrap_options = c("striped"),
                 full_width = F,
                 latex_options=c("scale_down","hold_position"),
@@ -1079,10 +1205,10 @@ M3
 ```{r Table-M-rich, echo=FALSE,message = FALSE,warning=FALSE}
 M_rich<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M_rich.csv")) %>%
    mutate(term=case_when(
-    term == "patch_typeMatrix" ~ "Patch Type - Matrix",
-    term == "patch_typeRectangle" ~ "Patch Type - Rectangle",
-    term == "patch_typeWinged" ~ "Patch Type - Winged",
-    term == "patch_typeConnected" ~ "Patch Type - Connected",
+    term == "patch_typeMatrix" ~ "Patch Type: Matrix",
+    term == "patch_typeRectangle" ~ "Patch Type: Rectangle",
+    term == "patch_typeWinged" ~ "Patch Type: Winged",
+    term == "patch_typeConnected" ~ "Patch Type: Connected",
     .default = as.character(term))) |>
   rename(P=p.value,
          SE = std.error,
@@ -1111,7 +1237,7 @@ M_rich<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M_rich.csv")) %
       row.names = FALSE,
       booktabs=T,
       linesep = "", #removes the blank line after every 5 lines
-      caption = "Richness Model") %>%
+      caption = "Linear mixed effects model of species richness by patch type.") %>%
   kable_styling(bootstrap_options = c("striped"),
                 full_width = F,
                 latex_options=c("scale_down","hold_position"),
@@ -1141,9 +1267,10 @@ M_shan<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M_shan.csv")) %
   mutate(Effect=if_else(Effect=="fixed","Fixed",Effect)) %>% 
   mutate(Group=if_else(Group=="block","Block",Group)) %>% 
   
-  mutate(Term=gsub("patch_type","patch type - ",Term)) %>% 
+  mutate(Term=gsub("patch_type","Patch type: ",Term)) %>% 
   mutate(Term=gsub("cor__","correlation: ",Term)) %>% 
-  mutate(Term=gsub("sd__","SD: ",Term)) %>% 
+  mutate(Term=gsub("sd__Observation","SD (Observation)",Term)) %>% 
+  mutate(Term=if_else(str_detect(Term,"sd__(Intercept)"),"SD (Intercept)",Term)) %>% 
   mutate(SE=round(SE,3)) %>% 
   mutate(Estimate=round(Estimate,3)) %>% 
   mutate(Statistic=round(Statistic,3)) %>% 
@@ -1152,6 +1279,8 @@ M_shan<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M_shan.csv")) %
 
   replace_na(list(SE="",Statistic="")) %>% 
   
+
+
   # need to round numbers above to 4, convert to character, then na_replace
   # replace_na(list(group=" ", std.error="",statistic=" ",p.value = "")) %>% 
 # M_shan<-read_csv("~/Rstudio/corridor_beetles/corridor_docs/eric_ms_thesis/tables/M_shan.csv") %>% 
@@ -1162,7 +1291,7 @@ M_shan<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M_shan.csv")) %
       row.names = FALSE,
       booktabs=T,
       linesep = "", #removes the blank line after every 5 lines
-      caption = "Shannon Diversity Model") %>%
+      caption = "Linear mixed effects model of Shannon Diversity by patch type.") %>%
   kable_styling(bootstrap_options = c("striped"),
                 full_width = F,
                 latex_options=c("scale_down","hold_position"),
@@ -1191,9 +1320,9 @@ M_simp<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M_simp.csv")) %
   mutate(Effect=if_else(Effect=="fixed","Fixed",Effect)) %>% 
   mutate(Group=if_else(Group=="block","Block",Group)) %>% 
   
-  mutate(Term=gsub("patch_type","patch type - ",Term)) %>% 
+  mutate(Term=gsub("patch_type","Patch type: ",Term)) %>% 
   mutate(Term=gsub("cor__","correlation: ",Term)) %>% 
-  mutate(Term=gsub("sd__","SD: ",Term)) %>% 
+  mutate(Term=gsub("sd__(Intercept)","SD (Intercept)",Term)) %>% 
   mutate(SE=round(SE,3)) %>% 
   mutate(Estimate=round(Estimate,3)) %>% 
   mutate(Statistic=round(Statistic,3)) %>% 
@@ -1213,7 +1342,7 @@ M_simp<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M_simp.csv")) %
       row.names = FALSE,
       booktabs=T,
       linesep = "", #removes the blank line after every 5 lines
-      caption = "Simpson's Index Model") %>%
+      caption = "Linear mixed effects model of Simpson's Diversity by patch type.") %>%
   kable_styling(bootstrap_options = c("striped"),
                 full_width = F,
                 latex_options=c("scale_down","hold_position"),
