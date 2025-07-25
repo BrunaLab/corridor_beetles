@@ -566,15 +566,15 @@ Overall, I collected N = `r total_N` dung beetles (N = `r n_corr` in Connected p
 
 ### Dung Beetle Abundance
 
-When comparing the overall abundance of beetles (all species combined) across patch types, matrix plots had the highest captures, followed by connected patches, then winged, with the fewest in rectangular patches. Abundances from connected patches were not significantly different from those in the matrix while rectangle and winged patches had significantly fewer than the matrix ($\beta$ = -0.528 and -0.303 respectively, P \< 0.001, Table 4). 
+When comparing the overall abundance of beetles (all species combined) across patch types, matrix plots had the highest captures, followed by connected patches, then winged, with the fewest in rectangular patches (Figure 4). Abundances from connected patches were not significantly different from those in the matrix while rectangle and winged patches had significantly fewer than the matrix ($\beta$ = -0.528 and -0.303 respectively, P \< 0.001, Table 2). 
 
-Statistical analysis of abundance focused on the six most abundant species. A generalized linear mixed model identified significant effects for both species ID and patch type on dung beetle abundance (Table 7). The baseline abundance corresponds to the abundance of *Aphodius alloblackburneus* in matrix patches. Compared to this baseline, results were highly variable, emphasizing species specific responses to patch type. Similarly, species showed to have disproportionate responses to patch since interaction terms varied widely (Table 6).
+Statistical analysis of abundance focused on the six most abundant species. A generalized linear mixed model identified significant effects for both species ID and patch type on dung beetle abundance (Table 6). The baseline abundance corresponds to the abundance of *Aphodius alloblackburneus* in matrix patches. Compared to this baseline, results were highly variable, emphasizing species specific responses to patch type. Similarly, species showed to have disproportionate responses to patch since interaction terms varied widely (Table 6).
 
 ### Dung Beetle Richness and Diversity
 
-Plotting species richness by patch type reveals consistent richness across patch types with some variation between sampling blocks (Figure 5).The number of species per patch varied from N = 8 (rectangle patch in block 8) to N = 13 (matrix patch in block 53N). Modeling the effect of patch type on species richness with block as a random effect determined there was no significant differences among patch types. Comparing treatments using matrix patches as a baseline resulted in no significant differences in connected ($\beta$ = 0.216, p = 0.839; Table 7), rectangle ($\beta$ = -0.548, p = 0.583; Table 7), and winged patches ($\beta$ = -0.095, p = 0.663; Table 7).
+Plotting species richness by patch type reveals consistent richness across patch types with some variation between sampling blocks (Figure 9).The number of species per patch varied from N = 8 (rectangle patch in block 8) to N = 13 (matrix patch in block 53N). Modeling the effect of patch type on species richness with block as a random effect determined there was no significant differences among patch types. Comparing treatments using matrix patches as a baseline resulted in no significant differences in connected ($\beta$ = 0.216, p = 0.839; Table 7), rectangle ($\beta$ = -0.548, p = 0.583; Table 7), and winged patches ($\beta$ = -0.095, p = 0.663; Table 7).
 
-Biodiversity was also even among patch types, however metric values were varied by sampling blocks. For Shannon Diversity, the estimated mean in matrix patches was 5.202 (SE = 0.665, t = 7.825). None of the alternative patch types showed statistically significant differences compared to matrix: connected ($\beta$ = –0.085, SE = 0.495, t = 0.17), rectangle ($\beta$ = 0.234, SE = 0.495, t = 0.472), or winged ($\beta$ = –0.251, SE = 0.495, t = –0.506). Similarly, for Simpson's Diversity, the average value in matrix patches was 4.181 (SE = 0.640, t = 6.535). Again, none of the other patch types had significant effects: matrix ($\beta$ = -0.107, SE = 0.411, t = -0.259), rectangle ($\beta$ = 0.059, SE = 0.411, t = 0.143), and winged ($\beta$ = –0.480, SE = 0.411, t = –1.169).
+Biodiversity was also even among patch types, however metric values were varied by sampling blocks (Figure 10). For Shannon Diversity, the estimated mean in matrix patches was 5.202 (SE = 0.665, t = 7.825; Table 8). None of the alternative patch types showed statistically significant differences compared to matrix: connected ($\beta$ = –0.085, SE = 0.495, t = 0.17; Table 8), rectangle ($\beta$ = 0.234, SE = 0.495, t = 0.472; Table 8), or winged ($\beta$ = –0.251, SE = 0.495, t = –0.506; Table 8). Similarly, Simpson's Diversity values were fairly even (Figure 11), the average value in matrix patches was 4.181 (SE = 0.640, t = 6.535; Table 9). Again, none of the other patch types had significant effects: matrix ($\beta$ = -0.107, SE = 0.411, t = -0.259; Table 9), rectangle ($\beta$ = 0.059, SE = 0.411, t = 0.143; Table 9), and winged ($\beta$ = –0.480, SE = 0.411, t = –1.169; Table 9).
 
 ### Dung Beetle Biomass
 
@@ -777,7 +777,7 @@ knitr::include_graphics("images/sp_abund_patch.png")
 
 
 
-```{r, label = sp-bmass, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "LEGEND", out.width="70%", fig.align='center'}
+```{r, label = sp-bmass, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Total dung beetle biomass collected for each species with sufficient weights.", out.width="70%", fig.align='center'}
 
 
 knitr::include_graphics("images/sp_biomass_plot.png")
@@ -787,14 +787,14 @@ knitr::include_graphics("images/sp_biomass_plot.png")
 ```
 
 
-```{r, label = patch-bmass, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "LEGEND", out.width="70%", fig.align='center'}
+```{r, label = patch-bmass, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Average total biomass by patch type with standard deviation as error bars.", out.width="70%", fig.align='center'}
 
 
 knitr::include_graphics("images/avg_bmass_patch_plot.png")
 ```
 
 
-```{r, label = block-bmass, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "LEGEND", out.width="70%", fig.align='center'}
+```{r, label = block-bmass, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Average total biomass by sampling block with standard deviation as error bars.", out.width="70%", fig.align='center'}
 
 
 knitr::include_graphics("images/avg_bmass_block_plot.png")
@@ -907,63 +907,6 @@ spp_table
 
 <!-- ``` -->
 
-\newpage
-
-```{r bray-curtis, echo=FALSE,message = FALSE,warning=FALSE}
-btl_spec_patch<- btl_data |>
-  pivot_longer(pvin:osyl, names_to = "species", values_to = "n") |>
-  group_by(species,patch) |>
-  summarise(n=sum(n, na.rm=TRUE)) |>
-  arrange(patch,desc(n)) |>
-  pivot_wider(values_from=n,names_from=species) |>
-  mutate(patch=case_when(
-    patch == "c" ~ "Corridor",
-    patch == "m" ~ "Matrix",
-    patch == "w" ~ "Winged",
-    patch == "r" ~ "Rectangle",
-    .default = as.character(patch))) |>
-  column_to_rownames("patch")
-
-taxa_bray <- vegan::vegdist(btl_spec_patch, method = "bray", binary = FALSE)
-
-# taxa_bray
-tb<-as.matrix(taxa_bray)
-tb[lower.tri(tb)] <- 0
-tb<-as.data.frame(tb)
-tb<-tb %>% 
-  mutate_if(is.numeric, round, digits=3) %>% 
-  select(-Corridor) 
-
-row.names.remove <- c("Winged")
-tb<-tb[!(row.names(tb) %in% row.names.remove), ]
-tb[tb == 0] <- ""
-col1<-row.names(tb)
-col1<-as.data.frame(col1)
-
-tb<-bind_cols(col1,tb) %>% 
-  rename(" "=col1)
-# bray<-read_csv("~/Rstudio/corridor_beetles/corridor_docs/eric_ms_thesis/tables/bray_patches.csv") 
-# bray<-read_csv(here("corridor_docs","eric_ms_thesis","tables","bray_patches.csv")) %>% 
-  bray<-tb %>% 
-  kable(
-      digits = 3,
-      align="lcc",
-      format="latex",
-      row.names = FALSE,
-      booktabs=T,
-      linesep = "", #removes the blank line after every 5 lines
-      caption = "Bray-Curtis dissimilarity comparing composition of dung beetles between patches.") %>%
-  kable_styling(bootstrap_options = c("striped"),
-                full_width = F,
-                latex_options=c("scale_down","hold_position"),
-                font_size = 12,
-                position = "center") %>%
-  # column_spec(1, italic = T) %>%
-  row_spec(0, bold = T) %>% 
-  column_spec(1, bold = T)
-  # row_spec(1:15, hline_after = T)
-bray
-```
 
 \newpage
 
@@ -1076,7 +1019,7 @@ mutate(effect=if_else(effect=="ran_pars","Random",effect)) %>%
       row.names = FALSE,
       booktabs=T,
       linesep = "", #removes the blank line after every 5 lines
-      caption = "FILL IN CAPTION TOTAL BIOMASS BY PATCH ALL POOLED.") %>%
+      caption = "Linear mixed effects model of pooled total biomass by patch type including sampling block as a random effect.") %>%
   kable_styling(bootstrap_options = c("striped"),
                 full_width = F,
                 latex_options=c("scale_down","hold_position"),
@@ -1142,7 +1085,7 @@ mutate(effect=if_else(effect=="ran_pars","Random",effect)) %>%
       row.names = FALSE,
       booktabs=T,
       linesep = "", #removes the blank line after every 5 lines
-      caption = paste("FILL IN CAPTION BIOMASS by SP AND PATCH. Species codes = ",species_names, sep="")
+      caption = paste("Linear mixed effects model of biomass by species and patch type including sampling block as a random effect. Species codes = ",species_names, sep="")
       ) %>%
   kable_styling(bootstrap_options = c("striped"),
                 full_width = F,
@@ -1180,7 +1123,7 @@ aovM3<-read_csv(here("corridor_docs","eric_ms_thesis","tables","aovM3.csv")) %>%
       row.names = FALSE,
       booktabs=T,
       linesep = "", #removes the blank line after every 5 lines
-      caption = "AOV patch type effects on species abundance and interavtive term.") %>%
+      caption = "AOV patch type effects on species abundance and interactive term.") %>%
   kable_styling(bootstrap_options = c("striped"),
                 full_width = F,
                 latex_options=c("scale_down","hold_position"),
@@ -1252,7 +1195,7 @@ M3<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M3.csv")) %>%
       row.names = FALSE,
       booktabs=T,
       linesep = "", #removes the blank line after every 5 lines
-      caption = "Effects of patch type on the abundance of the 6 most abundant species and interaction term for patch type and species.") %>%
+      caption = "Generalized linear mixed model of abundance by patch type of the 6 most abundant species and interaction term for patch type and species including sampling block as a random effect.") %>%
   kable_styling(bootstrap_options = c("striped"),
                 full_width = F,
                 latex_options=c("scale_down","hold_position"),
@@ -1301,7 +1244,7 @@ M_rich<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M_rich.csv")) %
       row.names = FALSE,
       booktabs=T,
       linesep = "", #removes the blank line after every 5 lines
-      caption = "Richness Model") %>%
+      caption = "Linear mixed effects model of species richness by patch type.") %>%
   kable_styling(bootstrap_options = c("striped"),
                 full_width = F,
                 latex_options=c("scale_down","hold_position"),
@@ -1355,7 +1298,7 @@ M_shan<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M_shan.csv")) %
       row.names = FALSE,
       booktabs=T,
       linesep = "", #removes the blank line after every 5 lines
-      caption = "Shannon Diversity Model") %>%
+      caption = "Linear mixed effects model of Shannon Diversity by patch type.") %>%
   kable_styling(bootstrap_options = c("striped"),
                 full_width = F,
                 latex_options=c("scale_down","hold_position"),
@@ -1406,7 +1349,7 @@ M_simp<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M_simp.csv")) %
       row.names = FALSE,
       booktabs=T,
       linesep = "", #removes the blank line after every 5 lines
-      caption = "Simpson's Index Model") %>%
+      caption = "Linear mixed effects model of Simpson's Diversity by patch type.") %>%
   kable_styling(bootstrap_options = c("striped"),
                 full_width = F,
                 latex_options=c("scale_down","hold_position"),
