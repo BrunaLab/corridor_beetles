@@ -65,6 +65,21 @@ rename(sp_code=species) %>%
   mutate(species=tolower(species)) %>% 
   mutate(species=paste(genus, species, sep=" ")) 
 
+
+
+# figure of indiv biomass vs abund ----------------------------------------
+
+# are the largest species the least common?
+
+
+
+# Basic scatter plot.
+p1 <- ggplot(biomass_per_spp, aes(x=avg_ind_bmass, y=n)) + 
+  geom_point( color="navyblue") +
+  geom_smooth(method=lm , color="black", se=TRUE) +
+  theme_classic()
+labs(x="Species",y="Total biomass collected")+
+
 sp_biomass_plot<-
 ggplot(biomass_per_spp, 
        aes(
@@ -198,7 +213,7 @@ avg_bmass_block_plot<-
   ) + 
   geom_errorbar(aes(x=block, ymin=avg_bm-sd_bm, ymax=avg_bm+sd_bm), 
                 width=0.2, colour="black", alpha=0.9, size=0.5) +
-  labs(x="Patch Type",y= "Biomass (Mean ± SD)")+
+  labs(x="Block",y= "Biomass (Mean ± SD)")+
   geom_bar(stat = "identity")+
   theme_classic() 
 
