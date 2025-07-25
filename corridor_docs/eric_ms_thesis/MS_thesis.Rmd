@@ -83,19 +83,19 @@ bibliography: ["eric-thesis.bib"]
 #    number_sections: true
 #    fig_caption: true
 #classoption: 12pt
-output: bookdown::word_document2
+# output: bookdown::word_document2
 # output: word_document
 # output: html_document
 
 
-# output: bookdown::pdf_document2
-  # pdf_document:
-  #   includes:
-  #     # in_header: style/preamble.tex
-  #     template: null
-  #     keep_tex: no
-  #     extra_dependencies: ["float"]
-      # number_sections: true
+output: bookdown::pdf_document2
+pdf_document:
+  includes:
+    # in_header: style/preamble.tex
+    template: null
+    keep_tex: no
+    extra_dependencies: ["float"]
+    number_sections: true
 # documentclass: style/nsf2
 biblio-style: apalike
 csl: ecology.csl
