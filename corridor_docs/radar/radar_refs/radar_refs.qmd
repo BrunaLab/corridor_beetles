@@ -1,0 +1,12 @@
+---
+title: "radar refs"
+format: html
+bibliography: "`r here::here('insect_radar.bib')`"
+
+---
+
+<!-- csl: "`r here::here('corridor_docs', 'eric_ms_thesis', 'ecology.csl')`" -->
+---
+nocite: |
+  @*
+---

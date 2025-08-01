@@ -1,0 +1,80 @@
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+[H]
+
+{\centering \includegraphics[width=0.7\linewidth,]{images/total_abund}
+
+}
+
+\caption{Average total dung beetle abundance by patch type with standard deviations as error bars.}\label{fig:patch}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+[H]
+
+{\centering \includegraphics[width=0.7\linewidth,]{images/sp_abund_patch}
+
+}
+
+\caption{Average abundance of the top 6 most abundant species by patch type. Species codes: alec: Ateuchus lecontei, cvig: Canthon vigilans, dcar: Dichotomius carolinus, open: Onthophagus pennsylvanicus, pign: Phanaeus igneus, aaeg: Aphodius alloblackburneus.}\label{fig:abundance}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+[H]
+
+{\centering \includegraphics[width=0.7\linewidth,]{images/sp_biomass_plot}
+
+}
+
+\caption{Total dung beetle biomass collected for each species with sufficient weights.}\label{fig:sp-bmass}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+[H]
+
+{\centering \includegraphics[width=0.7\linewidth,]{images/avg_bmass_patch_plot}
+
+}
+
+\caption{Average total biomass by patch type with standard deviation as error bars.}\label{fig:patch-bmass}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+[H]
+
+{\centering \includegraphics[width=0.7\linewidth,]{images/avg_bmass_block_plot}
+
+}
+
+\caption{Average total biomass by sampling block with standard deviation as error bars.}\label{fig:block-bmass}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+[H]
+
+{\centering \includegraphics[width=0.7\linewidth,]{images/sp_richness_patches}
+
+}
+
+\caption{Dung beetle species richness in each patch type. The point shapes indicates the block in which each patch was located.}\label{fig:richness}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+[H]
+
+{\centering \includegraphics[width=0.7\linewidth,]{images/sp_shannon_patches}
+
+}
+
+\caption{Dung beetle Shannon diversity by patch type.}\label{fig:shannon}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+[H]
+
+{\centering \includegraphics[width=0.7\linewidth,]{images/sp_simpson_patches}
+
+}
+
+\caption{Dung beetle Simpson's index by patch type.}\label{fig:simpson}
+\end{figure*}

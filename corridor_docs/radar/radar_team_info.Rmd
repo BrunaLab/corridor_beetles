@@ -1,0 +1,89 @@
+---
+title: "radar team ufl"
+author: "Emilio M. Bruna"
+date: "2024-04-18"
+output: html_document
+bibliography: "`r here::here('corridor_docs', 'radar','radar_refs','insect_radar.bib')`"
+csl: "`r here::here('corridor_docs', 'eric_ms_thesis', 'ecology.csl')`"
+---
+
+
+---
+nocite: |
+  @*
+---
+
+---
+# Personnel 
+
+## Entomology
+[Norman C. Leppla](https://entnemdept.ufl.edu/people-directory/norm-leppla/)
+
+[Isaac Esquivel](https://nfrec.ifas.ufl.edu/faculty-directory/isaac-esquivel/)
+William Piwowarek (MS Student) 
+
+## Agronomy
+[Marcelo Wallau](https://agronomy.ifas.ufl.edu/people/marcelo-wallau/)
+
+## Department of Agricultural and Biological Engineering
+[Jasmeet Judge](https://abe.ufl.edu/people/faculty/jasmeet-judge/)
+
+## Electrical and Computer Engineering
+[Tan Wong](https://wong.ece.ufl.edu/)
+David Greene (Ph.D. student) 
+
+# Meeting 30 September
+
+technically a bis-static radar because there are 2 antennas. Will be using a digital system to send digitally modified waverform received by a digital 
+
+Called harmonic because transmitted at 9 gigahertz and retransmitted at quite that. 
+
+Need a power receiver because signal is weak. 5 m tower height, 0.5 km range
+
+
+How plants and animals move is at the core of ecological theory and central to conservation -  I cannot overemphasize how important it is - and yet for the most of the planets species it is a total mystery because they're just too small for the existing methods and technologies. You are working on one of the holy grails of ecology.
+
+Ability to add lidar is incredibly exciting because we could relate habitat structure to animal movements. This would be a great add-in to a potential NSF grant
+
+
+# Potential NSF applications
+
+NSF 23-578: Research Resources Cluster (Innovation: Instrumentation)
+
+_"The Instrumentation Programmatic Area supports the design of novel and innovative instrumentation and associated methods that address a clearly defined gap in biologists’ ability to capture observations of biological phenomena and that have the potential to be broadly applicable in biology. Proposed projects may include instrumentation for observing any level of biological phenomena (e.g., molecular, cellular, organismal, ecosystem, biome), and may propose either new and innovative instrumentation; instrumentation that significantly improves the accuracy, resolution, or throughput of data capture; or advancements that reduce costs of instrument construction or operation."_
+
+Recent Awards from this solicitation:  [link](https://www.nsf.gov/awardsearch/advancedSearchResult?ProgEleCode=165Y&BooleanElement=Any&BooleanRef=Any&ActiveAwards=true#results)
+
+## Grant meeting 7 october 2024
+
+1. IFAS grant to visit agency contacts
+
+1. 1 page summary to NSF PO
+
+
+Questions for PO:
+
+- better as an EAGER?
+
+
+main difference - working on an elecrtronically sterable array onstead of mechanical array (italian just keeops spinning lokoing for signal - this is not a bvery durable or desirable feature). An eletronically receivable array doesnt require movement. Electronically receivable at this frequency are not uncommon, but they are used to track bigger things and are more powerful (signal). Possibility is also that could be able to track multiple simultanously. (whether practicval or doable is a sepoerate question).
+
+EB question how would this be better for me as a biologist: smaller? cheaper?
+
+A from Tan Wong: what others have built is very specialized, not an "easy-to-follow" recepie
+
+Our group's goal is to make it more portable, more user-friendly, easier to set-up and maintain.
+
+
+
+
+Bees carry 25% of weight in pollen, so think of  
+
+processing of high volume data stream, models 
+
+main probelm - vegetation penetration, At this frequeny,. radar signal could not penetrate. If you want to be use. a frequency that is more powerfiul. not just power *(spatial respolution isw based on bandwidth, how far you can go, propagatilon environment of radar signal). regulatory problem (FCC) too - need to be in differnt bands  only allowed to transmit in certain bands.Certain bands we dont need lisence to operate on (wifi, blue tooth) but these are hevily congested. The amount of power we expect to be reflected from transponder. Probably no hope to use these bands due to how polluted they are. Bands chosen are based on italian paper, You can aappl;y for the bands (like we did) at certain sites. Can emphasize this is something you can do at fuled stations that will become center for research in the topic.
+
+
+
+
+Doing this in forest is a bigger 
