@@ -1,0 +1,230 @@
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+[!h]
+\centering
+\caption{\label{tab:summary-table}Dung beetle species sampled in the SRS site and their total abundance over the course of the study.}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\fontsize{12}{14}\selectfont
+\begin{tabular}[t]{>{}lcrcccc}
+\toprule
+\textbf{Species} & \textbf{Guild} & \textbf{N} & \textbf{Matrix} & \textbf{Corridor} & \textbf{Winged} & \textbf{Rectangular}\\
+\midrule
+\em{Canthon vigilans} & roll & 1473 & x & x & x & x\\
+\em{Ateuchus lecontei} & tunnell & 1115 & x & x & x & x\\
+\em{Phanaeus igneus} & tunnell & 958 & x & x & x & x\\
+\em{Dichotomius carolinus} & tunnell & 556 & x & x & x & x\\
+\em{Aphodius alloblackburneus} & dwell & 585 & x & x & x & x\\
+\em{Onthophagus pennsylvanicus} & tunnell & 207 & x & x & x & x\\
+\em{Melanocanthon bispinatus} & roll & 83 & x & x & x & x\\
+\em{Phanaeus vindex} & tunnell & 133 & x & x & x & x\\
+\em{Boreocanthon probus} & roll & 47 & x & x & x & x\\
+\em{Copris minutus} & tunnell & 24 & x & x & x & x\\
+\em{Deltochilum gibbosum} & roll & 14 & x & x & x & x\\
+\em{Aphodius oximus} & dwell & 11 & x & x & x & x\\
+\em{Geotrupes blackburnii} & tunnell & 1 &  &  & x & \\
+\em{Onthophagus concinnus} & tunnell & 2 & x &  & x & \\
+\em{Onthophagus striatulus} & tunnell & 3 & x &  &  & x\\
+\em{Onthophagus tuberculifrons} & tunnell & 1 & x &  &  & \\
+\bottomrule
+\end{tabular}}
+\end{table*}
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+[!h]
+\centering
+\caption{\label{tab:Table-MO}Model of species abundance by patch type.}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\fontsize{12}{14}\selectfont
+\begin{tabular}[t]{lcclccl}
+\toprule
+\textbf{Effect} & \textbf{Group} & \textbf{Term} & \textbf{Estimate} & \textbf{SE} & \textbf{Statistic} & \textbf{P}\\
+\midrule
+Fixed &  & (Intercept) & 5.896 & 0.294 & 20.062 & < 0.001\\
+Fixed &  & Patch type: Connected & -0.125 & 0.139 & -0.9 & 0.368\\
+Fixed &  & Patch type: Rectangle & -0.528 & 0.107 & -4.919 & < 0.001\\
+Fixed &  & Patch type: Winged & -0.303 & 0.072 & -4.188 & < 0.001\\
+Random & Block & SD (Intercept) & 0.585 &  &  & \\
+Random & Block & correlation: (Intercept) x Patch type: Connected & -0.932 &  &  & \\
+Random & Block & correlation: (Intercept) x Patch type: Rectangle & -0.744 &  &  & \\
+Random & Block & correlation: (Intercept) x Patch type: Winged & -0.967 &  &  & \\
+Random & Block & SD Patch type: Connected & 0.266 &  &  & \\
+Random & Block & correlation: Patch type: Connected x Patch type: Rectangle & 0.865 &  &  & \\
+Random & Block & correlation: Patch type: Connected x Patch type: Winged & 0.816 &  &  & \\
+Random & Block & SD Patch type: Rectangle & 0.194 &  &  & \\
+Random & Block & correlation: Patch type: Rectangle x Patch type: Winged & 0.653 &  &  & \\
+Random & Block & SD Patch type: Winged & 0.116 &  &  & \\
+\bottomrule
+\end{tabular}}
+\end{table*}
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+[!h]
+\centering
+\caption{\label{tab:Table-aovM51}Linear mixed effects model of pooled total biomass by patch type including sampling block as a random effect.}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\fontsize{12}{14}\selectfont
+\begin{tabular}[t]{lllccc}
+\toprule
+\textbf{Effect} & \textbf{Group} & \textbf{Term} & \textbf{Estimate} & \textbf{SE} & \textbf{Statistic}\\
+\midrule
+Fixed &  & (Intercept) & 61.593 & 17.199 & 3.581\\
+Fixed &  & Patch: Connected & -7.337 & 8.659 & -0.847\\
+Fixed &  & Patch: Rectangle & -23.296 & 8.659 & -2.69\\
+Fixed &  & Patch: Winged & -9.608 & 8.659 & -1.11\\
+Random & block & SD (Intercept) & 32.145 &  & \\
+Random & Residual & SD (Observation) & 12.246 &  & \\
+\bottomrule
+\end{tabular}}
+\end{table*}
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+[!h]
+\centering
+\caption{\label{tab:Table-aovM52}Linear mixed effects model of biomass by species and patch type including sampling block as a random effect. Species codes = bpro: Boreocanthon probus, cvig: Canthon vigilans, dcar: Dichotomius carolinus, mbis: Melanocanthon bispinatus, ocon: Onthophagus concinnus, open: Onthophagus pennsylvanicus, pign: Phanaeus igneus, pvin: Phanaeus vindex}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\fontsize{12}{14}\selectfont
+\begin{tabular}[t]{lllccc}
+\toprule
+\textbf{Effect} & \textbf{Group} & \textbf{Term} & \textbf{Estimate} & \textbf{SE} & \textbf{Statistic}\\
+\midrule
+Fixed &  & (Intercept) & 1.047 & 2.226 & 0.471\\
+Fixed &  & Species: alec & 0.572 & 1.949 & 0.293\\
+Fixed &  & Species: bpro & 0.078 & 1.949 & 0.04\\
+Fixed &  & Species: bvig & 13.639 & 1.949 & 7\\
+Fixed &  & Species: dcar & 20.454 & 1.949 & 10.497\\
+Fixed &  & Species: mbis & 0.090 & 1.949 & 0.046\\
+Fixed &  & Species: ocon & -0.040 & 1.949 & -0.02\\
+Fixed &  & Species: open & -0.012 & 1.949 & -0.006\\
+Fixed &  & Species: pign & 14.484 & 1.949 & 7.433\\
+Fixed &  & Species: pvin & 1.853 & 1.949 & 0.951\\
+Fixed &  & Patch: Connected & -0.734 & 1.232 & -0.595\\
+Fixed &  & Patch: Rectangle & -2.330 & 1.232 & -1.89\\
+Fixed &  & Patch: Winged & -0.961 & 1.232 & -0.78\\
+Random & block & SD (Intercept) & 3.154 &  & \\
+Random & Residual & SD (Observation) & 5.511 &  & \\
+\bottomrule
+\end{tabular}}
+\end{table*}
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+[!h]
+\centering
+\caption{\label{tab:Table-aovMO3}Results of an analysis of assesing the effects of species identity, patch type, and their interaction on the abundance of dung beetle species.}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\fontsize{12}{14}\selectfont
+\begin{tabular}[t]{lccl}
+\toprule
+\textbf{Term} & \textbf{Statistic} & \textbf{df} & \textbf{P}\\
+\midrule
+Species & 1044.680 & 5 & < 0.001\\
+Patch type & 254.638 & 3 & < 0.001\\
+Species x Patch type & 110.372 & 15 & < 0.001\\
+\bottomrule
+\end{tabular}}
+\end{table*}
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+[!h]
+\centering
+\caption{\label{tab:Table-M3}Generalized linear mixed model of abundance by patch type of the 6 most abundant species and interaction term for patch type and species including sampling block as a random effect.}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\fontsize{12}{14}\selectfont
+\begin{tabular}[t]{lcclccl}
+\toprule
+\textbf{Effect} & \textbf{Group} & \textbf{Term} & \textbf{Estimate} & \textbf{SE} & \textbf{Statistic} & \textbf{P}\\
+\midrule
+Fixed &  & (Intercept) & 4.17 & 0.261 & 15.948 & < 0.001\\
+Fixed &  & Species: alec & 0.234 & 0.078 & 2.989 & 0.003\\
+Fixed &  & Species: cvig & 0.457 & 0.075 & 6.107 & < 0.001\\
+Fixed &  & Species: dcar & -0.518 & 0.096 & -5.407 & < 0.001\\
+Fixed &  & Species: open & -1.373 & 0.13 & -10.549 & < 0.001\\
+Fixed &  & Species: pign & -0.105 & 0.085 & -1.231 & 0.218\\
+Fixed &  & Patch type: Connected & -0.749 & 0.103 & -7.257 & < 0.001\\
+Fixed &  & Patch type: Rectangle & -1.487 & 0.136 & -10.913 & < 0.001\\
+Fixed &  & Patch type: Winged & -1.188 & 0.121 & -9.815 & < 0.001\\
+Fixed &  & Species: alec x Patch type: Connected & 0.495 & 0.13 & 3.809 & < 0.001\\
+Fixed &  & Species: cvig x Patch type: Connected & 0.595 & 0.124 & 4.8 & < 0.001\\
+Fixed &  & Species: dcar x Patch type: Connected & 0.567 & 0.153 & 3.715 & < 0.001\\
+Fixed &  & Species: open x Patch type: Connected & 0.573 & 0.201 & 2.852 & 0.004\\
+Fixed &  & Species: pign x Patch type: Connected & 0.761 & 0.135 & 5.636 & < 0.001\\
+Fixed &  & Species: alec x Patch type: Rectangle & 0.899 & 0.162 & 5.561 & < 0.001\\
+Fixed &  & Species: cvig x Patch type: Rectangle & 0.834 & 0.158 & 5.287 & < 0.001\\
+Fixed &  & Species: dcar x Patch type: Rectangle & 0.828 & 0.188 & 4.399 & < 0.001\\
+Fixed &  & Species: open x Patch type: Rectangle & 0.794 & 0.243 & 3.266 & 0.001\\
+Fixed &  & Species: pign x Patch type: Rectangle & 1.228 & 0.165 & 7.434 & < 0.001\\
+Fixed &  & Species: alec x Patch type: Winged & 0.819 & 0.146 & 5.611 & < 0.001\\
+Fixed &  & Species: cvig x Patch type: Winged & 0.987 & 0.14 & 7.072 & < 0.001\\
+Fixed &  & Species: dcar x Patch type: Winged & 1.02 & 0.165 & 6.182 & < 0.001\\
+Fixed &  & Species: open x Patch type: Winged & 0.41 & 0.24 & 1.711 & 0.087\\
+Fixed &  & Species: pign x Patch type: Winged & 1.037 & 0.151 & 6.853 & < 0.001\\
+Random & Block & SD (Intercept) & 0.509 &  &  & \\
+\bottomrule
+\end{tabular}}
+\end{table*}
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+[!h]
+\centering
+\caption{\label{tab:Table-M-rich}Linear mixed effects model of species richness by patch type.}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\fontsize{12}{14}\selectfont
+\begin{tabular}[t]{lcclcc}
+\toprule
+\textbf{Effect} & \textbf{Term} & \textbf{Estimate} & \textbf{SE} & \textbf{Statistic} & \textbf{P}\\
+\midrule
+Fixed & (Intercept) & 2.398 & 0.151 & 15.906 & < 0.001\\
+Fixed & Patch Type: Connected & -0.047 & 0.216 & -0.216 & 0.829\\
+Fixed & Patch Type: Rectangle & -0.121 & 0.22 & -0.548 & 0.583\\
+Fixed & Patch Type: Winged & -0.095 & 0.218 & -0.436 & 0.663\\
+\bottomrule
+\end{tabular}}
+\end{table*}
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+[!h]
+\centering
+\caption{\label{tab:Table-M-shan}Linear mixed effects model of Shannon Diversity by patch type.}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\fontsize{12}{14}\selectfont
+\begin{tabular}[t]{lcclcc}
+\toprule
+\textbf{Effect} & \textbf{Group} & \textbf{Term} & \textbf{Estimate} & \textbf{SE} & \textbf{Statistic}\\
+\midrule
+Fixed &  & (Intercept) & 5.202 & 0.665 & 7.825\\
+Fixed &  & Patch type: Connected & 0.085 & 0.495 & 0.171\\
+Fixed &  & Patch type: Rectangle & 0.234 & 0.495 & 0.472\\
+Fixed &  & Patch type: Winged & -0.251 & 0.495 & -0.506\\
+Random & Block & sd\_\_(Intercept) & 1.13 &  & \\
+Random & Residual & SD (Observation) & 0.701 &  & \\
+\bottomrule
+\end{tabular}}
+\end{table*}
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+[!h]
+\centering
+\caption{\label{tab:Table-M-simp}Linear mixed effects model of Simpson's Diversity by patch type.}
+\centering
+\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
+\fontsize{12}{14}\selectfont
+\begin{tabular}[t]{lcclcc}
+\toprule
+\textbf{Effect} & \textbf{Group} & \textbf{Term} & \textbf{Estimate} & \textbf{SE} & \textbf{Statistic}\\
+\midrule
+Fixed &  & (Intercept) & 4.181 & 0.64 & 6.535\\
+Fixed &  & Patch type: Connected & -0.107 & 0.411 & -0.259\\
+Fixed &  & Patch type: Rectangle & 0.059 & 0.411 & 0.143\\
+Fixed &  & Patch type: Winged & -0.48 & 0.411 & -1.169\\
+Random & Block & sd\_\_(Intercept) & 1.14 &  & \\
+Random & Residual & sd\_\_Observation & 0.581 &  & \\
+\bottomrule
+\end{tabular}}
+\end{table*}

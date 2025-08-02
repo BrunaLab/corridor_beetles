@@ -1,0 +1,146 @@
+---
+title: "Corridor Meeting"
+author: "Emilio M. Bruna"
+date: "`r Sys.Date()`"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# INTRODUCTORY OVERVIEW
+
+## Nick Haddad
+### Overview of the Corridor Expeoriment
+
+**Capacity Building**
+
+-   79 undergrads
+-   39 postbac scientists
+-   27 grad students
+-   9 postdocs
+
+**Overarching Question**
+
+Do corridors work for dispersal (phase 1) - Builds on a priort project
+investigating the effects of corridor *length* - Corridor project
+originally designed around 1 sp of butterfly (spicebush swallowtail) -
+corridors and wind - maybe use this to ask questions about volatiles and
+detection? - spicebush swallowtail only species that *didn't* use
+corridors
+
+Do corridors increase diversity (phase 2) - 25 years of plant diversity
+surveys - effect of fire ants on other ant species - spiders
+
+Plant population dynamics and species interactions - restoration plants
+and interactions (with Lauren Sullivan MSU) - observed depredation of
+butterflies, maybe by prayinf mantis?
+
+Outreach - Conservation Corridor - research digests - 30 x 30
+initiatives
+
+EB notes: reminds me very much of fragmentation work
+
+-   interactions & community composition, jump over population dynamics
+-   limited matrix comparisons
+
+## Lars Brudvig
+
+### The Remnant Project
+
+**Overarching question** How best to restore longleaf pine remnants?
+
+-   At SRS in 1951 most of LLP forest was cleared for ag, but there were
+    remnants, perhaps in woodlots
+-   this was followed by the largest planting effort in the world, with
+    planted forest and interspersed patches of llp
+-   remnant project: a remnant of forest adjacent to an ag field that
+    was abandoned and replanted (post ag).
+-   each of remnant and post-ag site had two plots, with in the post-ag
+    one being thinned and the other being unthinned
+-   Questions:
+    -   What are consequences of past ag land use?
+    -   what are consequences of restoration thinning treatment
+    -   can thinning ameliiorate legacies of ag land use?
+    -   to what extent can remnants serve as sources for restoration and
+        post-ag land areas?
+        
+-   Lesson 1: effects of ag history are long-lived
+    -   ag history alters plant
+        composition.
+    -   about 60 spp of plants only foundin remnant fragments even
+        though there have been decades for them to move only meters into
+        adjacent restoration areas
+    -   ag legacy on soils
+-   Lesson 2
+    - (missed)
+    
+-   Lesson 3: what limits plant colonization post ag
+    - limited seed production? In absence of thinning low flowering and seed production, much higher seed production
+    - limited seed dispersal? most of occurrence in post-ag is in seed additiona plots, with more establishment in thinning. def some limitation.
+    - establishment / persistence
+    - many plant species will manually resestablish when manually added
+    
+    
+## Ellen Damschen
+### SERDP Project: restoring the ground layer community
+
+- Brett Mattingly, John Orrick, Ellen, and Lars
+- thinking about gradients in fire history 
+- study also at ft stuart and fort liberty (formerly ft bragg)
+- how to most effectively do restoration?
+- asking about role of adding seeds relative to a bunch of other processes? 
+    - consumer exclusion
+    - elimination of competition by spraying with herbicide
+- initial: 108 sites, 30 million seeds of 25 species, veg data 2010-2013
+
+- seed addition consistently increases diversity over time
+- other ket factords seed coat, liiter depth (fire burns off), temp 
+- once established, recovered populations persist and spread
+- management can affect recovery and spread
+    - prescribed fire and thinning
+    - adding seeds
+    
+# STUDENT PRESENTATIONS
+
+## Melissa Burt (did PhD with Susan Whitehead at VTech)
+### Ants
+
+- >144K ants identified, 60+ species
+- 45% fire ants
+- spp richness increasing over time everywhere, at higher rate in connected (effect of fire ants)
+- patches with corridors have fewwr species than isolatoned and high edge patches
+- fewer species 
+EB note - has dung beetle bycatch in pitfalls
+
+## Katherine
+### PLant arthropod interactions
+
+- how do different factors influence multiple plant-arhropod interactions that can influence reproductive output: pollination, florivory, and depredation of pollinators by spiders
+- how do these factors influence pollination rate?
+
+used a founder species (_Carphephorus bellidifolius_)
+founder species = species inplanted in 2007(?) experiment where introduced into different patches in edge-interior grid pattern
+
+- observes pollinator visits for 10 min
+- collect folivores and spiders _after_ the 10 min visit
+- surveyed floral abundnace within 5 m of plant
+- collected seeds ar end of season to measure pollination rate
+
+## Thomas
+### Edge Effects, matrix, and spillover
+
+- edge effects and spilloiver
+- population density leads to spillover
+- cons of spillover - disease, predators, etc.
+- 2009 (PNAS) study by lars et al - spillover out of connected patches into matrix greater, edge dependent decreases
+- spillover driver by diversity at the patch level
+- shortly after - spillover effect
+- 2011 matrix thinned for red cockaded woodpecker
+
+## Angelica Bautista
+### Seed emergence and establishment in LLP
