@@ -58,7 +58,7 @@ note:       |
   ORCID:
     EEC: ---- |
     EB: 0000-0003-3381-8477 |
-    JR: ----- |
+    JR: 0000-0003-1605-3038 |
     
   
   
@@ -492,10 +492,6 @@ Although there is plentiful work to be done, this study paints an encouraging pi
 ::: {#refs}
 :::
 
-
-\newpage  
-
-
 ```{r summary-table, echo=FALSE,message = FALSE,warning=FALSE}
 # https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html
 
@@ -521,8 +517,10 @@ spp_table
 
 ```
 
-\newpage
-\blandscape
+\newpage  
+
+\blandscape  
+
 
 ```{r Table-MO, echo=FALSE,message = FALSE,warning=FALSE}
 M0<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M0.csv")) %>%
@@ -573,7 +571,8 @@ M0<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M0.csv")) %>%
 M0
 ```
 
-\elandscape
+\elandscape  
+
 \newpage
 
 ```{r Table-aovM51, echo=FALSE,message = FALSE,warning=FALSE}
@@ -617,10 +616,8 @@ mutate(effect=if_else(effect=="ran_pars","Random",effect)) %>%
   # row_spec(1:15, hline_after = T)
 lmerM51
 ```
-
 \newpage
-
-```{r Table-aovM52, echo=FALSE,message = FALSE,warning=FALSE}
+```{r Table-aovM52, echo=FALSE, message = FALSE, warning=FALSE}
 
 
 sp_code_table<-data.frame(sp_code=c("bpro", "cvig", "dcar", "mbis", "ocon", "open", "pign", "pvin"))
@@ -688,8 +685,9 @@ lmerM52
 ```
 
 
+\newpage  
 
-\newpage
+
 
 ```{r Table-aovMO3, echo=FALSE,message = FALSE,warning=FALSE}
 aovM3<-read_csv(here("corridor_docs","eric_ms_thesis","tables","aovM3.csv")) %>%
@@ -723,10 +721,13 @@ aovM3<-read_csv(here("corridor_docs","eric_ms_thesis","tables","aovM3.csv")) %>%
 aovM3
 ```
 
-\newpage
-\blandscape
 
-```{r Table-M3, echo=FALSE,message = FALSE,warning=FALSE}
+\newpage  
+
+
+\blandscape  
+
+```{r Table-M3, echo=FALSE, message = FALSE, warning=FALSE}
 
 sp_code_table<-data.frame(sp_code=c("alec", "cvig", "dcar", "open", "pign"))
 species_names<-spp_codes %>% 
@@ -796,7 +797,11 @@ M3
 ```
 
 \elandscape
+
+
 \newpage
+
+
 
 ```{r Table-M-rich, echo=FALSE,message = FALSE,warning=FALSE}
 M_rich<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M_rich.csv")) %>%
@@ -844,6 +849,8 @@ M_rich<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M_rich.csv")) %
   # row_spec(1:15, hline_after = T)
 M_rich
 ```
+
+
 
 \newpage
 
@@ -899,7 +906,10 @@ M_shan<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M_shan.csv")) %
 M_shan
 ```
 
-\newpage
+
+\newpage  
+
+
 
 ```{r Table-M-simp, echo=FALSE,message = FALSE,warning=FALSE}
 M_simp<-read_csv(here("corridor_docs","eric_ms_thesis","tables","M_simp.csv")) %>%
@@ -961,7 +971,7 @@ knitr::include_graphics("images/total_abund.png")
 
 \newpage
 
-```{r spcodes}
+```{r spcodes, echo=FALSE, message = FALSE, warning=FALSE}
 
 sp_code_table<-data.frame(sp_code=c("aaeg", "cvig", "dcar", "open", "pign", "alec"))
 species_names<-spp_codes %>% 
@@ -975,6 +985,16 @@ species_names<-paste(species_names$species,collapse=", ")
 ```
 
 \newpage
+
+
+
+```{r echo=FALSE, fig.align='center', fig.cap="All experimental blocks at SRS. Filled squares indicate the blocks in which dung beetles were sampled. Each block has a unique ID number.", message=FALSE, warning=FALSE, label=srs-map, out.width="60%"}
+
+knitr::include_graphics("images/srs-map.png")
+
+```
+
+\newpage 
 
 ```{r, label = abundance, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = paste("Average abundance of the top 6 most abundant species by patch type. Species codes: ", species_names,".",sep=""), out.width="70%", fig.align='center'}
 
@@ -1036,8 +1056,26 @@ knitr::include_graphics("images/sp_simpson_patches.png")
 
 ```
 
+<!-- \newpage    -->
+<!-- ```{r, label = combined, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle Simpson's index by patch type.", out.width="40%", fig.align='center'} -->
 
-\newpage   
+
+<!-- library(ggplot2) -->
+<!-- library(patchwork) -->
+<!-- library(png) -->
+<!-- library(grid) -->
+
+<!-- # Combine plot and image -->
+
+<!-- img1 <- readPNG("images/sp_richness_patches.png") -->
+<!-- img2 <- readPNG("images/sp_simpson_patches.png") -->
+<!-- img3 <- readPNG("images/sp_shannon_patches.png") -->
+<!-- img12 <- abind::abind(img1,img2,img3,along=1) -->
+<!-- png::writePNG(img12,"images/combined.png") -->
+<!-- knitr::include_graphics("images/combined.png") -->
+
+<!-- ``` -->
+
 
 
 \begin{center}
