@@ -136,6 +136,7 @@ library(gridExtra)
 library(png)
 # library(egg)
 library(magick)
+library(patchwork)
 # library(citr)
 # library(devtools)
 # devtools::install_github("crsh/papaja")
@@ -248,7 +249,7 @@ Our study took place at the Savannah River Site (SRS), a National Environmental 
 
 ### Dung beetle sampling
 
-Dung beetles were sampled in July and August 2024 in four of the SRS blocks (8, 52, 53n, and 54; Figure \@ref(fig:srs-map)). In each block sampling was conducted using baited pitfall traps placed in each patch type as well as the matrix surrounding the patches (Figure \@ref(fig:pitfalls)). Traps were placed in groups of 3 in the centers of each patch, approximately 250 meters from the midpoint of the central patch 40 m from patch edge. Pitfalls were oriented in a triangular pattern with the bottom two traps positioned towards the center patch, each trap 20 m apart. Plots in the matrix were set up in a similar fashion with the center point 250 m from the center placed equidistant between adjacent patches. Individual pitfall traps consisted of two components, a 10cm tall by 8 cm wide cylinder base topped with a funnel with a 10cm wide rim. We sourced pig feces from the University of Florida Swine Barn Unit. Bait was processed into 5cm wide balls and wrapped in a layer of coffee filter material. For each sample period, traps were buried flush with the ground and baited with pig dung between 8-9 pm and picked up 12 hours later, all beetles captured were stored in ethanol for further processing. In total 16 sampling rounds were carried out with 4 rounds per block, 196 samples were collected.
+Dung beetles were sampled in July and August 2024 in four of the SRS blocks (8, 52, 53n, and 54; Figure \@ref(fig:srs-map)). In each block sampling was conducted using baited pitfall traps placed in each patch type as well as the matrix surrounding the patches. Traps were placed in groups of 3 in the centers of each patch, approximately 250 meters from the midpoint of the central patch 40 m from patch edge. Pitfalls were oriented in a triangular pattern with the bottom two traps positioned towards the center patch, each trap 20 m apart. Plots in the matrix were set up in a similar fashion with the center point 250 m from the center placed equidistant between adjacent patches. Individual pitfall traps consisted of two components, a 10cm tall by 8 cm wide cylinder base topped with a funnel with a 10cm wide rim. We sourced pig feces from the University of Florida Swine Barn Unit. Bait was processed into 5cm wide balls and wrapped in a layer of coffee filter material. For each sample period, traps were buried flush with the ground and baited with pig dung between 8-9 pm and picked up 12 hours later, all beetles captured were stored in ethanol for further processing. In total 16 sampling rounds were carried out with 4 rounds per block, 196 samples were collected.
 
 All dung beetles were counted and identified to species using @nemes_illustrated_2015 and @edmonds_taxonomic_2023. Fifteen individuals of each species with adequate captures were dried and weighed for biomass measurements. Ten species had the required counts for weighing which we dried in drying oven until all specimen reached a stable mass. We weighed each beetle using an Ohaus Adventurer Pro AV53 microbalance, with the exception of individuals whose weights were extremely small. Individual biomass for these species was estimated by weighing in batches of N = 3 (i.e., *Ateuchus lecontei*), N = 5 (i.e., *Onthophagus pennsylvanicus*), or N = 15 (i.e., *Aphodius alloblackburneus*) and then calculated by average biomass per beetle. Values for individual biomass were then used to estimate the total biomass of each species in each patch, as well as the total beetle biomass (i.e., all species combined) in each patch. Voucher specimens for each species will be deposited at the Florida State Collection of Arthropods upon completion of all analyses. 
 
@@ -438,12 +439,12 @@ Statistical analysis of abundance focused on the six most abundant species. A ge
 
 ### Dung Beetle Richness and Diversity
 
-Plotting species richness by patch type reveals consistent richness across patch types with some variation between sampling blocks (Figure \@ref(fig:richness)).The number of species per patch varied from N = 8 (rectangle patch in block 8) to N = 13 (matrix patch in block 53N). Modeling the effect of patch type on species richness with block as a random effect determined there was no significant differences among patch types. Comparing treatments using matrix patches as a baseline resulted in no significant differences in connected ($\beta$ = 0.216, p = 0.839; Table \@ref(tab:Table-M-rich)), rectangle ($\beta$ = -0.548, p = 0.583; Table \@ref(tab:Table-M-rich)), and winged patches ($\beta$ = -0.095, p = 0.663; Table \@ref(tab:Table-M-rich)).
+Plotting species richness by patch type reveals consistent richness across patch types with some variation between sampling blocks (Figure \@ref(fig:richness)A).The number of species per patch varied from N = 8 (rectangle patch in block 8) to N = 13 (matrix patch in block 53N). Modeling the effect of patch type on species richness with block as a random effect determined there was no significant differences among patch types. Comparing treatments using matrix patches as a baseline resulted in no significant differences in connected ($\beta$ = 0.216, p = 0.839; Table \@ref(tab:Table-M-rich)), rectangle ($\beta$ = -0.548, p = 0.583; Table \@ref(tab:Table-M-rich)), and winged patches ($\beta$ = -0.095, p = 0.663; Table \@ref(tab:Table-M-rich)).
 
-Biodiversity was also even not significantly different between patch types, however the values of the different metrics varied significantly across sampling blocks (Figures \@ref(fig:shannon)-\@ref(fig:simpson)). For Shannon Diversity, the estimated mean in matrix patches was 5.202 (SE = 0.665, t = 7.825; Table \@ref(tab:Table-M-shan)). None of the alternative patch types showed statistically significant differences compared to matrix: connected ($\beta$ = –0.085, SE = 0.495, t = 0.17), rectangle ($\beta$ = 0.234, SE = 0.495, t = 0.472), or winged ($\beta$ = –0.251, SE = 0.495, t = –0.506; Table \@ref(tab:Table-M-shan)). Results for Simpson's Diversity were similar (Table \@ref(tab:Table-M-simp)), with the average value in matrix patches was 4.181 (SE = 0.640, t = 6.535). Again, none of the other patch types were significantly different from the others: matrix ($\beta$ = -0.107, SE = 0.411, t = -0.259), rectangle ($\beta$ = 0.059, SE = 0.411, t = 0.143), and winged ($\beta$ = –0.480, SE = 0.411, t = –1.169; Table \@ref(tab:Table-M-simp)).
+Biodiversity was also even not significantly different between patch types, however the values of the different metrics varied significantly across sampling blocks (Figure \@ref(fig:richness)B,C). For Shannon Diversity, the estimated mean in matrix patches was 5.202 (SE = 0.665, t = 7.825; Table \@ref(tab:Table-M-shan)). None of the alternative patch types showed statistically significant differences compared to matrix: connected ($\beta$ = –0.085, SE = 0.495, t = 0.17), rectangle ($\beta$ = 0.234, SE = 0.495, t = 0.472), or winged ($\beta$ = –0.251, SE = 0.495, t = –0.506; Table \@ref(tab:Table-M-shan)). Results for Simpson's Diversity were similar (Table \@ref(tab:Table-M-simp)), with the average value in matrix patches was 4.181 (SE = 0.640, t = 6.535). Again, none of the other patch types were significantly different from the others: matrix ($\beta$ = -0.107, SE = 0.411, t = -0.259), rectangle ($\beta$ = 0.059, SE = 0.411, t = 0.143), and winged ($\beta$ = –0.480, SE = 0.411, t = –1.169; Table \@ref(tab:Table-M-simp)).
 
 ### Dung Beetle Biomass
-Patterns of biomass by patch type were similar to those for abundance: biomass was highest in matrix plots, followed by connected and winged, with biomass in rectangle patches being far lower than in the other locations (Figure \@ref(fig:patch-bmass)). There was no significant difference in the total beetle biomass of matrix plots when compared to connected ($\beta$ = -7.337, SE = 8.659, t = -0.847; Table \@ref(tab:Table-aovM51)) and winged patches ($\beta$ = -9.608, SE = 8.659, t = -1.11; Table \@ref(tab:Table-aovM51)), but biomass in rectangle patches was significantly different ($\beta$ = -23.296, SE = 8.659, t = -2.69; Table \@ref(tab:Table-aovM51)). Block effects continue to be important for explaining high variation as the total biomass collected in block 52 was nearly quadruple that collected in Block 8 (Figure \@ref(fig:block-bmass)). Linear mixed effects models also indicate significant differences between the biomass of different species  (Table \@ref(tab:Table-aovM52), Figure \@ref(fig:sp-bmass)). 
+Patterns of biomass by patch type were similar to those for abundance: biomass was highest in matrix plots, followed by connected and winged, with biomass in rectangle patches being far lower than in the other locations (Figure \@ref(fig:patch-bmass)). There was no significant difference in the total beetle biomass of matrix plots when compared to connected ($\beta$ = -7.337, SE = 8.659, t = -0.847; Table \@ref(tab:Table-aovM51)) and winged patches ($\beta$ = -9.608, SE = 8.659, t = -1.11; Table \@ref(tab:Table-aovM51)), but biomass in rectangle patches was significantly different ($\beta$ = -23.296, SE = 8.659, t = -2.69; Table \@ref(tab:Table-aovM51)). Block effects continue to be important for explaining high variation as the total biomass collected in block 52 was nearly quadruple that collected in Block 8 (Figure \@ref(fig:patch-bmass)). Linear mixed effects models also indicate significant differences between the biomass of different species  (Table \@ref(tab:Table-aovM52), Figure \@ref(fig:sp-bmass)). 
 
 
 ## DISCUSSION  
@@ -486,11 +487,147 @@ Moving forward, there is a bounty of knowledge yet to be collected for dung beet
 
 Although there is plentiful work to be done, this study paints an encouraging picture that while dung beetles face disturbances that make habitats less preferential, they are robust enough to persist throughout fragmented landscapes and the management strategies we do have to connect fragmented landscapes work to mitigate losses. Because assemblages remain mostly the same across these landscapes, ecosystem services should remain uninterrupted allowing continuing benefits to all community members. While this study of dung beetles in fragmented landscapes was conducted in a relatively protected area, in real world application we could consider the use of movement corridors within disturbed areas to help bolster effected populations, but also near areas of high importance such as pastures to provide areas of refuge for beetles. In this case it is important to consider the inverse of what was manipulated in this study where open field acts as matrix and forested area is focal landscape, thus it is vital to continue learning more about how landscape composition and connectivity effect dung beetle populations.  
 
+\newpage 
 
-## LTERATURE CITED 
+## LTERATURE CITED  
 
 ::: {#refs}
-:::
+::: 
+
+\newpage  
+ 
+ 
+```{r spcodes, echo=FALSE, message = FALSE, warning=FALSE}
+
+sp_code_table<-data.frame(sp_code=c("aaeg", "cvig", "dcar", "open", "pign", "alec"))
+species_names<-spp_codes %>% 
+  filter(sp_code%in%sp_code_table$sp_code) %>% 
+  mutate(species=tolower(species)) %>% 
+  mutate(species=paste(species=genus,species,sep=" ")) %>% 
+  select(sp_code, species) %>% 
+mutate(species=paste(sp_code,species,sep=": ")) 
+species_names<-paste(species_names$species,collapse=", ")
+
+```
+
+
+
+```{r echo=FALSE, fig.align='center', fig.cap="All experimental blocks at SRS. Filled squares indicate the blocks in which dung beetles were sampled. Each block has a unique ID number.", message=FALSE, warning=FALSE, label=srs-map, out.width="60%"}
+
+knitr::include_graphics("images/srs-map.png")
+
+```
+
+\newpage  
+
+
+```{r label="patches", echo=FALSE, fig.align='center', fig.cap="Experiemental patches at the SRS", message=FALSE, warning=FALSE, out.width="100%"}
+
+# knitr::include_graphics("images/patches-pic.png")
+
+imgA <- magick::image_read("./images/patches-pic.png")
+imgB <- magick::image_read("./images/pitfalls.png")
+magick::image_append(c(imgA, imgB))
+
+```
+
+
+\newpage 
+
+
+
+```{r, label = patch, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = paste("Mean abundance in each SRS patch type of (A) all dung beetle species combined and (B) each of the six most abundant dung beetle species. Species codes: ", species_names,".", sep=""), out.width="90%", fig.align='center'} 
+
+# knitr::include_graphics("images/total_abund.png")
+
+
+imgA <- magick::image_read("./images/total_abund.png")
+imgB <- magick::image_read("./images/sp_abund_patch.png")
+magick::image_append(c(imgA, imgB))
+
+
+
+```
+
+
+\newpage  
+
+
+<!-- ```{r, label = abundance, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = paste("Average abundance of the six most abundant dung beetle species captured at the SRS site by species by patch type. Species codes: ", species_names,".",sep=""), out.width="70%", fig.align='center'} -->
+
+<!-- knitr::include_graphics("images/sp_abund_patch.png") -->
+
+<!-- ``` -->
+
+<!-- \newpage -->
+
+
+```{r, label = sp-bmass, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Total biomass of the ten most common dung beetle species captured at the SRS.", out.width="100%", fig.align='center'}
+
+
+knitr::include_graphics("images/sp_biomass_plot.png")
+# knitr::include_graphics("images/sp_abundance_plot.png")
+# grid.arrange(p1[1], p2[1], nrow = 1)
+
+```
+
+\newpage  
+
+
+```{r, label = patch-bmass, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Average total biomass of beetles by (A) patch type and (B) block.", out.width="100%", fig.align='center'}
+
+
+# knitr::include_graphics("images/avg_bmass_patch_plot.png")
+
+imgA <- magick::image_read("./images/avg_bmass_patch_plot.png")
+imgB <- magick::image_read("./images/avg_bmass_block_plot.png")
+magick::image_append(c(imgA, imgB))
+```
+
+\newpage
+
+
+<!-- ```{r, label = block-bmass, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Average total biomass by sampling block with standard deviation as error bars.", out.width="70%", fig.align='center'} -->
+
+
+<!-- knitr::include_graphics("images/avg_bmass_block_plot.png") -->
+<!-- ``` -->
+
+
+<!-- \newpage -->
+
+
+
+```{r, label = richness, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "(A) Species richness, (B) Shannon Diversity, and (C) Simpson's Diversity of dung beetle species in each of the SRS patch types. The shape of the points indicates the block in which a patch was located.", out.width="100%", fig.align='center'}
+
+# knitr::include_graphics("images/sp_richness_patches.png")
+
+
+imgA <- magick::image_read("./images/sp_richness_patches.png")
+imgB <- magick::image_read("./images/sp_shannon_patches.png")
+imgC <- magick::image_read("./images/sp_simpson_patches.png")
+magick::image_append(c(imgA, imgB,imgC))
+```
+
+\newpage
+
+
+<!-- ```{r, label = shannon, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle Shannon diversity by patch type.", out.width="70%", fig.align='center'} -->
+
+<!-- knitr::include_graphics("images/sp_shannon_patches.png") -->
+
+<!-- ``` -->
+
+<!-- \newpage -->
+
+<!-- ```{r, label = simpson, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle Simpson's index by patch type.", out.width="70%", fig.align='center'} -->
+
+<!-- knitr::include_graphics("images/sp_simpson_patches.png") -->
+
+<!-- ``` -->
+
+
+
 
 ```{r summary-table, echo=FALSE,message = FALSE,warning=FALSE}
 # https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html
@@ -517,7 +654,10 @@ spp_table
 
 ```
 
-\newpage  
+
+\newpage
+
+
 
 \blandscape  
 
@@ -961,100 +1101,6 @@ M_simp
 ```
 
 \newpage
-
-
-```{r, label = patch, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Average total dung beetle abundance by patch type with standard deviations as error bars.", out.width="70%", fig.align='center'}
-
-knitr::include_graphics("images/total_abund.png")
-
-```
-
-\newpage
-
-```{r spcodes, echo=FALSE, message = FALSE, warning=FALSE}
-
-sp_code_table<-data.frame(sp_code=c("aaeg", "cvig", "dcar", "open", "pign", "alec"))
-species_names<-spp_codes %>% 
-  filter(sp_code%in%sp_code_table$sp_code) %>% 
-  mutate(species=tolower(species)) %>% 
-  mutate(species=paste(species=genus,species,sep=" ")) %>% 
-  select(sp_code, species) %>% 
-mutate(species=paste(sp_code,species,sep=": ")) 
-species_names<-paste(species_names$species,collapse=", ")
-
-```
-
-\newpage
-
-
-
-```{r echo=FALSE, fig.align='center', fig.cap="All experimental blocks at SRS. Filled squares indicate the blocks in which dung beetles were sampled. Each block has a unique ID number.", message=FALSE, warning=FALSE, label=srs-map, out.width="60%"}
-
-knitr::include_graphics("images/srs-map.png")
-
-```
-
-\newpage 
-
-```{r, label = abundance, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = paste("Average abundance of the top 6 most abundant species by patch type. Species codes: ", species_names,".",sep=""), out.width="70%", fig.align='center'}
-
-knitr::include_graphics("images/sp_abund_patch.png")
-
-```
-
-\newpage
-
-
-```{r, label = sp-bmass, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Total dung beetle biomass collected for each species with sufficient weights.", out.width="70%", fig.align='center'}
-
-
-knitr::include_graphics("images/sp_biomass_plot.png")
-# knitr::include_graphics("images/sp_abundance_plot.png")
-# grid.arrange(p1[1], p2[1], nrow = 1)
-
-```
-
-\newpage
-
-```{r, label = patch-bmass, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Average total biomass by patch type with standard deviation as error bars.", out.width="70%", fig.align='center'}
-
-
-knitr::include_graphics("images/avg_bmass_patch_plot.png")
-```
-
-\newpage
-
-```{r, label = block-bmass, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Average total biomass by sampling block with standard deviation as error bars.", out.width="70%", fig.align='center'}
-
-
-knitr::include_graphics("images/avg_bmass_block_plot.png")
-```
-
-
-\newpage
-
-
-
-```{r, label = richness, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle species richness in each patch type. The point shapes indicates the block in which each patch was located.", out.width="70%", fig.align='center'}
-
-knitr::include_graphics("images/sp_richness_patches.png")
-```
-
-\newpage
-
-```{r, label = shannon, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle Shannon diversity by patch type.", out.width="70%", fig.align='center'}
-
-knitr::include_graphics("images/sp_shannon_patches.png")
-
-```
-
-\newpage
-
-```{r, label = simpson, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle Simpson's index by patch type.", out.width="70%", fig.align='center'}
-
-knitr::include_graphics("images/sp_simpson_patches.png")
-
-```
 
 <!-- \newpage    -->
 <!-- ```{r, label = combined, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Dung beetle Simpson's index by patch type.", out.width="40%", fig.align='center'} -->
