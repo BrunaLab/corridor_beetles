@@ -99,10 +99,11 @@ ggplot(biomass_per_spp,
          y=spp_biomass
          )
        ) + 
-  labs(x="Species",y="Total biomass collected")+
+  labs(x="Species",y="Total biomass collected (g)")+
   geom_bar(stat = "identity")+
   theme_classic()+
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  scale_y_continuous(expand = c(0, 0), breaks=seq(0,max(biomass_per_spp$spp_biomass)+50,by=30), limits = c(0, max(biomass_per_spp$spp_biomass)+50))+
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1))+
   theme(axis.text.x = element_text(face = 'italic'))
 
 ggsave("corridor_docs/eric_ms_thesis/images/sp_biomass_plot.png", width = 4, height = 4, units = "in")

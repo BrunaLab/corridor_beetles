@@ -81,23 +81,28 @@ abstract: |
   
   <!-- https://tinyurl.com/ybremelq -->
   
-keywords          : "keywords"
-wordcount         : "4437"
+keywords: "keywords"
+wordcount: "4437"
 
-bibliography      : "eric-thesis.bib"
-csl               : "ecology.csl"
-floatsintext      : no
-linenumbers       : yes
-draft             : no
-mask              : no
+bibliography: "eric-thesis.bib"
+csl: "ecology.csl"
+floatsintext: no
+linenumbers: yes
+draft: no
+mask: no
 
-figurelist        : no
-tablelist         : no
-footnotelist      : no
+figurelist: no
+tablelist: no
+footnotelist: no
 replace_ampersands: yes
 
-classoption       : "man, donotrepeattitle"
-output            : papaja::apa6_pdf
+classoption: "man, donotrepeattitle"
+output:
+  papaja::apa6_pdf:   # apa6_word to render as a word doc
+    includes:
+    after_body: "appendix.tex"
+
+appendix: "appendix.Rmd"
 
 fig_caption: yes #yes will automatically add "Figure X" to the start 
 # of the caption and reorders automatically if the figure position changes
@@ -210,7 +215,7 @@ functional group, effect of corridor on functional group, etc.?
 make more efficient?
 
 ### Figures & Tables
-1. Make more purty
+1. Make more purty: almost there
 
 ### Supplement
 1. table of individual biomass/total biomass of each species
@@ -544,6 +549,7 @@ species_names<-spp_codes %>%
   filter(sp_code%in%sp_code_table$sp_code) %>% 
   mutate(species=tolower(species)) %>% 
   mutate(species=paste(species=genus,species,sep=" ")) %>% 
+mutate(species=paste0("\\textit{",species,"}")) %>% 
   select(sp_code, species) %>% 
 mutate(species=paste(sp_code,species,sep=": ")) 
 species_names<-paste(species_names$species,collapse=", ")
@@ -552,22 +558,25 @@ species_names<-paste(species_names$species,collapse=", ")
 
 
 
-```{r echo=FALSE, fig.align='center', fig.cap="All experimental blocks at SRS. Filled squares indicate the blocks in which dung beetles were sampled. Each block has a unique ID number.", message=FALSE, warning=FALSE, label=srs-map, out.width="60%"}
+<!-- ```{r echo=FALSE, fig.align='center', fig.cap="All experimental blocks at SRS. Filled squares indicate the blocks in which dung beetles were sampled. Each block has a unique ID number.", message=FALSE, warning=FALSE, label=srs-map, out.width="60%"} -->
 
-knitr::include_graphics("images/srs-map.png")
+<!-- knitr::include_graphics("images/srs-map.png") -->
 
-```
+<!-- ``` -->
 
 \newpage  
 
 
-```{r label="patches", echo=FALSE, fig.align='center', fig.cap="Experiemental patches at the SRS", message=FALSE, warning=FALSE, out.width="100%"}
+```{r label="patches", echo=FALSE, fig.align='center', fig.cap="Experiemental patches at the SRS", message=FALSE, warning=FALSE, out.width="75%"}
 
-# knitr::include_graphics("images/patches-pic.png")
 
-imgA <- magick::image_read("./images/patches-pic.png")
-imgB <- magick::image_read("./images/pitfalls.png")
-magick::image_append(c(imgA, imgB))
+knitr::include_graphics("images/patches-pic2.png")
+
+# imgA <- magick::image_read("./images/patches-pic.png")
+# imgA <- img_scaled <- image_scale(imgA, "300")
+# imgB <- magick::image_read("./images/pitfalls.png")
+# imgB <- img_scaled <- image_scale(imgB, "300")
+# magick::image_append(c(imgA, imgB))
 
 ```
 
@@ -579,11 +588,24 @@ magick::image_append(c(imgA, imgB))
 ```{r, label = patch, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = paste("Mean abundance in each SRS patch type of (A) all dung beetle species combined and (B) each of the six most abundant dung beetle species. Species codes: ", species_names,".", sep=""), out.width="90%", fig.align='center'} 
 
 # knitr::include_graphics("images/total_abund.png")
+library(patchwork)
+library(gridExtra)
+library(grid)
+library(png)
+
+# imgA <- magick::image_read("./images/total_abund.png")
+# imgB <- magick::image_read("./images/sp_abund_patch.png")
+# magick::image_append(c(imgA, imgB))
+# pubs_mo_cum_fig<- all_fig/first_fig/any_fig
 
 
-imgA <- magick::image_read("./images/total_abund.png")
-imgB <- magick::image_read("./images/sp_abund_patch.png")
-magick::image_append(c(imgA, imgB))
+imgA <- readPNG("./images/total_abund.png")
+imgB <- readPNG("./images/sp_abund_patch.png")
+
+
+grid.arrange(rasterGrob(imgA),rasterGrob(imgB),ncol=1)
+
+  # pubs_mo_cum_fig<- p2/p1
 
 
 
@@ -600,7 +622,7 @@ magick::image_append(c(imgA, imgB))
 <!-- ``` -->
 
 <!-- \newpage -->
-
+ \\clearpage
 
 ```{r, label = sp-bmass, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Total biomass of the ten most common dung beetle species captured at the SRS.", out.width="100%", fig.align='center'}
 
@@ -610,8 +632,9 @@ knitr::include_graphics("images/sp_biomass_plot.png")
 # grid.arrange(p1[1], p2[1], nrow = 1)
 
 ```
+<!-- \\newpage   -->
 
-\newpage  
+\clearpage
 
 
 ```{r, label = patch-bmass, echo = FALSE, message = FALSE, warning = FALSE, fig.cap = "Average total biomass of beetles by (A) patch type and (B) block.", out.width="100%", fig.align='center'}
@@ -621,6 +644,9 @@ knitr::include_graphics("images/sp_biomass_plot.png")
 
 imgA <- magick::image_read("./images/avg_bmass_patch_plot.png")
 imgB <- magick::image_read("./images/avg_bmass_block_plot.png")
+
+
+
 magick::image_append(c(imgA, imgB))
 ```
 
@@ -642,11 +668,19 @@ magick::image_append(c(imgA, imgB))
 
 # knitr::include_graphics("images/sp_richness_patches.png")
 
+# 
+# imgA <- magick::image_read("./images/sp_richness_patches.png")
+# imgB <- magick::image_read("./images/sp_shannon_patches.png")
+# imgC <- magick::image_read("./images/sp_simpson_patches.png")
+# magick::image_append(c(imgA, imgB,imgC))
 
-imgA <- magick::image_read("./images/sp_richness_patches.png")
-imgB <- magick::image_read("./images/sp_shannon_patches.png")
-imgC <- magick::image_read("./images/sp_simpson_patches.png")
-magick::image_append(c(imgA, imgB,imgC))
+
+
+imgA <- readPNG("./images/sp_richness_patches.png")
+imgB <- readPNG("./images/sp_shannon_patches.png")
+imgC <- readPNG("./images/sp_simpson_patches.png")
+
+grid.arrange(rasterGrob(imgA),rasterGrob(imgB),rasterGrob(imgB),ncol=1)
 ```
 
 \newpage
@@ -913,7 +947,7 @@ sp_code_table<-data.frame(sp_code=c("alec", "cvig", "dcar", "open", "pign"))
 species_names<-spp_codes %>% 
   filter(sp_code%in%sp_code_table$sp_code) %>% 
   mutate(species=tolower(species)) %>% 
-  mutate(species=paste(species=genus,species,sep=" ")) %>% 
+  mutate(species=paste(species=genus,species,sep=" ")) %>%
   select(sp_code, species) %>% 
 mutate(species=paste(sp_code,species,sep=": ")) 
 species_names<-paste(species_names$species,collapse=", ")
@@ -1166,4 +1200,14 @@ M_simp
 
 \begin{center}
 \end{center}
+
+
+
+
+\newpage
+
+# (APPENDIX) Appendix {-}
+
+```{r child = "appendix.Rmd"}
+```
 

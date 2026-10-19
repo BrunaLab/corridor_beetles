@@ -1,0 +1,7 @@
+
+
+```{r echo=FALSE, fig.align='center', fig.cap="All experimental blocks at SRS. Filled squares indicate the blocks in which dung beetles were sampled. Each block has a unique ID number.", message=FALSE, warning=FALSE, label=srs-map, out.width="60%"}
+
+knitr::include_graphics("images/srs-map.png")
+
+```

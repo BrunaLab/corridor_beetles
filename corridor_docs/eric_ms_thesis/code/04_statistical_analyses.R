@@ -3,6 +3,8 @@ library(here)
 library(kableExtra)
 library(sjPlot)
 library(lme4)
+options(scipen = 999)
+
 # READ THIS ABOUT GLMM REFERENCE LEVELS
 # https://stats.stackexchange.com/questions/628348/when-i-change-my-reference-level-on-my-glmer-in-r-why-do-the-p-values-change-an
 
@@ -188,7 +190,8 @@ ggplot(spp_abund_top6,
            # y = h_rich,
            # y = h_shannon,
            color = block)) +
-  scale_color_viridis_d(option = "turbo") + 
+  # scale_color_viridis_d(option = "turbo") + 
+  scale_color_brewer(palette = "RdYlBu")+
   # geom_point(position="jitter") + 
   geom_point() + 
   facet_wrap( ~ sp_code) + 
@@ -235,6 +238,30 @@ aovM0<-Anova(M0)
 plot_model(M0, type = "pred")
 
 
+total_abund_each_patch
+
+
+total_abund_each_patch$patch_type <- factor(total_abund_each_patch$patch_type, levels = c("Matrix", "Connected", "Winged", "Rectangle"))
+library(RColorBrewer)
+# Transparency
+total_abund_each_patch_fig<-ggplot(total_abund_each_patch |> rename(Block=block), aes(x=patch_type, y=n,color=Block,shape=Block)) + 
+  geom_point(size=2) +
+  labs(x = "Patch type", size=10)+
+  labs(y = "N", size=10)+
+  expand_limits(y = 0)+
+  theme_classic()+
+scale_color_brewer(palette = "RdYlBu")+
+  scale_y_continuous(expand = c(0, 0), breaks=seq(0,max(total_abund_each_patch$n)+100,by=100), limits = c(0, max(total_abund_each_patch$n)+100))+
+  # legend.title = element_text(size = 12, face = "bold", color = "black")+
+  theme(axis.title.y = element_text(size = 14))+
+  theme(axis.title.x =element_text(size = 14))+
+  theme(axis.text.y = element_text(size = 12))+
+  theme(axis.text.x = element_text(size = 12))+
+  theme(legend.box.background = element_rect(color = "black", linewidth = 0.5))
+
+  # theme(legend.position = "top")
+  # ggtitle("Transparency") +
+  
 ggsave("./corridor_docs/eric_ms_thesis/images/total_abund.png",width = 10, height = 10, units = "cm")
 # EMILIO ADDITION - EXPORTING TABLE RESULTS TO UPLOAD TO THESIS DOC
 
@@ -267,7 +294,7 @@ summary(m2)
 
 spp_abund
 
-spp_abund_matrix <- within(spp_abund, patch_type <- relevel(patch_type, ref = Matrix))
+spp_abund_matrix <- within(spp_abund, patch_type <- relevel(patch_type, ref = "Matrix"))
 
 # Model 2
 M2 <- glmer(n ~ sp_code + (1 | block), 
@@ -392,14 +419,14 @@ simulationOutput <-
 
 # RICHNESS
 
-
-hill_results %>% 
-ggplot(aes(x = block, 
-           # y = n,
+dev.off()
+ggplot(hill_results,
+       aes(x = patch_type, 
            y = h_rich,
-           # y = h_shannon,
-           color = block)) +
-  scale_color_viridis_d(option = "turbo") + 
+           color = block)
+       ) +
+  # scale_color_viridis_d(option = "turbo") + 
+  scale_color_brewer(palette = "RdYlBu") +
   # geom_point(position="jitter") + 
   geom_point() + 
   facet_wrap( ~ patch_type) + 
@@ -411,11 +438,14 @@ ggplot(aes(x = block,
 # Emilio's suggestions for making snazzy figure. --------------------------
 
 # also includes code block to insert in Rmd
-
+hill_results<-hill_results |>
+  mutate(patch_type = factor(hill_results$patch_type,
+                           levels = c("Matrix", "Connected", "Winged", "Rectangle"))
+)
 sp_richness_patches<-  
 hill_results %>% 
   mutate(patch_type = factor(patch_type,
-                             levels = c("Matrix", "Rectangle", "Winged", "Connected"))) %>%   # this changes the order of things on the x axis. suggest this order (Matrixm, then least to most)
+                             levels = c("Matrix", "Connected", "Winged", "Rectangle"))) %>%   # this changes the order of things on the x axis. suggest this order (Matrixm, then least to most)
   ggplot(aes(x = patch_type, 
              # y = n,
              y = h_rich,
@@ -423,7 +453,8 @@ hill_results %>%
              color = block,
              shape = block)) +
   scale_shape_manual(values=c(15:18))+ # change shapes of points
-  scale_color_viridis_d(option = "turbo") + 
+  # scale_color_viridis_d(option = "turbo") + 
+  scale_color_brewer(palette = "RdYlBu")+
   geom_point(position=position_jitter(width=0.16, height=0.15))+ # manipulate spread of jitter
   theme_classic()+
   theme(axis.text.x = element_text(angle = 45, vjust = 0.9, hjust = 0.95,size = 10))+
@@ -446,7 +477,7 @@ hill_results %>%
   theme(axis.title.x =element_text(size = 12,face="bold"))+
   theme(axis.text.y = element_text(size = 10))+
   scale_y_continuous(limits = c(1, 18), breaks = seq(1, 18, by = 2)) # y axis limit and breaks
-  
+sp_richness_patches
 
 # This saves a png version of file to the images folder
 ggsave("corridor_docs/eric_ms_thesis/images/sp_richness_patches.png", width = 4, height = 4, units = "in")
@@ -469,7 +500,7 @@ ggsave("corridor_docs/eric_ms_thesis/images/sp_richness_patches.png", width = 4,
 sp_shannon_patches<-  
   hill_results %>% 
   mutate(patch_type = factor(patch_type,
-                             levels = c("Matrix", "Rectangle", "Winged", "Connected"))) %>%   # this changes the order of things on the x axis. suggest this order (Matrixm, then least to most)
+                             levels = c("Matrix", "Connected", "Winged", "Rectangle"))) %>%   # this changes the order of things on the x axis. suggest this order (Matrixm, then least to most)
   ggplot(aes(x = patch_type, 
              # y = n,
              # y = h_rich,
@@ -477,7 +508,8 @@ sp_shannon_patches<-
              color = block,
              shape = block)) +
   scale_shape_manual(values=c(15:18))+ # change shapes of points
-  scale_color_viridis_d(option = "turbo") + 
+  # scale_color_viridis_d(option = "turbo") + 
+  scale_color_brewer(palette = "RdYlBu")+
   geom_point(position=position_jitter(width=0.16, height=0.15))+ # manipulate spread of jitter
   theme_classic()+
   theme(axis.text.x = element_text(angle = 45, vjust = 0.9, hjust = 0.95,size = 10))+
@@ -508,7 +540,7 @@ ggsave("corridor_docs/eric_ms_thesis/images/sp_shannon_patches.png", width = 4, 
 sp_simpson_patches<-  
   hill_results %>% 
   mutate(patch_type = factor(patch_type,
-                             levels = c("Matrix", "Rectangle", "Winged", "Connected"))) %>%   # this changes the order of things on the x axis. suggest this order (Matrixm, then least to most)
+                             levels = c("Matrix", "Connected", "Winged", "Rectangle"))) %>%   # this changes the order of things on the x axis. suggest this order (Matrixm, then least to most)
   ggplot(aes(x = patch_type, 
              # y = n,
              # y = h_rich,
@@ -517,7 +549,8 @@ sp_simpson_patches<-
              color = block,
              shape = block)) +
   scale_shape_manual(values=c(15:18))+ # change shapes of points
-  scale_color_viridis_d(option = "turbo") + 
+  # scale_color_viridis_d(option = "turbo") + 
+  scale_color_brewer(palette = "RdYlBu")+
   geom_point(position=position_jitter(width=0.16, height=0.15))+ # manipulate spread of jitter
   theme_classic()+
   theme(axis.text.x = element_text(angle = 45, vjust = 0.9, hjust = 0.95,size = 10))+
@@ -541,22 +574,36 @@ sp_simpson_patches<-
   theme(axis.text.y = element_text(size = 10))+
   scale_y_continuous(limits = c(1, 10), breaks = seq(1, 10, by = 2)) # y axis limit and breaks
 
-
+sp_shannon_patches
 # This saves a png version of file to the images folder
 ggsave("corridor_docs/eric_ms_thesis/images/sp_simpson_patches.png", width = 4, height = 4, units = "in")
 
 
 btl_abund <- plot_model(M0, type = "pred", title = NULL)
-btl_abund
 
-btl_abund + 
+
+# btl_abund
+
+total_abund_each_patch <- total_abund_each_patch |> 
+  mutate(patch_type = factor(patch_type,
+                             levels = c("Matrix", "Connected", "Winged", "Rectangle")))
+  total_abund_each_patch |> 
+  ggplot(aes(x = patch_type, 
+             # y = n,
+             # y = h_rich,
+             #y = h_shannon,
+             y = n,
+             color = block,
+             shape = block)) +
+    geom_point(position=position_jitter(width=0.16, height=0.15))+ # manipulate spread of jitter
   theme_minimal() +
   labs( title = NULL ,
         x = "Patch Type",
         y = "Number of Beetles") +
   theme(axis.text = element_text(size = 12)) +
   scale_shape_manual(values=c(15:18))+ # change shapes of points
-  scale_color_viridis_d(option = "turbo") + 
+  # scale_color_viridis_d(option = "turbo") + 
+  scale_color_brewer(palette = "RdYlBu")+
   #geom_point(position=position_jitter(width=0.16, height=0.15))+ # manipulate spread of jitter
   theme_classic()+
   theme(axis.text.x = element_text(angle = 45, vjust = 0.9, hjust = 0.95,size = 10)) +
@@ -581,14 +628,29 @@ ggsave("corridor_docs/eric_ms_thesis/images/sp_abund.png", width = 4, height = 4
 btl_abund_patch <- plot_model(M3, type = "pred", terms = c("patch_type", "sp_code"), title = NULL)
 btl_abund_patch
 
-btl_abund_patch + 
-  theme_minimal() +
+
+
+spp_abund_top6 <- spp_abund_top6 |> 
+  mutate(patch_type = factor(patch_type,
+                             levels = c("Matrix", "Connected", "Winged", "Rectangle")))
+spp_abund_top6 |> 
+  ggplot(aes(x = patch_type, 
+                       # y = n,
+                       # y = h_rich,
+                       #y = h_shannon,
+                       y = n,
+                       color = sp_code,
+                       shape = sp_code)) +
+  geom_point(position=position_jitter(width=0.16, height=0.15))+ # manipulate spread of jitter
+  theme_bw() +
   labs( title = NULL ,
-       x = "Patch Type",
-       y = "Number of Beetles") +
+        x = "Patch Type",
+        y = "Number of Beetles") +
+  facet_wrap(~ block)+
   theme(axis.text = element_text(size = 12)) +
-  scale_shape_manual(values=c(15:18))+ # change shapes of points
-  scale_color_viridis_d(option = "turbo") + 
+  # scale_shape_manual(values=c(15:18))+ # change shapes of points
+  # scale_color_viridis_d(option = "turbo") + 
+  scale_color_brewer(palette = "RdYlBu")+
   #geom_point(position=position_jitter(width=0.16, height=0.15))+ # manipulate spread of jitter
   theme_classic()+
   theme(axis.text.x = element_text(angle = 45, vjust = 0.9, hjust = 0.95,size = 10)) +
@@ -602,7 +664,7 @@ btl_abund_patch +
   theme(axis.title.y = element_text(size = 12,face="bold"))+
   theme(axis.title.x =element_text(size = 12,face="bold"))+
   theme(axis.text.y = element_text(size = 10))
-  #(limits = c(1, 10), breaks = seq(1, 10, by = 2))
+#(limits = c(1, 10), breaks = seq(1, 10, by = 2))
 
 ggsave("corridor_docs/eric_ms_thesis/images/sp_abund_patch.png", width = 4, height = 4, units = "in")
 
